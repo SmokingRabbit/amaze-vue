@@ -1,0 +1,57 @@
+<template>
+    <div :class="computedClass">
+        <slot></slot>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'am-button-group',
+        props: {
+            type: {
+                type: String,
+                default: 'group',
+                validator(value) {
+                    return ['group', 'stacked', 'justify', 'toolbar'].indexOf(value) > -1;
+                }
+            },
+            size: {
+                type: String,
+                validator(value) {
+                    return ['lg', 'sm', 'xs'].indexOf(value) > -1;
+                }
+            },
+            customClass: {
+                type: String
+            }
+        },
+        computed: {
+            computedClass() {
+                const classes = [];
+
+                if (this.type !== 'group') {
+                    classes.push('am-btn-group-' + this.type);
+                }
+                else {
+                    classes.push('am-btn-group');
+                }
+
+                if (this.size !== undefined) {
+                    classes.push('am-btn-group-' + this.size);
+                }
+
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
+                return classes.join(' ');
+            }
+        }
+    }
+
+</script>
+
+<style lang="less">
+    @import "../../../styles/main.less";
+    @import "./button-group.less";
+</style>
