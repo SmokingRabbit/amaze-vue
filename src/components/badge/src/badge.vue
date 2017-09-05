@@ -1,12 +1,12 @@
 <template>
-    <button :disabled="disabled" :class="computedClass">
+    <span :class="computedClass">
         <slot></slot>
-    </button>
+    </span>
 </template>
 
 <script>
     export default {
-        name: 'am-button',
+        name: 'am-badge',
         props: {
             type: {
                 type: String,
@@ -22,19 +22,11 @@
                     ].indexOf(value) > -1;
                 }
             },
-            disabled: {
-                type: Boolean,
-                default: false
-            },
             radiusType: {
                 type: String,
                 validator(value) {
                     return ['radius', 'round'].indexOf(value) > -1;
                 }
-            },
-            isActive: {
-                type: Boolean,
-                default: false
             },
             size: {
                 type: String,
@@ -49,15 +41,11 @@
         computed: {
             computedClass() {
                 const classes = [];
-                classes.push('am-btn');
-                classes.push('am-btn-' + this.type);
+                classes.push('am-badge');
+                classes.push('am-badge-' + this.type);
 
                 if (this.radiusType !== undefined) {
                     classes.push('am-' + this.radiusType);
-                }
-
-                if (this.isActive) {
-                    classes.push('am-active');
                 }
 
                 if (this.size !== undefined) {
@@ -76,5 +64,5 @@
 
 <style lang="less">
     @import "../../../styles/main.less";
-    @import "./button.less";
+    @import "./badge.less";
 </style>
