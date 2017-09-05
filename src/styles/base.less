@@ -1,15 +1,14 @@
 @import "main.less";
-
 // Name:              Base
 //
 // Description:       Amaze UI base style
 //
 // =============================================================================
 
-
 /* ==========================================================================
    Component: Base
  ============================================================================ */
+
 
 /**
  * Fix the flawed CSS box model - Yes, IE6's box model is better
@@ -17,22 +16,20 @@
  * via: http://paulirish.com/2012/box-sizing-border-box-ftw/
  */
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+*, *:after, *:before {
+    box-sizing: border-box;
 }
 
 
 /* normalize.css v3.0.2 | git.io/normalize */
 
+
 /* Set <html> and <body> to inherit the height of the viewport */
 
-html,
-body {
-  // height: 100%;
-  // max-height: 100%;
-  min-height: 100%;
+body, html {
+    // height: 100%;
+    // max-height: 100%;
+    min-height: 100%;
 }
 
 
@@ -43,8 +40,10 @@ body {
  */
 
 html {
-  -ms-text-size-adjust: 100%;   /* 1 */
-  -webkit-text-size-adjust: 100%;   /* 1 */
+    -ms-text-size-adjust: 100%;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 1 */
 }
 
 
@@ -53,12 +52,13 @@ html {
  */
 
 body {
-  margin: 0;
+    margin: 0;
 }
 
 
 /* HTML5 display definitions
    ========================================================================== */
+
 
 /**
  * Correct `block` display not defined for any HTML5 element in IE 8/9.
@@ -68,20 +68,8 @@ body {
  *        https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
  */
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-main,
-nav,
-section,
-summary {
-  display: block;
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
 }
 
 
@@ -90,12 +78,11 @@ summary {
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
 
-audio,
-canvas,
-progress,
-video {
-  display: inline-block; /* 1 */
-  vertical-align: baseline; /* 2 */
+audio, canvas, progress, video {
+    display: inline-block;
+    /* 1 */
+    vertical-align: baseline;
+    /* 2 */
 }
 
 
@@ -105,8 +92,8 @@ video {
  */
 
 audio:not([controls]) {
-  display: none;
-  height: 0;
+    display: none;
+    height: 0;
 }
 
 
@@ -115,23 +102,21 @@ audio:not([controls]) {
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
 
-[hidden],
-template,
-script {
-  display: none;
+[hidden], script, template {
+    display: none;
 }
-
 
 
 /* Links
    ========================================================================== */
+
 
 /**
  * Remove the gray background color from active links in IE 10.
  */
 
 a {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 
@@ -140,7 +125,7 @@ a {
  */
 
 a:focus {
-  outline: thin dotted;
+    outline: thin dotted;
 }
 
 
@@ -148,22 +133,21 @@ a:focus {
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 
-a:active,
-a:hover {
-  outline: 0;
+a:active, a:hover {
+    outline: 0;
 }
-
 
 
 /* Text-level semantics
    ========================================================================== */
 
+
 /**
  * Remove text-decoration
  */
 
-ins, a {
-  text-decoration: none;
+a, ins {
+    text-decoration: none;
 }
 
 
@@ -172,7 +156,7 @@ ins, a {
  */
 
 abbr[title] {
-  border-bottom: 1px dotted;
+    border-bottom: 1px dotted;
 }
 
 
@@ -180,9 +164,8 @@ abbr[title] {
  * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
 
-b,
-strong {
-  font-weight: bold;
+b, strong {
+    font-weight: bold;
 }
 
 
@@ -191,7 +174,7 @@ strong {
  */
 
 pre {
-  white-space: pre-wrap;
+    white-space: pre-wrap;
 }
 
 
@@ -200,7 +183,7 @@ pre {
  */
 
 q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
+    quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
 
@@ -209,7 +192,7 @@ q {
  */
 
 small {
-  font-size: 80%;
+    font-size: 80%;
 }
 
 
@@ -217,25 +200,25 @@ small {
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
 
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 
 sup {
-  top: -0.5em;
+    top: -0.5em;
 }
 
 sub {
-  bottom: -0.25em;
+    bottom: -0.25em;
 }
 
 
 /* Embedded content
    ========================================================================== */
+
 
 /**
   * 1. Corrects max-width behavior (2.) if padding and border are used
@@ -246,11 +229,14 @@ sub {
   */
 
 img {
-  box-sizing: border-box; /* 1 */
-  // max-width: 100%; /* 2 */
-  // height: auto; /* 2 */
-  vertical-align: middle; /* 3 */
-  border: 0; /* 4 */
+    box-sizing: border-box;
+    /* 1 */
+    // max-width: 100%; /* 2 */
+    // height: auto; /* 2 */
+    vertical-align: middle;
+    /* 3 */
+    border: 0;
+    /* 4 */
 }
 
 
@@ -259,9 +245,8 @@ img {
  */
 
 svg:not(:root) {
-  overflow: hidden;
+    overflow: hidden;
 }
-
 
 
 /* Grouping content
@@ -273,7 +258,7 @@ svg:not(:root) {
  */
 
 figure {
-  margin: 0;
+    margin: 0;
 }
 
 
@@ -281,26 +266,24 @@ figure {
  * Correct font family set oddly in Safari 5 and Chrome.
  */
 
-code,
-kbd,
-pre,
-samp {
-  font-family: @font-family-monospace;
-  font-size: 1em;
+code, kbd, pre, samp {
+    font-family: @font-family-monospace;
+    font-size: 1em;
 }
 
 
 /* Forms
    ========================================================================== */
 
+
 /**
  * Define consistent border, margin, and padding.
  */
 
 fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
 }
 
 
@@ -310,8 +293,10 @@ fieldset {
  */
 
 legend {
-  border: 0; /* 1 */
-  padding: 0; /* 2 */
+    border: 0;
+    /* 1 */
+    padding: 0;
+    /* 2 */
 }
 
 
@@ -322,14 +307,13 @@ legend {
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  */
 
-button,
-input,
-optgroup,
-select,
-textarea {
-  color: inherit; /* 1 */
-  font: inherit; /* 2 */
-  margin: 0; /* 3 */
+button, input, optgroup, select, textarea {
+    color: inherit;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+    margin: 0;
+    /* 3 */
 }
 
 
@@ -338,7 +322,7 @@ textarea {
  */
 
 button {
-  overflow: visible;
+    overflow: visible;
 }
 
 
@@ -347,9 +331,8 @@ button {
  * the UA stylesheet.
  */
 
-button,
-input {
-  line-height: normal;
+button, input {
+    line-height: normal;
 }
 
 
@@ -360,9 +343,8 @@ input {
  * Correct `select` style inheritance in Firefox.
  */
 
-button,
-select {
-  text-transform: none;
+button, select {
+    text-transform: none;
 }
 
 
@@ -374,12 +356,14 @@ select {
  *    `input` and others.
  */
 
-button,
-html input[type="button"], /* 1 */
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button; /* 2 */
-  cursor: pointer; /* 3 */
+button, html input[type="button"],
+/* 1 */
+
+input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    /* 2 */
+    cursor: pointer;
+    /* 3 */
 }
 
 
@@ -389,11 +373,13 @@ input[type="submit"] {
  * 3. Address box sizing set to `content-box` in IE 8/9/10.
  */
 
-input[type="radio"],
-input[type="checkbox"] {
-  cursor: pointer; /*1*/
-  padding: 0; /*2*/
-  box-sizing: border-box; /* 3 */
+input[type="checkbox"], input[type="radio"] {
+    cursor: pointer;
+    /*1*/
+    padding: 0;
+    /*2*/
+    box-sizing: border-box;
+    /* 3 */
 }
 
 
@@ -401,9 +387,8 @@ input[type="checkbox"] {
  * Re-set default cursor for disabled elements.
  */
 
-button[disabled],
-html input[disabled] {
-  cursor: default;
+button[disabled], html input[disabled] {
+    cursor: default;
 }
 
 
@@ -411,12 +396,10 @@ html input[disabled] {
  * Remove inner padding and border in Firefox 4+.
  */
 
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
 }
-
 
 
 /**
@@ -425,9 +408,8 @@ input::-moz-focus-inner {
  * decrement button to change from `default` to `text`.
  */
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
 }
 
 
@@ -438,8 +420,10 @@ input[type="number"]::-webkit-outer-spin-button {
  */
 
 input[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  box-sizing: content-box; /* 2 */
+    -webkit-appearance: textfield;
+    /* 1 */
+    box-sizing: content-box;
+    /* 2 */
 }
 
 
@@ -448,9 +432,8 @@ input[type="search"] {
  * on OS X.
  */
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
 }
 
 
@@ -460,10 +443,13 @@ input[type="search"]::-webkit-search-decoration {
  */
 
 textarea {
-  overflow: auto; /* 1 */
-  vertical-align: top; /* 2 */
-  resize: vertical;
+    overflow: auto;
+    /* 1 */
+    vertical-align: top;
+    /* 2 */
+    resize: vertical;
 }
+
 
 /**
  * Don't inherit the `font-weight` (applied by a rule above).
@@ -471,32 +457,31 @@ textarea {
  */
 
 optgroup {
-  font-weight: bold;
+    font-weight: bold;
 }
-
 
 
 /* Tables
    ========================================================================== */
+
 
 /**
  * Remove most spacing between table cells.
  */
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-td,
-th {
-  padding: 0;
+td, th {
+    padding: 0;
 }
-
 
 
 /* AMUI Base
    ========================================================================== */
+
 
 /**
  * `font-size` is set in `html` element to support the `rem` unit for font-sizes
@@ -505,20 +490,20 @@ th {
  */
 
 html {
-  // font-size: 62.5%; // set base font-size to 10px (16px * 62.5), 1rem = 10px
-  font-size: 10px; // Firefox on Mac default font-size is 15px
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    // font-size: 62.5%; // set base font-size to 10px (16px * 62.5), 1rem = 10px
+    font-size: 10px; // Firefox on Mac default font-size is 15px
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
-  position: relative;
-  background: @base-background;
-  font-family: @base-font-family;
-  font-weight: @base-font-weight;
-  line-height: @base-line-height;
-  color: @base-text-color;
-  font-size: @global-font-size;
-  .hook-base-body;
+    position: relative;
+    background: @base-background;
+    font-family: @base-font-family;
+    font-weight: @base-font-weight;
+    line-height: @base-line-height;
+    color: @base-text-color;
+    font-size: @global-font-size;
+    .hook-base-body;
 }
 
 
@@ -530,40 +515,37 @@ body {
  *    http://jaydenseric.com/blog/css-font-smoothing-for-firefox-mac
  */
 
-body,
-input,
-textarea,
-select,
-button {
-  text-rendering: optimizeLegibility;  /* 1 */
-  -webkit-font-smoothing: antialiased; /* 2 */
-  -moz-osx-font-smoothing: grayscale;  /* 3 Default: auto */
-  -moz-font-feature-settings: "liga", "kern"
+body, button, input, select, textarea {
+    text-rendering: optimizeLegibility;
+    /* 1 */
+    -webkit-font-smoothing: antialiased;
+    /* 2 */
+    -moz-osx-font-smoothing: grayscale;
+    /* 3 Default: auto */
+    -moz-font-feature-settings: "liga", "kern";
 }
-
 
 // Responsive font-size
-
 @media @medium-up {
-  body {
-    //font-size: 1.4rem;
-  }
+    body {
+        //font-size: 1.4rem;
+    }
 }
+
 
 /*Only phones */
 
 @media @small-only {
-
-  /**
+    /**
    * Break strings if their length exceeds the width of their container
    */
-  body {
-    word-wrap: break-word;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    hyphens: auto;
-  }
+    body {
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        -moz-hyphens: auto;
+        hyphens: auto;
+    }
 }
 
 
@@ -572,26 +554,24 @@ button {
  */
 
 a {
-  color: @link-color;
-  &:hover,
-  &:focus {
-    color: @link-hover-color;
-    //text-decoration: underline;
-  }
-
-  &:focus {
-    .tab-focus();
-  }
+    color: @link-color;
+    &:focus, &:hover {
+        color: @link-hover-color;
+        //text-decoration: underline;
+    }
+    &:focus {
+        .tab-focus();
+    }
 }
-
 
 // Emphasize
 // em { color: @base-em-color; }
 
 /* Insert */
+
 ins {
-  background: @base-ins-background;
-  color: @base-ins-color;
+    background: @base-ins-background;
+    color: @base-ins-color;
 }
 
 
@@ -599,118 +579,91 @@ ins {
  * Mark
  * Note: Addresses styling not present in IE 8/9.
  */
+
 mark {
-  background: @base-mark-background;
-  color: @base-mark-color;
+    background: @base-mark-background;
+    color: @base-mark-color;
 }
 
 
 /**
  * Abbreviation and definition
  */
-abbr[title],
-dfn[title] {
-  cursor: help;
+
+abbr[title], dfn[title] {
+    cursor: help;
 }
 
 dfn[title] {
-  border-bottom: 1px dotted;
-  font-style: normal;
+    border-bottom: 1px dotted;
+    font-style: normal;
 }
 
 
 /* Spacing for block elements */
-p,
-hr,
-ul,
-ol,
-dl,
-blockquote,
-pre,
-address,
-fieldset,
-figure {
-  margin: 0 0 @base-margin-vertical 0;
+
+address, blockquote, dl, fieldset, figure, hr, ol, p, pre, ul {
+    margin: 0 0 @base-margin-vertical;
 }
 
-* + p,
-* + hr,
-* + ul,
-* + ol,
-* + dl,
-* + blockquote,
-* + pre,
-* + address,
-* + fieldset,
-* + figure {
-  margin-top: @base-margin-vertical;
+*+address, *+blockquote, *+dl, *+fieldset, *+figure, *+hr, *+ol, *+p, *+pre, *+ul {
+    margin-top: @base-margin-vertical;
 }
-
 
 
 /* Headings
    ========================================================================== */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  //margin: 0;
-  margin: 0 0 @base-margin-vertical 0;
-  font-weight: @base-heading-font-weight;
-  font-size: 100%;
+
+h1, h2, h3, h4, h5, h6 {
+    //margin: 0;
+    margin: 0 0 @base-margin-vertical;
+    font-weight: @base-heading-font-weight;
+    font-size: 100%;
 }
 
 h1 {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 h2 {
-  font-size: 1.25em;
+    font-size: 1.25em;
 }
 
-* + h1,
-* + h2,
-* + h3,
-* + h4,
-* + h5,
-* + h6 {
-  margin-top: @base-heading-margin-top;
+*+h1, *+h2, *+h3, *+h4, *+h5, *+h6 {
+    margin-top: @base-heading-margin-top;
 }
-
 
 // List
 // ========================================================================
 
 /* Ordered and unordered lists */
-ul,
-ol {
-  padding-left: 2em;
+
+ol, ul {
+    padding-left: 2em;
 }
 
+
 /* Reset margin for nested lists */
-ul > li > ul,
-ul > li > ol,
-ol > li > ol,
-ol > li > ul {
-  margin: @base-heading-margin-top/2 0;
+
+ol>li>ol, ol>li>ul, ul>li>ol, ul>li>ul {
+    margin: @base-heading-margin-top/2 0;
 }
 
 
 /* Description lists */
+
 dt {
-  font-weight: bold;
-  & + dd {
-    margin-top: .5em;
-  }
+    font-weight: bold;
+    &+dd {
+        margin-top: 0.5em;
+    }
 }
 
 dd {
-  margin-left: 0;
-  & + dt {
-    margin-top: 1em;
-  }
+    margin-left: 0;
+    &+dt {
+        margin-top: 1em;
+    }
 }
 
 
@@ -718,71 +671,73 @@ dd {
  * Horizontal rule
  * 1. Address differences between Firefox and other browsers.
  */
+
 hr {
-  display: block;
-  padding: 0;
-  border: 0;
-  height: 0;
-  border-top: 1px solid @base-hr-border;
-  -moz-box-sizing: content-box; /* 1 */
-  box-sizing: content-box; /* 1 */
+    display: block;
+    padding: 0;
+    border: 0;
+    height: 0;
+    border-top: 1px solid @base-hr-border;
+    -moz-box-sizing: content-box;
+    /* 1 */
+    box-sizing: content-box;
+    /* 1 */
 }
 
 
 /* Address */
+
 address {
-  font-style: normal;
+    font-style: normal;
 }
 
 
 /* Quotes */
-q,
-blockquote {
-  //font-style: italic;
+
+blockquote, q {
+    //font-style: italic;
 }
 
 blockquote {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 15px;
-  border-left: 4px solid @base-blockquote-border;
-  font-family: @font-family-kai;
-  //font-size: @base-blockquote-font-size;
-  //line-height: @base-blockquote-line-height;
-
-  /* Small print for identifying the source */
-  small {
-    display: block;
-    color: @base-blockquote-small-color;
-    font-family: @font-family-sans-serif;
-    text-align: right;
-  }
-
-  /* Smaller margin if `small` follows */
-  p:last-of-type {
-    margin-bottom: 0;
-  }
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    border-left: 4px solid @base-blockquote-border;
+    font-family: @font-family-kai;
+    //font-size: @base-blockquote-font-size;
+    //line-height: @base-blockquote-line-height;
+    /* Small print for identifying the source */
+    small {
+        display: block;
+        color: @base-blockquote-small-color;
+        font-family: @font-family-sans-serif;
+        text-align: right;
+    }
+    /* Smaller margin if `small` follows */
+    p:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 
 /* iframe */
-iframe {
-  border: 0;
-}
 
+iframe {
+    border: 0;
+}
 
 
 /* Forms
    ========================================================================== */
 
+
 /**
   * Vertical alignment
   * Exclude `radio` and `checkbox` elements because the default `baseline` value aligns better with text
   */
-button,
-input:not([type="radio"]):not([type="checkbox"]),
-select {
-  vertical-align: middle;
+
+button, input:not([type="radio"]):not([type="checkbox"]), select {
+    vertical-align: middle;
 }
 
 
@@ -793,22 +748,22 @@ select {
  * http://msdn.microsoft.com/zh-cn/library/ie/hh708740(v=vs.85).aspx
  * @2014.01.20: 设置一下属性以后，windows Phone 8 上显示的字体过小，暂时注释掉
  * ========================================================================== */
+
+
 /*
 @-ms-viewport {
   width: device-width;
 }
 */
 
-
 // Scrollbar measure help class
-.@{ns}scrollbar-measure {
-  width: 100px;
-  height: 100px;
-  overflow: scroll;
-  position: absolute;
-  top: -9999px;
+.@{ns} scrollbar-measure {
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+    position: absolute;
+    top: -9999px;
 }
 
 // Base Hooks
-
 .hook-base-body() {}
