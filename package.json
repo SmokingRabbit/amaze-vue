@@ -14,10 +14,6 @@
   "scripts": {
     "dev": "webpack-dev-server --hot --progress --colors --config webpack.config.dev.js"
   },
-  "dependencies": {
-    "vue": "2.4.2",
-    "vue-router": "2.7.0"
-  },
   "devDependencies": {
     "babel-core": "6.3.17",
     "babel-loader": "6.2.0",
@@ -33,6 +29,8 @@
     "less-loader": "^4.0.5",
     "style-loader": "0.18.2",
     "url-loader": "0.5.9",
+    "vue": "2.4.2",
+    "vue-router": "2.7.0",
     "vue-hot-reload-api": "1.2.2",
     "vue-loader": "11.3.4",
     "vue-style-loader": "2.0.5",

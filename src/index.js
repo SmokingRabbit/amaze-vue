@@ -17,6 +17,7 @@ import {
     CommentHeaderActions,
     CommentBody
 } from './components/comment';
+import { Code } from './components/code';
 
 const install = function (Vue) {
     Vue.component(Button.name, Button);
@@ -36,6 +37,7 @@ const install = function (Vue) {
     Vue.component(CommentAuthor.name, CommentAuthor);
     Vue.component(CommentHeaderActions.name, CommentHeaderActions);
     Vue.component(CommentBody.name, CommentBody);
+    Vue.component(Code.name, Code);
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

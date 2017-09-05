@@ -60,6 +60,12 @@
                 </am-comment-content>
             </am-comment>
         </am-comment-list>
+        <!-- 代码 -->
+        <am-code :scrollable="true">
+            window.addEventListener('load', function() {
+                FastClick.attach(document.body);
+            }, false);
+        </am-code>
     </section>
 </template>
 
