@@ -11,12 +11,10 @@
             customClass: {
                 type: String
             },
-            type: {
+            color: {
                 type: String,
-                default: 'default',
                 validator(value) {
                     return [
-                        'default',
                         'primary',
                         'secondary',
                         'success',
@@ -35,7 +33,10 @@
                 const classes = [];
 
                 classes.push('am-comment');
-                classes.push('am-comment-' + this.type);
+
+                if (this.color !== undefined) {
+                    classes.push('am-comment-' + this.color);
+                }
 
                 if (this.flip) {
                     classes.push('am-comment-flip');

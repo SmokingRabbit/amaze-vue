@@ -8,7 +8,7 @@
     export default {
         name: 'am-button',
         props: {
-            type: {
+            color: {
                 type: String,
                 default: 'default',
                 validator(value) {
@@ -50,7 +50,7 @@
             computedClass() {
                 const classes = [];
                 classes.push('am-btn');
-                classes.push('am-btn-' + this.type);
+                classes.push('am-btn-' + this.color);
 
                 if (this.radiusType !== undefined) {
                     classes.push('am-' + this.radiusType);

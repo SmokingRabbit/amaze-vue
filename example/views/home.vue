@@ -4,16 +4,18 @@
         <am-button radiusType="radius" size="sm">测试</am-button>
         <!-- ButtonGroup -->
         <am-button-group size="xs" type="stacked">
-            <am-button radiusType="radius" type="success" size="sm">测试</am-button>
-            <am-button radiusType="radius" type="success" size="sm">测试</am-button>
-            <am-button radiusType="radius" type="success" size="sm">测试</am-button>
+            <am-button radiusType="radius" color="success" size="sm">测试</am-button>
+            <am-button radiusType="radius" color="success" size="sm">测试</am-button>
+            <am-button radiusType="radius" color="success" size="sm">测试</am-button>
         </am-button-group>
         <!-- button icon -->
         <am-button><am-icon type="cog"></am-icon> 测试</am-button>
+        <!-- icon -->
+        <am-icon type="twitter" color="success" size="sm" :btn="true"></am-icon>
         <!-- 动画 -->
         <am-animation type="spin" :iterationCount="10" :delay="3"><am-icon type="cog"></am-icon></am-animation>
         <!-- badge -->
-        <am-badge type="primary" radiusType="round">徽章</am-badge>
+        <am-badge color="primary" radiusType="round">徽章</am-badge>
         <!-- 面包屑 -->
         <am-breadcrumb :separator="true">
             <am-breadcrumb-item :to="'/'"><am-icon type="home"></am-icon>首页</am-breadcrumb-item>
@@ -42,7 +44,7 @@
                     </am-comment-body>
                 </am-comment-content>
             </am-comment>
-            <am-comment type="success" :flip="true">
+            <am-comment color="success" :flip="true">
                 <am-comment-avatar src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96"></am-comment-avatar>
                 <am-comment-content>
                     <am-comment-header>
@@ -66,6 +68,10 @@
                 FastClick.attach(document.body);
             }, false);
         </am-code>
+        <!-- 输入框 -->
+        <am-input v-model="inputVal" type="textarea" :disabled="false" :maxLen="5">
+            <am-input-label slot="append">@</am-input-label>
+        </am-input>
     </section>
 </template>
 
@@ -73,7 +79,14 @@
     export default {
         name: 'Home',
         data() {
-            return {};
+            return {
+                inputVal: '123'
+            };
+        },
+        watch: {
+            inputVal(cur, old) {
+                console.log(cur, old);
+            }
         },
         methods: {
 

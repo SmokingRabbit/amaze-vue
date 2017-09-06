@@ -8,12 +8,10 @@
     export default {
         name: 'am-badge',
         props: {
-            type: {
+            color: {
                 type: String,
-                default: 'default',
                 validator(value) {
                     return [
-                        'default',
                         'primary',
                         'secondary',
                         'success',
@@ -42,7 +40,10 @@
             computedClass() {
                 const classes = [];
                 classes.push('am-badge');
-                classes.push('am-badge-' + this.type);
+
+                if (this.color !== undefined) {
+                    classes.push('am-badge-' + this.color);
+                }
 
                 if (this.radiusType !== undefined) {
                     classes.push('am-' + this.radiusType);
