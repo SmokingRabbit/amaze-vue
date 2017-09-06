@@ -75,7 +75,7 @@
             <am-input-label slot="append"><am-icon type="twitter" color="success"></am-icon></am-input-label>
         </am-input>
         <!-- form -->
-        <am-form title="表单">
+        <am-form title="表单" :horizontal="true">
             <am-input v-model="inputVal3" type="text" :block="true" :maxLen="5">
                 <am-input-label slot="prepend" :transparent="true">帐 号</am-input-label>
             </am-input>

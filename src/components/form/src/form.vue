@@ -11,11 +11,29 @@
     export default {
         name: 'am-form',
         props: {
-            type: {
-                type: String,
-                validator(value) {
-                    return ['file', 'help', 'group', 'feedback', 'set', 'icon'].indexOf(value) > -1;
-                }
+            file: {
+                type: Boolean,
+                default: false
+            },
+            help: {
+                type: Boolean,
+                default: false
+            },
+            group: {
+                type: Boolean,
+                default: false
+            },
+            feedback: {
+                type: Boolean,
+                default: false
+            },
+            set: {
+                type: Boolean,
+                default: false
+            },
+            icon: {
+                type: Boolean,
+                default: false
             },
             title: {
                 type: String
@@ -41,8 +59,28 @@
 
                 classes.push('am-form');
 
-                if (this.type !== undefined) {
-                    classes.push('am-form-' + this.type);
+                if (this.file) {
+                    classes.push('am-form-file');
+                }
+
+                if (this.help) {
+                    classes.push('am-form-help');
+                }
+
+                if (this.group) {
+                    classes.push('am-form-group');
+                }
+
+                if (this.feedback) {
+                    classes.push('am-form-feedback');
+                }
+
+                if (this.set) {
+                    classes.push('am-form-set');
+                }
+
+                if (this.icon) {
+                    classes.push('am-form-icon');
                 }
 
                 if (this.horizontal) {

@@ -178,7 +178,6 @@
                 const classes = [];
 
                 classes.push('am-input-group');
-                classes.push('am-radius');
 
                 if (this.type === "textarea") {
                     classes.push('am-input-group-textarea');
