@@ -28,7 +28,9 @@
 
 .@{ns}input-group {
     position: relative;
-    display: table;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     border-collapse: separate;
     .@{ns}form-field {
         position: relative;
@@ -51,7 +53,7 @@
 
 // Input group text
 .@{ns}input-group-label, .@{ns}input-group-btn {
-    width: 1%;
+    width: auto;
     white-space: nowrap;
     vertical-align: middle; // Match the inputs
 }

@@ -99,7 +99,7 @@ output {
 // https://github.com/whatwg/html/issues/336
 .@{ns}form input[type="datetime"], .@{ns}form input[type="datetime-local"], .@{ns}form input[type="date"], .@{ns}form input[type="month"], .@{ns}form input[type="time"], .@{ns}form input[type="week"], .@{ns}form input[type="number"], .@{ns}form input[type="email"], .@{ns}form input[type="url"], .@{ns}form input[type="search"], .@{ns}form input[type="tel"], .@{ns}form input[type="color"], .@{ns}form-field {
     display: block;
-    width: 100%;
+    flex: 1;
     padding: @input-padding;
     font-size: @form-font-size;
     line-height: @form-line-height;
@@ -274,6 +274,7 @@ input[type="radio"], input[type="checkbox"], .@{ns}radio, .@{ns}radio-inline, .@
 .@{ns}form-warning {
     .form-field-validation(@state-warning-text;
     @state-warning-text);
+    .@{ns}textarea,
     .@{ns}form-field {
         .form-field-validation-filed(@state-warning-text;
         @state-warning-text);

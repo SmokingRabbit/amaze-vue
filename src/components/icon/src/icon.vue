@@ -27,7 +27,6 @@
                 type: String,
                 validator(value) {
                     return [
-                        'default',
                         'primary',
                         'secondary',
                         'success',

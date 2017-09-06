@@ -69,9 +69,17 @@
             }, false);
         </am-code>
         <!-- 输入框 -->
-        <am-input v-model="inputVal" type="textarea" :disabled="false" :maxLen="5">
-            <am-input-label slot="append">@</am-input-label>
+        <am-input v-model="inputVal1" type="textarea" :disabled="false" :maxLen="5"></am-input>
+        <am-input v-model="inputVal2" size="sm" type="text" :disabled="false" :maxLen="5">
+            <am-input-label slot="prepend">帐 号：</am-input-label>
+            <am-input-label slot="append"><am-icon type="twitter" color="success"></am-icon></am-input-label>
         </am-input>
+        <!-- form -->
+        <am-form title="表单">
+            <am-input v-model="inputVal3" type="text" :block="true" :maxLen="5">
+                <am-input-label slot="prepend" :transparent="true">帐 号</am-input-label>
+            </am-input>
+        </am-form>
     </section>
 </template>
 
@@ -80,7 +88,9 @@
         name: 'Home',
         data() {
             return {
-                inputVal: '123'
+                inputVal1: '',
+                inputVal2: '',
+                inputVal3: ''
             };
         },
         watch: {

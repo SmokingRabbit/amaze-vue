@@ -10,6 +10,10 @@
         props: {
             customClass: {
                 type: String
+            },
+            transparent: {
+                type: Boolean,
+                default: false
             }
         },
         computed: {
@@ -17,6 +21,10 @@
                 const classes = [];
 
                 classes.push('am-input-group-label');
+
+                if (this.transparent) {
+                    classes.push('am-transparent-label');
+                }
 
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
@@ -27,3 +35,10 @@
         }
     }
 </script>
+
+<style lang="less">
+    .am-transparent-label {
+        background: transparent !important;
+        border-color: transparent !important;
+    }
+</style>

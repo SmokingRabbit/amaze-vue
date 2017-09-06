@@ -19,6 +19,7 @@
                 @input="inputHandle"
                 @focus="focusHandle"
                 @blur="blurHandle"
+                ref="input"
                 />
             <slot name="append" v-if="$slots.append"></slot>
         </template>
@@ -40,6 +41,7 @@
                 @input="inputHandle"
                 @focus="focusHandle"
                 @blur="blurHandle"
+                ref="input"
             >
             </textarea>
         </template>
@@ -70,10 +72,14 @@
                 type: String,
                 default: 'text'
             },
+            block: {
+                type: Boolean,
+                default: false
+            },
             size: {
                 type: String,
                 validator(value) {
-                    return ['xl', 'lg', 'sm', 'xs', 'block'].indexOf(value) > -1;
+                    return ['lg', 'sm'].indexOf(value) > -1;
                 }
             },
             customClass: {
@@ -168,17 +174,22 @@
             }
         },
         computed: {
-            computedClass() { console.log(this.value)
+            computedClass() {
                 const classes = [];
 
                 classes.push('am-input-group');
+                classes.push('am-radius');
+
+                if (this.type === "textarea") {
+                    classes.push('am-input-group-textarea');
+                }
 
                 if (this.color !== undefined) {
                     classes.push('am-input-group-' + this.color);
                 }
 
                 if (this.isError) {
-                    classes.push('am-input-group-danger');
+                    classes.push('am-form-warning');
                 }
 
                 if (this.size !== undefined) {
@@ -191,6 +202,32 @@
 
                 return classes.join(' ');
             }
+        },
+        mounted() {
+            if (this.block) {
+                for (let name in this.$slots) {
+                    let vComponent = this.$slots[name][0];
+
+                    if (!(vComponent.elm instanceof HTMLElement)) {
+                        contiune;
+                    }
+
+                    vComponent.elm.style.position = 'absolute';
+                    vComponent.elm.style.top = '0px';
+                    vComponent.elm.style.zIndex = 10;
+
+                    if (name === 'prepend') {
+                        vComponent.elm.style.left = '0px';
+                        this.$refs['input'].style.paddingLeft = parseInt(getComputedStyle(this.$refs['input'], null)['paddingLeft'], 10)
+                            + vComponent.elm.getBoundingClientRect().width + 'px';
+                    }
+                    else {
+                        vComponent.elm.style.right = '0px';
+                        this.$refs['input'].style.paddingRight = parseInt(getComputedStyle(this.$refs['input'], null)['paddingRight'], 10)
+                            + vComponent.elm.getBoundingClientRect().width + 'px';
+                    }
+                }
+            }
         }
     }
 </script>
@@ -199,17 +236,42 @@
     @import "../../../styles/main.less";
     @import "./input.less";
 
-    .error-notice {
-        display: table-footer-group;
-        font-size: @global-font-size - 0.4;
-        color: @global-danger;
+    .@{ns}input-group {
+        margin-bottom: 1.25rem;
+
+        .error-notice {
+            display: inline-block;
+            font-size: @global-font-size - 0.4;
+            color: @global-danger;
+            margin: 0;
+            position: absolute;
+            bottom: 0px;
+            right: 1em;
+            line-height: @input-group-height;
+            z-index: 10;
+        }
+
+        &.@{ns}input-group-lg {
+            .error-notice {
+                line-height: @lg-height;
+            }
+        }
+        &.@{ns}input-group-sm {
+            .error-notice {
+                line-height: @sm-height;
+            }
+        }
     }
 
-    .am-textarea {
-        width: 100%;
-        min-height: @global-font-size * 5;
-        font-size: @global-font-size - 0.2;
-        padding: @global-font-size - 0.6;
-        border: 1px solid @input-group-label-border-color;
+    .@{ns}input-group-textarea {
+        display: block;
+
+        .@{ns}textarea {
+            width: 100%;
+            min-height: @global-font-size * 5;
+            font-size: @global-font-size - 0.2;
+            padding: @global-font-size - 0.6;
+            border: 1px solid @input-group-label-border-color;
+        }
     }
 </style>
