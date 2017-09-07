@@ -1,20 +1,20 @@
 <template>
     <label :class="computedClass">
-        <span class="am-radio-input">
-            <span class="am-radio-inner"></span>
-            <input
-                class="am-radio-origin"
-                type="radio"
-                v-model="selfVal"
-                :disabled="isDisabled"
-                :value="label"
-                @focus="focusHandle"
-            />
+        <input
+            class="am-radio-origin"
+            type="radio"
+            v-model="selfVal"
+            :disabled="isDisabled"
+            :value="label"
+            @focus="focusHandle"
+            :checked="value"
+        />
+        <span class="am-ucheck-icons">
+            <i class="am-icon-unchecked"></i>
+            <i class="am-icon-checked"></i>
         </span>
-        <span class="am-radio-label">
-            <slot></slot>
-            <template v-if="!$slots.default">{{ label }}</template>
-        </span>
+        <slot></slot>
+        <template v-if="!$slots.default">{{ label }}</template>
     </label>
 </template>
 
@@ -35,6 +35,16 @@
             disabled: {
                 type: Boolean,
                 default: false
+            },
+            color: {
+                type: String,
+                validate(value) {
+                    return ['secondary', 'success', 'warning', 'danger'].indexOf(value) > -1;
+                }
+            },
+            inline: {
+                type: Boolean,
+                default: true
             }
         },
         data() {
@@ -62,12 +72,22 @@
                 const classes = [];
 
                 classes.push('am-radio');
+                // classes.push('am-needsclick');
+
+                if (this.checked) {
+                    classes.push('am-radio-checked');
+                }
 
                 if (this.isDisabled) {
                     classes.push('am-radio-disabled');
                 }
-                if (this.checked) {
-                    classes.push('am-radio-checked');
+
+                if (this.color !== undefined) {
+                    classes.push('am-' + this.color);
+                }
+
+                if (this.inline) {
+                    classes.push('am-radio-inline');
                 }
 
                 return classes.join(' ');

@@ -86,7 +86,7 @@
         <am-radio-group v-model="radioGroup">
             <am-radio label="1">测试1</am-radio>
             <am-radio label="2">测试2</am-radio>
-            <am-radio label="3">测试3</am-radio>
+            <am-radio label="3" color="danger">测试3</am-radio>
             <am-radio label="4">测试4</am-radio>
         </am-radio-group>
         <!-- checkbox -->
@@ -95,8 +95,8 @@
         <am-checkbox-group v-model="checkboxGroupVal" :disabled="false" :min="1" :max="2">
             <am-checkbox label="1">测试1</am-checkbox>
             <am-checkbox label="2">测试2</am-checkbox>
-            <am-checkbox label="3">测试3</am-checkbox>
-            <am-checkbox label="4">测试4</am-checkbox>
+            <am-checkbox label="3" :disabled="true">测试3</am-checkbox>
+            <am-checkbox label="4" color="success">测试4</am-checkbox>
         </am-checkbox-group>
     </section>
 </template>
