@@ -111,7 +111,7 @@
                 inputVal3: '',
                 radioVal: '',
                 radioGroup: '',
-                checkboxVal: [],
+                checkboxVal: false,
                 checkboxGroupVal: ['1']
             };
         },

@@ -45,7 +45,7 @@
             >
             </textarea>
         </template>
-        <p class="error-notice" v-if="isError"> {{ errMsg }} </p>
+        <p class="error-notice" v-if="isError" :style="noticeStyle"> {{ errMsg }} </p>
     </div>
 </template>
 
@@ -135,7 +135,8 @@
             return {
                 curValue: this.value,
                 isError: false,
-                errMsg: ''
+                errMsg: '',
+                noticeStyle: {}
             }
         },
         watch: {
@@ -215,14 +216,22 @@
 
                     if (name === 'prepend') {
                         vComponent.elm.style.left = '0px';
-                        this.$refs['input'].style.paddingLeft = parseInt(getComputedStyle(this.$refs['input'], null)['paddingLeft'], 10)
+                        this.$refs['input'].style.paddingLeft =
+                            parseInt(getComputedStyle(this.$refs['input'], null)['paddingLeft'], 10)
                             + vComponent.elm.getBoundingClientRect().width + 'px';
                     }
                     else {
                         vComponent.elm.style.right = '0px';
-                        this.$refs['input'].style.paddingRight = parseInt(getComputedStyle(this.$refs['input'], null)['paddingRight'], 10)
+                        this.$refs['input'].style.paddingRight =
+                            parseInt(getComputedStyle(this.$refs['input'], null)['paddingRight'], 10)
                             + vComponent.elm.getBoundingClientRect().width + 'px';
                     }
+                }
+            }
+
+            if (this.$slots.append) {
+                this.noticeStyle = {
+                    right: this.$slots.append[0].elm.getBoundingClientRect().width + 16 + 'px'
                 }
             }
         }

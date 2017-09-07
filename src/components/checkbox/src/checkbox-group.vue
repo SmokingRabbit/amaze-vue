@@ -8,9 +8,7 @@
     export default {
         name: 'am-checkbox-group',
         props: {
-            value: {
-                type: Array
-            },
+            value: {},
             customClass: {
                 type: String
             },

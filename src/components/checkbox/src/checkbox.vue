@@ -45,12 +45,13 @@
                 }
                 else if (
                     toString.call(this.selfVal) === '[object Boolean]'
-                    && this.selfVal === this.label
+                    && this.selfVal
                 ){
                     return true;
                 }
-
-                return false;
+                else {
+                    return this.selfVal === this.label;
+                }
             },
             computedClass() {
                 const classes = [];
