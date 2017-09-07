@@ -1,3 +1,4 @@
+// modify
 // Name:                       Forms
 //
 // Description:                Define style for form elements
@@ -97,7 +98,7 @@ output {
 
 .@{ns}form select, .@{ns}form textarea, .@{ns}form input[type="text"], .@{ns}form input[type="password"], // `datetime` has been removed from WHATWG HTML
 // https://github.com/whatwg/html/issues/336
-.@{ns}form input[type="datetime"], .@{ns}form input[type="datetime-local"], .@{ns}form input[type="date"], .@{ns}form input[type="month"], .@{ns}form input[type="time"], .@{ns}form input[type="week"], .@{ns}form input[type="number"], .@{ns}form input[type="email"], .@{ns}form input[type="url"], .@{ns}form input[type="search"], .@{ns}form input[type="tel"], .@{ns}form input[type="color"], .@{ns}form-field {
+.@{ns}form input[type="datetime"], .@{ns}form input[type="datetime-local"], .@{ns}form input[type="date"], .@{ns}form input[type="month"], .@{ns}form input[type="time"], .@{ns}form input[type="week"], .@{ns}form input[type="number"], .@{ns}form input[type="email"], .@{ns}form input[type="url"], .@{ns}form input[type="search"], .@{ns}form input[type="tel"], .@{ns}form input[type="color"], .@{ns}form-field, .@{ns}textarea {
     display: block;
     flex: 1;
     padding: @input-padding;
@@ -236,9 +237,9 @@ input[type="datetime-local"], input[type="date"] {
     outline: none;
 }
 
-.@{ns}radio+.@{ns}radio, .@{ns}checkbox+.@{ns}checkbox {
-    margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
-}
+// .@{ns}radio+.@{ns}radio, .@{ns}checkbox+.@{ns}checkbox {
+//     margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
+// }
 
 
 /* Radios and checkboxes inline */

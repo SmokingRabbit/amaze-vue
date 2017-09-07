@@ -20,6 +20,8 @@ import {
 import { Code } from './components/code';
 import { Input, InputLabel } from './components/input';
 import { Form } from './components/form';
+import { Radio, RadioGroup } from './components/radio';
+import { Checkbox, CheckboxGroup } from './components/checkbox';
 
 const install = function (Vue) {
     Vue.component(Button.name, Button);
@@ -43,6 +45,10 @@ const install = function (Vue) {
     Vue.component(Input.name, Input);
     Vue.component(InputLabel.name, InputLabel);
     Vue.component(Form.name, Form);
+    Vue.component(Radio.name, Radio);
+    Vue.component(RadioGroup.name, RadioGroup);
+    Vue.component(Checkbox.name, Checkbox);
+    Vue.component(CheckboxGroup.name, CheckboxGroup);
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

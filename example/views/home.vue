@@ -80,6 +80,24 @@
                 <am-input-label slot="prepend" :transparent="true">帐 号</am-input-label>
             </am-input>
         </am-form>
+        <!-- radio -->
+        <am-radio v-model="radioVal" label="1">测试1</am-radio>
+        <am-radio v-model="radioVal" label="2">测试2</am-radio>
+        <am-radio-group v-model="radioGroup">
+            <am-radio label="1">测试1</am-radio>
+            <am-radio label="2">测试2</am-radio>
+            <am-radio label="3">测试3</am-radio>
+            <am-radio label="4">测试4</am-radio>
+        </am-radio-group>
+        <!-- checkbox -->
+        <am-checkbox v-model="checkboxVal" label="1">测试1</am-checkbox>
+        <am-checkbox v-model="checkboxVal" label="2">测试2</am-checkbox>
+        <am-checkbox-group v-model="checkboxGroupVal" :disabled="false" :min="1" :max="2">
+            <am-checkbox label="1">测试1</am-checkbox>
+            <am-checkbox label="2">测试2</am-checkbox>
+            <am-checkbox label="3">测试3</am-checkbox>
+            <am-checkbox label="4">测试4</am-checkbox>
+        </am-checkbox-group>
     </section>
 </template>
 
@@ -90,12 +108,19 @@
             return {
                 inputVal1: '',
                 inputVal2: '',
-                inputVal3: ''
+                inputVal3: '',
+                radioVal: '',
+                radioGroup: '',
+                checkboxVal: [],
+                checkboxGroupVal: ['1']
             };
         },
         watch: {
-            inputVal(cur, old) {
-                console.log(cur, old);
+            inputVal1(cur, old) {
+                console.log('inputVal1值：' + cur, old);
+            },
+            radioVal(cur, old) {
+                console.log('radio选择:' + cur);
             }
         },
         methods: {

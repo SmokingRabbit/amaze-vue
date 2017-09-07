@@ -53,9 +53,7 @@
     export default {
         name: 'am-input',
         props: {
-            value: {
-                type: [String, Number]
-            },
+            value: {},
             color: {
                 type: String,
                 validator(value) {
