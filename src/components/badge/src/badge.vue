@@ -20,11 +20,9 @@
                     ].indexOf(value) > -1;
                 }
             },
-            radiusType: {
-                type: String,
-                validator(value) {
-                    return ['radius', 'round'].indexOf(value) > -1;
-                }
+            round: {
+                type: Boolean,
+                default: false
             },
             size: {
                 type: String,
@@ -45,8 +43,8 @@
                     classes.push('am-badge-' + this.color);
                 }
 
-                if (this.radiusType !== undefined) {
-                    classes.push('am-' + this.radiusType);
+                if (this.round) {
+                    classes.push('am-round');
                 }
 
                 if (this.size !== undefined) {

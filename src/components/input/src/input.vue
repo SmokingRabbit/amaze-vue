@@ -182,6 +182,10 @@
                     classes.push('am-input-group-textarea');
                 }
 
+                if (this.block) {
+                    classes.push('am-input-block');
+                }
+
                 if (this.color !== undefined) {
                     classes.push('am-input-group-' + this.color);
                 }

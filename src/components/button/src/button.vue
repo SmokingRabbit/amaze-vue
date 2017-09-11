@@ -26,11 +26,9 @@
                 type: Boolean,
                 default: false
             },
-            radiusType: {
-                type: String,
-                validator(value) {
-                    return ['radius', 'round'].indexOf(value) > -1;
-                }
+            round: {
+                type: Boolean,
+                default: false
             },
             isActive: {
                 type: Boolean,
@@ -52,8 +50,8 @@
                 classes.push('am-btn');
                 classes.push('am-btn-' + this.color);
 
-                if (this.radiusType !== undefined) {
-                    classes.push('am-' + this.radiusType);
+                if (this.round) {
+                    classes.push('am-round');
                 }
 
                 if (this.isActive) {

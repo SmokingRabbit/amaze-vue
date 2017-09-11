@@ -15,7 +15,8 @@
         <!-- 动画 -->
         <am-animation type="spin" :iterationCount="10" :delay="3"><am-icon type="cog"></am-icon></am-animation>
         <!-- badge -->
-        <am-badge color="primary" radiusType="round">徽章</am-badge>
+        <am-badge color="primary" :round="true">徽章</am-badge>
+        <am-badge color="primary">徽章</am-badge>
         <!-- 面包屑 -->
         <am-breadcrumb :separator="true">
             <am-breadcrumb-item :to="'/'"><am-icon type="home"></am-icon>首页</am-breadcrumb-item>
@@ -98,6 +99,7 @@
             <am-checkbox label="3" :disabled="true">测试3</am-checkbox>
             <am-checkbox label="4" color="success">测试4</am-checkbox>
         </am-checkbox-group>
+        <!-- tootip -->
     </section>
 </template>
 
