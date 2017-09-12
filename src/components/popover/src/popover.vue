@@ -53,6 +53,11 @@
                 type: String
             }
         },
+        watch: {
+            visible(curVal, oldVal) {
+                this.$emit('visible.change', curVal);
+            }
+        },
         methods: {
             showHook() {
                 const popover = this.$refs['popover'];

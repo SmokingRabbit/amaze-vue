@@ -1,6 +1,7 @@
 <template>
     <button :disabled="disabled" :class="computedClass">
-        <slot></slot>
+        <slot v-if="!loading"></slot>
+        <span v-if="loading">{{ loadingText }}</span>
     </button>
 </template>
 
@@ -42,6 +43,14 @@
             },
             customClass: {
                 type: String
+            },
+            loading: {
+                type: Boolean,
+                default: false
+            },
+            loadingText: {
+                type: String,
+                default: 'Loading……'
             }
         },
         computed: {
@@ -64,6 +73,14 @@
 
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
+                }
+
+                if (this.loading) {
+                    classes.push('am-btn-loading');
+                }
+
+                if (this.disabled || this.loading) {
+                    classes.push('am-disabled');
                 }
 
                 return classes.join(' ');
