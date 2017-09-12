@@ -1,0 +1,68 @@
+<template>
+    <div :class="computedClass" v-if="isVisible">
+        <button v-if="closeBtn" type="button" class="am-close" @click="closeHandle">&times;</button>
+        <slot></slot>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'am-alert',
+        data() {
+            return {
+                isVisible: this.visible
+            };
+        },
+        props: {
+            customClass: {
+                type: String,
+            },
+            color: {
+                type: String,
+                validator(value) {
+                    return ['success', 'warning', 'danger', 'secondary'].indexOf(value) > -1;
+                }
+            },
+            visible: {
+                type: Boolean,
+                default: true
+            },
+            closeBtn: {
+                type: Boolean,
+                default: true
+            }
+        },
+        methods: {
+            closeHandle() {
+                this.isVisible = false;
+            }
+        },
+        watch: {
+            visible(curVal, oldVal) {
+                this.isVisible = curVal;
+            }
+        },
+        computed: {
+            computedClass() {
+                const classes = [];
+
+                classes.push('am-alert');
+
+                if (this.color !== undefined) {
+                    classes.push('am-alert-' + this.color);
+                }
+
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
+                return classes.join(' ');
+            }
+        }
+    }
+</script>
+
+<style lang="less">
+    @import "../../../styles/main.less";
+    @import "./alert.less";
+</style>
