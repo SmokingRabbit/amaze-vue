@@ -100,8 +100,13 @@
             <am-checkbox label="4" color="success">测试4</am-checkbox>
         </am-checkbox-group>
         <!-- popover -->
-        <am-popover ref="popover1" placement="bottom">上面的提示框</am-popover>
-        <am-button v-popover:popover1>popover</am-button>
+        <div>
+            <am-popover ref="popover1" placement="right" trigger="click" color="danger">右面的提示框</am-popover>
+            <am-button v-popover:popover1>popover</am-button>
+
+            <am-popover ref="popover2" size="sm">上面的提示框</am-popover>
+            <am-button v-popover:popover2>popover</am-button>
+        </div>
     </section>
 </template>
 

@@ -48,6 +48,9 @@
             transition: {
                 type: String,
                 default: 'fade'
+            },
+            customClass: {
+                type: String
             }
         },
         methods: {
@@ -56,6 +59,7 @@
                 const { top, left, width, height } = this.$refs['reference'].getBoundingClientRect();
                 const { width: selfWidth, height: selfHeight } = popover.getBoundingClientRect();
 
+                popover.style.zIndex = this.zIndex;
                 if (this.placement === 'top' || this.placement === 'bottom') {
                     popover.style.left = left + document.body.scrollLeft - (selfWidth - width) / 2 + 'px';
 
@@ -67,7 +71,31 @@
                     }
                 }
                 else {
+                    popover.style.top = document.body.scrollTop + top - (selfHeight) / 2 + 'px';
 
+                    if (this.placement === 'left') {
+                        popover.style.left = left + document.body.scrollLeft - this.fix - selfWidth + 'px';
+                    }
+                    else {
+                        popover.style.left = left + document.body.scrollLeft + this.fix + width + 'px';
+                    }
+                }
+            },
+
+            clickHandle(e) {
+                if (this.visible) {
+                    this.hide();
+                }
+                else {
+                    this.show();
+                }
+
+                e.stopPropagation();
+            },
+
+            globalClickHandle(e) {
+                if (this.visible && !this.$el.contains(e.target)) {
+                    this.hide();
                 }
             }
         },
@@ -82,6 +110,10 @@
                 }
 
                 classes.push('am-popover-' + this.placement);
+
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
 
                 if (this.color !== undefined) {
                     classes.push('am-popover-' + this.color);
@@ -103,7 +135,8 @@
                 on(reference, 'mouseleave', this.hide);
             }
             else {
-
+                on(reference, 'click', this.clickHandle);
+                on(document.body, 'click', this.globalClickHandle);
             }
         },
         beforeDestroy() {
@@ -113,7 +146,8 @@
                 off(reference, 'mouseleave', this.hide);
             }
             else {
-
+                off(reference, 'click', this.clickHandle);
+                off(document.body, 'click', this.globalClickHandle);
             }
         }
     }
