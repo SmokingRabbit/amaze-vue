@@ -22,6 +22,7 @@ import { Input, InputLabel } from './components/input';
 import { Form } from './components/form';
 import { Radio, RadioGroup } from './components/radio';
 import { Checkbox, CheckboxGroup } from './components/checkbox';
+import { Popover } from './components/popover';
 
 const install = function (Vue) {
     Vue.component(Button.name, Button);
@@ -49,6 +50,8 @@ const install = function (Vue) {
     Vue.component(RadioGroup.name, RadioGroup);
     Vue.component(Checkbox.name, Checkbox);
     Vue.component(CheckboxGroup.name, CheckboxGroup);
+    Vue.component(Popover.name, Popover);
+    Vue.use(Popover);
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

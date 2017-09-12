@@ -99,7 +99,9 @@
             <am-checkbox label="3" :disabled="true">测试3</am-checkbox>
             <am-checkbox label="4" color="success">测试4</am-checkbox>
         </am-checkbox-group>
-        <!-- tootip -->
+        <!-- popover -->
+        <am-popover ref="popover1" placement="bottom">上面的提示框</am-popover>
+        <am-button v-popover:popover1>popover</am-button>
     </section>
 </template>
 
@@ -135,5 +137,7 @@
     .container {
         width: 980px;
         margin: 20px auto;
+
+        padding-bottom: 50px;
     }
 </style>
