@@ -23,7 +23,13 @@ import { Form } from './components/form';
 import { Radio, RadioGroup } from './components/radio';
 import { Checkbox, CheckboxGroup } from './components/checkbox';
 import { Alert } from './components/alert';
-
+import {
+    Panel,
+    PanelHeader,
+    PanelBody,
+    PanelFooter,
+    panelGroup
+} from './components/panel';
 
 
 import { Popover } from './components/popover';
@@ -55,8 +61,13 @@ const install = function (Vue) {
     Vue.component(RadioGroup.name, RadioGroup);
     Vue.component(Checkbox.name, Checkbox);
     Vue.component(CheckboxGroup.name, CheckboxGroup);
-    Vue.component(Alert.name, Alert);
+    Vue.component(Panel.name, Panel);
+    Vue.component(PanelHeader.name, PanelHeader);
+    Vue.component(PanelBody.name, PanelBody);
+    Vue.component(PanelFooter.name, PanelFooter);
+    Vue.component(panelGroup.name, panelGroup);
 
+    Vue.component(Alert.name, Alert);
 
     Vue.component(Popover.name, Popover);
     Vue.use(Popover);

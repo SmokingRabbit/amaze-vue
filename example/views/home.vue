@@ -121,6 +121,12 @@
                 <li>我要他生都有今生的暖意</li>
             </ul>
         </am-alert>
+        <!-- panel -->
+        <am-panel>
+            <am-panel-header title="panel标题"></am-panel-header>
+            <am-panel-body>每个人都有一场爱恋， 用心、用情、用力，感动也感伤。</am-panel-body>
+            <am-panel-footer>footer</am-panel-footer>
+        </am-panel>
     </section>
 </template>
 
