@@ -1,8 +1,10 @@
 <template>
-    <div :class="computedClass" v-if="isVisible">
-        <button v-if="closeBtn" type="button" class="am-close" @click="closeHandle">&times;</button>
-        <slot></slot>
-    </div>
+    <transition :name="transition">
+        <div :class="computedClass" v-if="isVisible">
+            <button v-if="closeBtn" type="button" class="am-close" @click="closeHandle">&times;</button>
+            <slot></slot>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -30,6 +32,21 @@
             closeBtn: {
                 type: Boolean,
                 default: true
+            },
+            transition: {
+                type: String,
+                default: 'fade',
+                validator(value) {
+                    return [
+                        'fade',
+                        'jump',
+                        'long',
+                        'scale-up',
+                        'scale-down',
+                        'slide-left',
+                        'slide-right'
+                    ].indexOf(value) > -1;
+                }
             }
         },
         methods: {

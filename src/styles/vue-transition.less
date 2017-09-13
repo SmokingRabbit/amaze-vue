@@ -1,0 +1,147 @@
+/**
+ * fade
+ */
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-active,
+.fade-leave-to {
+    opacity: 0;
+}
+/**
+ * jump
+ */
+.jump-enter-active {
+    animation: jump 0.2s;
+}
+
+.jump-leave-active {
+    animation: jump 0.2s reverse;
+}
+@keyframes jump {
+    0% {
+        transform: translateY(10px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+/**
+ * jump
+ */
+.long-form-enter-active {
+    transition: all 0.2s ease;
+}
+
+.long-form-leave-active {
+    transition: all 0.5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.long-form-enter,
+.long-form-leave-to {
+    border-right: solid 1px #ddd !important;
+    opacity: 0;
+    transform: scaleX(0px);
+}
+/**
+ * scale-up
+ */
+.scale-up-enter-active {
+    animation: scaleUp 0.2s;
+}
+
+.scale-up-leave-active {
+    animation: scaleUp 0.2s reverse;
+}
+@keyframes scaleUp {
+    0% {
+        transform: scale3D(1, 1, 1);
+    }
+
+    50% {
+        transform: scale3D(1.2, 1.2, 1.2);
+    }
+
+    100% {
+        transform: scale3D(1, 1, 1);
+    }
+}
+/**
+ * scale-down
+ */
+.scale-down-enter-active {
+    animation: scaleDown 0.2s;
+}
+
+.scale-down-leave-active {
+    animation: scaleDown 0.2s reverse;
+}
+@keyframes scaleDown {
+    0% {
+        transform: scale3D(1.2, 1.2, 1.2);
+    }
+
+    50% {
+        transform: scale3D(0.8, 0.8, 0.8);
+    }
+
+    100% {
+        transform: scale3D(1, 1, 1);
+    }
+}
+
+/**
+ * slide-left
+ */
+.slide-left-enter-active {
+    animation: slideLeft 0.2s;
+}
+
+.slide-left-leave-active {
+    animation: slideLeft 0.2s reverse;
+}
+@keyframes slideLeft {
+    0% {
+        transform: translate3d(30px, 0, 0);
+    }
+
+    70% {
+        transform: translate3d(-5px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0px, 0, 0);
+    }
+}
+
+/**
+ * slide-right
+ */
+.slide-right-enter-active {
+    animation: slideRight 0.2s;
+}
+
+.slide-right-leave-active {
+    animation: slideRight 0.2s reverse;
+}
+@keyframes slideRight {
+    0% {
+        transform: translate3d(-30px, 0, 0);
+    }
+
+    70% {
+        transform: translate3d(5px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0px, 0, 0);
+    }
+}

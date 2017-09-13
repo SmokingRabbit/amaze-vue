@@ -47,7 +47,18 @@
             },
             transition: {
                 type: String,
-                default: 'fade'
+                default: 'fade',
+                validator(value) {
+                    return [
+                        'fade',
+                        'jump',
+                        'long',
+                        'scale-up',
+                        'scale-down',
+                        'slide-left',
+                        'slide-right'
+                    ].indexOf(value) > -1;
+                }
             },
             customClass: {
                 type: String

@@ -1,11 +1,19 @@
 <template>
-    <button :disabled="disabled" :class="computedClass">
+    <button :disabled="disabled" :class="computedClass" @click="clickHandle">
         <slot v-if="!loading"></slot>
-        <span v-if="loading">{{ loadingText }}</span>
+        <span v-if="loading">
+            <animation type="spin">
+                <icon type="spinner"></icon>
+            </animation>
+            {{ loadingText }}
+        </span>
     </button>
 </template>
 
 <script>
+    import { Animation } from '../../animation';
+    import { Icon } from '../../icon';
+
     export default {
         name: 'am-button',
         props: {
@@ -53,6 +61,13 @@
                 default: 'Loading……'
             }
         },
+        methods: {
+            clickHandle() {
+                if (!this.disabled) {
+                    this.$emit('click');
+                }
+            }
+        },
         computed: {
             computedClass() {
                 const classes = [];
@@ -85,6 +100,10 @@
 
                 return classes.join(' ');
             }
+        },
+        components: {
+            Animation,
+            Icon
         }
     }
 </script>

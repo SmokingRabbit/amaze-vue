@@ -7,6 +7,7 @@
             <am-button radiusType="radius" color="success" size="sm">测试</am-button>
             <am-button radiusType="radius" color="success" size="sm">测试</am-button>
             <am-button radiusType="radius" color="success" size="sm">测试</am-button>
+            <am-button radiusType="radius" color="success" :loading="true" size="sm">测试</am-button>
         </am-button-group>
         <!-- button icon -->
         <am-button><am-icon type="cog"></am-icon> 测试</am-button>
