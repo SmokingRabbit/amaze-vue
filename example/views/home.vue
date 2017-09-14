@@ -83,30 +83,38 @@
             </am-input>
         </am-form>
         <!-- radio -->
-        <am-radio v-model="radioVal" label="1">测试1</am-radio>
-        <am-radio v-model="radioVal" label="2">测试2</am-radio>
-        <am-radio-group v-model="radioGroup">
-            <am-radio label="1">测试1</am-radio>
-            <am-radio label="2">测试2</am-radio>
-            <am-radio label="3" color="danger">测试3</am-radio>
-            <am-radio label="4">测试4</am-radio>
-        </am-radio-group>
+        <section>
+            <am-radio v-model="radioVal" label="1">测试1</am-radio>
+            <am-radio v-model="radioVal" label="2">测试2</am-radio>
+        </section>
+        <section>
+            <am-radio-group v-model="radioGroup">
+                <am-radio label="1">测试1</am-radio>
+                <am-radio label="2">测试2</am-radio>
+                <am-radio label="3" color="danger">测试3</am-radio>
+                <am-radio label="4">测试4</am-radio>
+            </am-radio-group>
+        </section>
         <!-- checkbox -->
-        <am-checkbox v-model="checkboxVal" label="1">测试1</am-checkbox>
-        <am-checkbox v-model="checkboxVal" label="2">测试2</am-checkbox>
-        <am-checkbox-group v-model="checkboxGroupVal" :disabled="false" :min="1" :max="2">
-            <am-checkbox label="1">测试1</am-checkbox>
-            <am-checkbox label="2">测试2</am-checkbox>
-            <am-checkbox label="3" :disabled="true">测试3</am-checkbox>
-            <am-checkbox label="4" color="success">测试4</am-checkbox>
-        </am-checkbox-group>
+        <section>
+            <am-checkbox v-model="checkboxVal" label="1">测试1</am-checkbox>
+            <am-checkbox v-model="checkboxVal" label="2">测试2</am-checkbox>
+        </section>
+        <section>
+            <am-checkbox-group v-model="checkboxGroupVal" :disabled="false" :min="1" :max="2">
+                <am-checkbox label="1">测试1</am-checkbox>
+                <am-checkbox label="2">测试2</am-checkbox>
+                <am-checkbox label="3" :disabled="true">测试3</am-checkbox>
+                <am-checkbox label="4" color="success">测试4</am-checkbox>
+            </am-checkbox-group>
+        </section>
         <!-- popover -->
         <div>
             <am-popover ref="popover1" placement="right" trigger="click" color="danger">右面的提示框</am-popover>
-            <am-button v-popover:popover1>popover</am-button>
+            <am-button v-popover:popover1>单击</am-button>
 
             <am-popover ref="popover2" size="sm">上面的提示框</am-popover>
-            <am-button v-popover:popover2>popover</am-button>
+            <am-button v-popover:popover2>hover</am-button>
         </div>
         <!-- alert -->
         <am-alert color="success" :closeBtn="true">

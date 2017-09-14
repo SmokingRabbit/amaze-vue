@@ -10,13 +10,14 @@
                 type: String
             },
             title: {
-                type: String
+                type: String,
+                required: true
             },
             titleLevel: {
                 type: Number,
                 default: 4,
                 validator(value) {
-                    return value <= 6 && value >= 0;
+                    return value <= 6 && value > 0;
                 }
             }
         },
