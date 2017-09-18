@@ -10,6 +10,14 @@
         props: {
             customClass: {
                 type: String
+            },
+            collapse: {
+                type: Boolean,
+                default: false
+            },
+            accordion: {
+                type: Boolean,
+                default: false
             }
         },
         computed: {
@@ -23,6 +31,22 @@
                 }
 
                 return classes.join(' ');
+            }
+        },
+        mounted() {
+            if (this.collapse && !this.accordion) {
+                let isFirst = false;
+
+                this.$slots.default.forEach((vNode, index) => {
+                    if (vNode.componentInstance && vNode.componentOptions.tag === 'am-panel') {
+                        if (!isFirst) {
+                            isFirst = true;
+                        }
+                        else {
+                            vNode.componentInstance.close();
+                        }
+                    }
+                });
             }
         }
     }

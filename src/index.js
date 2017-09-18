@@ -30,7 +30,6 @@ import {
     PanelFooter,
     panelGroup
 } from './components/panel';
-import { Collapse, CollapseGroup } from './components/collapse';
 
 import { Popover } from './components/popover';
 
@@ -66,8 +65,6 @@ const install = function (Vue) {
     Vue.component(PanelBody.name, PanelBody);
     Vue.component(PanelFooter.name, PanelFooter);
     Vue.component(panelGroup.name, panelGroup);
-    Vue.component(Collapse.name, Collapse);
-    Vue.component(CollapseGroup.name, CollapseGroup);
 
     Vue.component(Alert.name, Alert);
 
