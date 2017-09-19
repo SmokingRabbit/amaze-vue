@@ -123,7 +123,7 @@
                 const { top, left, height } = $reference.getBoundingClientRect();
                 const { height: selfHeight } = $dropdown.getBoundingClientRect();
 
-                $dropdown.style.zIndex = this.zIndex;
+                $dropdown.style.zIndex = this.getZIndex();
                 $dropdown.style.left = document.body.scrollLeft + left + 'px';
 
                 if (this.placement == 'top') {

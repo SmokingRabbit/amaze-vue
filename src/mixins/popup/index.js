@@ -3,7 +3,6 @@ import PopupManage from './popup-manage';
 export default {
     data() {
         return {
-            zIndex: 0,
             popupZIndex: 0,
             visible: false,
             overlay: false
@@ -21,10 +20,10 @@ export default {
         },
         hide() {
             this.visible = false;
+        },
+        getZIndex() {
+            return PopupManage.getZIndex();
         }
-    },
-    created() {
-        this.zIndex = PopupManage.getZIndex();
     },
     mounted() {
         // todo overlay

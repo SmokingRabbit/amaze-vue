@@ -75,7 +75,7 @@
                 const { top, left, width, height } = this.$refs['reference'].getBoundingClientRect();
                 const { width: selfWidth, height: selfHeight } = $popover.getBoundingClientRect();
 
-                $popover.style.zIndex = this.zIndex;
+                $popover.style.zIndex = this.getZIndex();
                 if (this.placement === 'top' || this.placement === 'bottom') {
                     $popover.style.left = left + document.body.scrollLeft - (selfWidth - width) / 2 + 'px';
 

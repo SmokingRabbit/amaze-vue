@@ -1,6 +1,6 @@
 export default {
 
-    zIndex: 1999,
+    zIndex: 999,
 
     popupMap: {},
 
