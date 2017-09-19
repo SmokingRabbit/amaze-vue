@@ -30,6 +30,7 @@ import {
     PanelFooter,
     panelGroup
 } from './components/panel';
+import { Dropdown, DropdownItem } from './components/dropdown';
 
 import { Popover } from './components/popover';
 
@@ -65,15 +66,13 @@ const install = function (Vue) {
     Vue.component(PanelBody.name, PanelBody);
     Vue.component(PanelFooter.name, PanelFooter);
     Vue.component(panelGroup.name, panelGroup);
-
     Vue.component(Alert.name, Alert);
+    Vue.component(Dropdown.name, Dropdown);
+    Vue.component(DropdownItem.name, DropdownItem);
+
 
     Vue.component(Popover.name, Popover);
     Vue.use(Popover);
-}
-
-if (typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue);
 }
 
 export default {
