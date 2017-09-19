@@ -84,7 +84,7 @@
     &:after {
         top: -7px;
     }
-    .@{ns}active>& {
+    &.@{ns}active {
         display: block;
         // .animation(@dropdown-animation 0.3s ease-in-out);
     }
@@ -95,9 +95,7 @@
 
 // Dropdown Up
 // =============================================================================
-.@{ns}dropdown-up .@{ns}dropdown-content {
-    top: auto;
-    bottom: 100%;
+.@{ns}dropdown-up {
     margin: 0 0 9px;
     .hook-dropdown-up;
     &:before, &:after {

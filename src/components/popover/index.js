@@ -5,7 +5,7 @@ Popover.install = function (Vue, options) {
         bind(el, binding, vnode, oldVnode) {
             vnode.context.$refs[binding.arg].$refs.reference = el;
         }
-    })
+    });
 }
 
 export {

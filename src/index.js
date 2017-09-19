@@ -68,6 +68,7 @@ const install = function (Vue) {
     Vue.component(panelGroup.name, panelGroup);
     Vue.component(Alert.name, Alert);
     Vue.component(Dropdown.name, Dropdown);
+    Vue.use(Dropdown);
     Vue.component(DropdownItem.name, DropdownItem);
 
 

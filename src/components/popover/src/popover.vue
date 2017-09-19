@@ -24,7 +24,7 @@
             },
             fix: {
                 type: Number,
-                default: 15
+                default: 10
             },
             placement: {
                 type: String,
@@ -71,29 +71,29 @@
         },
         methods: {
             showHook() {
-                const popover = this.$refs['popover'];
+                const $popover = this.$refs['popover'];
                 const { top, left, width, height } = this.$refs['reference'].getBoundingClientRect();
-                const { width: selfWidth, height: selfHeight } = popover.getBoundingClientRect();
+                const { width: selfWidth, height: selfHeight } = $popover.getBoundingClientRect();
 
-                popover.style.zIndex = this.zIndex;
+                $popover.style.zIndex = this.zIndex;
                 if (this.placement === 'top' || this.placement === 'bottom') {
-                    popover.style.left = left + document.body.scrollLeft - (selfWidth - width) / 2 + 'px';
+                    $popover.style.left = left + document.body.scrollLeft - (selfWidth - width) / 2 + 'px';
 
                     if (this.placement === 'top') {
-                        popover.style.top = document.body.scrollTop + top - height - selfHeight / 2 - this.fix + 'px';
+                        $popover.style.top = document.body.scrollTop + top - height - selfHeight / 2 - this.fix + 'px';
                     }
                     else {
-                        popover.style.top = document.body.scrollTop + top + height - selfHeight / 2 + this.fix + 'px';
+                        $popover.style.top = document.body.scrollTop + top + height - selfHeight / 2 + this.fix + 'px';
                     }
                 }
                 else {
-                    popover.style.top = document.body.scrollTop + top - (selfHeight) / 2 + 'px';
+                    $popover.style.top = document.body.scrollTop + top - (selfHeight) / 2 + 'px';
 
                     if (this.placement === 'left') {
-                        popover.style.left = left + document.body.scrollLeft - this.fix - selfWidth + 'px';
+                        $popover.style.left = left + document.body.scrollLeft - this.fix - selfWidth + 'px';
                     }
                     else {
-                        popover.style.left = left + document.body.scrollLeft + this.fix + width + 'px';
+                        $popover.style.left = left + document.body.scrollLeft + this.fix + width + 'px';
                     }
                 }
             },
@@ -144,25 +144,26 @@
         },
         mounted() {
             document.body.appendChild(this.$el);
-            const reference = this.$refs['reference'];
+            const $reference = this.$refs['reference'];
 
             if (this.trigger === 'focus') {
-                on(reference, 'mouseenter', this.show);
-                on(reference, 'mouseleave', this.hide);
+                on($reference, 'mouseenter', this.show);
+                on($reference, 'mouseleave', this.hide);
             }
             else {
-                on(reference, 'click', this.clickHandle);
+                on($reference, 'click', this.clickHandle);
                 on(document.body, 'click', this.globalClickHandle);
             }
         },
         beforeDestroy() {
-            const reference = this.$refs['reference'];
+            document.body.removeChild(this.$el);
+            const $reference = this.$refs['reference'];
             if (this.trigger === 'focus') {
-                off(reference, 'mouseenter', this.show);
-                off(reference, 'mouseleave', this.hide);
+                off($reference, 'mouseenter', this.show);
+                off($reference, 'mouseleave', this.hide);
             }
             else {
-                off(reference, 'click', this.clickHandle);
+                off($reference, 'click', this.clickHandle);
                 off(document.body, 'click', this.globalClickHandle);
             }
         }

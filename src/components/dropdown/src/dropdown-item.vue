@@ -33,7 +33,7 @@
         },
         methods: {
             clickHandle() {
-                if (!this.disabled) {
+                if (!this.disabled && !this.active) {
                     this.$emit('click', this.value);
                 }
             }

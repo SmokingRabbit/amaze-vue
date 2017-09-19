@@ -1,21 +1,64 @@
 <template>
-    <ul :class="computedClass" :style="computedStyle">
-        <slot></slot>
-    </ul>
+    <transition :name="transition" >
+        <ul
+            ref="dropdown"
+            :class="computedClass"
+            @mouseenter="mouseenterHandle"
+            @mouseleave="mouseleaveHandle"
+            >
+            <slot></slot>
+        </ul>
+    </transition>
 </template>
 
 <script>
+    import Popup from '../../../mixins/popup';
+    import { on, off } from '../../../utils/dom';
+
     export default {
         name: 'am-dropdown',
-        data() {
-            return {
-                visible: false
-            }
-        },
+        mixins: [ Popup ],
         props: {
             customClass: {
                 type: String
-            }
+            },
+            trigger: {
+                type: String,
+                default: 'focus',
+                validator(value) {
+                    return ['focus', 'click'].indexOf(value) > -1;
+                }
+            },
+            fix: {
+                type: Number,
+                default: 0
+            },
+            placement: {
+                type: String,
+                default: 'bottom',
+                validator(value) {
+                    return ['top', 'bottom'].indexOf(value) > -1;
+                }
+            },
+            delay: {
+                type: Number,
+                default: 300
+            },
+            transition: {
+                type: String,
+                default: 'scale-down',
+                validator(value) {
+                    return [
+                        'fade',
+                        'jump',
+                        'long',
+                        'scale-up',
+                        'scale-down',
+                        'slide-left',
+                        'slide-right'
+                    ].indexOf(value) > -1;
+                }
+            },
         },
         computed: {
             computedClass() {
@@ -23,18 +66,104 @@
 
                 classes.push('am-dropdown-content');
 
+                if (this.visible) {
+                    classes.push('am-active');
+                }
+
+                if (this.placement === 'top') {
+                    classes.push('am-dropdown-up ');
+                }
+
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
                 }
 
-                return classes.push(' ');
+                return classes.join(' ');
+            }
+        },
+        methods: {
+            clickHandle(e) {
+                if (this.visible) {
+                    this.hide();
+                }
+                else {
+                    this.show();
+                }
+
+                e.stopPropagation();
             },
-            computedStyle() {
-                return {}
+            globalClickHandle() {
+                if (this.visible) {
+                    this.hide();
+                }
+            },
+            delayHide() {
+                if (this.timer !== null) {
+                    clearTimeout(this.timer);
+                }
+
+                this.timer = setTimeout(this.hide, this.delay);
+            },
+            mouseleaveHandle() {
+                if (this.trigger !== 'click') {
+                    this.hide();
+                }
+            },
+            mouseenterHandle() {
+                if (this.trigger !== 'click') {
+                    if (this.timer !== null) {
+                        clearTimeout(this.timer);
+                    }
+                }
+            },
+            showHook() {
+                const $dropdown = this.$refs['dropdown'];
+                const $reference = this.$refs['reference'];
+
+                const { top, left, height } = $reference.getBoundingClientRect();
+                const { height: selfHeight } = $dropdown.getBoundingClientRect();
+
+                $dropdown.style.zIndex = this.zIndex;
+                $dropdown.style.left = document.body.scrollLeft + left + 'px';
+
+                if (this.placement == 'top') {
+                    $dropdown.style.top = document.body.scrollTop + top - selfHeight - 29 - this.fix + 'px';
+                }
+                else {
+                    $dropdown.style.top = document.body.scrollTop + top + height - 19 + this.fix + 'px';
+                }
+            }
+        },
+        beforeDestroy() {
+            document.body.removeChild(this.$el);
+            const $reference = this.$refs['reference'];
+
+            if (this.trigger === 'click') {
+                off($reference, 'click', this.clickHandle);
+                off(document.body, 'click', this.globalClickHandle);
+            }
+            else {
+                off($reference, 'mouseenter', this.show);
+                off($reference, 'mouseleave', this.delayHide);
             }
         },
         mounted() {
+            document.body.appendChild(this.$el);
+            const $reference = this.$refs['reference'];
 
+            if (this.trigger === 'click') {
+                on($reference, 'click', this.clickHandle);
+                on(document.body, 'click', this.globalClickHandle);
+            }
+            else {
+                on($reference, 'mouseenter', this.show);
+                on($reference, 'mouseleave', this.delayHide);
+            }
         }
     }
 </script>
+
+<style lang="less">
+    @import "../../../styles/main.less";
+    @import "./dropdown.less";
+</style>

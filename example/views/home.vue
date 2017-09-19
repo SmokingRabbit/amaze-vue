@@ -115,6 +115,12 @@
 
             <am-popover ref="popover2" size="sm">上面的提示框</am-popover>
             <am-button v-popover:popover2>hover</am-button>
+
+            <am-popover ref="popover3"  placement="left" size="sm">left的提示框</am-popover>
+            <am-button v-popover:popover3>hover</am-button>
+
+            <am-popover ref="popover4" placement="bottom" size="sm">bottom的提示框</am-popover>
+            <am-button v-popover:popover4>hover</am-button>
         </div>
         <!-- alert -->
         <am-alert color="success" :closeBtn="true">
@@ -145,6 +151,16 @@
                 <am-panel-body>每个人都有一场爱恋， 用心、用情、用力，感动也感伤。</am-panel-body>
             </am-panel>
         </am-panel-group>
+        <!-- dropdown -->
+        <am-dropdown ref="dropdown1" placement="top">
+            <am-dropdown-item :header="true">标题</am-dropdown-item>
+            <am-dropdown-item :active="true" @click="dropdownClick" value="bbb"><a>快乐的方式不只一种</a></am-dropdown-item>
+            <am-dropdown-item :disabled="true" @click="dropdownClick" value="ccc"><a>快乐的方式不只一种</a></am-dropdown-item>
+            <am-dropdown-item><a>快乐的方式不只一种</a></am-dropdown-item>
+            <am-dropdown-item :divider="true"></am-dropdown-item>
+            <am-dropdown-item><a>快乐的方式不只一种</a></am-dropdown-item>
+        </am-dropdown>
+        <am-button color="danger" v-dropdown:dropdown1>dropdown</am-button>
     </section>
 </template>
 
@@ -171,7 +187,9 @@
             }
         },
         methods: {
-
+            dropdownClick(val) {
+                console.log(val)
+            }
         }
     }
 </script>
