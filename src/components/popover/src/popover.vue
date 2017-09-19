@@ -1,6 +1,6 @@
 <template>
     <transition :name="transition" >
-        <div :class="computedClass" ref="popover">
+        <div :class="computedClass" v-if="visible" ref="popover">
             <span class="am-popover-caret"></span>
             <div class="am-popover-inner"><slot></slot></div>
         </div>

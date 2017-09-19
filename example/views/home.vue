@@ -152,7 +152,7 @@
             </am-panel>
         </am-panel-group>
         <!-- dropdown -->
-        <am-dropdown ref="dropdown1" placement="top">
+        <am-dropdown ref="dropdown1" placement="bottom">
             <am-dropdown-item :header="true">标题</am-dropdown-item>
             <am-dropdown-item :active="true" @click="dropdownClick" value="bbb"><a>快乐的方式不只一种</a></am-dropdown-item>
             <am-dropdown-item :disabled="true" @click="dropdownClick" value="ccc"><a>快乐的方式不只一种</a></am-dropdown-item>

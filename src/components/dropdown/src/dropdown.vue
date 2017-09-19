@@ -1,6 +1,6 @@
 <template>
     <transition :name="transition" >
-        <ul
+        <ul v-if="visible"
             ref="dropdown"
             :class="computedClass"
             @mouseenter="mouseenterHandle"
@@ -42,11 +42,11 @@
             },
             delay: {
                 type: Number,
-                default: 300
+                default: 100
             },
             transition: {
                 type: String,
-                default: 'scale-down',
+                default: 'fade',
                 validator(value) {
                     return [
                         'fade',
@@ -127,7 +127,7 @@
                 $dropdown.style.left = document.body.scrollLeft + left + 'px';
 
                 if (this.placement == 'top') {
-                    $dropdown.style.top = document.body.scrollTop + top - selfHeight - 29 - this.fix + 'px';
+                    $dropdown.style.top = document.body.scrollTop + top - selfHeight - 28 - this.fix + 'px';
                 }
                 else {
                     $dropdown.style.top = document.body.scrollTop + top + height - 19 + this.fix + 'px';
