@@ -14,6 +14,16 @@ export function off(el, event, func) {
     el.removeEventListener(event, func);
 }
 
+export function attr(el, arg) {
+    if (typeof arg === 'object') {
+        for (let property in arg) {
+            el.setAttribute(property, arg[property]);
+        }
+    }
+    else {
+        return el.getAttribute(arg);
+    }
+}
 
 export function removeAttr(el, attr) {
     el.removeAttribute(attr);
@@ -30,4 +40,21 @@ export function css() {
     else {
         el.style[arguments[1]] = arguments[2];
     }
+}
+
+export function addClass(el, newClass) {
+    let classes = attr(el, 'class');
+
+    if (!classes) {
+        classes = [];
+    }
+    else {
+        classes = classes.split(' ');
+    }
+
+    classes.push(newClass);
+
+    attr(el, {
+        'class': classes.join(' ')
+    });
 }

@@ -31,7 +31,7 @@ import {
     panelGroup
 } from './components/panel';
 import { Dropdown, DropdownItem } from './components/dropdown';
-
+import { Modal, ModalHeader, ModalBody, ModalFooter } from './components/modal';
 import { Popover } from './components/popover';
 
 
@@ -70,7 +70,10 @@ const install = function (Vue) {
     Vue.component(Dropdown.name, Dropdown);
     Vue.use(Dropdown);
     Vue.component(DropdownItem.name, DropdownItem);
-
+    Vue.component(Modal.name, Modal);
+    Vue.component(ModalHeader.name, ModalHeader);
+    Vue.component(ModalBody.name, ModalBody);
+    Vue.component(ModalFooter.name, ModalFooter);
 
     Vue.component(Popover.name, Popover);
     Vue.use(Popover);

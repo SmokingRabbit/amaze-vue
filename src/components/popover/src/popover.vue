@@ -1,5 +1,5 @@
 <template>
-    <transition :name="transition" >
+    <transition :name="transition">
         <div :class="computedClass" v-if="visible" ref="popover">
             <span class="am-popover-caret"></span>
             <div class="am-popover-inner"><slot></slot></div>

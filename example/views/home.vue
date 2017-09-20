@@ -161,6 +161,17 @@
             <am-dropdown-item><a>快乐的方式不只一种</a></am-dropdown-item>
         </am-dropdown>
         <am-button color="danger" v-dropdown:dropdown1>dropdown</am-button>
+        <!-- modal -->
+        <am-button @click="showModal">showModal</am-button>
+        <am-modal :isShow.sync="modalVisible">
+            <am-modal-header>标题</am-modal-header>
+            <am-modal-body>
+                <h1>Modal 内容</h1>
+            </am-modal-body>
+            <am-modal-footer>
+                footer
+            </am-modal-footer>
+        </am-modal>
     </section>
 </template>
 
@@ -175,7 +186,8 @@
                 radioVal: '',
                 radioGroup: '',
                 checkboxVal: false,
-                checkboxGroupVal: ['1']
+                checkboxGroupVal: ['1'],
+                modalVisible: false
             };
         },
         watch: {
@@ -189,6 +201,9 @@
         methods: {
             dropdownClick(val) {
                 console.log(val)
+            },
+            showModal() {
+                this.modalVisible = true;
             }
         }
     }
