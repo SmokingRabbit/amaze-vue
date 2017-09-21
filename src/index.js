@@ -32,8 +32,8 @@ import {
 } from './components/panel';
 import { Dropdown, DropdownItem } from './components/dropdown';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from './components/modal';
+import { Confirm } from './components/confirm';
 import { Popover } from './components/popover';
-
 
 const install = function (Vue) {
     Vue.component(Button.name, Button);
@@ -74,6 +74,7 @@ const install = function (Vue) {
     Vue.component(ModalHeader.name, ModalHeader);
     Vue.component(ModalBody.name, ModalBody);
     Vue.component(ModalFooter.name, ModalFooter);
+    Vue.component(Confirm.name, Confirm);
 
     Vue.component(Popover.name, Popover);
     Vue.use(Popover);

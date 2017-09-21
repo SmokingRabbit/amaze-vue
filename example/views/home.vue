@@ -152,26 +152,37 @@
             </am-panel>
         </am-panel-group>
         <!-- dropdown -->
-        <am-dropdown ref="dropdown1" placement="bottom">
-            <am-dropdown-item :header="true">标题</am-dropdown-item>
-            <am-dropdown-item :active="true" @click="dropdownClick" value="bbb"><a>快乐的方式不只一种</a></am-dropdown-item>
-            <am-dropdown-item :disabled="true" @click="dropdownClick" value="ccc"><a>快乐的方式不只一种</a></am-dropdown-item>
-            <am-dropdown-item><a>快乐的方式不只一种</a></am-dropdown-item>
-            <am-dropdown-item :divider="true"></am-dropdown-item>
-            <am-dropdown-item><a>快乐的方式不只一种</a></am-dropdown-item>
-        </am-dropdown>
-        <am-button color="danger" v-dropdown:dropdown1>dropdown</am-button>
+        <div>
+            <am-dropdown ref="dropdown1" placement="bottom">
+                <am-dropdown-item :header="true">标题</am-dropdown-item>
+                <am-dropdown-item :active="true" @click="dropdownClick" value="bbb"><a>快乐的方式不只一种</a></am-dropdown-item>
+                <am-dropdown-item :disabled="true" @click="dropdownClick" value="ccc"><a>快乐的方式不只一种</a></am-dropdown-item>
+                <am-dropdown-item><a>快乐的方式不只一种</a></am-dropdown-item>
+                <am-dropdown-item :divider="true"></am-dropdown-item>
+                <am-dropdown-item><a>快乐的方式不只一种</a></am-dropdown-item>
+            </am-dropdown>
+            <am-button color="danger" v-dropdown:dropdown1>dropdown</am-button>
+        </div>
         <!-- modal -->
-        <am-button @click="showModal">showModal</am-button>
-        <am-modal :isShow.sync="modalVisible">
-            <am-modal-header>标题</am-modal-header>
-            <am-modal-body>
-                <h1>Modal 内容</h1>
-            </am-modal-body>
-            <am-modal-footer>
-                footer
-            </am-modal-footer>
-        </am-modal>
+        <div>
+            <am-button @click="showModal">showModal</am-button>
+            <am-modal :isShow.sync="modalVisible">
+                <am-modal-header>标题</am-modal-header>
+                <am-modal-body>
+                    <h1>Modal 内容</h1>
+                </am-modal-body>
+                <am-modal-footer>
+                    footer
+                </am-modal-footer>
+            </am-modal>
+        </div>
+        <!-- confirm -->
+        <div>
+            <am-button @click="showConfirm">showConfirm</am-button>
+            <am-confirm :isShow.sync="confirmVisible" title="确认框" @cancel="cancelHandle">
+                看看是不是需要你确认？
+            </am-confirm>
+        </div>
     </section>
 </template>
 
@@ -187,7 +198,8 @@
                 radioGroup: '',
                 checkboxVal: false,
                 checkboxGroupVal: ['1'],
-                modalVisible: false
+                modalVisible: false,
+                confirmVisible: false
             };
         },
         watch: {
@@ -204,6 +216,12 @@
             },
             showModal() {
                 this.modalVisible = true;
+            },
+            showConfirm() {
+                this.confirmVisible = true;
+            },
+            cancelHandle() {
+                console.log('取消了confirm')
             }
         }
     }
@@ -215,5 +233,9 @@
         margin: 20px auto;
 
         padding-bottom: 50px;
+
+        >div {
+            margin-top: 20px;
+        }
     }
 </style>

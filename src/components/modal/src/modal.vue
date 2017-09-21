@@ -1,6 +1,6 @@
 <template>
     <transition :name="transition">
-        <div :class="computedClass" ref="modal" v-if="visible"  @click="globalClickHandle">
+        <div :class="computedClass" tabindex="-1" ref="modal" v-if="visible"  @click="globalClickHandle">
             <div class="am-modal-dialog" :style="computedStyle" @click="dialogClickHandle">
                 <slot></slot>
             </div>
