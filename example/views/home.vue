@@ -190,6 +190,10 @@
                 想好了再说……
             </am-prompt>
         </div>
+        <!-- toast -->
+        <div>
+            <am-button @click="showToast">toast</am-button>
+        </div>
     </section>
 </template>
 
@@ -237,6 +241,9 @@
             },
             submitHandle() {
                 console.log(this.promptVal)
+            },
+            showToast() {
+                this.$Toast.open('toast 信息');
             }
         }
     }
