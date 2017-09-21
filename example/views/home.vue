@@ -183,6 +183,13 @@
                 看看是不是需要你确认？
             </am-confirm>
         </div>
+        <!-- Prompt -->
+        <div>
+            <am-button @click="showPrompt">showPrompt</am-button>
+            <am-prompt :isShow.sync="promptVisbile" v-model="promptVal" title="说点什么吧" @submit="submitHandle">
+                想好了再说……
+            </am-prompt>
+        </div>
     </section>
 </template>
 
@@ -199,7 +206,9 @@
                 checkboxVal: false,
                 checkboxGroupVal: ['1'],
                 modalVisible: false,
-                confirmVisible: false
+                confirmVisible: false,
+                promptVisbile: false,
+                promptVal: ''
             };
         },
         watch: {
@@ -222,6 +231,12 @@
             },
             cancelHandle() {
                 console.log('取消了confirm')
+            },
+            showPrompt() {
+                this.promptVisbile = true;
+            },
+            submitHandle() {
+                console.log(this.promptVal)
             }
         }
     }
