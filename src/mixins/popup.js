@@ -25,6 +25,16 @@ export default {
         getZIndex() {
             zIndex++;
             return zIndex;
+        },
+        stopScroll(e) {
+            if (e && e.preventDefault){
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            else{
+                e.returnvalue=false;
+                return false;
+            }
         }
     },
     watch: {
@@ -38,12 +48,21 @@ export default {
                 dom.addClass(this.$overlay, 'am-dimmer am-active');
                 dom.css(this.$overlay, {zIndex: this.getZIndex()});
                 document.body.appendChild(this.$overlay);
+                this.stopListener = true;
+                window.addEventListener('mousewheel', this.stopScroll);
             }
             else {
                 setTimeout(() => {
                     document.body.removeChild(this.$overlay);
+                    this.stopListener = false;
+                    window.removeEventListener('mousewheel', this.stopScroll);
                 }, 300);
             }
+        }
+    },
+    beforeDestroy() {
+        if (this.stopListener) {
+            window.removeEventListener('mousewheel', this.stopScroll);
         }
     }
 }

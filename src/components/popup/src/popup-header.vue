@@ -1,6 +1,6 @@
 <template>
     <div :class="computedClass">
-        <slot></slot>
+        <h4 class="am-popup-title">{{ title }}</h4>
         <close v-if="closeBtn" @click="closeModal" customClass="am-close-spin"></close>
     </div>
 </template>
@@ -9,7 +9,7 @@
     import { Close } from '../../close';
 
     export default {
-        name: 'am-modal-header',
+        name: 'am-popup-header',
         props: {
             customClass: {
                 type: String,
@@ -17,6 +17,10 @@
             closeBtn: {
                 type: Boolean,
                 default: true
+            },
+            title: {
+                type: String,
+                default: ''
             }
         },
         methods: {
@@ -28,7 +32,7 @@
             computedClass() {
                 const classes = [];
 
-                classes.push('am-modal-hd');
+                classes.push('am-popup-hd');
 
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
@@ -39,7 +43,7 @@
             modal() {
                 let parent = this.$parent;
                 while (parent) {
-                    if (parent.$options.name !== 'am-modal') {
+                    if (parent.$options.name !== 'am-popup') {
                         parent = parent.$parent;
                     }
                     else {

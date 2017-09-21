@@ -1,5 +1,5 @@
 <template>
-    <button type="button" :class="computedClass">&times;</button>
+    <button type="button" @click="clickHandle" :class="computedClass">&times;</button>
 </template>
 
 <script>
@@ -29,6 +29,11 @@
                 }
 
                 return classes.join(' ');
+            }
+        },
+        methods: {
+            clickHandle() {
+                this.$emit('click');
             }
         }
     }
