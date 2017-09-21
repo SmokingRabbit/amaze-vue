@@ -122,8 +122,8 @@
             <am-popover ref="popover4" placement="bottom" size="sm">bottom的提示框</am-popover>
             <am-button v-popover:popover4>hover</am-button>
         </div>
-        <!-- alert -->
-        <am-alert color="success" :closeBtn="true">
+        <!-- Warn -->
+        <am-warn color="success" :closeBtn="true">
             <h3>共同渡过</h3>
             <p>《共同渡过》是张国荣1987年发行的专辑《Summer Romance》中的一首歌。</p>
                 <ul>
@@ -134,7 +134,7 @@
                 <li>我都盼面前仍是你</li>
                 <li>我要他生都有今生的暖意</li>
             </ul>
-        </am-alert>
+        </am-warn>
         <!-- panel -->
         <am-panel :collapse="true">
             <am-panel-header title="panel标题"></am-panel-header>

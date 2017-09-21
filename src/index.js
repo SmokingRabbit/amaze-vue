@@ -22,7 +22,7 @@ import { Input, InputLabel } from './components/input';
 import { Form } from './components/form';
 import { Radio, RadioGroup } from './components/radio';
 import { Checkbox, CheckboxGroup } from './components/checkbox';
-import { Alert } from './components/alert';
+import { Warn } from './components/warn';
 import {
     Panel,
     PanelHeader,
@@ -69,7 +69,7 @@ const install = function (Vue) {
     Vue.component(PanelBody.name, PanelBody);
     Vue.component(PanelFooter.name, PanelFooter);
     Vue.component(panelGroup.name, panelGroup);
-    Vue.component(Alert.name, Alert);
+    Vue.component(Warn.name, Warn);
     Vue.component(Dropdown.name, Dropdown);
     Vue.use(Dropdown);
     Vue.component(DropdownItem.name, DropdownItem);
