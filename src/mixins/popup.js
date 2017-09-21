@@ -42,7 +42,7 @@ export default {
             else {
                 setTimeout(() => {
                     document.body.removeChild(this.$overlay);
-                }, 200);
+                }, 300);
             }
         }
     }

@@ -1,9 +1,7 @@
 <template>
     <transition :name="transition">
         <div :class="computedClass" tabindex="-1" ref="modal" v-if="visible"  @click="globalClickHandle">
-            <div class="am-modal-dialog" :style="computedStyle" @click="dialogClickHandle">
-                <slot></slot>
-            </div>
+            <slot></slot>
         </div>
     </transition>
 </template>
@@ -12,19 +10,11 @@
     import Popup from '../../../mixins/popup';
 
     export default {
-        name: 'am-modal',
+        name: 'am-actions',
         mixins: [ Popup ],
         props: {
             customClass: {
                 type: String,
-            },
-            width: {
-                type: Number,
-                default: 0
-            },
-            height: {
-                type: Number,
-                default: 0
             },
             isShow: {
                 type: Boolean,
@@ -36,7 +26,7 @@
             },
             transition: {
                 type: String,
-                default: 'scale-up'
+                default: 'slide-down'
             }
         },
         watch: {
@@ -66,7 +56,7 @@
             computedClass() {
                 const classes = [];
 
-                classes.push('am-modal');
+                classes.push('am-modal-actions');
 
                 if (this.visible) {
                     classes.push('am-modal-active');
@@ -77,19 +67,6 @@
                 }
 
                 return classes.join(' ');
-            },
-            computedStyle() {
-                const styles = {};
-
-                if (this.height !== 0) {
-                    styles['height'] = this.height + 'px';
-                }
-
-                if (this.width !== 0) {
-                    styles['width'] = this.width + 'px';
-                }
-
-                return styles;
             }
         },
         created() {
@@ -100,8 +77,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./modal.less";
-</style>

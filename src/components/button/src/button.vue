@@ -39,6 +39,10 @@
                 type: Boolean,
                 default: false
             },
+            block: {
+                type: Boolean,
+                default: false
+            },
             isActive: {
                 type: Boolean,
                 default: false
@@ -76,6 +80,10 @@
 
                 if (this.round) {
                     classes.push('am-round');
+                }
+
+                if (this.block) {
+                    classes.push('am-btn-block');
                 }
 
                 if (this.isActive) {

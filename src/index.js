@@ -37,6 +37,7 @@ import { Confirm } from './components/confirm';
 import { Prompt } from './components/prompt';
 import { Toast } from './components/toast';
 import { Alert } from './components/alert';
+import { Actions, ActionsGroup } from './components/actions';
 
 import { Popover } from './components/popover';
 
@@ -86,6 +87,8 @@ const install = function (Vue) {
     Vue.component(Toast.name, Toast);
     Vue.use(Toast);
     Vue.component(Alert.name, Alert);
+    Vue.component(Actions.name, Actions);
+    Vue.component(ActionsGroup.name, ActionsGroup);
 
     Vue.component(Popover.name, Popover);
     Vue.use(Popover);

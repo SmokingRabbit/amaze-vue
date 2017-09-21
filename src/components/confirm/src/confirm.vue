@@ -55,18 +55,7 @@
             },
             transition: {
                 type: String,
-                default: 'scale-up',
-                validator(value) {
-                    return [
-                        'fade',
-                        'jump',
-                        'long',
-                        'scale-up',
-                        'scale-down',
-                        'slide-left',
-                        'slide-right'
-                    ].indexOf(value) > -1;
-                }
+                default: 'scale-up'
             }
         },
         watch: {

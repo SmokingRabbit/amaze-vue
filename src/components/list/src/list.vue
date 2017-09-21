@@ -13,21 +13,21 @@
             },
             static: {
                 type: Boolean,
-                default: true
+                default: false
             },
             border: {
                 type: Boolean,
-                default: true
+                default: false
             },
             striped: {
                 type: Boolean,
-                default: true
+                default: false
             }
         },
         computed: {
             computedClass() {
                 const classes = [];
-                classes.join('am-list');
+                classes.push('am-list');
 
                 if (this.static) {
                     classes.push('am-list-static');

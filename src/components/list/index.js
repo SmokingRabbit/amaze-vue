@@ -1,5 +1,5 @@
 import List from './src/list';
-import ListItem from './src/listItem';
+import ListItem from './src/list-item';
 
 export {
     List,

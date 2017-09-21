@@ -201,6 +201,22 @@
                 请确认alert信息
             </am-alert>
         </div>
+        <!-- actions -->
+        <div>
+            <am-button @click="showActions">actions</am-button>
+            <am-actions :isShow.sync="actionsVisible">
+                <am-actions-group>
+                    <am-list>
+                        <am-list-item>1</am-list-item>
+                        <am-list-item>2</am-list-item>
+                        <am-list-item>3</am-list-item>
+                    </am-list>
+                </am-actions-group>
+                <am-actions-group>
+                    <am-button color="secondary" :block="true">取消</am-button>
+                </am-actions-group>
+            </am-actions>
+        </div>
     </section>
 </template>
 
@@ -220,7 +236,8 @@
                 confirmVisible: false,
                 promptVisbile: false,
                 promptVal: '',
-                alertVisible: false
+                alertVisible: false,
+                actionsVisible: false
             };
         },
         watch: {
@@ -258,6 +275,9 @@
             },
             alertSubmitHandle() {
                 console.log('alert submit')
+            },
+            showActions() {
+                this.actionsVisible = true;
             }
         }
     }

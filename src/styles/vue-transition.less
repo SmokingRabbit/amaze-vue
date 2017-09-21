@@ -1,9 +1,11 @@
+@delay: 0.3s;
+
 /**
  * fade
  */
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.3s;
+    transition: opacity @delay;
 }
 
 .fade-enter,
@@ -15,11 +17,11 @@
  * jump
  */
 .jump-enter-active {
-    animation: jump 0.2s;
+    animation: jump @delay;
 }
 
 .jump-leave-active {
-    animation: jump 0.2s reverse;
+    animation: jump @delay reverse;
 }
 @keyframes jump {
     0% {
@@ -38,11 +40,11 @@
  * jump
  */
 .long-form-enter-active {
-    transition: all 0.2s ease;
+    transition: all @delay ease;
 }
 
 .long-form-leave-active {
-    transition: all 0.5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    transition: all @delay cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 
 .long-form-enter,
@@ -55,11 +57,11 @@
  * scale-up
  */
 .scale-up-enter-active {
-    animation: scaleUp 0.2s;
+    animation: scaleUp @delay;
 }
 
 .scale-up-leave-active {
-    animation: scaleUp 0.2s reverse;
+    animation: scaleUp @delay reverse;
 }
 @keyframes scaleUp {
     0% {
@@ -78,11 +80,11 @@
  * scale-down
  */
 .scale-down-enter-active {
-    animation: scaleDown 0.2s;
+    animation: scaleDown @delay;
 }
 
 .scale-down-leave-active {
-    animation: scaleDown 0.2s reverse;
+    animation: scaleDown @delay reverse;
 }
 @keyframes scaleDown {
     0% {
@@ -97,16 +99,15 @@
         transform: scale3D(1, 1, 1);
     }
 }
-
 /**
  * slide-left
  */
 .slide-left-enter-active {
-    animation: slideLeft 0.2s;
+    animation: slideLeft @delay;
 }
 
 .slide-left-leave-active {
-    animation: slideLeft 0.2s reverse;
+    animation: slideLeft @delay reverse;
 }
 @keyframes slideLeft {
     0% {
@@ -121,16 +122,15 @@
         transform: translate3d(0px, 0, 0);
     }
 }
-
 /**
  * slide-right
  */
 .slide-right-enter-active {
-    animation: slideRight 0.2s;
+    animation: slideRight @delay;
 }
 
 .slide-right-leave-active {
-    animation: slideRight 0.2s reverse;
+    animation: slideRight @delay reverse;
 }
 @keyframes slideRight {
     0% {
@@ -143,5 +143,25 @@
 
     100% {
         transform: translate3d(0px, 0, 0);
+    }
+}
+/**
+ * slide-down
+ */
+.slide-down-enter-active {
+    animation: slideDown @delay;
+}
+
+.slide-down-leave-active {
+    animation: slideDown @delay reverse;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translatey(0);
     }
 }
