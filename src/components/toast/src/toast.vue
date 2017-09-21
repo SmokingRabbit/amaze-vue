@@ -15,7 +15,7 @@
     import { Icon } from '../../icon';
 
     export default {
-        name: 'am-prompt',
+        name: 'am-toast',
         data() {
             return {
                 syncSlot: this.isShow
@@ -24,7 +24,7 @@
         props: {
             customClass: {
                 type: String,
-                default: 'am-modal-confirm'
+                default: 'am-modal-loading'
             },
             message: {
                 type: String

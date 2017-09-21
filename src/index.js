@@ -35,6 +35,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter } from './components/modal';
 import { Confirm } from './components/confirm';
 import { Prompt } from './components/prompt';
 import { Toast } from './components/toast';
+import { Alert } from './components/alert';
 
 import { Popover } from './components/popover';
 
@@ -81,7 +82,8 @@ const install = function (Vue) {
     Vue.component(Prompt.name, Prompt);
     Vue.component(Toast.name, Toast);
     Vue.use(Toast);
-
+    Vue.component(Alert.name, Alert);
+    
     Vue.component(Popover.name, Popover);
     Vue.use(Popover);
 }

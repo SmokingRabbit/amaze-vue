@@ -194,6 +194,13 @@
         <div>
             <am-button @click="showToast">toast</am-button>
         </div>
+        <!-- alert -->
+        <div>
+            <am-button @click="showAlert">alert</am-button>
+            <am-alert :isShow.sync="alertVisible" title="alert" @submit="alertSubmitHandle">
+                请确认alert信息
+            </am-alert>
+        </div>
     </section>
 </template>
 
@@ -212,7 +219,8 @@
                 modalVisible: false,
                 confirmVisible: false,
                 promptVisbile: false,
-                promptVal: ''
+                promptVal: '',
+                alertVisible: false
             };
         },
         watch: {
@@ -244,6 +252,12 @@
             },
             showToast() {
                 this.$Toast.open('toast 信息');
+            },
+            showAlert() {
+                this.alertVisible = true;
+            },
+            alertSubmitHandle() {
+                console.log('alert submit')
             }
         }
     }
