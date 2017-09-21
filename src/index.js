@@ -20,6 +20,7 @@ import {
 import { Code } from './components/code';
 import { Input, InputLabel } from './components/input';
 import { Form } from './components/form';
+import { List, ListItem } from './components/list';
 import { Radio, RadioGroup } from './components/radio';
 import { Checkbox, CheckboxGroup } from './components/checkbox';
 import { Warn } from './components/warn';
@@ -61,6 +62,8 @@ const install = function (Vue) {
     Vue.component(Input.name, Input);
     Vue.component(InputLabel.name, InputLabel);
     Vue.component(Form.name, Form);
+    Vue.component(List.name, List);
+    Vue.component(ListItem.name, ListItem);
     Vue.component(Radio.name, Radio);
     Vue.component(RadioGroup.name, RadioGroup);
     Vue.component(Checkbox.name, Checkbox);
@@ -83,7 +86,7 @@ const install = function (Vue) {
     Vue.component(Toast.name, Toast);
     Vue.use(Toast);
     Vue.component(Alert.name, Alert);
-    
+
     Vue.component(Popover.name, Popover);
     Vue.use(Popover);
 }
