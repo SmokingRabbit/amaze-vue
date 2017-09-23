@@ -39,7 +39,6 @@ import { Toast } from './components/toast';
 import { Alert } from './components/alert';
 import { Actions, ActionsGroup } from './components/actions';
 import { Popup, PopupHeader, PopupBody } from './components/popup';
-
 import { Popover } from './components/popover';
 
 const install = function (Vue) {
@@ -93,7 +92,6 @@ const install = function (Vue) {
     Vue.component(Popup.name, Popup);
     Vue.component(PopupHeader.name, PopupHeader);
     Vue.component(PopupBody.name, PopupBody);
-
     Vue.component(Popover.name, Popover);
     Vue.use(Popover);
 }
