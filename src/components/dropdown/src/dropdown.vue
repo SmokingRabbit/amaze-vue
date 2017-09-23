@@ -104,8 +104,10 @@
                         clearTimeout(this.timer);
                     }
                 }
-            },
-            showHook() {
+            }
+        },
+        updated() {
+            if (this.visible) {
                 const $dropdown = this.$refs['dropdown'];
                 const $reference = this.$refs['reference'];
 
@@ -113,13 +115,13 @@
                 const { height: selfHeight } = $dropdown.getBoundingClientRect();
 
                 $dropdown.style.zIndex = this.getZIndex();
-                $dropdown.style.left = document.body.scrollLeft + left + 'px';
+                $dropdown.style.left = this.pageOffset.left + left + 'px';
 
                 if (this.placement == 'top') {
-                    $dropdown.style.top = document.body.scrollTop + top - selfHeight - 28 - this.fix + 'px';
+                    $dropdown.style.top = this.pageOffset.top + top - selfHeight - 28 - this.fix + 'px';
                 }
                 else {
-                    $dropdown.style.top = document.body.scrollTop + top + height - 19 + this.fix + 'px';
+                    $dropdown.style.top = this.pageOffset.top + top + height - 19 + this.fix + 'px';
                 }
             }
         },

@@ -12,12 +12,6 @@ export default {
     methods: {
         show() {
             this.visible = true;
-
-            if (typeof this.showHook === 'function') {
-                setTimeout(() => {
-                    this.showHook();
-                });
-            }
         },
         hide() {
             this.visible = false;
@@ -35,6 +29,27 @@ export default {
                 e.returnvalue=false;
                 return false;
             }
+        }
+    },
+    computed: {
+        pageOffset() {
+            let top = 0;
+            let left = 0;
+
+            if(typeof window.pageYOffset != 'undefined'){
+                top = window.pageYOffset;
+                left = window.pageXOffset;
+            }
+            else if(typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat')        {
+                top = document.documentElement.scrollTop;
+                left = document.documentElement.scrollLeft;
+            }
+            else if(typeof document.body != 'undefined'){
+                top = document.body.scrollTop;
+                left = document.body.scrollLeft;
+            }
+
+            return {top, left};
         }
     },
     watch: {

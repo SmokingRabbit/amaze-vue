@@ -57,8 +57,10 @@
                 if (this.closeViaDimmer) {
                     this.$emit('update:isShow', false);
                 }
-            },
-            showHook() {
+            }
+        },
+        updated() {
+            if(this.visible) {
                 this.$refs['modal'].style.zIndex = this.getZIndex();
             }
         },

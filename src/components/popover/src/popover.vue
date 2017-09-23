@@ -59,34 +59,6 @@
             }
         },
         methods: {
-            showHook() {
-                const $popover = this.$refs['popover'];
-                const { top, left, width, height } = this.$refs['reference'].getBoundingClientRect();
-                const { width: selfWidth, height: selfHeight } = $popover.getBoundingClientRect();
-
-                $popover.style.zIndex = this.getZIndex();
-                if (this.placement === 'top' || this.placement === 'bottom') {
-                    $popover.style.left = left + document.body.scrollLeft - (selfWidth - width) / 2 + 'px';
-
-                    if (this.placement === 'top') {
-                        $popover.style.top = document.body.scrollTop + top - height - selfHeight / 2 - this.fix + 'px';
-                    }
-                    else {
-                        $popover.style.top = document.body.scrollTop + top + height - selfHeight / 2 + this.fix + 'px';
-                    }
-                }
-                else {
-                    $popover.style.top = document.body.scrollTop + top - (selfHeight) / 2 + 'px';
-
-                    if (this.placement === 'left') {
-                        $popover.style.left = left + document.body.scrollLeft - this.fix - selfWidth + 'px';
-                    }
-                    else {
-                        $popover.style.left = left + document.body.scrollLeft + this.fix + width + 'px';
-                    }
-                }
-            },
-
             clickHandle(e) {
                 if (this.visible) {
                     this.hide();
@@ -97,10 +69,38 @@
 
                 e.stopPropagation();
             },
-
             globalClickHandle(e) {
                 if (this.visible && !this.$el.contains(e.target)) {
                     this.hide();
+                }
+            }
+        },
+        updated() {
+            if (this.visible) {
+                const $popover = this.$refs['popover'];
+                const { top, left, width, height } = this.$refs['reference'].getBoundingClientRect();
+                const { width: selfWidth, height: selfHeight } = $popover.getBoundingClientRect();
+
+                $popover.style.zIndex = this.getZIndex();
+                if (this.placement === 'top' || this.placement === 'bottom') {
+                    $popover.style.left = left + this.pageOffset.left - (selfWidth - width) / 2 + 'px';
+
+                    if (this.placement === 'top') {
+                        $popover.style.top = this.pageOffset.top + top - height - selfHeight / 2 - this.fix + 'px';
+                    }
+                    else {
+                        $popover.style.top = this.pageOffset.top + top + height - selfHeight / 2 + this.fix + 'px';
+                    }
+                }
+                else {
+                    $popover.style.top = this.pageOffset.top + top - (selfHeight) / 2 + 'px';
+
+                    if (this.placement === 'left') {
+                        $popover.style.left = left + this.pageOffset.left - this.fix - selfWidth + 'px';
+                    }
+                    else {
+                        $popover.style.left = left + this.pageOffset.left + this.fix + width + 'px';
+                    }
                 }
             }
         },
