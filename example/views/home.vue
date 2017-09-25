@@ -5,6 +5,10 @@
             <am-col :span="4">1</am-col>
             <am-col :span="8">2</am-col>
         </am-row>
+        <!-- image -->
+        <div :style="{width: 100 + 'px'}">
+            <am-image  src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80" :thumbnail="true"></am-image>
+        </div>
         <!-- Button -->
         <am-button radiusType="radius" size="sm">测试</am-button>
         <!-- ButtonGroup -->
