@@ -1,5 +1,10 @@
 <template>
-    <section class="container">
+    <am-container customClass="container">
+        <!-- grid -->
+        <am-row>
+            <am-col :span="4">1</am-col>
+            <am-col :span="8">2</am-col>
+        </am-row>
         <!-- Button -->
         <am-button radiusType="radius" size="sm">测试</am-button>
         <!-- ButtonGroup -->
@@ -251,7 +256,7 @@
                 </p>
             </am-locker>
         </div>
-    </section>
+    </am-container>
 </template>
 
 <script>
@@ -338,10 +343,6 @@
 
 <style lang="less">
     .container {
-        width: 980px;
-        margin: 20px auto;
-
-        padding-bottom: 50px;
 
         >div {
             margin-top: 20px;
