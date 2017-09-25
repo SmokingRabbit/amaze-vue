@@ -41,6 +41,7 @@ import { Actions, ActionsGroup } from './components/actions';
 import { Popup, PopupHeader, PopupBody } from './components/popup';
 import { Popover } from './components/popover';
 import { NProgress } from './components/nprogress';
+import { Slider, SliderItem } from './components/slider';
 
 const install = function (Vue) {
     Vue.component(Button.name, Button);
@@ -96,6 +97,8 @@ const install = function (Vue) {
     Vue.component(Popover.name, Popover);
     Vue.use(Popover);
     Vue.use(NProgress);
+    Vue.component(Slider.name, Slider);
+    Vue.component(SliderItem.name, SliderItem);
 }
 
 export default {

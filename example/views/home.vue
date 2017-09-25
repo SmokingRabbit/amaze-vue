@@ -231,6 +231,15 @@
         <div>
             <am-button @click="nprogressHandle">nprogress-{{ this.nprogress ? 'end' : 'start' }}</am-button>
         </div>
+        <!-- slider -->
+        <div>
+            <am-slider>
+                <am-slider-item><img src="http://s.amazeui.org/media/i/demos/bing-1.jpg" /></am-slider-item>
+                <am-slider-item><img src="http://s.amazeui.org/media/i/demos/bing-2.jpg" /></am-slider-item>
+                <am-slider-item><img src="http://s.amazeui.org/media/i/demos/bing-3.jpg" /></am-slider-item>
+                <am-slider-item><img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></am-slider-item>
+            </am-slider>
+        </div>
     </section>
 </template>
 
