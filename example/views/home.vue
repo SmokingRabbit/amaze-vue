@@ -227,6 +227,10 @@
                 </am-popup-body>
             </am-popup>
         </div>
+        <!-- nprogress -->
+        <div>
+            <am-button @click="nprogressHandle">nprogress-{{ this.nprogress ? 'end' : 'start' }}</am-button>
+        </div>
     </section>
 </template>
 
@@ -248,7 +252,8 @@
                 promptVal: '',
                 alertVisible: false,
                 actionsVisible: false,
-                popupVisible: false
+                popupVisible: false,
+                nprogress: false
             };
         },
         watch: {
@@ -292,6 +297,16 @@
             },
             showPopup() {
                 this.popupVisible = true;
+            },
+            nprogressHandle() {
+                if (this.nprogress) {
+                    this.$nprogress.end();
+                    this.nprogress = false;
+                }
+                else {
+                    this.$nprogress.start();
+                    this.nprogress = true;
+                }
             }
         }
     }
