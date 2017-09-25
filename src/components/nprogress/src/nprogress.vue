@@ -1,12 +1,14 @@
 <template>
-    <div :class="computedClass" v-if="visible">
-        <div class="nprogress-bar" :style="computedStyle">
-            <div class="nprogress-peg"></div>
+    <transition name="fade">
+        <div :class="computedClass" v-if="visible">
+            <div class="nprogress-bar" :style="computedStyle">
+                <div class="nprogress-peg"></div>
+            </div>
+            <div class="nprogress-spinner" >
+                <div class="nprogress-spinner-icon"></div>
+            </div>
         </div>
-        <div class="nprogress-spinner" >
-            <div class="nprogress-spinner-icon"></div>
-        </div>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -36,6 +38,10 @@
             inc: {
                 type: Number,
                 default: 0
+            },
+            effect: {
+                type: String,
+                default: 'linear'
             }
         },
         methods: {
@@ -49,7 +55,7 @@
                 return n;
             },
             render(inc) {
-                const { speed, minimum } = this;
+                const { speed, minimum, effect } = this;
                 const precent = this.clamp(inc, minimum, 1);
 
                 if (precent === 1) {
@@ -57,7 +63,7 @@
                 }
 
                 this.computedStyle = {
-                    transition: 'all ' + speed + 'ms linear',
+                    transition: 'all ' + speed + 'ms ' + effect,
                     transform: 'translate3d('+ ((-1 + precent) * 100) + '%, 0, 0)'
                 };
             },
@@ -76,12 +82,14 @@
                     clearInterval(this.timer);
                 }
 
+                const { effect, speed } = this;
+
                 this.computedStyle = {
-                    transition: 'all ' + this.speed + 'ms linear',
+                    transition: 'all ' + speed + 'ms ' + effect,
                     transform: 'translate3d(0%, 0, 0)'
                 };
 
-                setTimeout(this.hide, this.speed + 800);
+                setTimeout(this.hide, speed + 800);
             }
         },
         computed: {
