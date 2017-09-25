@@ -42,6 +42,7 @@ import { Popup, PopupHeader, PopupBody } from './components/popup';
 import { Popover } from './components/popover';
 import { NProgress } from './components/nprogress';
 import { Slider, SliderItem } from './components/slider';
+import { Locker } from './components/locker';
 
 const install = function (Vue) {
     Vue.component(Button.name, Button);
@@ -99,6 +100,7 @@ const install = function (Vue) {
     Vue.use(NProgress);
     Vue.component(Slider.name, Slider);
     Vue.component(SliderItem.name, SliderItem);
+    Vue.component(Locker.name, Locker);
 }
 
 export default {

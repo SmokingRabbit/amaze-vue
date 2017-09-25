@@ -165,3 +165,45 @@
         transform: translatey(0);
     }
 }
+
+/**
+ * locker-left
+ */
+.locker-left-enter-active {
+    animation: lockerLeft @delay;
+}
+
+.locker-left-leave-active {
+    animation: lockerLeft @delay reverse;
+}
+
+@keyframes lockerLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/**
+ * locker-right
+ */
+.locker-right-enter-active {
+    animation: lockerRight @delay;
+}
+
+.locker-right-leave-active {
+    animation: lockerRight @delay reverse;
+}
+
+@keyframes lockerRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

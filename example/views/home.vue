@@ -240,6 +240,17 @@
                 <am-slider-item><img src="http://s.amazeui.org/media/i/demos/bing-4.jpg" /></am-slider-item>
             </am-slider>
         </div>
+        <!-- locker -->
+        <div>
+            <am-button @click="lockerHandle">locker</am-button>
+            <am-locker :isShow.sync="lockerVisible" placement="right">
+                <p>
+                    我不愿让你一个人 <br/>
+                    承受这世界的残忍 <br/>
+                    我不愿眼泪陪你到 永恒 <br/>
+                </p>
+            </am-locker>
+        </div>
     </section>
 </template>
 
@@ -262,7 +273,8 @@
                 alertVisible: false,
                 actionsVisible: false,
                 popupVisible: false,
-                nprogress: false
+                nprogress: false,
+                lockerVisible: false
             };
         },
         watch: {
@@ -316,6 +328,9 @@
                     this.$nprogress.start();
                     this.nprogress = true;
                 }
+            },
+            lockerHandle() {
+                this.lockerVisible = true;
             }
         }
     }

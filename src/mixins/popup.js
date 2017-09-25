@@ -6,7 +6,8 @@ export default {
     data() {
         return {
             visible: false,
-            overlay: false
+            overlay: false,
+            overlayClassName: 'am-dimmer'
         }
     },
     methods: {
@@ -60,7 +61,7 @@ export default {
 
             if (curVal) {
                 this.$overlay = document.createElement('div');
-                dom.addClass(this.$overlay, 'am-dimmer am-active');
+                dom.addClass(this.$overlay, this.overlayClassName + ' am-active');
                 dom.css(this.$overlay, {zIndex: this.getZIndex()});
                 document.body.appendChild(this.$overlay);
                 this.stopListener = true;
