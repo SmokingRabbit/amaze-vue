@@ -9,6 +9,43 @@
         <div :style="{width: 100 + 'px'}">
             <am-image  src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/1000/h/1000/q/80" :thumbnail="true"></am-image>
         </div>
+        <!-- table -->
+        <am-table>
+            <thead>
+                <tr>
+                    <th>网站名称</th>
+                    <th>网址</th>
+                    <th>创建时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amaze UI</td>
+                    <td>http://amazeui.org</td>
+                    <td>2012-10-01</td>
+                </tr>
+                <tr>
+                    <td>Amaze UI</td>
+                    <td>http://amazeui.org</td>
+                    <td>2012-10-01</td>
+                </tr>
+                <tr class="am-active">
+                    <td>Amaze UI(Active)</td>
+                    <td>http://amazeui.org</td>
+                    <td>2012-10-01</td>
+                </tr>
+                <tr>
+                    <td>Amaze UI</td>
+                    <td>http://amazeui.org</td>
+                    <td>2012-10-01</td>
+                </tr>
+                <tr>
+                    <td>Amaze UI</td>
+                    <td>http://amazeui.org</td>
+                    <td>2012-10-01</td>
+                </tr>
+            </tbody>
+        </am-table>
         <!-- Button -->
         <am-button radiusType="radius" size="sm">测试</am-button>
         <!-- ButtonGroup -->

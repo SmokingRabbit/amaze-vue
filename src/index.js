@@ -4,6 +4,7 @@ import { Container } from './components/container';
 import { Row } from './components/row';
 import { Col } from './components/col';
 import { Image } from './components/image';
+import { Table } from './components/table';
 import { Button, ButtonGroup } from './components/button';
 import { Icon } from './components/icon';
 import { Animation } from './components/animation';
@@ -53,6 +54,7 @@ const install = function (Vue) {
     Vue.component(Row.name, Row);
     Vue.component(Col.name, Col);
     Vue.component(Image.name, Image);
+    Vue.component(Table.name, Table);
     Vue.component(Button.name, Button);
     Vue.component(ButtonGroup.name, ButtonGroup);
     Vue.component(Icon.name, Icon);

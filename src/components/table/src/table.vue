@@ -7,8 +7,19 @@
 <script>
     export default {
         name: 'am-table',
+        data() {
+            return {
+                selectValue: []
+            };
+        },
         props: {
             customClass: String,
+            data: {
+                type: Array
+            },
+            value: {
+                type: Array
+            },
             border: {
                 type: Boolean,
                 default: true
@@ -59,12 +70,9 @@
                 if (this.nowrap) {
                     classes.push('am-text-nowrap');
                 }
+
+                return classes.join(' ');
             }
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./table.less";
-</style>
