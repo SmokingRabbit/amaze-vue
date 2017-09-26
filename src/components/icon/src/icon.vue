@@ -65,8 +65,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./icon.less";
-</style>

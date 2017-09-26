@@ -97,7 +97,7 @@
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
                 }
-                
+
                 return classes.join(' ');
             },
             computedStyle() {
@@ -125,8 +125,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./animation.less";
-</style>

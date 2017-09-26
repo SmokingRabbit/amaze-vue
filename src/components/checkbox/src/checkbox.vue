@@ -134,9 +134,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./checkbox.less";
-    // other "../../form/src/form.less";
-</style>

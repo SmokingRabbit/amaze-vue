@@ -34,8 +34,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./Breadcrumb.less";
-</style>

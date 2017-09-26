@@ -99,8 +99,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./locker.less";
-</style>

@@ -60,8 +60,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./badge.less";
-</style>

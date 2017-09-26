@@ -153,8 +153,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./dropdown.less";
-</style>

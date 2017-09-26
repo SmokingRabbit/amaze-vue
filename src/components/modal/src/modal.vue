@@ -102,8 +102,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    @import "./modal.less";
-</style>
