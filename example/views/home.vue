@@ -297,6 +297,14 @@
                 </p>
             </am-locker>
         </div>
+        <!-- nav -->
+        <div>
+            <am-nav :pill="true" :tab="true" :justify="true">
+                <am-nav-item :active="true"><a href="#">首页</a></am-nav-item>
+                <am-nav-item><a href="#">开始使用</a></am-nav-item>
+                <am-nav-item><a href="#">按需定制</a></am-nav-item>
+            </am-nav>
+        </div>
     </am-container>
 </template>
 

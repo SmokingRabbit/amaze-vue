@@ -26,6 +26,7 @@ import { Code } from './components/code';
 import { Input, InputLabel } from './components/input';
 import { Form } from './components/form';
 import { List, ListItem } from './components/list';
+import { Nav, NavItem } from './components/nav';
 import { Radio, RadioGroup } from './components/radio';
 import { Checkbox, CheckboxGroup } from './components/checkbox';
 import { Warn } from './components/warn';
@@ -78,6 +79,8 @@ const install = function (Vue) {
     Vue.component(Form.name, Form);
     Vue.component(List.name, List);
     Vue.component(ListItem.name, ListItem);
+    Vue.component(Nav.name, Nav);
+    Vue.component(NavItem.name, NavItem);
     Vue.component(Radio.name, Radio);
     Vue.component(RadioGroup.name, RadioGroup);
     Vue.component(Checkbox.name, Checkbox);
