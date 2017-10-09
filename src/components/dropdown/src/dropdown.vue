@@ -118,10 +118,10 @@
                 $dropdown.style.left = this.pageOffset.left + left + 'px';
 
                 if (this.placement == 'top') {
-                    $dropdown.style.top = this.pageOffset.top + top - selfHeight - 28 - this.fix + 'px';
+                    $dropdown.style.top = this.pageOffset.top + top - selfHeight - this.fix + 'px';
                 }
                 else {
-                    $dropdown.style.top = this.pageOffset.top + top + height - 19 + this.fix + 'px';
+                    $dropdown.style.top = this.pageOffset.top + top + height + this.fix + 'px';
                 }
             }
         },

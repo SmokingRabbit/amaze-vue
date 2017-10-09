@@ -7,7 +7,11 @@ export default {
         return {
             visible: false,
             overlay: false,
-            overlayClassName: 'am-dimmer'
+            overlayClassName: 'am-dimmer',
+            pageOffset: {
+                top: 0,
+                left: 0
+            }
         }
     },
     methods: {
@@ -30,10 +34,8 @@ export default {
                 e.returnvalue=false;
                 return false;
             }
-        }
-    },
-    computed: {
-        pageOffset() {
+        },
+        getPageOffset() {
             let top = 0;
             let left = 0;
 
@@ -41,7 +43,7 @@ export default {
                 top = window.pageYOffset;
                 left = window.pageXOffset;
             }
-            else if(typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat')        {
+            else if(typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat') {
                 top = document.documentElement.scrollTop;
                 left = document.documentElement.scrollLeft;
             }
@@ -50,7 +52,10 @@ export default {
                 left = document.body.scrollLeft;
             }
 
-            return {top, left};
+            return { top, left };
+        },
+        autoGetPageOffset() {
+            this.pageOffset = this.getPageOffset();
         }
     },
     watch: {
@@ -76,7 +81,12 @@ export default {
             }
         }
     },
+    created() {
+        this.autoGetPageOffset();
+        window.addEventListener('scroll', this.autoGetPageOffset, false);
+    },
     beforeDestroy() {
+        window.removeEventListener('scroll', this.autoGetPageOffset);
         if (this.stopListener) {
             window.removeEventListener('mousewheel', this.stopScroll);
         }

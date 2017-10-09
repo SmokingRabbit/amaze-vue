@@ -73,6 +73,19 @@
         <!-- 关闭变扭 -->
         <am-close></am-close>
         <am-close :border="true"></am-close>
+        <!-- nav -->
+        <div>
+            <am-dropdown ref="nav">
+                <am-dropdown-item :header="true">标题</am-dropdown-item>
+                <am-dropdown-item :active="true" @click="dropdownClick" value="bbb"><a>快乐的方式不只一种</a></am-dropdown-item>
+            </am-dropdown>
+            <am-nav :pill="true" :tab="true">
+                <am-nav-item :active="true"><a href="#">首页</a></am-nav-item>
+                <am-nav-item><a href="#">开始使用</a></am-nav-item>
+                <am-nav-item><a href="#">按需定制</a></am-nav-item>
+                <am-nav-item v-dropdown:nav><a href="#">下啦菜单</a></am-nav-item>
+            </am-nav>
+        </div>
         <!-- 评论列表 -->
         <am-comment-list :flip="true">
             <am-comment>
@@ -296,14 +309,6 @@
                     我不愿眼泪陪你到 永恒 <br/>
                 </p>
             </am-locker>
-        </div>
-        <!-- nav -->
-        <div>
-            <am-nav :pill="true" :tab="true" :justify="true">
-                <am-nav-item :active="true"><a href="#">首页</a></am-nav-item>
-                <am-nav-item><a href="#">开始使用</a></am-nav-item>
-                <am-nav-item><a href="#">按需定制</a></am-nav-item>
-            </am-nav>
         </div>
     </am-container>
 </template>

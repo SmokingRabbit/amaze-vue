@@ -86,14 +86,14 @@
                     $popover.style.left = left + this.pageOffset.left - (selfWidth - width) / 2 + 'px';
 
                     if (this.placement === 'top') {
-                        $popover.style.top = this.pageOffset.top + top - height - selfHeight / 2 - this.fix + 'px';
+                        $popover.style.top = this.pageOffset.top + top - selfHeight - this.fix + 'px';
                     }
                     else {
-                        $popover.style.top = this.pageOffset.top + top + height - selfHeight / 2 + this.fix + 'px';
+                        $popover.style.top = this.pageOffset.top + top + height + this.fix + 'px';
                     }
                 }
                 else {
-                    $popover.style.top = this.pageOffset.top + top - (selfHeight) / 2 + 'px';
+                    $popover.style.top = this.pageOffset.top + top - (selfHeight - height) / 2 + 'px';
 
                     if (this.placement === 'left') {
                         $popover.style.left = left + this.pageOffset.left - this.fix - selfWidth + 'px';
