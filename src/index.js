@@ -28,6 +28,7 @@ import { Form } from './components/form';
 import { List, ListItem } from './components/list';
 import { Nav, NavItem } from './components/nav';
 import { Topbar, TopbarBrand, TopbarCollapse, TopbarForm, TopbarToggle } from './components/topbar';
+import { Pagination } from './components/pagination';
 import { Radio, RadioGroup } from './components/radio';
 import { Checkbox, CheckboxGroup } from './components/checkbox';
 import { Warn } from './components/warn';
@@ -87,6 +88,7 @@ const install = function (Vue) {
     Vue.component(TopbarCollapse.name, TopbarCollapse);
     Vue.component(TopbarForm.name, TopbarForm);
     Vue.component(TopbarToggle.name, TopbarToggle);
+    Vue.component(Pagination.name, Pagination);
     Vue.component(Radio.name, Radio);
     Vue.component(RadioGroup.name, RadioGroup);
     Vue.component(Checkbox.name, Checkbox);

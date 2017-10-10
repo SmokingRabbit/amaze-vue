@@ -327,6 +327,10 @@
                 </am-container>
             </am-topbar>
         </div>
+        <!-- pagination -->
+        <div>
+            <am-pagination :pageCount="100" v-model="pageNum" @change="pageChange"></am-pagination>
+        </div>
     </am-container>
 </template>
 
@@ -350,7 +354,8 @@
                 actionsVisible: false,
                 popupVisible: false,
                 nprogress: false,
-                lockerVisible: false
+                lockerVisible: false,
+                pageNum: 1
             };
         },
         watch: {
@@ -407,6 +412,9 @@
             },
             lockerHandle() {
                 this.lockerVisible = true;
+            },
+            pageChange(num) {
+                console.log(num, this.pageNum)
             }
         }
     }
