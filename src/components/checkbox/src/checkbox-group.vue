@@ -39,12 +39,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-
-    .@{ns}checkbox-group {
-        display: inline-block;
-        vertical-align: middle;
-    }
-</style>

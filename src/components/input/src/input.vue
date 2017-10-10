@@ -3,7 +3,7 @@
         <template v-if="type !== 'textarea'">
             <slot name="prepend" v-if="$slots.prepend"></slot>
             <input
-                class="am-form-field"
+                :class="inputComputedClass"
                 :type="type"
                 :placeholder="placeholder"
                 :readonly="readonly"
@@ -54,6 +54,10 @@
         name: 'am-input',
         props: {
             value: {},
+            formGroup: {
+                type: Boolean,
+                default: false
+            },
             color: {
                 type: String,
                 validator(value) {
@@ -176,7 +180,12 @@
             computedClass() {
                 const classes = [];
 
-                classes.push('am-input-group');
+                if (this.formGroup) {
+                    classes.push('am-form-group');
+                }
+                else {
+                    classes.push('am-input-group');
+                }
 
                 if (this.type === "textarea") {
                     classes.push('am-input-group-textarea');
@@ -200,6 +209,15 @@
 
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
+                }
+
+                return classes.join(' ');
+            },
+            inputComputedClass() {
+                const classes = ['am-form-field'];
+
+                if (this.size) {
+                    classes.push('am-input-' + this.size);
                 }
 
                 return classes.join(' ');

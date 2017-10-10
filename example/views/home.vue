@@ -310,6 +310,23 @@
                 </p>
             </am-locker>
         </div>
+        <!-- topbar -->
+        <div>
+            <am-topbar :fixed="true" :inverse="true">
+                <am-container>
+                    <am-topbar-brand><a href="#">Amaze UI</a></am-topbar-brand>
+                    <am-topbar-toggle></am-topbar-toggle>
+                    <am-topbar-collapse>
+                        <am-nav :pill="true" :topbar="true">
+                            <am-nav-item :active="true"><a href="#">项目</a></am-nav-item>
+                        </am-nav>
+                        <am-topbar-form>
+                            <am-input :formGroup="true" size="sm"></am-input>
+                        </am-topbar-form>
+                    </am-topbar-collapse>
+                </am-container>
+            </am-topbar>
+        </div>
     </am-container>
 </template>
 

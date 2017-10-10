@@ -33,12 +33,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-
-    .@{ns}radio-group {
-        display: inline-block;
-        vertical-align: middle;
-    }
-</style>

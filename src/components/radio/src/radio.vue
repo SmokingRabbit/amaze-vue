@@ -125,8 +125,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../../styles/main.less";
-    // other "../../form/src/form.less";
-</style>

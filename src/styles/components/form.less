@@ -101,6 +101,7 @@ output {
 .@{ns}form input[type="datetime"], .@{ns}form input[type="datetime-local"], .@{ns}form input[type="date"], .@{ns}form input[type="month"], .@{ns}form input[type="time"], .@{ns}form input[type="week"], .@{ns}form input[type="number"], .@{ns}form input[type="email"], .@{ns}form input[type="url"], .@{ns}form input[type="search"], .@{ns}form input[type="tel"], .@{ns}form input[type="color"], .@{ns}form-field, .@{ns}textarea {
     display: block;
     flex: 1;
+    width: 100%;
     padding: @input-padding;
     font-size: @form-font-size;
     line-height: @form-line-height;
@@ -233,7 +234,7 @@ input[type="datetime-local"], input[type="date"] {
 
 .@{ns}radio input[type="radio"], .@{ns}radio-inline input[type="radio"], .@{ns}checkbox input[type="checkbox"], .@{ns}checkbox-inline input[type="checkbox"] {
     float: left;
-    margin-left: -20px;
+    margin-left: -18px;
     outline: none;
 }
 

@@ -20,6 +20,10 @@
             justify: {
                 type: Boolean,
                 default: false
+            },
+            topbar: {
+                type: Boolean,
+                default: false
             }
         },
         computed: {
@@ -38,6 +42,10 @@
 
                 if (this.justify) {
                     classes.push('am-nav-justify');
+                }
+
+                if (this.topbar) {
+                    classes.push('am-topbar-nav');
                 }
 
                 return classes.join(' ');
