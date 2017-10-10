@@ -52,7 +52,48 @@ export function addClass(el, newClass) {
         classes = classes.split(' ');
     }
 
-    classes.push(newClass);
+    if (typeof newClass === 'string') {
+        classes.push(newClass);
+    }
+    else {
+        newClass.forEach((_class) => {
+            classes.push(_class);
+        });
+    }
+
+
+    attr(el, {
+        'class': classes.join(' ')
+    });
+}
+
+export function removeClass(el, remClass) {
+    let classes = attr(el, 'class');
+
+    if (!classes) {
+        classes = [];
+    }
+    else {
+        classes = classes.split(' ');
+    }
+
+    function _remove(_class) {
+        let index = classes.indexOf(_class);
+
+        if (index > -1) {
+            classes.splice(index, 1);
+        }
+    }
+
+
+    if (typeof remClass === 'string') {
+        _remove(remClass);
+    }
+    else {
+        remClass.forEach((_class) => {
+            _remove(_class);
+        });
+    }
 
     attr(el, {
         'class': classes.join(' ')
