@@ -106,6 +106,10 @@
                 }
                 else if (start + this.showPageBtnCount >= this.pageCount) {
                     start = this.pageCount - (this.showPageBtnCount - 1);
+
+                    if (this.value + fix < this.pageCount) {
+                        start = this.value - fix;
+                    }
                 }
                 else {
                     start -= fix;

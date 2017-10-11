@@ -29,9 +29,6 @@ import { List, ListItem } from './components/list';
 import { Nav, NavItem } from './components/nav';
 import { Topbar, TopbarBrand, TopbarCollapse, TopbarForm, TopbarToggle } from './components/topbar';
 import { Pagination } from './components/pagination';
-import { Radio, RadioGroup } from './components/radio';
-import { Checkbox, CheckboxGroup } from './components/checkbox';
-import { Warn } from './components/warn';
 import {
     Panel,
     PanelHeader,
@@ -39,6 +36,10 @@ import {
     PanelFooter,
     panelGroup
 } from './components/panel';
+import { Progress } from './components/progress';
+import { Radio, RadioGroup } from './components/radio';
+import { Checkbox, CheckboxGroup } from './components/checkbox';
+import { Warn } from './components/warn';
 import { Dropdown, DropdownItem } from './components/dropdown';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from './components/modal';
 import { Confirm } from './components/confirm';
@@ -89,15 +90,16 @@ const install = function (Vue) {
     Vue.component(TopbarForm.name, TopbarForm);
     Vue.component(TopbarToggle.name, TopbarToggle);
     Vue.component(Pagination.name, Pagination);
-    Vue.component(Radio.name, Radio);
-    Vue.component(RadioGroup.name, RadioGroup);
-    Vue.component(Checkbox.name, Checkbox);
-    Vue.component(CheckboxGroup.name, CheckboxGroup);
     Vue.component(Panel.name, Panel);
     Vue.component(PanelHeader.name, PanelHeader);
     Vue.component(PanelBody.name, PanelBody);
     Vue.component(PanelFooter.name, PanelFooter);
     Vue.component(panelGroup.name, panelGroup);
+    Vue.component(Progress.name, Progress);
+    Vue.component(Radio.name, Radio);
+    Vue.component(RadioGroup.name, RadioGroup);
+    Vue.component(Checkbox.name, Checkbox);
+    Vue.component(CheckboxGroup.name, CheckboxGroup);
     Vue.component(Warn.name, Warn);
     Vue.component(Dropdown.name, Dropdown);
     Vue.use(Dropdown);

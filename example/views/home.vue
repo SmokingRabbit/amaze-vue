@@ -331,6 +331,11 @@
         <div>
             <am-pagination :pageCount="100" v-model="pageNum" @change="pageChange"></am-pagination>
         </div>
+        <!-- progress -->
+        <div>
+            <am-progress :progress="40" color="success" :active="true" :striped="true"></am-progress>
+            <h1>2222</h1>
+        </div>
     </am-container>
 </template>
 
