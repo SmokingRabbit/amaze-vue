@@ -334,7 +334,16 @@
         <!-- progress -->
         <div>
             <am-progress :progress="40" color="success" :active="true" :striped="true"></am-progress>
-            <h1>2222</h1>
+        </div>
+        <!-- article -->
+        <div>
+            <am-article>
+                <am-article-header title="永远的蝴蝶" meta="陈启佑（台湾）"></am-article-header>
+                <am-article-body>
+                    <am-article-lead>《永远的蝴蝶》是台湾著名作家陈启佑先生的一篇小小说。这是一篇散文化的微型小说，其语言具有较强的抒情色彩，立意含蓄隽永 。作品情节很简单，写的是一个凄美的爱情故事。在一个雨天，“我”的恋人樱子自愿帮“我”到马路对面去寄信。随着一阵拔尖的刹车声，樱子年轻的生命消逝了。</am-article-lead>
+                    <p>那时候刚好下着雨，柏油路面湿冷冷的，还闪烁着青、黄、红颜色的灯火。我们就在骑楼下躲雨，看绿色的邮筒孤独地站在街的对面。我白色风衣的大口袋里有一封要寄给南部的母亲的信。樱子说她可以撑伞过去帮我寄信。我默默点头。</p>
+                </am-article-body>
+            </am-article>
         </div>
     </am-container>
 </template>

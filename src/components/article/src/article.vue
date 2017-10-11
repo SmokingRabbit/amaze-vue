@@ -1,12 +1,12 @@
 <template>
-    <form :class="computedClass">
+    <article :class="computedClass">
         <slot></slot>
-    </form>
+    </article>
 </template>
 
 <script>
     export default {
-        name: 'am-form',
+        name: 'am-article',
         props: {
             customClass: String
         },
@@ -14,7 +14,7 @@
             computedClass() {
                 const classes = [];
 
-                classes.push('am-form');
+                classes.push('am-article');
 
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);

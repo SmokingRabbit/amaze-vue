@@ -37,6 +37,7 @@ import {
     panelGroup
 } from './components/panel';
 import { Progress } from './components/progress';
+import { Article, ArticleHeader, ArticleBody, ArticleLead } from './components/article';
 import { Radio, RadioGroup } from './components/radio';
 import { Checkbox, CheckboxGroup } from './components/checkbox';
 import { Warn } from './components/warn';
@@ -96,6 +97,10 @@ const install = function (Vue) {
     Vue.component(PanelFooter.name, PanelFooter);
     Vue.component(panelGroup.name, panelGroup);
     Vue.component(Progress.name, Progress);
+    Vue.component(Article.name, Article);
+    Vue.component(ArticleHeader.name, ArticleHeader);
+    Vue.component(ArticleBody.name, ArticleBody);
+    Vue.component(ArticleLead.name, ArticleLead);
     Vue.component(Radio.name, Radio);
     Vue.component(RadioGroup.name, RadioGroup);
     Vue.component(Checkbox.name, Checkbox);
