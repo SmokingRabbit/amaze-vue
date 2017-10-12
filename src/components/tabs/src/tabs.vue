@@ -10,10 +10,10 @@
                 <a href="javascript:void(0);">
                     <template v-if="panel.label">{{ panel.label }}</template>
                     <template v-else>
-                        <slot :name="key"></slot>
+                        <slot :name="panel._uid"></slot>
                     </template>
                 </a>
-                <close v-if="removeable" @click="removeHandle(key)"></close>
+                <close v-if="removeable && key !== activeIndex" @click.native="removeHandle($event, key)"></close>
             </li>
         </ul>
         <div class="am-tabs-bd">
@@ -50,10 +50,13 @@
                 this.activeIndex = index;
                 this.$emit('tab-click', this.panels[index].label || index);
             },
-            removeHandle(index) {
-                const panel = this.panels.splice(index, 1);
+            removeHandle(e, index) {
+                const panel = this.panels.splice(index, 1)[0];
+                this.$emit('tab-remove', panel.label || index);
+                panel.$destroy();
                 panel.$el.remove();
-                this.$emit('tab-remove', this.panels[index].label || index);
+
+                e.stopPropagation();
             },
             panelHandle(vNode) {
                 if (this.panels.length === 0) {
@@ -67,7 +70,7 @@
                 }
 
                 if (vNode.$slots.label) {
-                    this.$slots[this.panels.length - 1] = vNode.$slots.label;
+                    this.$slots[vNode._uid] = vNode.$slots.label;
                 }
             }
         },
@@ -82,6 +85,10 @@
                 const classes = [];
 
                 classes.push('am-tabs');
+
+                if (this.removeable) {
+                    classes.push('am-tabs-removeable');
+                }
 
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
