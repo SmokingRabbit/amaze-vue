@@ -53,6 +53,7 @@ import { Popover } from './components/popover';
 import { NProgress } from './components/nprogress';
 import { Slider, SliderItem } from './components/slider';
 import { Locker } from './components/locker';
+import { Tabs, TabsPanel } from './components/tabs';
 
 const install = function (Vue) {
     Vue.component(Container.name, Container);
@@ -129,6 +130,8 @@ const install = function (Vue) {
     Vue.component(Slider.name, Slider);
     Vue.component(SliderItem.name, SliderItem);
     Vue.component(Locker.name, Locker);
+    Vue.component(Tabs.name, Tabs);
+    Vue.component(TabsPanel.name, TabsPanel);
 }
 
 export default {
