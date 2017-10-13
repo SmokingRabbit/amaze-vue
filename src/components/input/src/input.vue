@@ -45,6 +45,7 @@
             >
             </textarea>
         </template>
+        <slot></slot>
         <p class="error-notice" v-if="isError" :style="noticeStyle"> {{ errMsg }} </p>
     </div>
 </template>

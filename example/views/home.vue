@@ -335,6 +335,10 @@
         <div>
             <am-progress :progress="40" color="success" :active="true" :striped="true"></am-progress>
         </div>
+        <!-- datepicker -->
+        <div>
+            <am-datepicker v-model="date"></am-datepicker>
+        </div>
         <!-- article -->
         <div>
             <am-article>
@@ -385,7 +389,8 @@
                 popupVisible: false,
                 nprogress: false,
                 lockerVisible: false,
-                pageNum: 1
+                pageNum: 1,
+                date: ''
             };
         },
         watch: {
