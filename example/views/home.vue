@@ -337,7 +337,7 @@
         </div>
         <!-- datepicker -->
         <div>
-            <am-datepicker v-model="date"></am-datepicker>
+            <am-datepicker v-model="date" type="month"></am-datepicker>
         </div>
         <!-- article -->
         <div>
