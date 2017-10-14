@@ -162,6 +162,7 @@
                 }
 
                 this.isError = false;
+                this.curValue = curVal;
             }
         },
         methods: {

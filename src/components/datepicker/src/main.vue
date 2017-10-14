@@ -27,13 +27,13 @@
                 default: 'primary'
             },
             readonly: {
-                // default: true
+                default: true
             }
         },
         watch: {
             curVal(curVal) {
                 this.inputVal = curVal;
-                // this.$emit('input', curVal)
+                this.$emit('input', curVal);
             }
         },
         components: {
