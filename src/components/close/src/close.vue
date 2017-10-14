@@ -32,8 +32,8 @@
             }
         },
         methods: {
-            clickHandle() {
-                this.$emit('click');
+            clickHandle(e) {
+                this.$emit('click', e);
             }
         }
     }

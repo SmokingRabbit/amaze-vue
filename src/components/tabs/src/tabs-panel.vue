@@ -7,11 +7,6 @@
 <script>
     export default {
         name: 'am-tabs-panel',
-        data() {
-            return {
-                isActive: false
-            }
-        },
         props: {
             customClass: String,
             label: String,
@@ -26,7 +21,7 @@
 
                 classes.push('am-tab-panel');
 
-                if (this.isActive) {
+                if (this.$parent.activePanel === this._uid) {
                     classes.push('am-active');
                     classes.push('am-in');
                 }

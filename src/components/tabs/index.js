@@ -1,4 +1,4 @@
-import Tabs from './src/tabs';
+import Tabs from './src/tabs.js';
 import TabsPanel from './src/tabs-panel';
 
 export {
