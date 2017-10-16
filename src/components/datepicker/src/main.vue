@@ -18,18 +18,16 @@
                 inputVal: this.value
             }
         },
-        props: {
-            value: {},
-            placeholder: {
-                default: '请选择日期'
-            },
-            iconColor: {
-                default: 'primary'
-            },
-            readonly: {
-                default: true
-            }
-        },
+        props: [
+            'value',
+            // 'type',
+            'defaultValue',
+            'disabledBeforeDate',
+            'disabledAfterDate',
+            'language',
+            'format',
+            'iconColor'
+        ],
         watch: {
             curVal(curVal) {
                 this.inputVal = curVal;

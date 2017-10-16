@@ -38,6 +38,9 @@
                 :curDate="curDate"
                 :language="language"
                 @change="selectDate"
+                :defaultValue="defaultValue"
+                :disabledBeforeDate="disabledBeforeDate"
+                :disabledAfterDate="disabledAfterDate"
             >
             </am-datepicker-date>
         </table>
@@ -83,7 +86,7 @@
             },
             disabledBeforeDate: {
                 type: Boolean,
-                default: false
+                default: true
             },
             disabledAfterDate: {
                 type: Boolean,

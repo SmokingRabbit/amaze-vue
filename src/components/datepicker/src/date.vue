@@ -14,9 +14,10 @@
                 :class="{
                     'am-datepicker-day': true,
                     'am-datepicker-old': item.month !== month,
-                    'am-active': item.year === curYear && item.month === curMonth && item.date === curDate
+                    'am-active': item.year === curYear && item.month === curMonth && item.date === curDate,
+                    'am-disabled': item.disabled
                 }"
-                @click.stop="clickHandle(item)"
+                @click.stop="!item.disabled && clickHandle(item)"
             >
                 {{ item.date }}
             </td>
@@ -36,7 +37,10 @@
             month: Number,
             curMonth: Number,
             curDate: Number,
-            language: String
+            language: String,
+            defaultValue: Number,
+            disabledBeforeDate: Boolean,
+            disabledAfterDate: Boolean
         },
         methods: {
             clickHandle(dateObj) {
@@ -61,6 +65,20 @@
                 }
 
                 return days;
+            },
+            isDisabled(year, month, date) {
+                const { defaultValue, disabledBeforeDate, disabledAfterDate } = this;
+
+                let disabled = false;
+                if (disabledBeforeDate) {
+                    disabled =  defaultValue > +new Date(year + '-' + month + '-' + date);
+                }
+
+                if (disabledAfterDate) {
+                    disabled =  defaultValue < +new Date(year + '-' + month + '-' + date);
+                }
+
+                return disabled;
             }
         },
         computed: {
@@ -84,7 +102,8 @@
                             rowArr.unshift({
                                 year: preYear,
                                 month: preMonth,
-                                date: preDays - j
+                                date: preDays - j,
+                                disabled: this.isDisabled(preYear, preMonth, preDays - j)
                             });
                         }
                     }
@@ -94,7 +113,8 @@
                         rowArr.push({
                             year: year,
                             month: month,
-                            date: i
+                            date: i,
+                            disabled: this.isDisabled(year, month, i)
                         });
 
                         if (i === days) {
@@ -104,9 +124,10 @@
                                 const nextMonthLen = 7 - rowArr.length;
                                 for (let l = 0; l < nextMonthLen; l++) {
                                     rowArr.push({
-                                        year: nextMonth,
+                                        year: nextYear,
                                         month: nextMonth,
-                                        date: l + 1
+                                        date: l + 1,
+                                        disabled: this.isDisabled(nextYear, nextMonth, l + 1)
                                     });
                                 }
                             }
