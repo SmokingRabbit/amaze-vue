@@ -349,6 +349,10 @@
                 </am-article-body>
             </am-article>
         </div>
+        <!-- select -->
+        <div>
+            <am-select></am-select>
+        </div>
         <!-- tabs -->
         <div>
             <am-tabs :removeable="true">

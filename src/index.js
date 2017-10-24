@@ -55,6 +55,7 @@ import { Slider, SliderItem } from './components/slider';
 import { Locker } from './components/locker';
 import { Tabs, TabsPanel } from './components/tabs';
 import { Datepicker } from './components/datepicker';
+import { Select } from './components/select';
 
 const install = function (Vue) {
     Vue.component(Container.name, Container);
@@ -134,6 +135,7 @@ const install = function (Vue) {
     Vue.component(Tabs.name, Tabs);
     Vue.component(TabsPanel.name, TabsPanel);
     Vue.component(Datepicker.name, Datepicker);
+    Vue.component(Select.name, Select);
 }
 
 export default {

@@ -1,5 +1,5 @@
 <template>
-    <am-input v-bind="$props" v-model="inputVal">
+    <am-input v-model="inputVal">
         <input-label slot="prepend"><am-icon type="calendar" :color="iconColor"></am-icon></input-label>
         <datepicker v-bind="$props" v-model="curVal"></datepicker>
     </am-input>
@@ -20,7 +20,7 @@
         },
         props: [
             'value',
-            // 'type',
+            'type',
             'defaultValue',
             'disabledBeforeDate',
             'disabledAfterDate',
