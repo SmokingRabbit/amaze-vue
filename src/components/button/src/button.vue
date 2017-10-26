@@ -28,7 +28,7 @@
                         'success',
                         'warning',
                         'danger'
-                    ].indexOf(value) > -1;
+                    ].includes(value);
                 }
             },
             disabled: {
@@ -50,7 +50,7 @@
             size: {
                 type: String,
                 validator(value) {
-                    return ['xl', 'lg', 'sm', 'xs', 'block'].indexOf(value) > -1;
+                    return ['xl', 'lg', 'sm', 'xs', 'block'].includes(value);
                 }
             },
             customClass: {

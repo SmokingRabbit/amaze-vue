@@ -1,14 +1,14 @@
 <template>
-    <am-input v-model="inputVal">
-        <input-label slot="prepend"><am-icon type="calendar" :color="iconColor"></am-icon></input-label>
+    <am-input-group :size="size" :color="color">
+        <am-input v-model="inputVal"></am-input>
+        <am-input-label slot="prepend"><am-icon type="calendar" :color="iconColor"></am-icon></am-input-label>
         <datepicker v-bind="$props" v-model="curVal"></datepicker>
-    </am-input>
+    </am-input-group>
 </template>
 
 <script>
-    import { Input, InputLabel } from '../../input';
+    import { Input, InputGroup, InputLabel } from '../../input';
     import Datepicker from './datepicker';
-    const AmInput = Input;
 
     export default {
         name: 'am-datepicker',
@@ -26,7 +26,9 @@
             'disabledAfterDate',
             'language',
             'format',
-            'iconColor'
+            'iconColor',
+            'size',
+            'color'
         ],
         watch: {
             curVal(curVal) {
@@ -35,8 +37,9 @@
             }
         },
         components: {
-            AmInput,
-            InputLabel,
+            AmInput: Input,
+            AmInputGroup: InputGroup,
+            AmInputLabel: InputLabel,
             Datepicker
         }
     }

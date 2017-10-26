@@ -39,7 +39,7 @@
             color: {
                 type: String,
                 validate(value) {
-                    return ['secondary', 'success', 'warning', 'danger'].indexOf(value) > -1;
+                    return ['secondary', 'success', 'warning', 'danger'].includes(value);
                 }
             },
             inline: {

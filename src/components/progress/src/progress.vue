@@ -33,13 +33,13 @@
                         'success',
                         'warning',
                         'danger'
-                    ].indexOf(value) > -1;
+                    ].includes(value);
                 }
             },
             size: {
                 type: String,
                 validaotr(value) {
-                    return ['xs', 'sm'].indexOf(value) > -1;
+                    return ['xs', 'sm'].includes(value);
                 }
             },
             striped: {

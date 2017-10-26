@@ -19,7 +19,7 @@
                 type: String,
                 default: 'focus',
                 validator(value) {
-                    return ['focus', 'click'].indexOf(value) > -1;
+                    return ['focus', 'click'].includes(value);
                 }
             },
             fix: {
@@ -30,19 +30,19 @@
                 type: String,
                 default: 'top',
                 validator(value) {
-                    return ['top', 'left', 'right', 'bottom'].indexOf(value) > -1;
+                    return ['top', 'left', 'right', 'bottom'].includes(value);
                 }
             },
             color: {
                 type: String,
                 validator(value) {
-                    return ['primary', 'danger', 'warning'].indexOf(value) > -1;
+                    return ['primary', 'danger', 'warning'].includes(value);
                 }
             },
             size: {
                 type: String,
                 validator(value) {
-                    return ['sm', 'lg'].indexOf(value) > -1;
+                    return ['sm', 'lg'].includes(value);
                 }
             },
             transition: {

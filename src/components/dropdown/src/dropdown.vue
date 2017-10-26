@@ -26,7 +26,7 @@
                 type: String,
                 default: 'focus',
                 validator(value) {
-                    return ['focus', 'click'].indexOf(value) > -1;
+                    return ['focus', 'click'].includes(value);
                 }
             },
             fix: {
@@ -37,7 +37,7 @@
                 type: String,
                 default: 'bottom',
                 validator(value) {
-                    return ['top', 'bottom'].indexOf(value) > -1;
+                    return ['top', 'bottom'].includes(value);
                 }
             },
             delay: {

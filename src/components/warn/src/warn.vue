@@ -22,7 +22,7 @@
             color: {
                 type: String,
                 validator(value) {
-                    return ['success', 'warning', 'danger', 'secondary'].indexOf(value) > -1;
+                    return ['success', 'warning', 'danger', 'secondary'].includes(value);
                 }
             },
             visible: {

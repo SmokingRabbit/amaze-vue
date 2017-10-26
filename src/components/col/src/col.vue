@@ -20,7 +20,7 @@
                 type: String,
                 default: 'sm',
                 validator(value) {
-                    return ['sm', 'md', 'lg'].indexOf(value) > -1;
+                    return ['sm', 'md', 'lg'].includes(value);
                 }
             },
             end: {

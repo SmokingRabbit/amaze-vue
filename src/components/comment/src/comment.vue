@@ -20,7 +20,7 @@
                         'success',
                         'warning',
                         'danger'
-                    ].indexOf(value) > -1;
+                    ].includes(value);
                 }
             },
             flip: {

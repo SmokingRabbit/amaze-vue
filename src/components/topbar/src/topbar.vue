@@ -21,7 +21,7 @@
                 type: String,
                 default: 'top',
                 validator(value) {
-                    return ['top', 'bottom'].indexOf(value) > -1;
+                    return ['top', 'bottom'].includes(value);
                 }
             }
         },

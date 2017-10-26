@@ -1,5 +1,5 @@
 <template>
-    <div class="am-datepicker" ref="container" v-if="visible">
+    <div class="am-datepicker" v-if="visible">
         <span class="am-datepicker-caret"></span>
         <table class="am-datepicker-table">
             <thead>
@@ -76,7 +76,7 @@
                 type: String,
                 default: 'date',
                 validator(value) {
-                    return ['year', 'month', 'date'].indexOf(value) > -1;
+                    return ['year', 'month', 'date'].includes(value);
                 }
             },
             value: {},
@@ -96,7 +96,7 @@
                 type: String,
                 default: 'zh',
                 validator(value) {
-                    return ['zh', 'en'].indexOf(value) > -1;
+                    return ['zh', 'en'].includes(value);
                 }
             },
             format: {
@@ -187,8 +187,12 @@
                     this.activeType = this.type;
                 }
             },
-            autoShow() {
+            autoShow(e) {
                 this.visible = !this.visible;
+                e.stopPropagation();
+            },
+            globalClickHandle() {
+                this.hide();
             }
         },
         watch: {
@@ -263,9 +267,11 @@
         mounted() {
             document.body.appendChild(this.$el);
             on(this.$parent.$el, 'click', this.autoShow);
+            on(document.body, 'click', this.globalClickHandle);
         },
         beforeDestroy() {
             off(this.$parent.$el, 'click', this.autoShow);
+            off(document.body, 'click', this.globalClickHandle);
         }
     }
 </script>

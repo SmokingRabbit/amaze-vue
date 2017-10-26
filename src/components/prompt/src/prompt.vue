@@ -70,7 +70,7 @@
                         'scale-down',
                         'slide-left',
                         'slide-right'
-                    ].indexOf(value) > -1;
+                    ].includes(value);
                 }
             }
         },

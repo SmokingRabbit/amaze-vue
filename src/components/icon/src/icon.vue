@@ -20,7 +20,7 @@
             size: {
                 type: String,
                 validator(value) {
-                    return ['sm', 'md', 'lg'].indexOf(value) > -1;
+                    return ['sm', 'md', 'lg'].includes(value);
                 }
             },
             color: {
@@ -32,7 +32,7 @@
                         'success',
                         'warning',
                         'danger'
-                    ].indexOf(value) > -1;
+                    ].includes(value);
                 }
             }
         },

@@ -12,13 +12,13 @@
                 type: String,
                 default: 'group',
                 validator(value) {
-                    return ['group', 'stacked', 'justify', 'toolbar'].indexOf(value) > -1;
+                    return ['group', 'stacked', 'justify', 'toolbar'].includes(value);
                 }
             },
             size: {
                 type: String,
                 validator(value) {
-                    return ['lg', 'sm', 'xs'].indexOf(value) > -1;
+                    return ['lg', 'sm', 'xs'].includes(value);
                 }
             },
             customClass: {

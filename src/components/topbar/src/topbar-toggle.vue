@@ -12,7 +12,6 @@
 <script>
     import { Button } from '../../button';
     import { Icon } from '../../icon';
-    const AmButton = Button;
 
     export default {
         name: 'am-topbar-toggle',
@@ -28,7 +27,7 @@
                         'success',
                         'warning',
                         'danger'
-                    ].indexOf(value) > -1;
+                    ].includes(value);
                 }
             }
         },
@@ -75,7 +74,7 @@
             }
         },
         components: {
-            AmButton,
+            AmButton: Button,
             Icon
         }
     }

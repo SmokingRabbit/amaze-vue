@@ -23,7 +23,7 @@ import {
     CommentBody
 } from './components/comment';
 import { Code } from './components/code';
-import { Input, InputLabel } from './components/input';
+import { Input, InputGroup, InputLabel } from './components/input';
 import { Form } from './components/form';
 import { List, ListItem } from './components/list';
 import { Nav, NavItem } from './components/nav';
@@ -82,6 +82,7 @@ const install = function (Vue) {
     Vue.component(CommentBody.name, CommentBody);
     Vue.component(Code.name, Code);
     Vue.component(Input.name, Input);
+    Vue.component(InputGroup.name, InputGroup);
     Vue.component(InputLabel.name, InputLabel);
     Vue.component(Form.name, Form);
     Vue.component(List.name, List);

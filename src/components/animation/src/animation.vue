@@ -24,7 +24,7 @@
                         'spin',
                         'left-spring',
                         'right-spring'
-                    ].indexOf(value) > -1;
+                    ].includes(value);
                 }
             },
             reverse: {
@@ -53,7 +53,7 @@
                         'ease-in',
                         'ease-out',
                         'ease-in-out'
-                    ].indexOf(value) > -1;
+                    ].includes(value);
                 }
             },
             fillMode: {
@@ -65,7 +65,7 @@
                         'forwards',
                         'backwards',
                         'both'
-                    ].indexOf(value) > -1;
+                    ].includes(value);
                 }
             },
             iterationCount: {

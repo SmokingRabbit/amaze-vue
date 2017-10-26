@@ -1,92 +1,63 @@
 <template>
-    <div :class="computedClass">
-        <template v-if="type !== 'textarea'">
-            <slot name="prepend" v-if="$slots.prepend"></slot>
-            <input
-                :class="inputComputedClass"
-                :type="type"
-                :placeholder="placeholder"
-                :readonly="readonly"
-                :disabled="disabled"
-                :name="name"
-                :max="max"
-                :min="min"
-                :step="step"
-                :autofocus="autofocus"
-                :autocomplete="autocomplete"
-                :form="form"
-                :value="curValue"
-                @input="inputHandle"
-                @focus="focusHandle"
-                @blur="blurHandle"
-                ref="input"
-                />
-            <slot name="append" v-if="$slots.append"></slot>
-        </template>
-        <template v-else>
-            <textarea
-                class="am-textarea"
-                :placeholder="placeholder"
-                :readonly="readonly"
-                :disabled="disabled"
-                :name="name"
-                :max="max"
-                :min="min"
-                :step="step"
-                :autofocus="autofocus"
-                :autocomplete="autocomplete"
-                :form="form"
-                :style="{resize: resize ? 'both' : 'none'}"
-                :value="curValue"
-                @input="inputHandle"
-                @focus="focusHandle"
-                @blur="blurHandle"
-                ref="input"
-            >
-            </textarea>
-        </template>
-        <slot></slot>
-        <p class="error-notice" v-if="isError" :style="noticeStyle"> {{ errMsg }} </p>
-    </div>
+    <input
+        v-if="type !== 'textarea'"
+        :class="computedClass"
+        :type="type"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :disabled="disabled"
+        :name="name"
+        :max="max"
+        :min="min"
+        :step="step"
+        :autofocus="autofocus"
+        :autocomplete="autocomplete"
+        :form="form"
+        :value="curValue"
+        @input="inputHandle"
+        @focus="focusHandle"
+        @blur="blurHandle"
+        ref="input"
+        />
+    <textarea
+        v-else
+        class="am-textarea"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :disabled="disabled"
+        :name="name"
+        :max="max"
+        :min="min"
+        :step="step"
+        :autofocus="autofocus"
+        :autocomplete="autocomplete"
+        :form="form"
+        :style="{resize: resize ? 'both' : 'none'}"
+        :value="curValue"
+        @input="inputHandle"
+        @focus="focusHandle"
+        @blur="blurHandle"
+        ref="input"
+    >
+    </textarea>
 </template>
 
 <script>
+
     export default {
         name: 'am-input',
         props: {
             value: {},
-            formGroup: {
-                type: Boolean,
-                default: false
-            },
-            color: {
+            customClass: String,
+            size: {
                 type: String,
                 validator(value) {
-                    return [
-                        'primary',
-                        'secondary',
-                        'success',
-                        'warning',
-                        'danger'
-                    ].indexOf(value) > -1;
+                    return ['lg', 'sm'].includes(value);
                 }
             },
             type: {
                 type: String,
                 default: 'text'
-            },
-            block: {
-                type: Boolean,
-                default: false
-            },
-            size: {
-                type: String,
-                validator(value) {
-                    return ['lg', 'sm'].indexOf(value) > -1;
-                }
-            },
-            customClass: {
-                type: String
             },
             maxLen: {
                 type: Number,
@@ -125,7 +96,7 @@
             autocomplete: {
                 type: String,
                 validator(value) {
-                    return ['off', 'on'].indexOf(value) > -1;
+                    return ['off', 'on'].includes(value);
                 }
             },
             resize: {
@@ -140,8 +111,7 @@
             return {
                 curValue: this.value,
                 isError: false,
-                errMsg: '',
-                noticeStyle: {}
+                errMsg: ''
             }
         },
         watch: {
@@ -163,6 +133,14 @@
 
                 this.isError = false;
                 this.curValue = curVal;
+            },
+            isError(curVal, oldVal) {
+                if (curVal) {
+                    this.callParentMethod('showError', this.errMsg);
+                }
+                else {
+                    this.callParentMethod('hideError');
+                }
             }
         },
         methods: {
@@ -176,46 +154,15 @@
             },
             blurHandle(e) {
                 this.$emit('blur', e);
+            },
+            callParentMethod(methods, param) {
+                if (this.inputGroupComponent) {
+                    this.inputGroupComponent[methods](param);
+                }
             }
         },
         computed: {
             computedClass() {
-                const classes = [];
-
-                if (this.formGroup) {
-                    classes.push('am-form-group');
-                }
-                else {
-                    classes.push('am-input-group');
-                }
-
-                if (this.type === "textarea") {
-                    classes.push('am-input-group-textarea');
-                }
-
-                if (this.block) {
-                    classes.push('am-input-block');
-                }
-
-                if (this.color !== undefined) {
-                    classes.push('am-input-group-' + this.color);
-                }
-
-                if (this.isError) {
-                    classes.push('am-form-warning');
-                }
-
-                if (this.size !== undefined) {
-                    classes.push('am-input-group-' + this.size);
-                }
-
-                if (this.customClass !== undefined) {
-                    classes.push(this.customClass);
-                }
-
-                return classes.join(' ');
-            },
-            inputComputedClass() {
                 const classes = ['am-form-field'];
 
                 if (this.size) {
@@ -223,40 +170,17 @@
                 }
 
                 return classes.join(' ');
+            },
+            inputGroupComponent() {
+                if (this.$parent.$options._componentTag === 'am-input-group') {
+                    return this.$parent;
+                }
+                return null;
             }
         },
         mounted() {
-            if (this.block) {
-                for (let name in this.$slots) {
-                    let vComponent = this.$slots[name][0];
-
-                    if (!(vComponent.elm instanceof HTMLElement)) {
-                        contiune;
-                    }
-
-                    vComponent.elm.style.position = 'absolute';
-                    vComponent.elm.style.top = '0px';
-                    vComponent.elm.style.zIndex = 10;
-
-                    if (name === 'prepend') {
-                        vComponent.elm.style.left = '0px';
-                        this.$refs['input'].style.paddingLeft =
-                            parseInt(getComputedStyle(this.$refs['input'], null)['paddingLeft'], 10)
-                            + vComponent.elm.getBoundingClientRect().width + 'px';
-                    }
-                    else {
-                        vComponent.elm.style.right = '0px';
-                        this.$refs['input'].style.paddingRight =
-                            parseInt(getComputedStyle(this.$refs['input'], null)['paddingRight'], 10)
-                            + vComponent.elm.getBoundingClientRect().width + 'px';
-                    }
-                }
-            }
-
-            if (this.$slots.append) {
-                this.noticeStyle = {
-                    right: this.$slots.append[0].elm.getBoundingClientRect().width + 16 + 'px'
-                }
+            if (this.type === 'textarea') {
+                this.callParentMethod('setTextarea');
             }
         }
     }

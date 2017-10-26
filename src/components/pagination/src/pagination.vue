@@ -38,7 +38,7 @@
             align: {
                 type: String,
                 validator(value) {
-                    return ['center', 'right'].indexOf(value) > -1;
+                    return ['center', 'right'].includes(value);
                 }
             },
             pageCount: {

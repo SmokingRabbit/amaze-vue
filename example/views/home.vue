@@ -130,16 +130,20 @@
             }, false);
         </am-code>
         <!-- 输入框 -->
-        <am-input v-model="inputVal1" type="textarea" :disabled="false" :maxLen="5"></am-input>
-        <am-input v-model="inputVal2" size="sm" type="text" :disabled="false" :maxLen="5">
+        <am-input-group>
+            <am-input v-model="inputVal1" type="textarea" :disabled="false" :maxLen="5"></am-input>
+        </am-input-group>
+        <am-input-group>
             <am-input-label slot="prepend">帐 号：</am-input-label>
             <am-input-label slot="append"><am-icon type="twitter" color="success"></am-icon></am-input-label>
-        </am-input>
+            <am-input v-model="inputVal2" size="sm" type="text" :disabled="false" :maxLen="5"></am-input>
+        </am-input-group>
         <!-- form -->
         <am-form title="表单" :horizontal="true">
-            <am-input v-model="inputVal3" type="text" :block="true" :maxLen="5">
-                <am-input-label slot="prepend" :transparent="true">帐 号</am-input-label>
-            </am-input>
+            <am-input-group :block="true" color="success">
+                <am-input v-model="inputVal3" type="text"  :maxLen="5"></am-input>
+                <am-input-label slot="prepend" :transparent="false">帐 号</am-input-label>
+            </am-input-group>
         </am-form>
         <!-- radio -->
         <section>
@@ -351,7 +355,7 @@
         </div>
         <!-- select -->
         <div>
-            <am-select></am-select>
+            <am-select :options="options" width="100%" :search="true" maxHeight="30px" :multiple="false" color="success"></am-select>
         </div>
         <!-- tabs -->
         <div>
@@ -394,7 +398,20 @@
                 nprogress: false,
                 lockerVisible: false,
                 pageNum: 1,
-                date: ''
+                date: '',
+                options: [{
+                    value: 1,
+                    label: '苹果',
+                    guesser: 'pingguo'
+                }, {
+                    value: 2,
+                    label: '鸭梨',
+                    guesser: 'yali'
+                }, {
+                    value: 3,
+                    label: '香蕉',
+                    guesser: 'xiangjiao'
+                }]
             };
         },
         watch: {
