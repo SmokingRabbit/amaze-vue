@@ -80,6 +80,11 @@
                 }
             }
         },
+        updated() {
+            if (this.visible) {
+                this.$el.style.zIndex = this.getZIndex();
+            }
+        },
         computed: {
             computedClass() {
                 const classes = [];

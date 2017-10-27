@@ -58,6 +58,7 @@ import { Datepicker } from './components/datepicker';
 import { Select } from './components/select';
 import { Scrollbar } from './components/scrollbar';
 import { Notify } from './components/notify';
+import { Message } from './components/message';
 
 const install = function (Vue) {
     Vue.component(Container.name, Container);
@@ -141,6 +142,7 @@ const install = function (Vue) {
     Vue.component(Select.name, Select);
     Vue.component(Scrollbar.name, Scrollbar);
     Vue.prototype.$notify = Notify;
+    Vue.conponent(Message.name, Message);
 }
 
 export default {

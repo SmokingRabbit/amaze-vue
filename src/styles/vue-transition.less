@@ -227,3 +227,23 @@
         transform: translateX(0);
     }
 }
+
+/**
+ * message
+ */
+.message-enter-active {
+    animation: notify @delay;
+}
+.message-leave-active {
+    animation: notify @delay reverse;
+}
+
+@keyframes message {
+    0% {
+        transform: translateX(200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
