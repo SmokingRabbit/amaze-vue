@@ -1,0 +1,80 @@
+@notify-background: @global-primary;
+@notify-color: #fff;
+@notify-success-background: @global-success;
+@notify-success-color: #fff;
+@notify-warning-background: @global-warning;
+@notify-warning-color: #fff;
+@notify-error-background: @global-danger;
+@notify-error-color: #fff;
+@notify-default-background: @gray-lighter;
+@notify-default-color: @gray;
+.notify-variant(@background; @border; @text-color) {
+    background-color: @background;
+    border-color: @border;
+    color: @text-color;
+}
+
+.@{ns}notify {
+    width: 320px;
+    position: fixed;
+    left: 50%;
+    margin-left: -160px;
+    top: -50px;
+    z-index: 9999;
+    height: 42px;
+    padding: 6px 14px;
+    line-height: 30px;
+    overflow: hidden;
+    border-radius: @global-radius;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .4);
+    transition: top 0.2s ease-in;
+
+    &.@{ns}notify-active {
+        top: 28px;
+    }
+
+    >i {
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+    .@{ns}notify-message {
+        display: inline-block;
+        margin: 0;
+        font-size: 14px;
+        max-width: 250px;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+        overflow: hidden;
+        vertical-align: top;
+    }
+
+    .@{ns}close {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+    }
+}
+
+.@{ns}notify-left {
+    text-align: left;
+}
+.@{ns}notify-center {
+    text-align: center;
+}
+
+.@{ns}notify-default {
+    .notify-variant(@notify-default-background, darken(@notify-default-background, 6%), @notify-default-color);
+}
+
+.@{ns}notify-success {
+    .notify-variant(@notify-success-background, darken(@notify-success-background, 6%), @notify-success-color);
+}
+
+.@{ns}notify-warning {
+    .notify-variant(@notify-warning-background, darken(@notify-warning-background, 6%), @notify-warning-color);
+}
+
+.@{ns}notify-error {
+    .notify-variant(@notify-error-background, darken(@notify-error-background, 6%), @notify-error-color);
+}

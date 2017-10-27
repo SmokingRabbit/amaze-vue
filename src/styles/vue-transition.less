@@ -207,3 +207,23 @@
         transform: translateX(0);
     }
 }
+
+/**
+ * notify
+ */
+.notify-enter-active {
+    animation: notify @delay;
+}
+.notify-leave-active {
+    animation: notify @delay reverse;
+}
+
+@keyframes notify {
+    0% {
+        transform: translateY(-200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}

@@ -57,6 +57,7 @@ import { Tabs, TabsPanel } from './components/tabs';
 import { Datepicker } from './components/datepicker';
 import { Select } from './components/select';
 import { Scrollbar } from './components/scrollbar';
+import { Notify } from './components/notify';
 
 const install = function (Vue) {
     Vue.component(Container.name, Container);
@@ -139,6 +140,7 @@ const install = function (Vue) {
     Vue.component(Datepicker.name, Datepicker);
     Vue.component(Select.name, Select);
     Vue.component(Scrollbar.name, Scrollbar);
+    Vue.prototype.$notify = Notify;
 }
 
 export default {
