@@ -12,8 +12,14 @@
   "author": "sunshinejxc@gmail.com",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --hot --progress --colors --config webpack.config.dev.js"
+    "dev": "webpack-dev-server --hot --progress --colors --config webpack.config.dev.js",
+    "build": "webpack --verbose --profile --colors --display-error-details --config webpack.config.prod.js"
   },
+  "bugs": {
+    "url": "https://github.com/sunshineJi/amazeui-vue/issues"
+  },
+  "main": "dist/amaze-vue.js",
+  "style": "dist/amaze-vue.css",
   "devDependencies": {
     "babel-core": "6.3.17",
     "babel-loader": "6.2.0",
@@ -24,11 +30,14 @@
     "babel-preset-stage-2": "6.1.2",
     "babel-runtime": "5.8.34",
     "css-loader": "0.23.0",
+    "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "0.11.2",
     "friendly-errors-webpack-plugin": "1.6.1",
     "html-webpack-plugin": "2.29.0",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.8",
     "style-loader": "0.18.2",
     "url-loader": "0.5.9",
     "vue": "2.4.2",

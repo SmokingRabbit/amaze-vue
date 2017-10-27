@@ -1,0 +1,59 @@
+.@{ns}scrollbar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .@{ns}scrollbar-area {
+        width: 100%;
+        min-height: 100%;
+        height: auto;
+        transition: all 0.2s ease-in;
+    }
+
+    .@{ns}scrollbar-show {
+        opacity: 1 !important;
+    }
+
+    .@{ns}scrollbar-horizontal {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        height: 6px;
+        opacity: 0;
+        transition: all 0.2s ease-in;
+
+        .@{ns}scrollbar-horizontal-track {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 6px;
+            height: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.2)
+        }
+    }
+
+    .@{ns}scrollbar-vertical {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        width: 6px;
+        right: 0px;
+        opacity: 0;
+        transition: all 0.2s ease-in;
+
+        .@{ns}scrollbar-vertical-track {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 6px;
+            height: 50px;
+            border-radius: 6px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+}

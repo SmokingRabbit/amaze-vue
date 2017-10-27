@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     output: {
@@ -15,18 +15,21 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new FriendlyErrorsPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        }),
+        new ExtractTextPlugin({
+            filename: 'amaze-vue.css',
+            allChunks: true,
+            disable: false
+        })
     ],
     module: {
-        loaders: [{
+        rules: [{
                 test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    loaders: {
-                        scss: 'style-loader!css-loader!sass-loader'
-                    }
-                }
+                loader: 'vue-loader'
             },
             {
                 test: /\.js$/,
@@ -35,22 +38,31 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.css?$/,
-                loader: 'style-loader!css-loader'
-            },
-            {
-                test: /\.less$/,
-                loader: 'style-loader!css-loader!less-loader'
+                test: /\.(less|css)$/,
+                use: ExtractTextPlugin.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: true
+                            }
+                        },
+                        'postcss-loader',
+                        'less-loader'
+                    ],
+                    fallback: 'style-loader',
+                })
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                loader: 'url-loader'
+                loader: 'url-loader?limit=10000&name=static/[name].[ext]'
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url-loader'
+                loader: 'url-loader?limit=10000&name=static/fonts/[name].[ext]'
             }
         ]
     },
+    // devtool: '#eval-source-map'
     devtool: 'source-map'
 }

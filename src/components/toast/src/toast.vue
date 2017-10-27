@@ -1,10 +1,11 @@
 <template>
     <modal v-bind="$props" :isShow.sync="syncSlot" ref="modal">
-        <modal-header :closeBtn="false">{{ message }}</modal-header>
+        <!-- <modal-header :closeBtn="false">{{ message }}</modal-header> -->
         <modal-body>
             <animation type="spin">
                 <icon type="spinner"></icon>
             </animation>
+            {{ message }}
         </modal-body>
     </modal>
 </template>
