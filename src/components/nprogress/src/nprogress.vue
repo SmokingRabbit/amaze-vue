@@ -4,7 +4,7 @@
             <div class="nprogress-bar" :style="computedStyle">
                 <div class="nprogress-peg"></div>
             </div>
-            <div class="nprogress-spinner" >
+            <div class="nprogress-spinner" v-if="loading">
                 <div class="nprogress-spinner-icon"></div>
             </div>
         </div>
@@ -42,6 +42,10 @@
             effect: {
                 type: String,
                 default: 'linear'
+            },
+            loading: {
+                type: Boolean,
+                default: false
             }
         },
         methods: {

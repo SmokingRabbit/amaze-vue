@@ -142,7 +142,7 @@ const install = function (Vue) {
     Vue.component(Select.name, Select);
     Vue.component(Scrollbar.name, Scrollbar);
     Vue.prototype.$notify = Notify;
-    Vue.conponent(Message.name, Message);
+    Vue.component(Message.name, Message);
 }
 
 export default {
