@@ -224,23 +224,39 @@
     }
 
     100% {
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
 /**
  * message
  */
-.message-enter-active {
-    animation: notify @delay;
+.message-right-enter-active {
+    animation: messageRight @delay;
 }
-.message-leave-active {
-    animation: notify @delay reverse;
+.message-right-leave-active {
+    animation: messageRight @delay reverse;
 }
 
-@keyframes message {
+@keyframes messageRight {
     0% {
         transform: translateX(200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+.message-left-enter-active {
+    animation: messageLeft @delay;
+}
+.message-left-leave-active {
+    animation: messageLeft @delay reverse;
+}
+
+@keyframes messageLeft {
+    0% {
+        transform: translateX(-200%);
     }
 
     100% {

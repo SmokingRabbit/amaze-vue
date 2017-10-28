@@ -141,8 +141,8 @@ const install = function (Vue) {
     Vue.component(Datepicker.name, Datepicker);
     Vue.component(Select.name, Select);
     Vue.component(Scrollbar.name, Scrollbar);
-    Vue.prototype.$notify = Notify;
-    Vue.component(Message.name, Message);
+    Vue.use(Notify);
+    Vue.use(Message);
 }
 
 export default {

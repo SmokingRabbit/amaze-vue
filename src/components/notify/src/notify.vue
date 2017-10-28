@@ -48,6 +48,9 @@
                 validaor(value) {
                     return ['left', 'center'].includes(value);
                 }
+            },
+            onClose: {
+                type: Function
             }
         },
         methods: {
@@ -71,12 +74,17 @@
                 this.$el.removeEventListener('transitionend', this.destroy);
                 this.$destroy(true);
                 this.$el.parentNode.removeChild(this.$el);
-            },
+            }
         },
         watch: {
             visible(curVal, oldVal) {
                 if (curVal) {
                     this.$el.addEventListener('transitionend', this.destroyElement);
+                }
+                else {
+                    if (this.onClose) {
+                        this.onClose.apply(this);
+                    }
                 }
             }
         },

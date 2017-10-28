@@ -382,6 +382,7 @@
         <!-- notify -->
         <div>
             <am-button @click="notify">notify</am-button>
+            <am-button @click="message">message</am-button>
         </div>
     </am-container>
 </template>
@@ -488,8 +489,18 @@
                 this.$notify({
                     type: 'error',
                     message: '测试',
-                    close: true
+                    close: true,
+                    onClose() {
+                        console.log('notify close')
+                    }
                 });
+            },
+            message() {
+                this.$message({
+                    title: '测试',
+                    message: '这是一条小心，请注意！',
+                    type: 'error'
+                })
             }
         }
     }

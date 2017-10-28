@@ -1,25 +1,18 @@
 import NProgress from './src/nprogress';
 
-NProgress.install = function (Vue) {
-    let instance = null;
-
-    function createInstance() {
-        let Component = Vue.extend(NProgress);
-        instance = new Component();
-        instance = instance.$mount();
-        document.body.appendChild(instance.$el);
-        return instance;
-    }
+NProgress.install =  (Vue) => {
+    const _constructor = Vue.extend(NProgress);
+    let instance  = new _constructor();
+    instance.vm = instance.$mount();
+    document.body.appendChild(instance.vm.$el);
 
     Vue.prototype.$nprogress = {
         start(options) {
-            instance = instance || createInstance();
             Object.assign(instance, options);
             instance.start();
         },
 
         end() {
-            instance = instance || createInstance();
             instance.end();
         }
     }

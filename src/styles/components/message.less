@@ -1,0 +1,83 @@
+
+@message-success-color: @global-success;
+@message-warning-color: @global-warning;
+@message-error-color: @global-danger;
+@message-default-color: @gray;
+
+.@{ns}message {
+    width: 330px;
+    padding: 14px 20px;
+    line-height: 30px;
+    overflow: hidden;
+    border-radius: @global-radius;
+    border: 1px solid #e6ebf5;
+    position: fixed;
+    z-index: 999999;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    background-color: #fff;
+    top: 16px;
+    transition: top 0.2s ease-in;
+
+    >.@{ns}message-icon {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        font-size: 28px;
+    }
+
+    >.@{ns}close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+    }
+
+    .@{ns}message-inner {
+        height: auto;
+
+        >.@{ns}message-title {
+            font-size: @global-font-size;
+            line-height: @global-line-height + 0.2;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        >.@{ns}message-content {
+            font-size: @global-font-size - 0.2;
+            line-height: @global-line-height;
+            color: #666;
+            margin: 0;
+        }
+    }
+}
+
+.@{ns}message-left-top, .@{ns}message-left-top {
+    left: 16px;
+}
+.@{ns}message-right-top, .@{ns}message-right-bottom {
+    right: 16px;
+}
+.@{ns}message-default, .@{ns}message-success, .@{ns}message-warning, .@{ns}message-error {
+    .@{ns}message-inner {
+        margin-left: 28px;
+    }
+}
+.@{ns}message-default {
+    .@{ns}message-icon {
+        color: @message-default-color;
+    }
+}
+.@{ns}message-success {
+    .@{ns}message-icon {
+        color: @message-success-color;
+    }
+}
+.@{ns}message-warning {
+    .@{ns}message-icon {
+        color: @message-warning-color;
+    }
+}
+.@{ns}message-error {
+    .@{ns}message-icon {
+        color: @message-error-color;
+    }
+}
