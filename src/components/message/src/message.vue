@@ -20,6 +20,12 @@
 
     export default {
         name: 'am-message',
+        data() {
+            return {
+                offsetTop: 0,
+                offsetBottom: 0
+            }
+        },
         mixins: [ Popup ],
         props: {
             customClass: String,
@@ -95,6 +101,12 @@
         updated() {
             if (this.visible) {
                 this.$el.style.zIndex= this.getZIndex();
+                if (this.placement.indexOf('top') > -1) {
+                    this.$el.style.top = this.offsetTop + 'px';
+                }
+                else {
+                    this.$el.style.bottom = this.offsetBottom + 'px';
+                }
             }
         },
         computed: {
