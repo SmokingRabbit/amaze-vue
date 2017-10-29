@@ -9,3 +9,11 @@
 ```bash
     npm run dev
 ```
+
+
+### build
+```bash
+    npm run build
+```
+
+## 使用文档开发中……
