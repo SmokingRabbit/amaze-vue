@@ -3,9 +3,9 @@ import Message from './src/message';
 Message.install = (Vue) => {
     const _constructor = Vue.extend(Message);
     const instances = {
-        'left-top': [], 
-        'left-bottom': [], 
-        'right-top': [], 
+        'left-top': [],
+        'left-bottom': [],
+        'right-top': [],
         'right-bottom': []
     };
 
@@ -13,39 +13,44 @@ Message.install = (Vue) => {
         let instance = new _constructor({ propsData });
         instance = instance.$mount();
         document.body.appendChild(instance.$el);
-        
-        // show
-        const isTop = instance.placement.indexOf('top') > -1;
-        let offsetIns = null;
+
+        let distance = 16;
         instances[instance.placement].forEach((_ins) => {
-            const rect = _ins.$el.getBoundingClientRect();
-            if (_ins.placement === instance.placement) {
-                if (isTop) {
-                   offsetIns = _ins;
-                }
-                else {
-                    offsetIns = _ins;
-                    return false;
-                }
-            }
-            return true;
+            distance += _ins.$el.offsetHeight + 16;
         });
-        if (offsetIns !== null) {
-            const rect = offsetIns.$el.getBoundingClientRect();
-            if (isTop) {
-                instance.offsetTop = rect.top + rect.height + 16;
-            }
-            else {
-                instance.offsetBottom = rect.top + 16;
-            }
+        if (instance.isTop) {
+            instance.offsetTop = distance;
+        }
+        else {
+            instance.offsetBottom = distance;
         }
         instance.show();
         instances[instance.placement].push(instance);
 
-        // hide 劫持一下
+
         instance.hide = function() {
             instance.visible = false;
-            console.log(this);
+            let index = -1;
+            instances[this.placement].every((_ins, key) => {
+                if (_ins.uid === this.uid) {
+                    index = key;
+                    return false;
+                }
+                return true;
+            });
+            if (index > -1) {
+                let _distance = 16;
+                instances[this.placement].splice(index, 1);
+                instances[this.placement].forEach((_ins) => {
+                    if (_ins.isTop) {
+                        _ins.$el.style.top = _distance + 'px';
+                    }
+                    else {
+                         _ins.$el.style.bottom = _distance + 'px';
+                    }
+                    _distance += _ins.$el.offsetHeight + 16;
+                });
+            }
         }
 
         return instance;

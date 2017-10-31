@@ -499,7 +499,8 @@
                 this.$message({
                     title: '测试',
                     message: '这是一条小心，请注意！',
-                    type: 'error'
+                    type: 'error',
+                    placement: 'left-bottom'
                 })
             }
         }

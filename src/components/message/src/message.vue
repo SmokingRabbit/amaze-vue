@@ -43,7 +43,7 @@
             },
             close: {
                 type: Boolean,
-                default: true
+                default: false
             },
             type: {
                 type: String,
@@ -101,7 +101,7 @@
         updated() {
             if (this.visible) {
                 this.$el.style.zIndex= this.getZIndex();
-                if (this.placement.indexOf('top') > -1) {
+                if (this.isTop) {
                     this.$el.style.top = this.offsetTop + 'px';
                 }
                 else {
@@ -137,6 +137,9 @@
                 else {
                     return 'message-right';
                 }
+            },
+            isTop() {
+                return this.placement.indexOf('top') > -1;
             }
         },
         components: {
