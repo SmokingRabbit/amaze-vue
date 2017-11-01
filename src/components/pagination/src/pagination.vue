@@ -1,24 +1,24 @@
 <template>
     <ul :class="computedClass">
         <li>
-            <li :class="{'am-disabled': value === 1}" @click="changePage(1)">
+            <li :class="{'am-disabled': value === 1 || disabled}" @click="changePage(1)">
                 <a href="javascript:void(0)">{{ firstBtnText }}</a>
             </li>
-            <li :class="{'am-disabled': value === 1}" @click="value !== 1 && changePage(value - 1)">
+            <li :class="{'am-disabled': value === 1 || disabled}" @click="value !== 1 && changePage(value - 1)">
                 <a href="javascript:void(0)">&laquo; {{ preBtnText }}</a>
             </li>
             <li
                 v-for="num,key in loop"
                 :key="key"
-                :class="{'am-active': num === value }"
+                :class="{'am-active': num === value, 'am-disabled': disabled && num !== value}"
                 @click="num !== value && changePage(num)"
             >
                 <a href="javascript:void(0)">{{ num }}</a>
             </li>
-            <li :class="{'am-disabled': value === pageCount}" @click="value !== pageCount && changePage(value + 1)">
+            <li :class="{'am-disabled': value === pageCount || disabled}" @click="value !== pageCount && changePage(value + 1)">
                 <a href="javascript:void(0)">{{ nextBtnText }} &raquo;</a>
             </li>
-            <li :class="{'am-disabled': value === pageCount}" @click="changePage(pageCount)">
+            <li :class="{'am-disabled': value === pageCount || disabled}" @click="changePage(pageCount)">
                 <a href="javascript:void(0)">{{ lastBtnText }}</a>
             </li>
         </li>
@@ -69,9 +69,9 @@
         methods: {
             changePage(pageNum) {
                 if (this.disabled) {
-                    this.$emit('change', null);
                     return ;
                 }
+                
                 this.$emit('input', pageNum);
                 this.$emit('change', pageNum);
             }
@@ -82,6 +82,9 @@
 
                 classes.push('am-pagination');
 
+                if (this.disabled) {
+                    classes.push('am-pagination-disabled');
+                }
                 if (this.align !== undefined) {
                     if (this.align === 'center') {
                         classes.push('am-pagination-centered');

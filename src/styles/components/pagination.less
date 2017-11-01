@@ -27,6 +27,12 @@
     text-align: left;
     .clearfix();
     .hook-pagination;
+    
+    &.@{ns}pagination-disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
     >li {
         display: inline-block;
         .hook-pagination-item;

@@ -333,7 +333,7 @@
         </div>
         <!-- pagination -->
         <div>
-            <am-pagination :pageCount="100" v-model="pageNum" @change="pageChange"></am-pagination>
+            <am-pagination :pageCount="100" v-model="pageNum" :disabled="true" @change="pageChange"></am-pagination>
         </div>
         <!-- progress -->
         <div>
