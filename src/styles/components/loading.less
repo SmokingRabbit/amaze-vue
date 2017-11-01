@@ -1,0 +1,56 @@
+.@{ns}loading {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.4);
+	text-align: center;
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&.@{ns}loading-fullscreen {
+		position: fixed;
+	}
+
+	.@{ns}loading-spinner{
+		display: inline-block;
+		margin: auto;
+	
+		>.@{ns}animation-spin {
+			font-size: @global-font-size + 0.2;
+		}
+
+		.@{ns}loading-text {
+			display: block;
+			margin-top: 6px;
+			font-size: @global-font-size - 0.2;
+		}
+	}
+}
+
+.@{ns}loading-default {
+	color: @btn-default-bg;
+}
+
+.@{ns}loading-success {
+	color: @btn-success-bg;
+}
+
+.@{ns}loading-primary {
+	color: @btn-primary-bg;
+}
+
+.@{ns}loading-warning {
+	color: @btn-warning-bg;
+}
+
+.@{ns}loading-danger {
+	color: @btn-danger-bg;
+}
+
+.@{ns}loading-secondary {
+	color: @btn-secondary-bg;
+}

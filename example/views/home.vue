@@ -384,6 +384,12 @@
             <am-button @click="notify">notify</am-button>
             <am-button @click="message">message</am-button>
             <am-switch v-model="amSwitch" :disabled="false" activeText="开启" inactiveText="关闭"></am-switch>
+            <am-button @click="sectionLoading">局部loading-{{ loading ? '关闭' : '开启 '}}</am-button>
+            <am-button @click="globalLoading">全局loading</am-button>
+        </div>
+        <!-- loading -->
+        <div :style="{height: '300px', position: 'relative'}">
+            <am-loading color="primary" :loading="loading"></am-loading>
         </div>
     </am-container>
 </template>
@@ -424,7 +430,8 @@
                     label: '香蕉',
                     guesser: 'xiangjiao'
                 }],
-                amSwitch: false
+                amSwitch: false,
+                loading: false
             };
         },
         watch: {
@@ -504,6 +511,16 @@
                     type: 'error',
                     placement: 'left-bottom'
                 })
+            },
+            sectionLoading() {
+                this.loading = !this.loading;
+            },
+            globalLoading() {
+                const _ins = this.$loading();
+
+                setTimeout(() => {
+                    _ins.close();
+                }, 3000);
             }
         }
     }

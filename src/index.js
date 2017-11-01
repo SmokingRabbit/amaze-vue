@@ -60,6 +60,7 @@ import { Scrollbar } from './components/scrollbar';
 import { Notify } from './components/notify';
 import { Message } from './components/message';
 import { Switch } from './components/switch';
+import { Loading } from './components/loading';
 
 const install = function (Vue) {
     Vue.component(Container.name, Container);
@@ -145,6 +146,8 @@ const install = function (Vue) {
     Vue.use(Notify);
     Vue.use(Message);
     Vue.component(Switch.name, Switch);
+    Vue.component(Loading.name, Loading);
+    Vue.use(Loading);
 }
 
 export default {
