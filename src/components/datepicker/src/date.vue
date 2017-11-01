@@ -70,12 +70,14 @@
                 const { defaultValue, disabledBeforeDate, disabledAfterDate } = this;
 
                 let disabled = false;
-                if (disabledBeforeDate) {
-                    disabled =  defaultValue > +new Date(year + '-' + month + '-' + date);
+                if (disabledBeforeDate !== undefined) {
+                    let disabledDate = disabledBeforeDate === true ? defaultValue : new Date(disabledBeforeDate);
+                    disabled =  disabledDate > +new Date(year + '-' + month + '-' + date);
                 }
 
-                if (disabledAfterDate) {
-                    disabled =  defaultValue < +new Date(year + '-' + month + '-' + date);
+                if (disabledAfterDate !== undefined) {
+                    let disabledDate = disabledAfterDate === true ? defaultValue : new Date(disabledAfterDate);
+                    disabled =  disabledDate < +new Date(year + '-' + month + '-' + date);
                 }
 
                 return disabled;

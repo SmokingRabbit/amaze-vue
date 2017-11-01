@@ -85,12 +85,10 @@
                 default: + new Date()
             },
             disabledBeforeDate: {
-                type: Boolean,
-                default: true
+                type: [Number, String, Boolean]
             },
             disabledAfterDate: {
-                type: Boolean,
-                default: false
+                type: [Number, String, Boolean]
             },
             language: {
                 type: String,
