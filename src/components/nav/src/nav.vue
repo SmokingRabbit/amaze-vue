@@ -48,6 +48,10 @@
                     classes.push('am-topbar-nav');
                 }
 
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
                 return classes.join(' ');
             }
         }
