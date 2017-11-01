@@ -383,6 +383,7 @@
         <div>
             <am-button @click="notify">notify</am-button>
             <am-button @click="message">message</am-button>
+            <am-switch v-model="amSwitch" :disabled="false" activeText="开启" inactiveText="关闭"></am-switch>
         </div>
     </am-container>
 </template>
@@ -422,7 +423,8 @@
                     value: 3,
                     label: '香蕉',
                     guesser: 'xiangjiao'
-                }]
+                }],
+                amSwitch: false
             };
         },
         watch: {

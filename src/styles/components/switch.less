@@ -1,0 +1,125 @@
+.@{ns}switch {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    position: relative;
+	
+	.@{ns}switch-text {
+		font-size: @global-font-size;
+		color: #666;
+		vertical-align: top;
+		transition: color 0.3s ease-in;
+
+		+.@{ns}switch-box {
+			margin: 0 6px;
+		}
+	}
+
+    +.@{ns}switch {
+        margin-left: 10px;
+    }
+
+    &.@{ns}switch-disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .@{ns}switch-box {
+        width: 40px;
+        height: 20px;
+        display: inline-block;
+        border-radius: 10px;
+        background-color: @btn-default-bg;
+        position: relative;
+        transition: all 0.3s ease-in;
+        cursor: pointer;
+
+        .@{ns}switch-btn {
+            height: 16px;
+            width: 16px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            border-radius: 50%;
+            transition: all 0.3s ease-in;
+            background-color: #fff;
+
+            .@{ns}switch-input  {
+		        position: absolute;
+		        top: 0px;
+		        left: 0px;
+		        opacity: 0;
+		        width: 40px;
+		        height: 20px;
+		        margin: 0;
+		    }
+        }
+    }
+}
+
+.@{ns}switch-active {
+    .@{ns}switch-btn {
+        transform: translate(20px);
+    }
+
+    &.@{ns}switch-primary {
+        .@{ns}switch-box {
+            background-color: @btn-primary-bg;
+        }
+    }
+
+    &.@{ns}switch-secondary {
+        .@{ns}switch-box {
+            background-color: @btn-secondary-bg;
+        }
+    }
+
+    &.@{ns}switch-success {
+        .@{ns}switch-box {
+            background-color: @btn-success-bg;
+        }
+    }
+
+    &.@{ns}switch-warning {
+        .@{ns}switch-box {
+            background-color: @btn-warning-bg;
+        }
+    }
+
+    &.@{ns}switch-danger {
+        .@{ns}switch-box {
+            background-color: @btn-danger-bg;
+        }
+    }
+}
+
+.@{ns}switch-primary {
+    .@{ns}switch-text-active {
+    	color: @btn-primary-bg;
+    }
+}
+
+.@{ns}switch-secondary {
+    .@{ns}switch-text-active {
+    	color: @btn-secondary-bg;
+    }
+}
+
+.@{ns}switch-success {
+    .@{ns}switch-text-active {
+    	color: @btn-success-bg;
+    }
+}
+
+.@{ns}switch-warning {
+    .@{ns}switch-text-active {
+    	color: @btn-warning-bg;
+    }
+}
+
+.@{ns}switch-danger {
+    .@{ns}switch-text-active {
+    	color: @btn-danger-bg;
+    }
+}

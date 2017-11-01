@@ -217,25 +217,31 @@ input[type="datetime-local"], input[type="date"] {
  * Indent the labels to position radios/checkboxes as hanging controls.
 */
 
-.@{ns}radio, .@{ns}checkbox {
-    display: block;
-    min-height: @form-font-size * @form-line-height;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-left: 20px;
-    vertical-align: middle;
-    label {
-        display: inline;
-        margin-bottom: 0;
-        font-weight: normal;
-        cursor: pointer;
-    }
-}
+// fix by me
+// .@{ns}radio, .@{ns}checkbox {
+//     display: block;
+//     min-height: @form-font-size * @form-line-height;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+//     padding-left: 20px;
+//     vertical-align: middle;
+//     label {
+//         display: inline;
+//         margin-bottom: 0;
+//         font-weight: normal;
+//         cursor: pointer;
+//     }
+// }
 
 .@{ns}radio input[type="radio"], .@{ns}radio-inline input[type="radio"], .@{ns}checkbox input[type="checkbox"], .@{ns}checkbox-inline input[type="checkbox"] {
-    float: left;
-    margin-left: -18px;
-    outline: none;
+    // fix bu me
+    // float: left;
+    // margin-left: -18px;
+    // outline: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
 }
 
 // .@{ns}radio+.@{ns}radio, .@{ns}checkbox+.@{ns}checkbox {
