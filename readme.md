@@ -25,7 +25,7 @@
 ```js
 	import Vue from 'vue';
 	import Amazeui from 'amaze-vue';
-	import 'amaze-vue/dist/amze-vue.css';
+	import 'amaze-vue/dist/amaze-vue.css';
 
 	Vue.use(Amazeui);
 ```
