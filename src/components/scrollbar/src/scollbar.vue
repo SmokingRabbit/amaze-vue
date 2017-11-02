@@ -58,7 +58,7 @@
             },
             autoHide: {
                 type: Boolean,
-                default: true
+                default: false
             },
             width: Number,
             height: Number
