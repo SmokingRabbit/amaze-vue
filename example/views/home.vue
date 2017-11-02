@@ -124,11 +124,11 @@
             </am-comment>
         </am-comment-list>
         <!-- 代码 -->
-        <am-code :scrollable="true">
-            window.addEventListener('load', function() {
-                FastClick.attach(document.body);
-            }, false);
-        </am-code>
+<am-code :scrollable="true">
+window.addEventListener('load', function() {
+    FastClick.attach(document.body);
+}, false);
+</am-code>
         <!-- 输入框 -->
         <am-input-group>
             <am-input v-model="inputVal1" type="textarea" :disabled="false" :maxLen="5"></am-input>

@@ -7,6 +7,8 @@ webpackBaseConfig.entry = {
     'amaze-vue': './src/index.js'
 };
 
+webpackBaseConfig.output.publicPath = './';
+
 webpackBaseConfig.output = Object.assign(webpackBaseConfig.output, {
     libraryTarget: 'umd',
     library: 'amaze-vue'

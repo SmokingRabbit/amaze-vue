@@ -1,9 +1,7 @@
 <template>
-    <pre :class="computedClass">
-        <code :class="syntax" ref="container">
-            <slot></slot>
-        </code>
-    </pre>
+<pre :class="computedClass">
+<code :class="syntax" ref="container"><slot v-pre></slot></code>
+</pre>
 </template>
 
 <script>

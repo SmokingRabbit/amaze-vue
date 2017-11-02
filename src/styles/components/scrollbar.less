@@ -3,11 +3,12 @@
     height: 100%;
     position: relative;
     overflow: hidden;
+    padding-right: 5px;
+    padding-bottom: 5px;
 
     .@{ns}scrollbar-area {
-        width: 100%;
+        min-width: 100%;
         min-height: 100%;
-        height: auto;
         transition: all 0.2s ease-in;
     }
 
@@ -20,7 +21,7 @@
         bottom: 0px;
         left: 0px;
         right: 0px;
-        height: 6px;
+        height: 4px;
         opacity: 0;
         transition: all 0.2s ease-in;
 
@@ -28,11 +29,16 @@
             position: absolute;
             top: 0px;
             left: 0px;
-            width: 6px;
-            height: 6px;
+            width: 4px;
+            height: 4px;
             border-radius: 6px;
             cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.2)
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: background 0.2s ease-in;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.4);
+            }
         }
     }
 
@@ -40,7 +46,7 @@
         position: absolute;
         top: 0px;
         bottom: 0px;
-        width: 6px;
+        width: 4px;
         right: 0px;
         opacity: 0;
         transition: all 0.2s ease-in;
@@ -49,11 +55,16 @@
             position: absolute;
             top: 0px;
             left: 0px;
-            width: 6px;
-            height: 50px;
+            width: 4px;
+            height: 4px;
             border-radius: 6px;
             cursor: pointer;
             background-color: rgba(0, 0, 0, 0.2);
+            transition: background 0.2s ease-in;
+            
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.4);
+            }
         }
     }
 }
