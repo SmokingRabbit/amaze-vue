@@ -1,6 +1,6 @@
 <template>
 <pre :class="computedClass">
-<code :class="syntax" ref="container"><slot v-pre></slot></code>
+<code :class="syntax" ref="container"><slot></slot></code>
 </pre>
 </template>
 
