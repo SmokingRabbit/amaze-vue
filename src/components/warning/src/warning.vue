@@ -9,7 +9,7 @@
 
 <script>
     export default {
-        name: 'am-warn',
+        name: 'am-warning',
         data() {
             return {
                 isVisible: this.visible

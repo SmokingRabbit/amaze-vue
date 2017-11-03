@@ -40,7 +40,7 @@ import { Progress } from './components/progress';
 import { Article, ArticleHeader, ArticleBody, ArticleLead } from './components/article';
 import { Radio, RadioGroup } from './components/radio';
 import { Checkbox, CheckboxGroup } from './components/checkbox';
-import { Warn } from './components/warn';
+import { Warning } from './components/warning';
 import { Dropdown, DropdownItem } from './components/dropdown';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from './components/modal';
 import { Confirm } from './components/confirm';
@@ -114,7 +114,7 @@ const install = function (Vue) {
     Vue.component(RadioGroup.name, RadioGroup);
     Vue.component(Checkbox.name, Checkbox);
     Vue.component(CheckboxGroup.name, CheckboxGroup);
-    Vue.component(Warn.name, Warn);
+    Vue.component(Warning.name, Warning);
     Vue.component(Dropdown.name, Dropdown);
     Vue.use(Dropdown);
     Vue.component(DropdownItem.name, DropdownItem);
