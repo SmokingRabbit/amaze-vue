@@ -1,6 +1,6 @@
 {
   "name": "amaze-vue",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A components libary with Vue2.js",
   "keywords": [
     "vue",
@@ -15,7 +15,7 @@
     "build": "webpack --verbose --profile --colors --display-error-details --config webpack.config.prod.js"
   },
   "repository": {
-    "type": "git", 
+    "type": "git",
     "url": "https://github.com/sunshineJi/amaze-vue"
   },
   "bugs": {
