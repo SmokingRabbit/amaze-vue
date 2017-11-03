@@ -114,6 +114,7 @@
                         this.dispatch('am-radio-group', 'input', [val]);
                     } else {
                         this.$emit('input', val);
+                        this.$emit('change', val);
                     }
                 }
             },

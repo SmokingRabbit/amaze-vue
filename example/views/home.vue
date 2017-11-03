@@ -440,23 +440,25 @@ window.addEventListener('load', function() {
                 tableData: [{
                     num: 1,
                     title: '苹果',
-                    date: '2017-10-01'   
+                    date: '2017-10-01'
                 },{
                     num: 2,
                     title: '苹果',
-                    date: '2017-10-01'   
+                    date: '2017-10-01'
                 },
                 {
                     num: 3,
                     title: '苹果',
                     date: '2017-10-01',
-                    active: true 
+                    active: true
                 },
                 {
-                    num: 3,
+                    num: {
+                        value: 4,
+                        color: 'success'
+                    },
                     title: '苹果',
-                    date: '2017-10-01',
-                    color: 'success'
+                    date: '2017-10-01'
                 }]
             };
         },

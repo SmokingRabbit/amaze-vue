@@ -16,7 +16,9 @@
 			width: Number
 		},
 		created() {
-
+			if (this.$parent.$options._componentTag === 'am-table') {
+				this.$parent.appendField(this.$options.propsData);
+			}
 		}
 	}
 </script>

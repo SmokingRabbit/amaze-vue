@@ -12,7 +12,7 @@
             <i class="am-icon-checked"></i>
         </span>
         <slot></slot>
-        <template v-if="!$slots.default">{{ label }}</template>
+        <template v-if="!$slots.default && showLabel">{{ label }}</template>
     </label>
 </template>
 
@@ -29,6 +29,10 @@
             },
             label: {
                 type: [String, Number, Boolean]
+            },
+            showLabel: {
+                type: Boolean,
+                default: true
             },
             disabled: {
                 type: Boolean,
@@ -123,6 +127,7 @@
                         }
                     } else {
                         this.$emit('input', val);
+                        this.$emit('change', val);
                     }
                 }
             },
