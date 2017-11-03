@@ -186,7 +186,7 @@ window.addEventListener('load', function() {
             <am-button v-popover:popover4>hover</am-button>
         </div>
         <!-- Warning -->
-        <am-Warning color="success" :closeBtn="true">
+        <am-warning color="success" :closeBtn="true">
             <h3>共同渡过</h3>
             <p>《共同渡过》是张国荣1987年发行的专辑《Summer Romance》中的一首歌。</p>
                 <ul>
@@ -197,7 +197,7 @@ window.addEventListener('load', function() {
                 <li>我都盼面前仍是你</li>
                 <li>我要他生都有今生的暖意</li>
             </ul>
-        </am-Warning>
+        </am-warning>
         <!-- panel -->
         <am-panel :collapse="true">
             <am-panel-header title="panel标题"></am-panel-header>
@@ -391,6 +391,11 @@ window.addEventListener('load', function() {
         <div :style="{height: '300px', position: 'relative'}">
             <am-loading color="primary" :loading="loading"></am-loading>
         </div>
+        <am-table :data="tableData">
+            <am-table-column prop="num" label="编码"></am-table-column>
+            <am-table-column prop="title" label="名称"></am-table-column>
+            <am-table-column prop="date" label="日期"></am-table-column>
+        </am-table>
     </am-container>
 </template>
 
@@ -431,7 +436,28 @@ window.addEventListener('load', function() {
                     guesser: 'xiangjiao'
                 }],
                 amSwitch: false,
-                loading: false
+                loading: false,
+                tableData: [{
+                    num: 1,
+                    title: '苹果',
+                    date: '2017-10-01'   
+                },{
+                    num: 2,
+                    title: '苹果',
+                    date: '2017-10-01'   
+                },
+                {
+                    num: 3,
+                    title: '苹果',
+                    date: '2017-10-01',
+                    active: true 
+                },
+                {
+                    num: 3,
+                    title: '苹果',
+                    date: '2017-10-01',
+                    color: 'success'
+                }]
             };
         },
         watch: {

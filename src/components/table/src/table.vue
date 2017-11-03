@@ -7,11 +7,6 @@
 <script>
     export default {
         name: 'am-table',
-        data() {
-            return {
-                selectValue: []
-            };
-        },
         props: {
             customClass: String,
             data: {
