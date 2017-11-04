@@ -61,6 +61,7 @@ import { Notify } from './components/notify';
 import { Message } from './components/message';
 import { Switch } from './components/switch';
 import { Loading } from './components/loading';
+import { Timepicker } from './components/timepicker';
 
 const install = function (Vue) {
     Vue.component(Container.name, Container);
@@ -149,6 +150,7 @@ const install = function (Vue) {
     Vue.component(Switch.name, Switch);
     Vue.component(Loading.name, Loading);
     Vue.use(Loading);
+    Vue.component(Timepicker.name, Timepicker);
 }
 
 export default {

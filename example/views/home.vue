@@ -316,7 +316,7 @@ window.addEventListener('load', function() {
         </div>
         <!-- topbar -->
         <div>
-            <am-topbar :fixed="true" :inverse="true">
+            <am-topbar :fixed="false" :inverse="true">
                 <am-container>
                     <am-topbar-brand><a href="#">Amaze UI</a></am-topbar-brand>
                     <am-topbar-toggle></am-topbar-toggle>
@@ -390,6 +390,9 @@ window.addEventListener('load', function() {
         <!-- loading -->
         <div :style="{height: '300px', position: 'relative'}">
             <am-loading color="primary" :loading="loading"></am-loading>
+        </div>
+        <div>
+            <am-timepicker></am-timepicker>
         </div>
         <am-table :data="tableData">
             <am-table-column prop="num" label="编码"></am-table-column>

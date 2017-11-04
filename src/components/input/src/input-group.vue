@@ -26,6 +26,9 @@
                 type: Boolean,
                 default: false
             },
+            prop: {
+                type: String
+            },
             color: {
                 type: String,
                 validator(value) {
