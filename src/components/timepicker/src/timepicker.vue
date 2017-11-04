@@ -4,7 +4,12 @@
 		<div class="am-timepicker-container">
 			<div class="am-timepicker-main">
 				<div class="am-timepicker-select-wrap"></div>
-				<scrollbar ref="hourScrollbar" customClass="am-timepicker-hour-container" :autoHide="true">
+				<scrollbar 
+					ref="hourScrollbar" 
+					customClass="am-timepicker-hour-container" 
+					:autoHide="true"
+					@scroll="hourOnScroll"
+				>
 					<ul>
 						<li v-for="val in 24">{{ double(val - 1) }}</li>
 					</ul>
@@ -54,6 +59,9 @@
 					return num;
 				}
 				return '0' + num;
+			},
+			hourOnScroll() {
+				console.log('hour scroll')
 			}
 		},
 		compunted: {

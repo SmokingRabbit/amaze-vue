@@ -5,7 +5,7 @@
         @mouseenter="mouseEnter"
         @mouseleave="mouseLeave"
         :style="computedStyle"
-        ref="scrollWrapper" >
+        ref="scrollContainer" >
         <div class="am-scrollbar-area"
             ref="scrollArea"
             @wheel="scroll"
@@ -22,23 +22,23 @@
             v-if="ready"
             :showTrack="showTrack"
             :area="{ height: scrollAreaHeight }"
-            :wrapper="{ height: scrollWrapperHeight }"
+            :wrapper="{ height: scrollContainerHeight }"
             :scrolling="vMovement"
-            :dragging-from-parent="dragging"
-            :on-change-position="handleChangePosition"
-            :on-dragging="handleScrollbarDragging"
-            :on-stop-drag="handleScrollbarStopDrag">
+            :draggingFromParent="dragging"
+            :onChangePosition="handleChangePosition"
+            :onDragging="handleScrollbarDragging"
+            :onStopDrag="handleScrollbarStopDrag">
         </vertical>
         <horizontal
             v-if="ready"
             :showTrack="showTrack"
             :area="{ width: scrollAreaWidth }"
-            :wrapper="{ width: scrollWrapperWidth }"
+            :wrapper="{ width: scrollContainerWidth }"
             :scrolling="hMovement"
-            :dragging-from-parent="dragging"
-            :on-change-position="handleChangePosition"
-            :on-dragging="handleScrollbarDragging"
-            :on-stop-drag="handleScrollbarStopDrag">
+            :draggingFromParent="dragging"
+            :onChangePosition="handleChangePosition"
+            :onDragging="handleScrollbarDragging"
+            :onStopDrag="handleScrollbarStopDrag">
         </horizontal>
     </div>
 </template>
@@ -74,8 +74,8 @@
                 left: 0,
                 scrollAreaHeight: null,
                 scrollAreaWidth: null,
-                scrollWrapperHeight: null,
-                scrollWrapperWidth: null,
+                scrollContainerHeight: null,
+                scrollContainerWidth: null,
                 vMovement: 0,
                 hMovement: 0,
                 dragging: false,
@@ -116,8 +116,8 @@
                     let nextY = this.top + scrollY;
                     let nextX = this.left + scrollX;
 
-                    let canScrollY = this.scrollAreaHeight > this.scrollWrapperHeight;
-                    let canScrollX = this.scrollAreaWidth > this.scrollWrapperWidth;
+                    let canScrollY = this.scrollAreaHeight > this.scrollContainerHeight;
+                    let canScrollX = this.scrollAreaWidth > this.scrollContainerWidth;
 
                     if (canScrollY && !shifted) {
                         this.normalizeVertical(nextY);
@@ -126,8 +126,20 @@
                         this.normalizeHorizontal(nextX);
                     }
                 })
+                this.$emit('scroll');
             },
+            getValues() {
+                let elementSize = this.getSize();
 
+                return {
+                    scrollTop: this.top,
+                    scrollLeft: this.left,
+                    clientWidth: elementSize.scrollContainerWidth,
+                    clientHeight: elementSize.scrollContainerHeight,
+                    scrollAreaHeight: elementSize.scrollAreaHeight,
+                    scrollAreaWidth: elementSize.scrollAreaWidth
+                }
+            },
             startDrag(e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -171,7 +183,7 @@
             },
             normalizeVertical(next) {
                 let elementSize = this.getSize();
-                let lowerEnd = elementSize.scrollAreaHeight - elementSize.scrollWrapperHeight;
+                let lowerEnd = elementSize.scrollAreaHeight - elementSize.scrollContainerHeight;
 
                 if (next > lowerEnd) {
                     next = lowerEnd;
@@ -185,7 +197,7 @@
             },
             normalizeHorizontal(next) {
                 let elementSize = this.getSize()
-                let rightEnd = elementSize.scrollAreaWidth - this.scrollWrapperWidth
+                let rightEnd = elementSize.scrollAreaWidth - this.scrollContainerWidth
 
                 if (next > rightEnd) {
                     next = rightEnd;
@@ -219,12 +231,12 @@
                     return {};
                 }
                 let $scrollArea = this.$refs.scrollArea;
-                let $scrollWrapper = this.$refs.scrollWrapper;
+                let $scrollContainer = this.$refs.scrollContainer;
                 let elementSize = {
                     scrollAreaHeight: $scrollArea.clientHeight,
                     scrollAreaWidth: $scrollArea.clientWidth,
-                    scrollWrapperHeight: $scrollWrapper.clientHeight,
-                    scrollWrapperWidth: $scrollWrapper.clientWidth,
+                    scrollContainerHeight: $scrollContainer.clientHeight,
+                    scrollContainerWidth: $scrollContainer.clientWidth,
                 };
 
                 return elementSize;
@@ -244,15 +256,15 @@
                     cb = null;
                 }
                 let elementSize = this.getSize();
-                if (elementSize.scrollWrapperHeight !== this.scrollWrapperHeight ||
-                    elementSize.scrollWrapperWidth !== this.scrollWrapperWidth ||
+                if (elementSize.scrollContainerHeight !== this.scrollContainerHeight ||
+                    elementSize.scrollContainerWidth !== this.scrollContainerWidth ||
                     elementSize.scrollAreaHeight !== this.scrollAreaHeight ||
                     elementSize.scrollAreaWidth !== this.scrollAreaWidth) {
 
                     this.scrollAreaHeight = elementSize.scrollAreaHeight;
                     this.scrollAreaWidth = elementSize.scrollAreaWidth;
-                    this.scrollWrapperHeight = elementSize.scrollWrapperHeight;
-                    this.scrollWrapperWidth = elementSize.scrollWrapperWidth;
+                    this.scrollContainerHeight = elementSize.scrollContainerHeight;
+                    this.scrollContainerWidth = elementSize.scrollContainerWidth;
                     this.ready = true;
 
                     return cb ? cb() : false;
