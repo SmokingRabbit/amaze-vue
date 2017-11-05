@@ -139,11 +139,12 @@ window.addEventListener('load', function() {
             <am-input v-model="inputVal2" size="sm" type="text" :disabled="false" :maxLen="5"></am-input>
         </am-input-group>
         <!-- form -->
-        <am-form title="表单" :horizontal="true">
+        <am-form title="表单" :horizontal="true" ref="form">
             <am-input-group :block="true" color="success">
                 <am-input v-model="inputVal3" type="text"  :maxLen="5"></am-input>
                 <am-input-label slot="prepend" :transparent="false">帐 号</am-input-label>
             </am-input-group>
+            <am-button @click="formValidate">验证</am-button>
         </am-form>
         <!-- radio -->
         <section>
@@ -341,7 +342,7 @@ window.addEventListener('load', function() {
         </div>
         <!-- datepicker -->
         <div>
-            <am-datepicker v-model="date" type="month"></am-datepicker>
+            <am-datepicker v-model="date" modelType="month"></am-datepicker>
         </div>
         <!-- article -->
         <div>
@@ -394,6 +395,7 @@ window.addEventListener('load', function() {
         <div>
             <am-timepicker></am-timepicker>
         </div>
+        <am-form-group><am-input></am-input></am-form-group>
         <am-table :data="tableData">
             <am-table-column prop="num" label="编码"></am-table-column>
             <am-table-column prop="title" label="名称"></am-table-column>
@@ -552,6 +554,9 @@ window.addEventListener('load', function() {
                 setTimeout(() => {
                     _ins.close();
                 }, 3000);
+            },
+            formValidate() {
+               console.log( this.$refs['form'].validate());
             }
         }
     }

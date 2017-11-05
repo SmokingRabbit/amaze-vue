@@ -1,50 +1,52 @@
 <template>
-    <div class="am-datepicker" v-if="visible">
-        <span class="am-datepicker-caret"></span>
-        <table class="am-datepicker-table">
-            <thead>
-                <tr class="am-datepicker-header">
-                    <th class="am-datepicker-prev" >
-                        <i class="am-datepicker-prev-icon" v-show="activeType !== 'month'" @click.stop="preHandle"></i>
-                    </th>
-                    <th colspan="5" class="am-datepicker-switch">
-                        <div class="am-datepicker-select" @click.stop="selectType">{{ headerTitle }}</div>
-                    </th>
-                    <th class="am-datepicker-next">
-                        <i class="am-datepicker-next-icon" v-show="activeType !== 'month'" @click.stop="nextHandle"></i>
-                    </th>
-                </tr>
-            </thead>
-            <am-datepicker-year
-                v-model="year"
-                v-if="activeType === 'year'"
-                :curYear="curYear"
-                @change="selectYear">
-            </am-datepicker-year>
-            <am-datepicker-month
-                v-model="month"
-                :curYear="curYear"
-                :curMonth="curMonth"
-                v-if="activeType === 'month'"
-                @change="selectMonth"
-                :language="language">
-            </am-datepicker-month>
-            <am-datepicker-date
-                v-if="activeType === 'date'"
-                :year="year"
-                :curYear="curYear"
-                :month="month"
-                :curMonth="curMonth"
-                :curDate="curDate"
-                :language="language"
-                @change="selectDate"
-                :defaultValue="defaultValue"
-                :disabledBeforeDate="disabledBeforeDate"
-                :disabledAfterDate="disabledAfterDate"
-            >
-            </am-datepicker-date>
-        </table>
-    </div>
+    <transition name="fade">
+        <div class="am-datepicker" v-if="visible">
+            <span class="am-datepicker-caret"></span>
+            <table class="am-datepicker-table">
+                <thead>
+                    <tr class="am-datepicker-header">
+                        <th class="am-datepicker-prev" >
+                            <i class="am-datepicker-prev-icon" v-show="activeType !== 'month'" @click.stop="preHandle"></i>
+                        </th>
+                        <th colspan="5" class="am-datepicker-switch">
+                            <div class="am-datepicker-select" @click.stop="selectType">{{ headerTitle }}</div>
+                        </th>
+                        <th class="am-datepicker-next">
+                            <i class="am-datepicker-next-icon" v-show="activeType !== 'month'" @click.stop="nextHandle"></i>
+                        </th>
+                    </tr>
+                </thead>
+                <am-datepicker-year
+                    v-model="year"
+                    v-if="activeType === 'year'"
+                    :curYear="curYear"
+                    @change="selectYear">
+                </am-datepicker-year>
+                <am-datepicker-month
+                    v-model="month"
+                    :curYear="curYear"
+                    :curMonth="curMonth"
+                    v-if="activeType === 'month'"
+                    @change="selectMonth"
+                    :language="language">
+                </am-datepicker-month>
+                <am-datepicker-date
+                    v-if="activeType === 'date'"
+                    :year="year"
+                    :curYear="curYear"
+                    :month="month"
+                    :curMonth="curMonth"
+                    :curDate="curDate"
+                    :language="language"
+                    @change="selectDate"
+                    :defaultValue="defaultValue"
+                    :disabledBeforeDate="disabledBeforeDate"
+                    :disabledAfterDate="disabledAfterDate"
+                >
+                </am-datepicker-date>
+            </table>
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -68,11 +70,11 @@
                 curYear: year,
                 curMonth: month,
                 curDate: date,
-                activeType: this.type
+                activeType: this.modelType
             }
         },
         props: {
-            type: {
+            modelType: {
                 type: String,
                 default: 'date',
                 validator(value) {
@@ -147,7 +149,7 @@
                 }
             },
             selectType() {
-                if (this.activeType !== 'month' && this.type !== 'year') {
+                if (this.activeType !== 'month' && this.modelType !== 'year') {
                     this.activeType = 'month';
                 }
                 else {
@@ -157,20 +159,20 @@
             selectYear(year) {
                 this.curYear = year;
 
-                if (this.type === 'year') {
+                if (this.modelType === 'year') {
                     this.hide();
                 }
                 else {
-                    this.activeType = this.type;
+                    this.activeType = this.modelType;
                 }
             },
             selectMonth(month) {
                 this.curMonth = month;
-                if (this.type === 'month') {
+                if (this.modelType === 'month') {
                     this.hide();
                 }
                 else {
-                    this.activeType = this.type;
+                    this.activeType = this.modelType;
                 }
             },
             selectDate(dateObj) {
@@ -178,11 +180,11 @@
                 this.curMonth = dateObj.month;
                 this.curDate = dateObj.date;
 
-                if (this.type === 'date') {
+                if (this.modelType === 'date') {
                     this.hide();
                 }
                 else {
-                    this.activeType = this.type;
+                    this.activeType = this.modelType;
                 }
             },
             autoShow(e) {

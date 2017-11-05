@@ -1,16 +1,17 @@
 @timepicker-bg: #fff;
 
 .@{ns}timepicker {
-	position: relative;
+	position: absolute;
 	width: 180px;
+    overflow: hide;
 }
 
 .@{ns}timepicker-caret {
     display: block!important;
     .caret-up(7px, @timepicker-bg);
     position: absolute;
-    top: -7px;
     left: 6px;
+    top: 3px;
 }
 
 .@{ns}timepicker-container {
@@ -77,6 +78,10 @@
 
             &:hover {
                 background-color: @close-alt-background;
+            }
+
+            &.@{ns}active {
+                font-weight: 600;
             }
         }
     }

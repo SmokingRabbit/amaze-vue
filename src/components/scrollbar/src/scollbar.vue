@@ -181,6 +181,12 @@
             scrollToX(x) {
                 this.normalizeVertical(x);
             },
+            scrollTop(y) {
+                this.scrollToY(y);
+            },
+            scrollLeft(x) {
+                this.scrollToX(x);
+            },
             normalizeVertical(next) {
                 let elementSize = this.getSize();
                 let lowerEnd = elementSize.scrollAreaHeight - elementSize.scrollContainerHeight;

@@ -6,6 +6,7 @@
             v-model="selfVal"
             :disabled="isDisabled"
             :value="label"
+            :name="name"
         />
         <span class="am-ucheck-icons">
             <i class="am-icon-unchecked"></i>
@@ -27,6 +28,7 @@
             customClass: {
                 type: String
             },
+            name: String,
             label: {
                 type: [String, Number, Boolean]
             },

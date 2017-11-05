@@ -24,7 +24,7 @@ import {
 } from './components/comment';
 import { Code } from './components/code';
 import { Input, InputGroup, InputLabel } from './components/input';
-import { Form } from './components/form';
+import { Form, FromGroup } from './components/form';
 import { List, ListItem } from './components/list';
 import { Nav, NavItem } from './components/nav';
 import { Topbar, TopbarBrand, TopbarCollapse, TopbarForm, TopbarToggle } from './components/topbar';
@@ -92,6 +92,7 @@ const install = function (Vue) {
     Vue.component(InputGroup.name, InputGroup);
     Vue.component(InputLabel.name, InputLabel);
     Vue.component(Form.name, Form);
+    Vue.component(FromGroup.name, FromGroup);
     Vue.component(List.name, List);
     Vue.component(ListItem.name, ListItem);
     Vue.component(Nav.name, Nav);

@@ -8,6 +8,7 @@
             :value="label"
             @focus="focusHandle"
             :checked="value"
+            :name="name"
         />
         <span class="am-ucheck-icons">
             <i class="am-icon-unchecked"></i>
@@ -29,6 +30,7 @@
             customClass: {
                 type: String
             },
+            name: String,
             label: {
                 type: [String, Number, Boolean]
             },

@@ -1,6 +1,6 @@
 <template>
-    <am-input-group :size="size" :color="color">
-        <am-input v-model="inputVal"></am-input>
+    <am-input-group v-bind="$props">
+        <am-input v-model="inputVal" v-bind="$props"></am-input>
         <am-input-label slot="prepend"><am-icon type="calendar" :color="iconColor"></am-icon></am-input-label>
         <datepicker v-bind="$props" v-model="curVal"></datepicker>
     </am-input-group>
@@ -18,18 +18,37 @@
                 inputVal: this.value
             }
         },
-        props: [
-            'value',
-            'type',
-            'defaultValue',
-            'disabledBeforeDate',
-            'disabledAfterDate',
-            'language',
-            'format',
-            'iconColor',
-            'size',
-            'color'
-        ],
+        props: {
+            value: {},
+            modelType: String,
+            defaultValue: [Number],
+            disabledBeforeDate: [Number, String, Boolean],
+            disabledAfterDate: [Number, String, Boolean],
+            language: String,
+            format: String,
+            iconColor: {
+                type: String,
+                default: 'primary'
+            },
+            prop: String,
+            size: String,
+            color: String,
+            type: {
+                type: String,
+                default: 'text'
+            },
+            regex: Object,
+            // 原生属性
+            placeholder: {
+                type: String,
+                default: '请选择日期'
+            },
+            readonly:Boolean,
+            disabled: Boolean,
+            name: String,
+            autofocus: Boolean,
+            autocomplete: String
+        },
         watch: {
             curVal(curVal) {
                 this.inputVal = curVal;

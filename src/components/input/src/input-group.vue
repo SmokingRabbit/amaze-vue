@@ -29,6 +29,10 @@
             prop: {
                 type: String
             },
+            errorNotice: {
+                type: String,
+                default: '您输入的信息有误'
+            },
             color: {
                 type: String,
                 validator(value) {
@@ -55,7 +59,7 @@
         methods: {
             showError(msg) {
                 this.isError = true;
-                this.errMsg = msg;
+                this.errMsg = msg || this.errorNotice;
             },
             hideError() {
                 this.isError = false;
