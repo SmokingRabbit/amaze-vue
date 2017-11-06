@@ -68,7 +68,7 @@
             },
             select: {
                 type: Boolean,
-                default: true
+                default: false
             },
             selectText: {
                 type: String,
@@ -76,7 +76,7 @@
             },
             selectAll: {
                 type: Boolean,
-                default: true
+                default: false
             }
         },
         methods: {
