@@ -1,5 +1,5 @@
 <template>
-    <img :src="src" :width="width" :height="height" :class="computedClass" />
+    <img :src="src" :class="computedClass" />
 </template>
 
 <script>
@@ -12,12 +12,6 @@
             src: {
                 type: String,
                 required: true
-            },
-            height: {
-                type: Number
-            },
-            width: {
-                type: Number
             }
         },
         computed: {

@@ -1,5 +1,11 @@
 <template>
-    <div :class="computedClass" ref="container" :style="{height: height + 'px'}">
+    <div 
+        :class="computedClass" 
+        ref="container" 
+        :style="{height: height + 'px'}" 
+        @mouseenter="mouseEnterHandle"
+        @mouseleave="mouseLeaveHandle"
+    >
         <ul class="am-slides">
             <slot></slot>
         </ul>
@@ -43,10 +49,6 @@
             directionNav: {
                 type: Boolean,
                 default: true
-            },
-            thumbs: {
-                type: Boolean,
-                default: false
             },
             height: {
                 type: Number,
@@ -92,6 +94,16 @@
 
                     vNode.componentInstance.translateItem(x);
                 });
+            },
+            mouseEnterHandle() {
+                if (this.autoPlay) {
+                    clearInterval(this.timer);
+                }
+            },
+            mouseLeaveHandle() {
+                if (this.autoPlay) {
+                    this.timer = setInterval(this.nextHandle, this.playDelay);
+                }
             }
         },
         watch: {

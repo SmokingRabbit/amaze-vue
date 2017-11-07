@@ -59,7 +59,7 @@ export default {
         const { computedClass, $slots, panels, activeIndex, removeable } = this;
 
         return (
-            <div class={ computedClass }>
+            <div class={computedClass}>
                 <ul class="am-tabs-nav am-nav am-nav-tabs">
                     {
                         panels.map((panel, key) => {

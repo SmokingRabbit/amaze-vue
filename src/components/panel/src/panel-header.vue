@@ -1,5 +1,7 @@
 <template>
-    <div :class="computedClass" v-html="titleRender"></div>
+    <div :class="computedClass" v-html="titleRender">
+        <slot></slot>
+    </div>
 </template>
 
 <script>

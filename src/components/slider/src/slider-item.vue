@@ -15,12 +15,6 @@
         props: {
             customClass: {
                 type: String
-            },
-            customStyle: {
-                type: Object,
-                default() {
-                    return {};
-                }
             }
         },
         methods: {

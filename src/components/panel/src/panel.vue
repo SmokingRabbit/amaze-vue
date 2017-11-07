@@ -121,7 +121,9 @@
             }
         },
         beforeDestroy() {
-            dom.off(this.collapseElm, 'click', this.collapseHandle);
+            if (this.isCollapse && this.collapseElm) {
+                dom.off(this.collapseElm, 'click', this.collapseHandle);
+            }
         },
         mounted() {
             if (this.isCollapse) {
