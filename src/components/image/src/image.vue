@@ -42,11 +42,11 @@
                 }
 
                 if (this.round) {
-                    classes.push('am-img-round');
+                    classes.push('am-round');
                 }
 
                 if (this.circle) {
-                    classes.push('am-img-circle');
+                    classes.push('am-circle');
                 }
 
                 return classes.join(' ');
