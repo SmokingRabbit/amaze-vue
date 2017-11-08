@@ -9,6 +9,10 @@
         name: 'am-row',
         props: {
             customClass: String,
+            collapse: {
+                type: Boolean,
+                default: false
+            },
             fixed: {
                 type: Boolean,
                 default: true
@@ -22,6 +26,10 @@
 
                 if (this.fixed) {
                     classes.push('am-g-fixed');
+                }
+
+                if (this.collapse) {
+                    classes.push('am-g-collapse');
                 }
 
                 if (this.customClass !== undefined) {
