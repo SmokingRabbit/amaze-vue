@@ -9,6 +9,9 @@
     .@{ns}scrollbar-area {
         min-width: 100%;
         min-height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
     }
 
     .@{ns}scrollbar-show {
@@ -21,6 +24,7 @@
         left: 0px;
         right: 0px;
         height: 4px;
+        transition: opacity 0.2s ease-in;
         opacity: 0;
 
         .@{ns}scrollbar-horizontal-track {
@@ -46,6 +50,7 @@
         bottom: 0px;
         width: 4px;
         right: 0px;
+        transition: opacity 0.2s ease-in;
         opacity: 0;
 
         .@{ns}scrollbar-vertical-track {
@@ -57,7 +62,7 @@
             border-radius: 6px;
             cursor: pointer;
             background-color: rgba(0, 0, 0, 0.2);
-            transition: background 0.2s ease-in;
+            transition: background 0.2s ease-in, opacity 0.2s ease-in;
 
             &:hover {
                 background-color: rgba(0, 0, 0, 0.4);

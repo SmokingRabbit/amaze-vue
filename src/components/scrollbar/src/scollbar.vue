@@ -21,8 +21,8 @@
         <vertical
             v-if="ready"
             :showTrack="showTrack"
-            :area="{ height: scrollAreaHeight }"
-            :wrapper="{ height: scrollContainerHeight }"
+            :scrollAreaHeight="scrollAreaHeight"
+            :scrollContainerHeight="scrollContainerHeight"
             :scrolling="vMovement"
             :draggingFromParent="dragging"
             :onChangePosition="handleChangePosition"
@@ -32,8 +32,8 @@
         <horizontal
             v-if="ready"
             :showTrack="showTrack"
-            :area="{ width: scrollAreaWidth }"
-            :wrapper="{ width: scrollContainerWidth }"
+            :scrollAreaWidth="scrollAreaWidth"
+            :scrollContainerWidth="scrollContainerWidth"
             :scrolling="hMovement"
             :draggingFromParent="dragging"
             :onChangePosition="handleChangePosition"
@@ -47,6 +47,7 @@
 <script>
     import Vertical from './vertical';
     import Horizontal from './horizontal';
+    import { on, off } from '../../../utils/dom';
 
     export default {
         name: 'am-scrollbar',
@@ -58,10 +59,14 @@
             },
             autoHide: {
                 type: Boolean,
-                default: false
+                default: true
             },
             width: Number,
-            height: Number
+            height: Number,
+            delay: {
+                type: Number,
+                default: 0
+            }
         },
         components: {
             Vertical,
@@ -72,10 +77,10 @@
                 ready: false,
                 top: 0,
                 left: 0,
-                scrollAreaHeight: null,
-                scrollAreaWidth: null,
-                scrollContainerHeight: null,
-                scrollContainerWidth: null,
+                scrollAreaHeight: 0,
+                scrollAreaWidth: 0,
+                scrollContainerHeight: 0,
+                scrollContainerWidth: 0,
                 vMovement: 0,
                 hMovement: 0,
                 dragging: false,
@@ -91,11 +96,17 @@
             mouseEnter() {
                 if (this.autoHide) {
                     this.showTrack = true;
+                    if (this.timer !== null) {
+                        clearTimeout(this.timer);
+                    }
                 }
             },
             mouseLeave() {
                 if (this.autoHide) {
-                    this.showTrack = false;
+                    this.timer = setTimeout(() => {
+                        this.showTrack = false;
+                        this.timer = null;
+                    }, this.delay);
                 }
             },
             scroll(e) {
@@ -103,7 +114,6 @@
                 e.stopPropagation();
 
                 this.calculateSize(() => {
-
                     let num = this.speed;
                     let shifted = e.shiftKey;
                     let scrollY = e.deltaY > 0 ? num : -(num);
@@ -126,7 +136,7 @@
                         this.normalizeHorizontal(nextX);
                     }
                 })
-                this.$emit('scroll');
+                this.$emit('scroll', e);
             },
             getValues() {
                 let elementSize = this.getSize();
@@ -233,9 +243,6 @@
                 this.dragging = false;
             },
             getSize() {
-                if (!this.isMount) {
-                    return {};
-                }
                 let $scrollArea = this.$refs.scrollArea;
                 let $scrollContainer = this.$refs.scrollContainer;
                 let elementSize = {
@@ -248,16 +255,6 @@
                 return elementSize;
             },
             calculateSize(cb) {
-                if (this.autoHide) {
-                    this.showTrack = true;
-                    if (this.timer !== null) {
-                        clearTimeout(this.timer);
-                    }
-                    this.timer = setTimeout(() => {
-                        this.showTrack = false;
-                        this.timer = null;
-                    }, 2000);
-                }
                 if (typeof cb !== 'function') {
                     cb = null;
                 }
@@ -272,11 +269,9 @@
                     this.scrollContainerHeight = elementSize.scrollContainerHeight;
                     this.scrollContainerWidth = elementSize.scrollContainerWidth;
                     this.ready = true;
-
-                    return cb ? cb() : false;
-                } else {
-                    return cb ? cb() : false
                 }
+
+                return cb ? cb() : false;
             }
         },
         computed: {
@@ -304,12 +299,12 @@
             }
         },
         mounted() {
-            this.calculateSize();
-            this.isMount = true;
+            setTimeout(() => {
+                this.calculateSize();
+            }, 100);
             window.addEventListener('resize', this.calculateSize);
         },
         beforeDestroy() {
-            this.isMount = false;
             window.removeEventListener('resize', this.calculateSize);
         }
     }

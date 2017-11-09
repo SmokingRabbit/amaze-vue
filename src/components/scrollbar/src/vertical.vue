@@ -1,7 +1,7 @@
 <template>
     <div
         v-if="height < 100"
-        :class="['am-scrollbar-vertical', {'am-scrollbar-show': showTrack}]"
+        :class="['am-scrollbar-vertical', {'am-scrollbar-show': showTrack && height < 100}]"
         ref="container"
         @click="jump"
     >
@@ -11,7 +11,7 @@
             @touchstart="startDrag"
             @mousedown="startDrag "
             :style="{
-                height: height+'%',
+                height: height + '%',
                 top: scrolling + '%'
             }"
         >
@@ -20,13 +20,15 @@
 </template>
 
 <script>
+    import { on, off } from '../../../utils/dom';
+
     export default {
         name: 'am-vertical',
         props: {
             draggingFromParent: Boolean,
             scrolling: Number,
-            wrapper: Object,
-            area: Object,
+            scrollAreaHeight: Number,
+            scrollContainerHeight: Number,
             onChangePosition: Function,
             onDragging: Function,
             onStopDrag: Function,
@@ -40,11 +42,11 @@
             }
         },
         watch: {
-            'wrapper.height' (val, old) {
-                this.calculateSize(this)
+            scrollContainerHeight (curVal, oldVal) {
+                this.calculateSize(this);
             },
-            'area.height' (val, old) {
-                this.calculateSize(this)
+            scrollAreaHeight (curVal, oldVal) {
+                this.calculateSize(this);
             }
         },
         methods: {
@@ -62,7 +64,7 @@
                     e.stopPropagation();
                     e = e.changedTouches ? e.changedTouches[0] : e;
                     let yMovement = e.clientY - this.start;
-                    let yMovementPercentage = yMovement / this.wrapper.height * 100;
+                    let yMovementPercentage = yMovement / this.scrollContainerHeight * 100;
                     this.start = e.clientY;
                     let next = this.scrolling + yMovementPercentage;
                     this.onChangePosition(next, 'vertical');
@@ -80,39 +82,28 @@
                     let position = this.$refs.scrollbar.getBoundingClientRect();
                     let yMovement = e.clientY - position.top;
                     let centerize = (this.height / 2);
-                    let yMovementPercentage = yMovement / this.wrapper.height * 100 - centerize;
+                    let yMovementPercentage = yMovement / this.scrollContainerHeight * 100 - centerize;
                     this.start = e.clientY;
                     let next = this.scrolling + yMovementPercentage;
                     this.onChangePosition(next, 'vertical');
                 }
             },
             calculateSize(source) {
-                this.height = source.wrapper.height / source.area.height * 100;
-            },
-            getSize() {
-                let $scrollArea = this.$refs.container.parentElement;
-                let $scrollWrapper = $scrollArea.parentElement;
-                let elementSize = {
-                    scrollAreaHeight: $scrollArea.children[0].clientHeight,
-                    scrollAreaWidth: $scrollArea.children[0].clientWidth,
-                    scrollWrapperHeight: $scrollWrapper.clientHeight,
-                    scrollWrapperWidth: $scrollWrapper.clientWidth,
-                };
-                return elementSize;
-            },
+                this.height = source.scrollContainerHeight / source.scrollAreaHeight * 100;
+            }
         },
         mounted() {
             this.calculateSize(this);
-            document.addEventListener("mousemove", this.onDrag);
-            document.addEventListener("touchmove", this.onDrag);
-            document.addEventListener("mouseup", this.stopDrag);
-            document.addEventListener("touchend", this.stopDrag);
+            on(document.body, 'mousemove', this.onDrag);
+            on(document.body, 'touchmove', this.onDrag);
+            on(document.body, 'mouseup', this.stopDrag);
+            on(document.body, 'touchend', this.stopDrag);
         },
         beforeDestroy() {
-            document.removeEventListener("mousemove", this.onDrag);
-            document.removeEventListener("touchmove", this.onDrag);
-            document.removeEventListener("mouseup", this.stopDrag);
-            document.removeEventListener("touchend", this.stopDrag)
-        },
+            off(document.body, 'mousemove', this.onDrag);
+            off(document.body, 'touchmove', this.onDrag);
+            off(document.body, 'mouseup', this.stopDrag);
+            on(document.body, 'touchend', this.stopDrag);
+        }
     }
 </script>
