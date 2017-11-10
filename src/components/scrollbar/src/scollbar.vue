@@ -65,7 +65,7 @@
             height: Number,
             delay: {
                 type: Number,
-                default: 0
+                default: 1000
             }
         },
         components: {
@@ -110,9 +110,6 @@
                 }
             },
             scroll(e) {
-                e.preventDefault()
-                e.stopPropagation();
-
                 this.calculateSize(() => {
                     let num = this.speed;
                     let shifted = e.shiftKey;
@@ -125,15 +122,21 @@
 
                     let nextY = this.top + scrollY;
                     let nextX = this.left + scrollX;
-
                     let canScrollY = this.scrollAreaHeight > this.scrollContainerHeight;
                     let canScrollX = this.scrollAreaWidth > this.scrollContainerWidth;
-
                     if (canScrollY && !shifted) {
                         this.normalizeVertical(nextY);
                     }
                     if (shifted && canScrollX) {
                         this.normalizeHorizontal(nextX);
+                    }
+
+                    if (
+                        (nextY + this.scrollContainerHeight <= this.scrollAreaHeight && nextY >= 0)
+                        || (nextX + this.scrollContainerWidth <= this.scrollAreaWidth && nextX >= 0)
+                    ) {
+                        e.preventDefault()
+                        e.stopPropagation();
                     }
                 })
                 this.$emit('scroll', e);
@@ -259,11 +262,11 @@
                     cb = null;
                 }
                 let elementSize = this.getSize();
-                if (elementSize.scrollContainerHeight !== this.scrollContainerHeight ||
-                    elementSize.scrollContainerWidth !== this.scrollContainerWidth ||
-                    elementSize.scrollAreaHeight !== this.scrollAreaHeight ||
-                    elementSize.scrollAreaWidth !== this.scrollAreaWidth) {
-
+                if (elementSize.scrollContainerHeight !== this.scrollContainerHeight 
+                    || elementSize.scrollContainerWidth !== this.scrollContainerWidth 
+                    || elementSize.scrollAreaHeight !== this.scrollAreaHeight 
+                    || elementSize.scrollAreaWidth !== this.scrollAreaWidth
+                ) {
                     this.scrollAreaHeight = elementSize.scrollAreaHeight;
                     this.scrollAreaWidth = elementSize.scrollAreaWidth;
                     this.scrollContainerHeight = elementSize.scrollContainerHeight;
