@@ -58,7 +58,7 @@
             },
             fillMode: {
                 type: String,
-                default: 'forwards',
+                default: 'none',
                 validator(value) {
                     return [
                         'none',
