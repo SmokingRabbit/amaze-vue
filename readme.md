@@ -1,10 +1,7 @@
 ## Amaze Vue
 
-基于Amaze UI 和 Vue2 封装的组件库
-
-
-### 文档(补充中……) <https://sunshineji.github.io/amaze-vue-docs/>
-
+基于Amaze UI 封装的Vue2.x组件库
+文档(补充中……) <https://sunshineji.github.io/amaze-vue-docs/>
 
 ### 开发
 ```bash
