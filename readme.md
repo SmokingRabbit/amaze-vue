@@ -2,7 +2,7 @@
 
 基于Amaze UI 封装的Vue2.x组件库
 
-### [https://sunshineji.github.io/amaze-vue-docs/ "文档（补充中……）"]
+### [文档（补充中……](https://sunshineji.github.io/amaze-vue-docs/)
 
 ### 开发
 ```bash
