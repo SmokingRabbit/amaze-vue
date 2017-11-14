@@ -4,6 +4,9 @@
 
 ### [文档（补充中……）](https://sunshineji.github.io/amaze-vue-docs/)
 
+### [BUG 反馈](https://github.com/sunshineJi/amaze-vue/issues)
+
+
 ### 开发
 ```bash
     npm run dev
