@@ -1,4 +1,4 @@
-## Amaze Vue
+## AmazeUI-Vue
 
 基于Amaze UI 封装的Vue2.x组件库
 
@@ -28,5 +28,3 @@
 
 	Vue.use(Amazeui);
 ```
-
-## 使用文档开发中……
