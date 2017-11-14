@@ -126,7 +126,7 @@
                     return this.isError = true;
                 }
 
-                if (this.regex !== undefined && !new RegExp(this.regex).text(curVal)) {
+                if (this.regex !== undefined && !new RegExp(this.regex).test(curVal)) {
                     this.errMsg = '您输入的信息不正确';
                     return this.isError = true;
                 }

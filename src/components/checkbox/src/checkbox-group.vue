@@ -16,6 +16,7 @@
                 type: Boolean,
                 default: false
             },
+            prop: String,
             min: {
                 type: Number
             },

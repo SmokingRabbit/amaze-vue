@@ -12,6 +12,7 @@
             customClass: {
                 type: String
             },
+            prop: String,
             disabled: {
                 type: Boolean,
                 default: false

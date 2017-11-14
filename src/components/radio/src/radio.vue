@@ -7,7 +7,7 @@
             :disabled="isDisabled"
             :value="label"
             @focus="focusHandle"
-            :checked="value"
+            :checked="checked"
             :name="name"
         />
         <span class="am-ucheck-icons">
@@ -15,7 +15,7 @@
             <i class="am-icon-checked"></i>
         </span>
         <slot></slot>
-        <template v-if="!$slots.default">{{ label }}</template>
+        <template v-if="!$slots.default && showLabel">{{ label }}</template>
     </label>
 </template>
 
@@ -32,7 +32,12 @@
             },
             name: String,
             label: {
-                type: [String, Number, Boolean]
+                type: [String, Number, Boolean],
+                required: true
+            },
+            showLabel: {
+                type: Boolean,
+                default: true
             },
             disabled: {
                 type: Boolean,
@@ -125,6 +130,9 @@
                     ? (this.radioGroup.disabled || this.disabled)
                     : this.disabled;
             }
+        },
+        mounted() {
+            this.checked = this.label === this.selfVal;
         }
     }
 </script>

@@ -84,7 +84,7 @@
                 }
 
                 if (this.block) {
-                    classes.push('am-input-block');
+                    classes.push('am-input-group-block');
                 }
 
                 if (this.color !== undefined) {
