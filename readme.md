@@ -1,4 +1,4 @@
-## AmazeUI-Vue
+## amaze-vue
 
 基于Amaze UI 封装的Vue2.x组件库
 
