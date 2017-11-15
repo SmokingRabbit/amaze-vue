@@ -3,11 +3,11 @@
         <tr>
             <td colspan="7">
                 <span
-                    v-for="val,key in loop"
+                    v-for="row,key in loop"
                     :key="key"
-                    :class="{'am-active': curMonth === key + 1}"
-                    @click.stop="clickHandle(key + 1)"
-                > {{ val }}</span>
+                    :class="{'am-active': curMonth === row.month, 'am-disabled': row.disabled}"
+                    @click.stop="!row.disabled && clickHandle(row.month)"
+                > {{ row.val }}</span>
             </td>
         </tr>
     </tbody>
@@ -22,12 +22,35 @@
             value: {},
             curYear: Number,
             curMonth: Number,
-            language: String
+            language: String,
+            defaultValue: [Number, String],
+            disabledBeforeDate: [Number, String, Boolean],
+            disabledAfterDate: [Number, String, Boolean]
         },
         methods: {
             clickHandle(month) {
                 this.$emit('input', month);
                 this.$emit('change', month);
+            },
+            isDisabled(month) {
+                const { defaultValue, disabledBeforeDate, disabledAfterDate } = this;
+                let disabled = false;
+                if (disabledBeforeDate) {
+                    let disabledMonth = disabledBeforeDate === true ? 
+                        new Date(defaultValue).getMonth() 
+                        : new Date(disabledBeforeDate).getMonth();
+                    disabled =  disabledMonth + 1 > month;
+                    if (disabled) {
+                        return disabled;
+                    }
+                }
+                if (disabledAfterDate) {
+                    let disabledMonth = disabledAfterDate === true ? 
+                        new Date(defaultValue).getMonth()
+                        : new Date(disabledAfterDate).getMonth();
+                    disabled =  disabledMonth + 1 < month;
+                }
+                return disabled;
             }
         },
         computed: {
@@ -36,7 +59,11 @@
                 let map = this.language === 'zh' ? monthZHMap : monthENMap;
 
                 for (let i = 1; i < 13; i++) {
-                    arr.push(map[i]);
+                    arr.push({
+                        val: map[i],
+                        month: i,
+                        disabled: this.isDisabled(i)
+                    });
                 }
 
                 return arr;

@@ -20,6 +20,9 @@
                     v-model="year"
                     v-if="activeType === 'year'"
                     :curYear="curYear"
+                    :defaultValue="defaultValue"
+                    :disabledBeforeDate="disabledBeforeDate"
+                    :disabledAfterDate="disabledAfterDate"
                     @change="selectYear">
                 </am-datepicker-year>
                 <am-datepicker-month
@@ -28,6 +31,9 @@
                     :curMonth="curMonth"
                     v-if="activeType === 'month'"
                     @change="selectMonth"
+                    :defaultValue="defaultValue"
+                    :disabledBeforeDate="disabledBeforeDate"
+                    :disabledAfterDate="disabledAfterDate"
                     :language="language">
                 </am-datepicker-month>
                 <am-datepicker-date
@@ -83,7 +89,7 @@
             },
             value: {},
             defaultValue: {
-                type: Number,
+                type: [Number, String],
                 default: + new Date()
             },
             disabledBeforeDate: {

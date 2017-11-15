@@ -38,9 +38,9 @@
             curMonth: Number,
             curDate: Number,
             language: String,
-            defaultValue: Number,
-            disabledBeforeDate: Boolean,
-            disabledAfterDate: Boolean
+            defaultValue: [Number, String],
+            disabledBeforeDate: [Number, String, Boolean],
+            disabledAfterDate: [Number, String, Boolean]
         },
         methods: {
             clickHandle(dateObj) {
@@ -68,18 +68,23 @@
             },
             isDisabled(year, month, date) {
                 const { defaultValue, disabledBeforeDate, disabledAfterDate } = this;
-
                 let disabled = false;
-                if (disabledBeforeDate !== undefined) {
-                    let disabledDate = disabledBeforeDate === true ? defaultValue : new Date(disabledBeforeDate);
-                    disabled =  disabledDate > +new Date(year + '-' + month + '-' + date);
+                let YTD = year + '-' + month + '-' + date;
+                if (disabledBeforeDate) {
+                    let disabledDate = disabledBeforeDate === true ? 
+                        +new Date(defaultValue) 
+                        : +new Date(disabledBeforeDate);
+                    disabled =  disabledDate > +new Date(YTD);
+                    if (disabled) {
+                        return disabled;
+                    }
                 }
-
-                if (disabledAfterDate !== undefined) {
-                    let disabledDate = disabledAfterDate === true ? defaultValue : new Date(disabledAfterDate);
-                    disabled =  disabledDate < +new Date(year + '-' + month + '-' + date);
+                if (disabledAfterDate) {
+                    let disabledDate = disabledAfterDate === true ? 
+                        +new Date(defaultValue)
+                        : +new Date(disabledAfterDate);
+                    disabled =  disabledDate < +new Date(YTD);
                 }
-
                 return disabled;
             }
         },

@@ -1,7 +1,7 @@
 <template>
     <am-input-group v-bind="$props">
         <am-input v-model="inputVal" v-bind="$props"></am-input>
-        <am-input-label slot="prepend"><am-icon type="calendar" :color="iconColor"></am-icon></am-input-label>
+        <am-input-label :slot="labelPlacement"><am-icon type="calendar"></am-icon></am-input-label>
         <datepicker v-bind="$props" v-model="curVal"></datepicker>
     </am-input-group>
 </template>
@@ -21,15 +21,11 @@
         props: {
             value: {},
             modelType: String,
-            defaultValue: [Number],
+            defaultValue: [Number, String],
             disabledBeforeDate: [Number, String, Boolean],
             disabledAfterDate: [Number, String, Boolean],
             language: String,
             format: String,
-            iconColor: {
-                type: String,
-                default: 'primary'
-            },
             prop: String,
             size: String,
             color: String,
@@ -47,7 +43,14 @@
             disabled: Boolean,
             name: String,
             autofocus: Boolean,
-            autocomplete: String
+            autocomplete: String,
+            labelPlacement: {
+                type: String,
+                default: 'prepend',
+                validaotr(value) {
+                    return ['prepend', 'append'].includes(value);
+                }
+            }
         },
         watch: {
             curVal(curVal) {
