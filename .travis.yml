@@ -1,0 +1,12 @@
+language: node_js
+
+sudo: false
+
+node_js: stable
+
+install:
+  - npm install
+
+
+after_success:
+ 
