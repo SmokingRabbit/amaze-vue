@@ -2,7 +2,7 @@
     <am-input-group v-bind="$props">
         <am-input v-model="inputVal" v-bind="$props"></am-input>
         <am-input-label :slot="labelPlacement"><am-icon type="calendar"></am-icon></am-input-label>
-        <datepicker v-bind="$props" v-model="curVal"></datepicker>
+        <datepicker ref="datepicker" v-bind="$props" v-model="curVal"></datepicker>
     </am-input-group>
 </template>
 
@@ -56,6 +56,12 @@
             curVal(curVal) {
                 this.inputVal = curVal;
                 this.$emit('input', curVal);
+            }
+        },
+        beforeDestroy() {
+            this.$refs['datepicker'].$destroy(true);
+            if (this.$refs['datepicker'].visible) {
+                document.body.removeChild(this.$refs['datepicker'].$el);
             }
         },
         components: {
