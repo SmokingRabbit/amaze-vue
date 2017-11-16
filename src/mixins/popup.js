@@ -55,7 +55,6 @@ export default {
             return { top, left };
         },
         autoGetPageOffset() {
-            this.hide();
             this.pageOffset = this.getPageOffset();
         }
     },

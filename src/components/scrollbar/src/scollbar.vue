@@ -110,9 +110,13 @@
                 }
             },
             triggerScroll() {
-                const e = document.createEvent('HTMLEvents');
-                e.initEvent('scroll', true, true);
-                window.dispatchEvent(e);
+                const scrollEvent = document.createEvent('HTMLEvents');
+                scrollEvent.initEvent('scroll', true, true);
+                window.dispatchEvent(scrollEvent);
+
+                const clickEvent = document.createEvent('HTMLEvents');
+                clickEvent.initEvent('click', true, true);
+                this.$el.dispatchEvent(clickEvent);
             },
             scroll(e) {
                 this.calculateSize(() => {
