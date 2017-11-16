@@ -1,7 +1,9 @@
 <template>
     <am-input-group v-bind="$props">
         <am-input v-model="inputVal" v-bind="$props"></am-input>
-        <am-input-label :slot="labelPlacement"><am-icon type="calendar"></am-icon></am-input-label>
+        <am-input-label :slot="labelPlacement">
+            <am-icon type="calendar"></am-icon>
+        </am-input-label>
         <datepicker ref="datepicker" v-bind="$props" v-model="curVal"></datepicker>
     </am-input-group>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <input-group v-bind="$props">
-        <input-label slot="prepend">
-            <icon type="clock-o" :color="iconColor"></icon>
+        <input-label :slot="labelPlacement">
+            <icon type="clock-o"></icon>
         </input-label>
         <am-input v-model="inputVal" v-bind="$props"></am-input>
         <time-picker v-model="curVal"></time-picker>
@@ -24,10 +24,6 @@
             value: {},
             modelType: String,
             defaultValue: [Number, String],
-            iconColor: {
-                type: String,
-                default: 'primary'
-            },
             prop: String,
             size: String,
             color: String,
@@ -45,7 +41,14 @@
             disabled: Boolean,
             name: String,
             autofocus: Boolean,
-            autocomplete: String
+            autocomplete: String,
+            labelPlacement: {
+                type: String,
+                default: 'prepend',
+                validaotr(value) {
+                    return ['prepend', 'append'].includes(value);
+                }
+            }
         },
         watch: {
             curVal(curVal) {
