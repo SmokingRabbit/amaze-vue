@@ -4,7 +4,7 @@
             <icon type="clock-o"></icon>
         </input-label>
         <am-input v-model="inputVal" v-bind="$props"></am-input>
-        <time-picker v-model="curVal"></time-picker>
+        <time-picker ref="timepicker" v-model="curVal"></time-picker>
     </input-group>
 </template>
 
@@ -54,6 +54,12 @@
             curVal(curVal) {
                 this.inputVal = curVal;
                 this.$emit('input', curVal);
+            }
+        },
+        beforeDestroy() {
+            this.$refs['timepicker'].$destroy(true);
+            if (this.$refs['timepicker'].visible) {
+                document.body.removeChild(this.$refs['timepicker'].$el);
             }
         },
         components: {
