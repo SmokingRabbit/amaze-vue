@@ -109,6 +109,11 @@
                     }, this.delay);
                 }
             },
+            triggerScroll() {
+                const e = document.createEvent('HTMLEvents');
+                e.initEvent('scroll', true, true);
+                window.dispatchEvent(e);
+            },
             scroll(e) {
                 this.calculateSize(() => {
                     let num = this.speed;
@@ -135,6 +140,7 @@
                         (nextY + this.scrollContainerHeight <= this.scrollAreaHeight && nextY >= 0)
                         || (nextX + this.scrollContainerWidth <= this.scrollAreaWidth && nextX >= 0)
                     ) {
+                        this.triggerScroll();
                         e.preventDefault()
                         e.stopPropagation();
                     }
@@ -305,7 +311,6 @@
             setTimeout(() => {
                 this.calculateSize();
             }, 100);
-            window.addEventListener('resize', this.calculateSize);
         },
         beforeDestroy() {
             window.removeEventListener('resize', this.calculateSize);
