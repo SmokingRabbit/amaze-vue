@@ -169,24 +169,35 @@
             off(this.$parent.$el, 'click', this.autoShow);
             off(document.body, 'click', this.globalClickHandle);
         },
+        watch: {
+        	visible(curVal, oldVal) {
+        		if (curVal) {
+        			this.initNum = true;
+        			this.rect = this.$parent.$el.getBoundingClientRect();
+        		}
+        	}
+        },
 		updated() {
             if (this.visible) {
-                const { top, left, height } = this.$parent.$el.getBoundingClientRect();
+                const { top, left, height } = this.rect;
                 const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
                 css(this.$el, {
                     top: top + offsetTop + height + 'px',
                     left: left + offsetLeft + 'px',
                     zIndex: this.getZIndex()
                 });
-                if (this.hourVal !== 0) {
-					this.$refs['hourScrollbar'].scrollTop(this.hourVal * this.scrollFix);
-				}
-				if (this.minuteVal !== 0) {
-					this.$refs['minuteScrollbar'].scrollTop(this.minuteVal * this.scrollFix);
-				}
-				if (this.secondVal !== 0) {
-					this.$refs['secondScrollbar'].scrollTop(this.secondVal * this.scrollFix);
-				}
+                if (this.initNum) {
+                	if (this.hourVal !== 0) {
+						this.$refs['hourScrollbar'].scrollTop(this.hourVal * this.scrollFix);
+					}
+					if (this.minuteVal !== 0) {
+						this.$refs['minuteScrollbar'].scrollTop(this.minuteVal * this.scrollFix);
+					}
+					if (this.secondVal !== 0) {
+						this.$refs['secondScrollbar'].scrollTop(this.secondVal * this.scrollFix);
+					}
+					this.initNum = false;
+                }
             }
         },
 		computed: {
