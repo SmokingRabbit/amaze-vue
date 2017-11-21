@@ -62,7 +62,5 @@ module.exports = {
                 loader: 'url-loader?limit=10000&name=static/fonts/[name].[ext]'
             }
         ]
-    },
-    // devtool: '#eval-source-map'
-    devtool: 'source-map'
+    }
 }
