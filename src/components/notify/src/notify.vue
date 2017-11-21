@@ -74,6 +74,11 @@
                 this.$el.removeEventListener('transitionend', this.destroy);
                 this.$destroy(true);
                 this.$el.parentNode.removeChild(this.$el);
+            },
+            popupPosition() {
+                return {
+                    zIndex: this.getZIndex()
+                }
             }
         },
         watch: {
@@ -114,11 +119,6 @@
                 };
 
                 return map[this.type];
-            },
-            popupPosition() {
-                return {
-                    zIndex: this.getZIndex()
-                }
             }
         },
         components: {
