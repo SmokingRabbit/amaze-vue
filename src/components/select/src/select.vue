@@ -57,8 +57,8 @@
                 }
             },
             maxHeight: {
-                type: String,
-                default: 'auto'
+                type: Number,
+                default: 260
             },
             multiple: {
                 type: Boolean,

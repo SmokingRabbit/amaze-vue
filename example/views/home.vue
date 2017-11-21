@@ -356,7 +356,7 @@ window.addEventListener('load', function() {
         </div>
         <!-- select -->
         <div>
-            <am-select :options="options" width="100%" :search="true" maxHeight="30px" :multiple="false" color="success"></am-select>
+            <am-select :options="options" width="100%" :search="true" :multiple="false" color="success"></am-select>
         </div>
         <!-- tabs -->
         <div>
