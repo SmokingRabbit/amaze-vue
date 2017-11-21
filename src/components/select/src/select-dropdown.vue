@@ -1,27 +1,29 @@
 <template>
-    <div class="am-selected-content am-dropdown-content" v-if="visible">
-        <div class="am-selected-search" v-if="search" @click.stop>
-            <am-input-group :block="true" size="sm">
-                <am-input-label :transparent="true" slot="prepend">
-                    <am-icon type="search" :color="iconColor" ></am-icon>
-                </am-input-label>
-                <am-input v-model="searchVal" placeholder="请输入搜索内容" size="sm"></am-input>
-            </am-input-group>
+    <transition :name="transition">
+        <div class="am-selected-content am-dropdown-content" v-if="visible">
+            <div class="am-selected-search" v-if="search" @click.stop>
+                <am-input-group :block="true" size="sm">
+                    <am-input-label :transparent="true" slot="prepend">
+                        <am-icon type="search" :color="iconColor" ></am-icon>
+                    </am-input-label>
+                    <am-input v-model="searchVal" placeholder="请输入搜索内容" size="sm"></am-input>
+                </am-input-group>
+            </div>
+            <am-scrollbar :height="scrollbarHeight">
+                <ul class="am-selected-list" ref="lists">
+                    <li
+                        v-for="item,key in renderOptions"
+                        :class="{'am-checked': isSelected(item)}"
+                        :key="key"
+                        @click.stop="selectHandle(item, key)"
+                    >
+                        <span class="am-selected-text">{{ item.label }}</span>
+                        <i class="am-icon-check"></i>
+                    </li>
+                </ul>
+            </am-scrollbar>
         </div>
-        <am-scrollbar :height="scrollbarHeight">
-            <ul class="am-selected-list" ref="lists">
-                <li
-                    v-for="item,key in renderOptions"
-                    :class="{'am-checked': isSelected(item)}"
-                    :key="key"
-                    @click.stop="selectHandle(item, key)"
-                >
-                    <span class="am-selected-text">{{ item.label }}</span>
-                    <i class="am-icon-check"></i>
-                </li>
-            </ul>
-        </am-scrollbar>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -53,7 +55,7 @@
                 iconColor: this.color === 'default' ? undefined : this.color
             }
         },
-        props: [ 'value', 'options', 'maxHeight', 'isFoucs', 'search', 'multiple', 'color' ],
+        props: [ 'value', 'options', 'maxHeight', 'isFoucs', 'search', 'multiple', 'color', 'transition' ],
         methods: {
             isSelected(item) {
                 let is = false;

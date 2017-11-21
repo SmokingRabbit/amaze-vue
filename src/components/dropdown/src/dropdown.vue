@@ -1,5 +1,5 @@
 <template>
-    <transition :name="transition" >
+    <transition :name="transition">
         <ul v-if="visible"
             :class="computedClass"
             @mouseenter="mouseenterHandle"
@@ -112,8 +112,8 @@
                 const ret = { zIndex: this.getZIndex() };
 
                 ret['left'] = this.pageOffset.left + left + 'px';
-                if (this.placement == 'top') {
-                    ret['top'] = this.pageOffset.top + top - selfHeight - this.fix + 'px';
+                if (this.placement === 'top') {
+                    ret['top'] = this.pageOffset.top + top - selfHeight - 9 - this.fix + 'px';
                 }
                 else {
                     ret['top'] = this.pageOffset.top + top + height + this.fix + 'px';
