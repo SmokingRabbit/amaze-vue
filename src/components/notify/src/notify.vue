@@ -88,11 +88,6 @@
                 }
             }
         },
-        updated() {
-            if (this.visible) {
-                this.$el.style.zIndex = this.getZIndex();
-            }
-        },
         computed: {
             computedClass() {
                 const classes = [];
@@ -119,6 +114,11 @@
                 };
 
                 return map[this.type];
+            },
+            popupPosition() {
+                return {
+                    zIndex: this.getZIndex()
+                }
             }
         },
         components: {
