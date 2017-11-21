@@ -31,6 +31,7 @@
         },
         props: {
             customClass: String,
+            value: {},
             placeholder: {
                 type: String,
                 default: '请选择'
@@ -79,6 +80,7 @@
         },
         watch: {
             selectValue(curVal, oldVal) {
+                this.$emit('input', curVal);
                 this.$emit('select', this.multiple ? curVal : curVal[0]);
                 if (curVal.length >= oldVal.length) {
                     this.$emit('change', curVal[curVal.length - 1], true);
