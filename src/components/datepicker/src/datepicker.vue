@@ -199,6 +199,16 @@
             },
             globalClickHandle() {
                 this.hide();
+            },
+            popupPosition() {
+                const { top, left, height } = this.$parent.$el.getBoundingClientRect();
+                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
+                
+                return {
+                    top: top + offsetTop + height + 'px',
+                    left: left + offsetLeft + 'px',
+                    zIndex: this.getZIndex()
+                };
             }
         },
         watch: {
@@ -252,16 +262,6 @@
                 str = str.replace('dd', double(this.curDate));
 
                 return str;
-            },
-            popupPosition() {
-                const { top, left, height } = this.$parent.$el.getBoundingClientRect();
-                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
-                
-                return {
-                    top: top + offsetTop + height + 'px',
-                    left: left + offsetLeft + 'px',
-                    zIndex: this.getZIndex()
-                };
             }
         },
         components: {
