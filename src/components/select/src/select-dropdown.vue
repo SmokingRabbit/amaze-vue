@@ -85,6 +85,29 @@
                 else {
                     this.selectValue.push(item);
                 }
+            },
+            popupPosition() {
+                const { top, left, height, width } = this.$parent.$el.getBoundingClientRect();
+                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
+                const ret = {
+                    top: top + offsetTop + height + 'px',
+                    left: left + offsetLeft + 'px',
+                    zIndex: this.getZIndex()
+                };
+                if (this.width !== undefined) {
+                    if (this.width.indexOf('%') > 0) {
+                        ret['width'] = parseInt(this.width, 10) / 100 * width + 'px';
+                    }
+                    else {
+                        ret['width'] = this.width;
+                    }
+                }
+
+                if (this.$refs['lists'].offsetHeight < this.maxHeight) {
+                    this.scrollbarHeight = this.$refs['lists'].offsetHeight;
+                }
+
+                return ret;
             }
         },
         watch: {
@@ -138,29 +161,6 @@
                     });
                     this.renderOptions = filter;
                 }
-            },
-            popupPosition() {
-                const { top, left, height, width } = this.$parent.$el.getBoundingClientRect();
-                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
-                const ret = {
-                    top: top + offsetTop + height + 'px',
-                    left: left + offsetLeft + 'px',
-                    zIndex: this.getZIndex()
-                };
-                if (this.width !== undefined) {
-                    if (this.width.indexOf('%') > 0) {
-                        ret['width'] = parseInt(this.width, 10) / 100 * width + 'px';
-                    }
-                    else {
-                        ret['width'] = this.width;
-                    }
-                }
-
-                if (this.$refs['lists'].offsetHeight < this.maxHeight) {
-                    this.scrollbarHeight = this.$refs['lists'].offsetHeight;
-                }
-
-                return ret;
             }
         },
         mounted() {
