@@ -138,9 +138,7 @@
                     });
                     this.renderOptions = filter;
                 }
-            }
-        },
-        computed: {
+            },
             popupPosition() {
                 const { top, left, height, width } = this.$parent.$el.getBoundingClientRect();
                 const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
