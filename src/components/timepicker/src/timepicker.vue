@@ -67,7 +67,7 @@
 	import { Scrollbar } from '../../scrollbar';
 	import { Button } from '../../button';
 	import Popup from '../../../mixins/popup';
-	import { on, off, css } from '../../../utils/dom';
+	import { on, off } from '../../../utils/dom';
 
 	export default {
 		name: 'am-timepicker',
@@ -172,33 +172,13 @@
         watch: {
         	visible(curVal, oldVal) {
         		if (curVal) {
-        			this.initNum = true;
-        			this.rect = this.$parent.$el.getBoundingClientRect();
-        		}
-        	}
-        },
-		updated() {
-            if (this.visible) {
-                const { top, left, height } = this.rect;
-                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
-                css(this.$el, {
-                    top: top + offsetTop + height + 'px',
-                    left: left + offsetLeft + 'px',
-                    zIndex: this.getZIndex()
-                });
-                if (this.initNum) {
-                	if (this.hourVal !== 0) {
-						this.$refs['hourScrollbar'].scrollTop(this.hourVal * this.scrollFix);
-					}
-					if (this.minuteVal !== 0) {
+        			this.$nextTick(() => {
+        				this.$refs['hourScrollbar'].scrollTop(this.hourVal * this.scrollFix);
 						this.$refs['minuteScrollbar'].scrollTop(this.minuteVal * this.scrollFix);
-					}
-					if (this.secondVal !== 0) {
 						this.$refs['secondScrollbar'].scrollTop(this.secondVal * this.scrollFix);
-					}
-					this.initNum = false;
+        			});
                 }
-            }
+        	}
         },
 		computed: {
 			hourLoop() {
@@ -209,6 +189,15 @@
 			},
 			secondLoop() {
 				return this.initLoopArr(60);
+			},
+			popupPosition() {
+				const { top, left, height } = this.$parent.$el.getBoundingClientRect();
+                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
+                return {
+                    top: top + offsetTop + height + 'px',
+                    left: left + offsetLeft + 'px',
+                    zIndex: this.getZIndex()
+                };
 			}
 		},
 		components: {
