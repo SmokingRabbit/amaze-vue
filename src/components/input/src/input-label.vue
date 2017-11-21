@@ -23,7 +23,7 @@
                 classes.push('am-input-group-label');
 
                 if (this.transparent) {
-                    classes.push('am-transparent-label');
+                    classes.push('am-input-transparent-label');
                 }
 
                 if (this.customClass !== undefined) {
@@ -35,10 +35,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    .am-transparent-label {
-        background: transparent !important;
-        border-color: transparent !important;
-    }
-</style>
