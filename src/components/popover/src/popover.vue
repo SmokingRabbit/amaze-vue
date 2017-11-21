@@ -1,6 +1,6 @@
 <template>
     <transition :name="transition">
-        <div :class="computedClass" v-if="visible" ref="popover">
+        <div :class="computedClass" v-if="visible">
             <span class="am-popover-caret"></span>
             <div class="am-popover-inner"><slot></slot></div>
         </div>
@@ -75,35 +75,6 @@
                 }
             }
         },
-        updated() {
-            if (this.visible) {
-                const $popover = this.$refs['popover'];
-                const { top, left, width, height } = this.$refs['reference'].getBoundingClientRect();
-                const { width: selfWidth, height: selfHeight } = $popover.getBoundingClientRect();
-
-                $popover.style.zIndex = this.getZIndex();
-                if (this.placement === 'top' || this.placement === 'bottom') {
-                    $popover.style.left = left + this.pageOffset.left - (selfWidth - width) / 2 + 'px';
-
-                    if (this.placement === 'top') {
-                        $popover.style.top = this.pageOffset.top + top - selfHeight - this.fix + 'px';
-                    }
-                    else {
-                        $popover.style.top = this.pageOffset.top + top + height + this.fix + 'px';
-                    }
-                }
-                else {
-                    $popover.style.top = this.pageOffset.top + top - (selfHeight - height) / 2 + 'px';
-
-                    if (this.placement === 'left') {
-                        $popover.style.left = left + this.pageOffset.left - this.fix - selfWidth + 'px';
-                    }
-                    else {
-                        $popover.style.left = left + this.pageOffset.left + this.fix + width + 'px';
-                    }
-                }
-            }
-        },
         computed: {
             computedClass() {
                 const classes = [];
@@ -129,6 +100,33 @@
                 }
 
                 return classes.join(' ');
+            },
+            popupPosition() {
+                const $popover = this.$el;
+                const { top, left, width, height } = this.$refs['reference'].getBoundingClientRect();
+                const { width: selfWidth, height: selfHeight } = $popover.getBoundingClientRect();
+                const ret = { zIndex: this.getZIndex() };
+                
+                if (this.placement === 'top' || this.placement === 'bottom') {
+                    ret['left'] = left + this.pageOffset.left - (selfWidth - width) / 2 + 'px';
+                    if (this.placement === 'top') {
+                        ret['top'] = this.pageOffset.top + top - selfHeight - this.fix + 'px';
+                    }
+                    else {
+                        ret['top'] = this.pageOffset.top + top + height + this.fix + 'px';
+                    }
+                }
+                else {
+                    ret['top'] = this.pageOffset.top + top - (selfHeight - height) / 2 + 'px';
+                    if (this.placement === 'left') {
+                        ret['left'] = left + this.pageOffset.left - this.fix - selfWidth + 'px';
+                    }
+                    else {
+                        ret['left'] = left + this.pageOffset.left + this.fix + width + 'px';
+                    }
+                }
+
+                return ret;
             }
         },
         mounted() {
