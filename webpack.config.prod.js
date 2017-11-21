@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpackBaseConfig = require('./webpack.config');
 
+
 webpackBaseConfig.entry = {
     'amaze-vue': './src/index.js'
 };
