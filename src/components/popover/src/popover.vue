@@ -73,33 +73,6 @@
                 if (this.visible && !this.$el.contains(e.target)) {
                     this.hide();
                 }
-            }
-        },
-        computed: {
-            computedClass() {
-                const classes = [];
-
-                classes.push('am-popover');
-
-                if (this.visible) {
-                    classes.push('am-active');
-                }
-
-                classes.push('am-popover-' + this.placement);
-
-                if (this.customClass !== undefined) {
-                    classes.push(this.customClass);
-                }
-
-                if (this.color !== undefined) {
-                    classes.push('am-popover-' + this.color);
-                }
-
-                if (this.size !== undefined) {
-                    classes.push('am-popover-' + this.size);
-                }
-
-                return classes.join(' ');
             },
             popupPosition() {
                 const $popover = this.$el;
@@ -127,6 +100,33 @@
                 }
 
                 return ret;
+            }
+        },
+        computed: {
+            computedClass() {
+                const classes = [];
+
+                classes.push('am-popover');
+
+                if (this.visible) {
+                    classes.push('am-active');
+                }
+
+                classes.push('am-popover-' + this.placement);
+
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
+                if (this.color !== undefined) {
+                    classes.push('am-popover-' + this.color);
+                }
+
+                if (this.size !== undefined) {
+                    classes.push('am-popover-' + this.size);
+                }
+
+                return classes.join(' ');
             }
         },
         mounted() {
