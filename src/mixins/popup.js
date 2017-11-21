@@ -60,24 +60,33 @@ export default {
     },
     watch: {
         visible(curVal, oldVal) {
-            if (!this.overlay) {
-                return ;
-            }
-
             if (curVal) {
-                this.$overlay = document.createElement('div');
-                dom.addClass(this.$overlay, this.overlayClassName + ' am-active');
-                dom.css(this.$overlay, {zIndex: this.getZIndex()});
-                document.body.appendChild(this.$overlay);
-                this.stopListener = true;
-                window.addEventListener('mousewheel', this.stopScroll);
+                this.$nextTick(() => {
+                    let pos = this.popupPosition;
+                    if (pos) {
+                        dom.css(this.$el, pos);
+                    }
+                });
             }
-            else {
-                setTimeout(() => {
-                    document.body.removeChild(this.$overlay);
-                    this.stopListener = false;
-                    window.removeEventListener('mousewheel', this.stopScroll);
-                }, 300);
+            if (this.overlay) {
+                if (curVal) {
+                    this.$overlay = document.createElement('div');
+                    dom.addClass(this.$overlay, this.overlayClassName + ' am-active');
+                    dom.css(this.$overlay, {zIndex: this.getZIndex()});
+                    document.body.appendChild(this.$overlay);
+                    this.stopListener = true;
+                    window.addEventListener('mousewheel', this.stopScroll);
+                    this.$nextTick(() => {
+                        console.log(this.$el);
+                    })
+                }
+                else {
+                    setTimeout(() => {
+                        document.body.removeChild(this.$overlay);
+                        this.stopListener = false;
+                        window.removeEventListener('mousewheel', this.stopScroll);
+                    }, 300);
+                }
             }
         }
     },
