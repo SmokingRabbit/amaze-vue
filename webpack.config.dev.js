@@ -32,7 +32,7 @@ webpackBaseConfig.plugins = webpackBaseConfig.plugins.concat([
 
 webpackBaseConfig.devServer = {
     contentBase: path.resolve(__dirname, './example'),
-    hot: false,
+    hot: true,
     inline: false,
     progress: true,
     stats: {
