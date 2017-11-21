@@ -62,9 +62,8 @@ export default {
         visible(curVal, oldVal) {
             if (curVal) {
                 this.$nextTick(() => {
-                    let pos = this.popupPosition;
-                    if (pos) {
-                        dom.css(this.$el, pos);
+                    if (typeof this.popupPosition === 'function') {
+                        dom.css(this.$el, this.popupPosition());
                     }
                 });
             }
