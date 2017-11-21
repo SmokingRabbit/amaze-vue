@@ -12,6 +12,7 @@
             :multiple="multiple"
             :width="width"
             :color="color"
+            :transition="transition"
             v-model="selectValue"
         ></select-dropdown>
     </div>
@@ -66,6 +67,10 @@
             options: {
                 type: Array,
                 required: true
+            },
+            transition: {
+                type: String,
+                default: 'fade'
             }
         },
         methods: {
