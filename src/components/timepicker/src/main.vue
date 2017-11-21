@@ -1,9 +1,9 @@
 <template>
     <input-group v-bind="$props">
+        <am-input v-model="inputVal" v-bind="$props"></am-input>
         <input-label :slot="labelPlacement">
             <icon type="clock-o"></icon>
         </input-label>
-        <am-input v-model="inputVal" v-bind="$props"></am-input>
         <time-picker ref="timepicker" v-model="curVal"></time-picker>
     </input-group>
 </template>

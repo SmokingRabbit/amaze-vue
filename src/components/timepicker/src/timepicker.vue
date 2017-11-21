@@ -158,7 +158,17 @@
             	if (!this.$el.contains(e.target)) {
             		this.hide();
             	}
-            }
+            },
+            popupPosition() {
+				const { top, left, height } = this.$parent.$el.getBoundingClientRect();
+                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
+
+                return {
+                    top: top + offsetTop + height + 'px',
+                    left: left + offsetLeft + 'px',
+                    zIndex: this.getZIndex()
+                };
+			}
 		},
 		mounted() {
 			document.body.appendChild(this.$el);
@@ -189,15 +199,6 @@
 			},
 			secondLoop() {
 				return this.initLoopArr(60);
-			},
-			popupPosition() {
-				const { top, left, height } = this.$parent.$el.getBoundingClientRect();
-                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
-                return {
-                    top: top + offsetTop + height + 'px',
-                    left: left + offsetLeft + 'px',
-                    zIndex: this.getZIndex()
-                };
 			}
 		},
 		components: {
