@@ -36,12 +36,6 @@
                 default: '请选择'
             },
             width: String,
-            size: {
-                type: String,
-                validator(value) {
-                    return ['xl', 'lg', 'xm', 'xs'].includes(value);
-                }
-            },
             color: {
                 type: String,
                 default: 'default',
@@ -86,7 +80,12 @@
         watch: {
             selectValue(curVal, oldVal) {
                 this.$emit('select', this.multiple ? curVal : curVal[0]);
-                this.$emit('change', curVal[curVal.length - 1]);
+                if (curVal.length >= oldVal.length) {
+                    this.$emit('change', curVal[curVal.length - 1], true);
+                }
+                else {
+                    this.$emit('change', oldVal[oldVal.length - 1], false);
+                }
             }
         },
         computed: {
