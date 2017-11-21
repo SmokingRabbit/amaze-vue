@@ -98,17 +98,6 @@
                 }
             }
         },
-        updated() {
-            if (this.visible) {
-                this.$el.style.zIndex= this.getZIndex();
-                if (this.isTop) {
-                    this.$el.style.top = this.offsetTop + 'px';
-                }
-                else {
-                    this.$el.style.bottom = this.offsetBottom + 'px';
-                }
-            }
-        },
         computed: {
             computedClass() {
                 const classes = [];
@@ -140,6 +129,17 @@
             },
             isTop() {
                 return this.placement.indexOf('top') > -1;
+            },
+            popupPosition() {
+                const ret = { zIndex: this.getZIndex() };
+
+                if (this.isTop) {
+                    ret['top'] = this.offsetTop + 'px';
+                }
+                else {
+                    ret['bottom'] = this.offsetBottom + 'px';
+                }
+                return ret;
             }
         },
         components: {
