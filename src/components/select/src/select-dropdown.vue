@@ -2,7 +2,9 @@
     <div class="am-selected-content am-dropdown-content" v-if="visible">
         <div class="am-selected-search" v-if="search" @click.stop>
             <am-input-group :block="true" size="sm">
-                <am-input-label :transparent="true" slot="prepend"><am-icon type="search" :color="color" ></am-icon></am-input-label>
+                <am-input-label :transparent="true" slot="prepend">
+                    <am-icon type="search" :color="iconColor" ></am-icon>
+                </am-input-label>
                 <am-input v-model="searchVal" placeholder="请输入搜索内容" size="sm"></am-input>
             </am-input-group>
         </div>
@@ -47,7 +49,8 @@
                 saveOptions: this.options,
                 renderOptions: this.options,
                 searchVal: '',
-                scrollbarHeight: this.maxHeight
+                scrollbarHeight: this.maxHeight,
+                iconColor: this.color === 'default' ? undefined : this.color
             }
         },
         props: [ 'value', 'options', 'maxHeight', 'isFoucs', 'search', 'multiple', 'color' ],
@@ -148,7 +151,7 @@
                 else {
                     const filter = [];
                     this.renderOptions.forEach((item) => {
-                        if (item.label.indexOf(curVal) > -1 || item.guesser.indexOf(curVal) > -1) {
+                        if (item.label.indexOf(curVal) > -1 || (item.guesser && item.guesser.indexOf(curVal) > -1)) {
                             filter.push(item);
                         }
                     });

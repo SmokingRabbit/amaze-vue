@@ -85,10 +85,8 @@
         },
         watch: {
             selectValue(curVal, oldVal) {
-                if (curVal.length > oldVal.length) {
-                    this.$emit('select', curVal);
-                    this.$emit('change', curVal[curVal.length - 1].value);
-                }
+                this.$emit('select', this.multiple ? curVal : curVal[0]);
+                this.$emit('change', curVal[curVal.length - 1]);
             }
         },
         computed: {
