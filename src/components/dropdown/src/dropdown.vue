@@ -1,7 +1,6 @@
 <template>
     <transition :name="transition" >
         <ul v-if="visible"
-            ref="dropdown"
             :class="computedClass"
             @mouseenter="mouseenterHandle"
             @mouseleave="mouseleaveHandle"
@@ -68,6 +67,23 @@
                 }
 
                 return classes.join(' ');
+            },
+            popupPosition() {
+                const $dropdown = this.$el;
+                const $reference = this.$refs['reference'];
+                const { top, left, height } = $reference.getBoundingClientRect();
+                const { height: selfHeight } = $dropdown.getBoundingClientRect();
+                const ret = { zIndex: this.getZIndex() };
+
+                ret['left'] = this.pageOffset.left + left + 'px';
+                if (this.placement == 'top') {
+                    ret['top'] = this.pageOffset.top + top - selfHeight - this.fix + 'px';
+                }
+                else {
+                    ret['top'] = this.pageOffset.top + top + height + this.fix + 'px';
+                }
+
+                return ret;
             }
         },
         methods: {
@@ -103,25 +119,6 @@
                     if (this.timer !== null) {
                         clearTimeout(this.timer);
                     }
-                }
-            }
-        },
-        updated() {
-            if (this.visible) {
-                const $dropdown = this.$refs['dropdown'];
-                const $reference = this.$refs['reference'];
-
-                const { top, left, height } = $reference.getBoundingClientRect();
-                const { height: selfHeight } = $dropdown.getBoundingClientRect();
-
-                $dropdown.style.zIndex = this.getZIndex();
-                $dropdown.style.left = this.pageOffset.left + left + 'px';
-
-                if (this.placement == 'top') {
-                    $dropdown.style.top = this.pageOffset.top + top - selfHeight - this.fix + 'px';
-                }
-                else {
-                    $dropdown.style.top = this.pageOffset.top + top + height + this.fix + 'px';
                 }
             }
         },
