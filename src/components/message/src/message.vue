@@ -84,6 +84,17 @@
                 this.$el.removeEventListener('transitionend', this.destroy);
                 this.$destroy(true);
                 this.$el.parentNode.removeChild(this.$el);
+            },
+            popupPosition() {
+                const ret = { zIndex: this.getZIndex() };
+
+                if (this.isTop) {
+                    ret['top'] = this.offsetTop + 'px';
+                }
+                else {
+                    ret['bottom'] = this.offsetBottom + 'px';
+                }
+                return ret;
             }
         },
         watch: {
@@ -129,17 +140,6 @@
             },
             isTop() {
                 return this.placement.indexOf('top') > -1;
-            },
-            popupPosition() {
-                const ret = { zIndex: this.getZIndex() };
-
-                if (this.isTop) {
-                    ret['top'] = this.offsetTop + 'px';
-                }
-                else {
-                    ret['bottom'] = this.offsetBottom + 'px';
-                }
-                return ret;
             }
         },
         components: {
