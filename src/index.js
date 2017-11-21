@@ -154,6 +154,11 @@ const install = function (Vue) {
     Vue.component(Timepicker.name, Timepicker);
 }
 
+// html script标签支持
+if (typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+}
+
 export default {
     install
 };
