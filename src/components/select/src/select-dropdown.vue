@@ -50,7 +50,7 @@
                 scrollbarHeight: this.maxHeight
             }
         },
-        props: [ 'value', 'options', 'maxHeight', 'isFoucs', 'search', 'multiple', 'width', 'color' ],
+        props: [ 'value', 'options', 'maxHeight', 'isFoucs', 'search', 'multiple', 'color' ],
         methods: {
             isSelected(item) {
                 let is = false;
@@ -92,16 +92,9 @@
                 const ret = {
                     top: top + offsetTop + height + 'px',
                     left: left + offsetLeft + 'px',
+                    width: width + 'px',
                     zIndex: this.getZIndex()
                 };
-                if (this.width !== undefined) {
-                    if (this.width.indexOf('%') > 0) {
-                        ret['width'] = parseInt(this.width, 10) / 100 * width + 'px';
-                    }
-                    else {
-                        ret['width'] = this.width;
-                    }
-                }
 
                 if (this.$refs['lists'].offsetHeight < this.maxHeight) {
                     this.scrollbarHeight = this.$refs['lists'].offsetHeight;
