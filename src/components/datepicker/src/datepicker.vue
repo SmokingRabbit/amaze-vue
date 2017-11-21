@@ -61,7 +61,7 @@
     import AmDatepickerYear from './year';
     import AmDatepickerMonth from './month';
     import AmDatepickerDate from './date';
-    import { on, off, css } from '../../../utils/dom';
+    import { on, off } from '../../../utils/dom';
 
     export default {
         name: 'am-datepicker',
@@ -215,17 +215,6 @@
                 this.$emit('input', this.result);
             },
         },
-        updated() {
-            if (this.visible) {
-                const { top, left, height } = this.$parent.$el.getBoundingClientRect();
-                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
-                css(this.$el, {
-                    top: top + offsetTop + height + 'px',
-                    left: left + offsetLeft + 'px',
-                    zIndex: this.getZIndex()
-                });
-            }
-        },
         computed: {
             headerTitle() {
                 let str;
@@ -263,6 +252,16 @@
                 str = str.replace('dd', double(this.curDate));
 
                 return str;
+            },
+            popupPosition() {
+                const { top, left, height } = this.$parent.$el.getBoundingClientRect();
+                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
+                
+                return {
+                    top: top + offsetTop + height + 'px',
+                    left: left + offsetLeft + 'px',
+                    zIndex: this.getZIndex()
+                };
             }
         },
         components: {
