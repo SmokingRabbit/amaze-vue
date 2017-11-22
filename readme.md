@@ -15,11 +15,11 @@
 ```
 
 ```js
-	import Vue from 'vue';
-	import Amazeui from 'amaze-vue';
-	import 'amaze-vue/dist/amaze-vue.css';
+    import Vue from 'vue';
+    import Amazeui from 'amaze-vue';
+    import 'amaze-vue/dist/amaze-vue.css';
 
-	Vue.use(Amazeui);
+    Vue.use(Amazeui);
 ```
 
 
