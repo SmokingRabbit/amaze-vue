@@ -191,6 +191,12 @@ input[type="datetime-local"], input[type="date"] {
 
 .@{ns}form-group {
     margin-bottom: 1.5rem;
+
+    .error-notice {
+        font-size: @global-font-size - 0.4;
+        line-height:  1;
+        margin: 4px 0;
+    }
 }
 
 
@@ -287,6 +293,10 @@ input[type="radio"], input[type="checkbox"], .@{ns}radio, .@{ns}radio-inline, .@
         @state-warning-text);
     }
     .hook-form-warning;
+
+    .error-notice {
+        color: @global-warning;
+    }
 }
 
 // Error

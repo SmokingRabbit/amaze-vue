@@ -116,18 +116,7 @@
         },
         watch: {
             value(curVal, oldVal) {
-                if (this.maxLen > 0 && curVal.length > this.maxLen) {
-                    this.errMsg = '您最多可以输入' + this.maxLen + '个字符';
-                    return this.isError = true;
-                }
-
-                if (this.minLen > 0 && curVal.length < this.minLen) {
-                    this.errMsg = '您最少需要输入' + this.maxLen + '个字符';
-                    return this.isError = true;
-                }
-
-                if (this.regex !== undefined && !new RegExp(this.regex).test(curVal)) {
-                    this.errMsg = '您输入的信息不正确';
+                if (this.validator(curVal)) {
                     return this.isError = true;
                 }
 
@@ -159,6 +148,22 @@
                 if (this.inputGroupComponent) {
                     this.inputGroupComponent[methods](param);
                 }
+            },
+            validator(curVal) {
+                curVal = curVal || this.value;
+                if (this.maxLen > 0 && curVal.length > this.maxLen) {
+                    this.errMsg = '您最多可以输入' + this.maxLen + '个字符';
+                    return true;
+                }
+                if (this.minLen > 0 && curVal.length < this.minLen) {
+                    this.errMsg = '您最少需要输入' + this.minLen + '个字符';
+                    return true;
+                }
+                if (this.regex !== undefined && !new RegExp(this.regex).test(curVal)) {
+                    this.errMsg = '您输入的信息不正确';
+                    return true;
+                }
+                return false;
             }
         },
         computed: {
@@ -172,7 +177,8 @@
                 return classes.join(' ');
             },
             inputGroupComponent() {
-                if (this.$parent.$options._componentTag === 'am-input-group') {
+                let tagName = this.$parent.$options._componentTag;
+                if (tagName === 'am-input-group' || tagName === 'am-form-group') {
                     return this.$parent;
                 }
                 return null;

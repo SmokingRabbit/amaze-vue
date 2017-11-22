@@ -8,7 +8,11 @@
     export default {
         name: 'am-form',
         props: {
-            customClass: String
+            customClass: String,
+            inline: {
+                type: Boolean,
+                default: false
+            }
         },
         computed: {
             computedClass() {
@@ -16,6 +20,9 @@
 
                 classes.push('am-form');
 
+                if (this.inline) {
+                    classes.push('am-form-inline');
+                }
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
                 }
@@ -52,7 +59,7 @@
                                     'am-select', 
                                     'am-datepicker', 
                                     'am-timepicer'
-                                ].includes(name) && !_vComponent.value)
+                                ].includes(name) && _vComponent.validator())
                             {
                                 _vComponent.isError = true;
                                 pass = false;
@@ -64,8 +71,23 @@
             },
             resetFields() {
                 this.fields.forEach((vComponent) => {
-                    vComponent.isError = false;
-                    vComponent.errMsg = '';
+                    vComponent.$children.forEach((_vComponent) => {
+                        let name = _vComponent.$options._componentTag;
+                        if ([
+                                'am-input', 
+                                'am-radio', 
+                                'am-radio-group', 
+                                'am-checkbox', 
+                                'am-checkbox-gorup', 
+                                'am-select', 
+                                'am-datepicker', 
+                                'am-timepicer'
+                            ].includes(name))
+                        {
+                            _vComponent.isError = false;
+                            _vComponent.errMsg = '';
+                        }
+                    });
                 });
             },
             validateField(prop, callback) {
