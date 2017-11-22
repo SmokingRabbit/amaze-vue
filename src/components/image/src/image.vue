@@ -49,6 +49,10 @@
                     classes.push('am-circle');
                 }
 
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
                 return classes.join(' ');
             }
         }

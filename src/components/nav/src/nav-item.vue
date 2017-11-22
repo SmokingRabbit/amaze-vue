@@ -46,6 +46,10 @@
                     classes.push('am-nav-divider');
                 }
 
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
                 return classes.join(' ');
             }
         }
