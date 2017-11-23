@@ -12,7 +12,7 @@
 ### 使用交流
 
 QQ群 285353957
-[![使用交流群](//pub.idqqimg.com/wpa/images/group.png)](//shang.qq.com/wpa/qunwpa?idkey=f69b9d7d833c074b4dc2c45d159e0ebaec4b6169a3cdbbe90fe644826af8c820)
+[![使用交流群](https://pub.idqqimg.com/wpa/images/group.png)](https://shang.qq.com/wpa/qunwpa?idkey=f69b9d7d833c074b4dc2c45d159e0ebaec4b6169a3cdbbe90fe644826af8c820)
 
 ### 使用
 
