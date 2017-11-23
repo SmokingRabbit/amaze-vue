@@ -334,7 +334,7 @@ window.addEventListener('load', function() {
         </div>
         <!-- pagination -->
         <div>
-            <am-pagination :pageCount="100" v-model="pageNum" :disabled="true" @change="pageChange"></am-pagination>
+            <am-pagination :total="100" v-model="pageNum" :disabled="true" @change="pageChange"></am-pagination>
         </div>
         <!-- progress -->
         <div>
@@ -425,7 +425,7 @@ window.addEventListener('load', function() {
                 popupVisible: false,
                 nprogress: false,
                 lockerVisible: false,
-                pageNum: 1,
+                pageNum: 10,
                 date: '',
                 options: [{
                     value: 1,

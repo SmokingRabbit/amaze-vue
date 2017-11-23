@@ -90,6 +90,10 @@
                     classes.push('am-checkbox-inline');
                 }
 
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
                 return classes.join(' ');
             },
             isGroup() {

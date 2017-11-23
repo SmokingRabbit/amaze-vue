@@ -97,6 +97,10 @@
                     classes.push('am-radio-inline');
                 }
 
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
                 return classes.join(' ');
             },
             isGroup() {

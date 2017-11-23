@@ -29,6 +29,10 @@
 
                 classes.push('am-radio-group');
 
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
                 return classes.join(' ');
             }
         }

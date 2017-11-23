@@ -118,6 +118,10 @@
                     classes.push('am-message-' + this.type);
                 }
 
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
                 return classes.join(' ');
             },
             iconType() {

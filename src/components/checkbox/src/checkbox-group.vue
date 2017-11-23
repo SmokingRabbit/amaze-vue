@@ -33,6 +33,10 @@
             computedClass() {
                 const classes = [];
 
+                if (this.customClass !== undefined) {
+                    classes.push(this.customClass);
+                }
+
                 classes.push('am-checkbox-group');
 
                 return classes.join(' ');
