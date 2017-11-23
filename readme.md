@@ -12,7 +12,7 @@
 ### 使用交流
 
 QQ群 285353957
-<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=f69b9d7d833c074b4dc2c45d159e0ebaec4b6169a3cdbbe90fe644826af8c820"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="酱油前端情怀" title="酱油前端情怀"></a>
+[![使用交流群](//pub.idqqimg.com/wpa/images/group.png)](//shang.qq.com/wpa/qunwpa?idkey=f69b9d7d833c074b4dc2c45d159e0ebaec4b6169a3cdbbe90fe644826af8c820)
 
 ### 使用
 
