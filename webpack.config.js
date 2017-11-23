@@ -35,7 +35,7 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src/'),
-                exclude: [/node_modules/, 'src/components/code/src/lib/highlight.js']
+                exclude: [/node_modules/, path.resolve(__dirname, 'src/components/code/src/lib/highlight.js')]
             },
             {
                  test: /\.vue|js$/,
