@@ -396,7 +396,7 @@ window.addEventListener('load', function() {
             <am-timepicker></am-timepicker>
         </div>
         <am-form-group><am-input></am-input></am-form-group>
-        <am-table :data="tableData">
+        <am-table :data="tableData" :select="true" :selectAll="true">
             <am-table-column prop="num" label="编码"></am-table-column>
             <am-table-column prop="title" label="名称"></am-table-column>
             <am-table-column prop="date" label="日期"></am-table-column>
@@ -448,8 +448,12 @@ window.addEventListener('load', function() {
                     date: '2017-10-01'
                 },{
                     num: 2,
-                    title: '苹果',
-                    date: '2017-10-01'
+                    title: {
+                        render(h) {
+                            return (<am-icon type="github"></am-icon>)
+                        }
+                    },
+                    date: '2017-10-01',
                 },
                 {
                     num: 3,
