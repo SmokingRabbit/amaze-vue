@@ -18,7 +18,7 @@
             return {
                 curVal: this.value,
                 inputVal: this.value
-            }
+            };
         },
         props: {
             value: {},
@@ -41,7 +41,7 @@
                 type: String,
                 default: '请选择日期'
             },
-            readonly:Boolean,
+            readonly: Boolean,
             disabled: Boolean,
             name: String,
             autofocus: Boolean,
@@ -72,5 +72,5 @@
             AmInputLabel: InputLabel,
             Datepicker
         }
-    }
+    };
 </script>

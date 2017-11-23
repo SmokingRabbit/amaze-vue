@@ -85,5 +85,5 @@
             Animation,
             Icon
         }
-    }
+    };
 </script>

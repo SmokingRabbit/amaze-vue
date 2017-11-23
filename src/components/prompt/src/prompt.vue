@@ -103,5 +103,5 @@
             ModalBody,
             ModalFooter
         }
-    }
+    };
 </script>

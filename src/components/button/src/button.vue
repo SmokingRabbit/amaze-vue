@@ -113,5 +113,5 @@
             Animation,
             Icon
         }
-    }
+    };
 </script>

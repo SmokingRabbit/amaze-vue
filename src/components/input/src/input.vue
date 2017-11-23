@@ -43,7 +43,6 @@
 </template>
 
 <script>
-
     export default {
         name: 'am-input',
         props: {
@@ -112,12 +111,13 @@
                 curValue: this.value,
                 isError: false,
                 errMsg: ''
-            }
+            };
         },
         watch: {
             value(curVal, oldVal) {
                 if (this.validator(curVal)) {
-                    return this.isError = true;
+                    this.isError = true;
+                    return;
                 }
 
                 this.isError = false;
@@ -189,5 +189,5 @@
                 this.callParentMethod('setTextarea');
             }
         }
-    }
+    };
 </script>

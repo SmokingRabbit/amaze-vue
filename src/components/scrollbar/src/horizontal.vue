@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { on, off } from '../../../utils/dom';
+    import { on, off } from '../../../utils/dom';
 
     export default {
         name: 'am-orizontal',
@@ -39,7 +39,7 @@ import { on, off } from '../../../utils/dom';
                 width: 0,
                 dragging: false,
                 start: 0
-            }
+            };
         },
         watch: {
             scrollContainerWidth (curVal, oldVal) {
@@ -90,7 +90,7 @@ import { on, off } from '../../../utils/dom';
             },
             calculateSize(source) {
                 this.width = source.scrollContainerWidth / source.scrollAreaWidth * 100;
-            },
+            }
         },
         mounted() {
             this.calculateSize(this);
@@ -105,5 +105,5 @@ import { on, off } from '../../../utils/dom';
             off(document.body, 'mouseup', this.stopDrag);
             on(document.body, 'touchend', this.stopDrag);
         }
-    }
+    };
 </script>

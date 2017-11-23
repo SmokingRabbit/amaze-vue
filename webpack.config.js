@@ -35,7 +35,19 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src/'),
-                exclude: /node_modules/
+                exclude: [/node_modules/, 'src/components/code/src/lib/highlight.js']
+            },
+            {
+                 test: /\.vue|js$/,
+                 enforce: 'pre',
+                 include: path.resolve(__dirname, 'src'),
+                 exclude: /node_modules/,
+                 use: [{
+                     loader: 'eslint-loader',
+                     options: {
+                         formatter: require('eslint-friendly-formatter')
+                     }
+                 }]
             },
             {
                 test: /\.(less|css)$/,

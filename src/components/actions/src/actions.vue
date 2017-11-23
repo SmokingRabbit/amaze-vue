@@ -14,7 +14,7 @@
         mixins: [ Popup ],
         props: {
             customClass: {
-                type: String,
+                type: String
             },
             isShow: {
                 type: Boolean,
@@ -77,5 +77,5 @@
         mounted() {
             document.body.appendChild(this.$el);
         }
-    }
+    };
 </script>

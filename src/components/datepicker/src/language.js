@@ -35,7 +35,7 @@ export const weekZHMap = {
     4: '四',
     5: '五',
     6: '六',
-    7: '七',
+    7: '七'
 };
 
 export const weekENMap = {
@@ -45,5 +45,5 @@ export const weekENMap = {
     4: 'Thur',
     5: 'Fri',
     6: 'Sat',
-    7: 'Sun',
+    7: 'Sun'
 };

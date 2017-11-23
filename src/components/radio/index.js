@@ -4,4 +4,4 @@ import RadioGroup from './src/radio-group';
 export {
     Radio,
     RadioGroup
-}
+};

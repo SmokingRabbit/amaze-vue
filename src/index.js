@@ -13,7 +13,7 @@ import { Breadcrumb, BreadcrumbItem } from './components/breadcrumb';
 import { Close } from './components/close';
 import {
     Comment,
-    CommentList ,
+    CommentList,
     CommentAvatar,
     CommentContent,
     CommentHeader,
@@ -152,7 +152,7 @@ const install = function (Vue) {
     Vue.component(Loading.name, Loading);
     Vue.use(Loading);
     Vue.component(Timepicker.name, Timepicker);
-}
+};
 
 // html script标签支持
 if (typeof window !== 'undefined' && window.Vue) {

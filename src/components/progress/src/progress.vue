@@ -87,5 +87,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

@@ -53,15 +53,12 @@
         },
         computed: {
             checked() {
-                if (toString.call(this.selfVal) === '[object Array]'
-                    && this.selfVal.indexOf(this.label) > -1
-                ) {
+                if (toString.call(this.selfVal) === '[object Array]' &&
+                    this.selfVal.indexOf(this.label) > -1) {
                     return true;
                 }
-                else if (
-                    toString.call(this.selfVal) === '[object Boolean]'
-                    && this.selfVal
-                ){
+                else if (toString.call(this.selfVal) === '[object Boolean]' &&
+                    this.selfVal) {
                     return true;
                 }
                 else {
@@ -117,13 +114,13 @@
                     if (this.isGroup) {
                         let isLimitExceeded = false;
 
-                        if (this.checkboxGroup.min !== undefined
-                            && val.length < this.checkboxGroup.min
+                        if (this.checkboxGroup.min !== undefined &&
+                            val.length < this.checkboxGroup.min
                         ) {
                             isLimitExceeded = true;
                         }
-                        if (this.checkboxGroup.max !== undefined
-                            && val.length > this.checkboxGroup.max
+                        if (this.checkboxGroup.max !== undefined &&
+                            val.length > this.checkboxGroup.max
                         ) {
                             isLimitExceeded = true;
                         }
@@ -131,7 +128,8 @@
                         if (!isLimitExceeded) {
                             this.dispatch('am-checkbox-group', 'input', [val]);
                         }
-                    } else {
+                    }
+                    else {
                         this.$emit('input', val);
                         this.$emit('change', val);
                     }
@@ -143,5 +141,5 @@
                     : this.disabled;
             }
         }
-    }
+    };
 </script>

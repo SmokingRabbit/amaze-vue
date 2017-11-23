@@ -39,7 +39,7 @@
                 height: 0,
                 dragging: false,
                 start: 0
-            }
+            };
         },
         watch: {
             scrollContainerHeight (curVal, oldVal) {
@@ -105,5 +105,5 @@
             off(document.body, 'mouseup', this.stopDrag);
             on(document.body, 'touchend', this.stopDrag);
         }
-    }
+    };
 </script>

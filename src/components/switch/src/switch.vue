@@ -16,7 +16,7 @@
         data() {
             return {
                 selfVal: this.value
-            }
+            };
         },
         props: {
             value: {
@@ -46,7 +46,7 @@
                 }
             },
             activeText: String,
-            inactiveText: String,
+            inactiveText: String
         },
         watch: {
             selfVal(curVal, oldVal) {
@@ -73,5 +73,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

@@ -10,7 +10,7 @@
         props: {
             customClass: {
                 type: String
-            },
+            }
         },
         computed: {
             computedClass() {
@@ -25,5 +25,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

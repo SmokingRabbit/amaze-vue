@@ -28,7 +28,6 @@
 
 <script>
     import Popup from '../../../mixins/popup';
-    import * as doms from '../../../utils/dom';
     import { Input, InputGroup, InputLabel } from '../../input/';
     import { Icon } from '../../icon/';
     import { Scrollbar } from '../../scrollbar';
@@ -40,12 +39,13 @@
             const selectValue = [];
             this.options.forEach((item) => {
                 if (!this.multiple && selectValue.length) {
-                    return ;
+                    return;
                 }
                 if (item.selected) {
-                    selectValue.push(item)
+                    selectValue.push(item);
                 }
             });
+
             return {
                 selectValue,
                 saveOptions: this.options,
@@ -53,7 +53,7 @@
                 searchVal: '',
                 scrollbarHeight: this.maxHeight,
                 iconColor: this.color === 'default' ? undefined : this.color
-            }
+            };
         },
         props: [ 'value', 'options', 'maxHeight', 'isFoucs', 'search', 'multiple', 'color', 'transition' ],
         methods: {
@@ -93,7 +93,7 @@
             },
             popupPosition() {
                 const { top, left, height, width } = this.$parent.$el.getBoundingClientRect();
-                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
+                const { top: offsetTop, left: offsetLeft } = this.getPageOffset();
                 const ret = {
                     top: top + offsetTop + height + 'px',
                     left: left + offsetLeft + 'px',
@@ -171,5 +171,5 @@
             AmInputLabel: InputLabel,
             AmScrollbar: Scrollbar
         }
-    }
+    };
 </script>

@@ -79,7 +79,7 @@
                 const { top, left, width, height } = this.$refs['reference'].getBoundingClientRect();
                 const { width: selfWidth, height: selfHeight } = $popover.getBoundingClientRect();
                 const ret = { zIndex: this.getZIndex() };
-                
+
                 if (this.placement === 'top' || this.placement === 'bottom') {
                     ret['left'] = left + this.pageOffset.left - (selfWidth - width) / 2 + 'px';
                     if (this.placement === 'top') {
@@ -154,5 +154,5 @@
                 off(document.body, 'click', this.globalClickHandle);
             }
         }
-    }
+    };
 </script>

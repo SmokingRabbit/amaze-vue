@@ -1,8 +1,8 @@
 import NProgress from './src/nprogress';
 
-NProgress.install =  (Vue) => {
+NProgress.install = (Vue) => {
     const _constructor = Vue.extend(NProgress);
-    let instance  = new _constructor();
+    let instance = new _constructor();
     instance = instance.$mount();
     document.body.appendChild(instance.$el);
 
@@ -15,8 +15,8 @@ NProgress.install =  (Vue) => {
         end() {
             instance.end();
         }
-    }
-}
+    };
+};
 
 export {
     NProgress

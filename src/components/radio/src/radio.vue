@@ -57,14 +57,14 @@
         data() {
             return {
                 checked: false
-            }
+            };
         },
         methods: {
             focusHandle() {
                 this.selfVal = this.label;
             }
         },
-        watch:{
+        watch: {
             selfVal(curVal, oldVal) {
                 if (curVal === this.label) {
                     this.checked = true;
@@ -123,7 +123,8 @@
                 set(val) {
                     if (this.isGroup) {
                         this.dispatch('am-radio-group', 'input', [val]);
-                    } else {
+                    }
+                    else {
                         this.$emit('input', val);
                         this.$emit('change', val);
                     }
@@ -138,5 +139,5 @@
         mounted() {
             this.checked = this.label === this.selfVal;
         }
-    }
+    };
 </script>

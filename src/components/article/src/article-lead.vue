@@ -21,5 +21,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

@@ -11,7 +11,7 @@ Toast.install = function (Vue, options) {
     }
 
     Vue.prototype.$Toast = {
-        open(message = '', options = { timeout: 2000}) {
+        open(message = '', options = {timeout: 2000}) {
             instance = instance || createInstance();
             instance.syncSlot = true;
             Object.assign(instance, { message }, options);
@@ -21,8 +21,8 @@ Toast.install = function (Vue, options) {
             instance = instance || createInstance();
             instance.syncSlot = false;
         }
-    }
-}
+    };
+};
 
 export {
     Toast

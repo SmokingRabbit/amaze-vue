@@ -70,5 +70,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

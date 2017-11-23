@@ -22,7 +22,7 @@
         data() {
             return {
                 transition: 'locker-' + this.placement
-            }
+            };
         },
         props: {
             placement: {
@@ -97,5 +97,5 @@
         mounted() {
             document.body.appendChild(this.$el);
         }
-    }
+    };
 </script>

@@ -8,8 +8,6 @@
 </template>
 
 <script>
-    import * as doms from '../../../utils/dom';
-
     export default {
         name: 'am-input-group',
         data() {
@@ -18,7 +16,7 @@
                 errMsg: '',
                 isTextarea: false,
                 noticeStyle: {}
-            }
+            };
         },
         props: {
             customClass: String,
@@ -127,8 +125,8 @@
                     const paddingInputComponent = (placement) => {
                         if (this.inputComponent) {
                             this.inputComponent.$el.style[placement] =
-                                parseInt(getComputedStyle(this.inputComponent.$el, null)[placement], 10)
-                                + vComponent.elm.getBoundingClientRect().width + 'px';
+                                parseInt(getComputedStyle(this.inputComponent.$el, null)[placement], 10) +
+                                vComponent.elm.getBoundingClientRect().width + 'px';
                         }
                     };
 
@@ -152,8 +150,8 @@
             if (this.$slots.append) {
                 this.noticeStyle = {
                     right: this.$slots.append[0].elm.getBoundingClientRect().width + 16 + 'px'
-                }
+                };
             }
         }
-    }
+    };
 </script>

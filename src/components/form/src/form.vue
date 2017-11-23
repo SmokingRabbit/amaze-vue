@@ -32,8 +32,8 @@
             fields() {
                 const arr = [];
                 this.$children.forEach((vComponent, index) => {
-                    let name = vComponent.$options._componentTag
-                    if(name === 'am-input-group' || name === 'am-form-group') {
+                    let name = vComponent.$options._componentTag;
+                    if (name === 'am-input-group' || name === 'am-form-group') {
                         arr.push(vComponent);
                     }
                 });
@@ -51,39 +51,37 @@
                         vComponent.$children.forEach((_vComponent) => {
                             let name = _vComponent.$options._componentTag;
                             if ([
-                                    'am-input', 
-                                    'am-radio', 
-                                    'am-radio-group', 
-                                    'am-checkbox', 
-                                    'am-checkbox-gorup', 
-                                    'am-select', 
-                                    'am-datepicker', 
-                                    'am-timepicer'
-                                ].includes(name) && _vComponent.validator())
-                            {
+                                'am-input',
+                                'am-radio',
+                                'am-radio-group',
+                                'am-checkbox',
+                                'am-checkbox-gorup',
+                                'am-select',
+                                'am-datepicker',
+                                'am-timepicer'
+                            ].includes(name) && _vComponent.validator()) {
                                 _vComponent.isError = true;
                                 pass = false;
                             }
                         });
                     }
                 });
-                return pass; 
+                return pass;
             },
             resetFields() {
                 this.fields.forEach((vComponent) => {
                     vComponent.$children.forEach((_vComponent) => {
                         let name = _vComponent.$options._componentTag;
                         if ([
-                                'am-input', 
-                                'am-radio', 
-                                'am-radio-group', 
-                                'am-checkbox', 
-                                'am-checkbox-gorup', 
-                                'am-select', 
-                                'am-datepicker', 
-                                'am-timepicer'
-                            ].includes(name))
-                        {
+                            'am-input',
+                            'am-radio',
+                            'am-radio-group',
+                            'am-checkbox',
+                            'am-checkbox-gorup',
+                            'am-select',
+                            'am-datepicker',
+                            'am-timepicer'
+                        ].includes(name)) {
                             _vComponent.isError = false;
                             _vComponent.errMsg = '';
                         }
@@ -105,5 +103,5 @@
                 });
             }
         }
-    }
+    };
 </script>

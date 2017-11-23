@@ -6,7 +6,7 @@
                     v-for="row,key in loop"
                     :key="key"
                     :class="{
-                        'am-active': curYear === row.val, 
+                        'am-active': curYear === row.val,
                         'am-datepicker-old': key === 0 || key + 1 === loop.length,
                         'am-disabled': row.disabled
                     }"
@@ -36,19 +36,19 @@
                 const { defaultValue, disabledBeforeDate, disabledAfterDate } = this;
                 let disabled = false;
                 if (disabledBeforeDate) {
-                    let disabledYear = disabledBeforeDate === true ? 
-                        new Date(defaultValue).getFullYear() 
+                    let disabledYear = disabledBeforeDate === true
+                        ? new Date(defaultValue).getFullYear()
                         : new Date(disabledBeforeDate).getFullYear();
-                    disabled =  disabledYear > year;
+                    disabled = disabledYear > year;
                     if (disabled) {
                         return disabled;
                     }
                 }
                 if (disabledAfterDate) {
-                    let disabledYear = disabledAfterDate === true ? 
-                        new Date(defaultValue).getFullYear()
+                    let disabledYear = disabledAfterDate === true
+                        ? new Date(defaultValue).getFullYear()
                         : new Date(disabledAfterDate).getFullYear();
-                    disabled =  disabledYear < year;
+                    disabled = disabledYear < year;
                 }
                 return disabled;
             }
@@ -67,5 +67,5 @@
                 return arr;
             }
         }
-    }
+    };
 </script>

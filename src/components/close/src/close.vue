@@ -36,5 +36,5 @@
                 this.$emit('click', e);
             }
         }
-    }
+    };
 </script>

@@ -48,16 +48,13 @@
                     }
                 }
 
-
-                let childNode = parent.$children;
-
                 function findNode(childNodes) {
                     let node = null;
 
                     childNodes.every((vNode) => {
                         if (vNode.$options.name === 'am-topbar-collapse') {
                             node = vNode;
-                            return  false;
+                            return false;
                         }
 
                         if (vNode.$children) {
@@ -77,5 +74,5 @@
             AmButton: Button,
             Icon
         }
-    }
+    };
 </script>

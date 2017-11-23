@@ -129,5 +129,5 @@
                 return arr;
             }
         }
-    }
+    };
 </script>

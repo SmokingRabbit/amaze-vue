@@ -65,5 +65,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

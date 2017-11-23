@@ -101,7 +101,7 @@
                 }
                 else {
                     if (this.isGroup && !this.isAccordion) {
-                        return ;
+                        return;
                     }
 
                     this.close();
@@ -144,5 +144,5 @@
                 }
             }
         }
-    }
+    };
 </script>

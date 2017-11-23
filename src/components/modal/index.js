@@ -8,4 +8,4 @@ export {
     ModalHeader,
     ModalBody,
     ModalFooter
-}
+};

@@ -20,7 +20,7 @@ export default {
     methods: {
         selectHandle(index, panel) {
             if (index === this.activeIndex) {
-                return ;
+                return;
             }
 
             this.activeIndex = index;
@@ -66,9 +66,9 @@ export default {
                             return (
                                 <li key={key} class={{'am-active': key === activeIndex}} on-click={e => this.selectHandle(key, panel)}>
                                     <a href="javascript:void(0);">{ panel.label || panel.$slots.label }</a>
-                                    { removeable && key !== activeIndex && <close  on-click={ev => this.removeHandle(ev, key)}></close>}
+                                    { removeable && key !== activeIndex && <close on-click={ev => this.removeHandle(ev, key)}></close>}
                                 </li>
-                                );
+                            );
                         })
                     }
                 </ul>
@@ -76,7 +76,7 @@ export default {
                     { $slots.default }
                 </div>
             </div>
-            );
+        );
     },
     computed: {
         computedClass() {
@@ -98,4 +98,4 @@ export default {
     components: {
         Close
     }
-}
+};

@@ -27,7 +27,6 @@ Message.install = (Vue) => {
         instance.show();
         instances[instance.placement].push(instance);
 
-
         instance.hide = function() {
             instance.visible = false;
             let index = -1;
@@ -46,16 +45,16 @@ Message.install = (Vue) => {
                         _ins.$el.style.top = _distance + 'px';
                     }
                     else {
-                         _ins.$el.style.bottom = _distance + 'px';
+                        _ins.$el.style.bottom = _distance + 'px';
                     }
                     _distance += _ins.$el.offsetHeight + 16;
                 });
             }
-        }
+        };
 
         return instance;
-    }
-}
+    };
+};
 
 export {
     Message

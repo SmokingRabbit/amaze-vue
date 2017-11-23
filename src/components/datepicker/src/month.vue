@@ -12,10 +12,8 @@
         </tr>
     </tbody>
 </template>
-
 <script>
     import { monthZHMap, monthENMap } from './language';
-
     export default {
         name: 'am-datepicker-month',
         props: {
@@ -36,19 +34,19 @@
                 const { defaultValue, disabledBeforeDate, disabledAfterDate } = this;
                 let disabled = false;
                 if (disabledBeforeDate) {
-                    let disabledMonth = disabledBeforeDate === true ? 
-                        new Date(defaultValue).getMonth() 
+                    let disabledMonth = disabledBeforeDate === true
+                        ? new Date(defaultValue).getMonth()
                         : new Date(disabledBeforeDate).getMonth();
-                    disabled =  disabledMonth + 1 > month;
+                    disabled = disabledMonth + 1 > month;
                     if (disabled) {
                         return disabled;
                     }
                 }
                 if (disabledAfterDate) {
-                    let disabledMonth = disabledAfterDate === true ? 
-                        new Date(defaultValue).getMonth()
+                    let disabledMonth = disabledAfterDate === true
+                        ? new Date(defaultValue).getMonth()
                         : new Date(disabledAfterDate).getMonth();
-                    disabled =  disabledMonth + 1 < month;
+                    disabled = disabledMonth + 1 < month;
                 }
                 return disabled;
             }
@@ -57,7 +55,6 @@
             loop() {
                 const arr = [];
                 let map = this.language === 'zh' ? monthZHMap : monthENMap;
-
                 for (let i = 1; i < 13; i++) {
                     arr.push({
                         val: map[i],
@@ -65,9 +62,8 @@
                         disabled: this.isDisabled(i)
                     });
                 }
-
                 return arr;
             }
         }
-    }
+    };
 </script>

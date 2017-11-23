@@ -24,7 +24,7 @@
             return {
                 offsetTop: 0,
                 offsetBottom: 0
-            }
+            };
         },
         mixins: [ Popup ],
         props: {
@@ -64,7 +64,7 @@
             }
         },
         methods: {
-           closeHandle() {
+            closeHandle() {
                 if (this.close) {
                     clearTimeout(this.timer);
                     this.hide();
@@ -157,5 +157,5 @@
                 }, this.delay);
             }
         }
-    }
+    };
 </script>

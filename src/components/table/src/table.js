@@ -7,7 +7,7 @@ export default {
             rowFields: [],
             selectModel: [],
             selectAllModel: false
-        }
+        };
     },
     props: {
         customClass: String,
@@ -56,7 +56,7 @@ export default {
         },
         selectAllHandle(chekced) {
             if (chekced) {
-                const selectModel = []
+                const selectModel = [];
                 this.data.forEach((item, index) => {
                     selectModel.push(index);
                 });
@@ -65,6 +65,12 @@ export default {
             else {
                 this.selectModel = [];
             }
+        },
+        selectModelInput(val) {
+            this.selectModel = val;
+        },
+        selectAllModelInput(val) {
+            this.selectAllModel = val;
         }
     },
     watch: {
@@ -116,7 +122,7 @@ export default {
         },
         formatData() {
             const data = [];
-                
+
             if (!this.data) {
                 return data;
             }
@@ -143,8 +149,8 @@ export default {
         const { computedClass, data, formatData, rowFields, select, selectModel, selectText, selectAll, selectAllModel } = this;
         return (
             <table class={computedClass}>
-                {   
-                    data && rowFields && 
+                {
+                    data && rowFields &&
                     <thead>
                         <tr>
                             { select && <td>{ selectText }</td> }
@@ -157,16 +163,16 @@ export default {
                     </thead>
                 }
                 {
-                    data && rowFields && 
+                    data && rowFields &&
                     <tbody>
-                       {
+                        {
                             formatData.map((item, index) => {
                                 return (
-                                    <tr class={item.active ? 'am-active': ''} key={index}>
+                                    <tr class={item.active ? 'am-active' : ''} key={index}>
                                         {
-                                            select && 
+                                            select &&
                                             <td>
-                                                <am-checkbox label={index} showLabel={false} value={selectModel} on-input={val => this.selectModel = val}></am-checkbox>
+                                                <am-checkbox label={index} showLabel={false} value={selectModel} on-input={this.selectModelInput}></am-checkbox>
                                             </td>
                                         }
                                         {
@@ -176,29 +182,29 @@ export default {
                                                     <td key={key} class={color ? 'am-' + color : ''}>
                                                         { typeof render === 'function' ? render(h, item, field.prop, key) : value }
                                                     </td>
-                                                    )
+                                                );
                                             })
                                         }
                                     </tr>
-                                    );
+                                );
                             })
                         }
                     </tbody>
                 }
                 {
-                    data && select && selectAll && 
+                    data && select && selectAll &&
                     <tfoot>
                         <tr>
-                            <td><am-checkbox label="全选" on-change={this.selectAllHandle} value={selectAllModel} on-input={val => this.selectAllModel = val}></am-checkbox></td>
+                            <td><am-checkbox label="全选" on-change={this.selectAllHandle} value={selectAllModel} on-input={this.selectAllModelInput}></am-checkbox></td>
                             <td colspan={rowFields.length}>{ this.$slots.tfoot }</td>
                         </tr>
                     </tfoot>
                 }
                 { this.$slots.default }
             </table>
-            );
+        );
     },
     components: {
         AmCheckbox: Checkbox
     }
-}
+};

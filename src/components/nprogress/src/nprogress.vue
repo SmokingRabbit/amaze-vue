@@ -68,7 +68,7 @@
 
                 this.computedStyle = {
                     transition: 'all ' + speed + 'ms ' + effect,
-                    transform: 'translate3d('+ ((-1 + precent) * 100) + '%, 0, 0)'
+                    transform: 'translate3d(' + ((-1 + precent) * 100) + '%, 0, 0)'
                 };
             },
             start() {
@@ -108,5 +108,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

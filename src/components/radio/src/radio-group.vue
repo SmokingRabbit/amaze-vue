@@ -36,5 +36,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

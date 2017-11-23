@@ -33,5 +33,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

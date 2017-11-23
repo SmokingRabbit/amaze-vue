@@ -1,8 +1,8 @@
 <template>
-    <div 
-        :class="computedClass" 
-        ref="container" 
-        :style="{height: height + 'px'}" 
+    <div
+        :class="computedClass"
+        ref="container"
+        :style="{height: height + 'px'}"
         @mouseenter="mouseEnterHandle"
         @mouseleave="mouseLeaveHandle"
     >
@@ -32,7 +32,7 @@
         data() {
             return {
                 showIndex: this.activeIndex
-            }
+            };
         },
         props: {
             activeIndex: {
@@ -74,7 +74,7 @@
             },
             nextHandle() {
                 if (this.showIndex >= this.items.length - 1) {
-                    this.showIndex =  0;
+                    this.showIndex = 0;
                 }
                 else {
                     this.showIndex++;
@@ -150,5 +150,5 @@
                 clearInterval(this.timer);
             }
         }
-    }
+    };
 </script>

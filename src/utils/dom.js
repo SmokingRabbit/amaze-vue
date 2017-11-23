@@ -61,7 +61,6 @@ export function addClass(el, newClass) {
         });
     }
 
-
     attr(el, {
         'class': classes.join(' ')
     });
@@ -84,7 +83,6 @@ export function removeClass(el, remClass) {
             classes.splice(index, 1);
         }
     }
-
 
     if (typeof remClass === 'string') {
         _remove(remClass);

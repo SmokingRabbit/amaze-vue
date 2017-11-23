@@ -40,5 +40,5 @@
         mounted() {
             hljs.highlightBlock(this.$refs['container']);
         }
-    }
+    };
 </script>

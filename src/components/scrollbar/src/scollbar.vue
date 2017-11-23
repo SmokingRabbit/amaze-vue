@@ -47,7 +47,6 @@
 <script>
     import Vertical from './vertical';
     import Horizontal from './horizontal';
-    import { on, off } from '../../../utils/dom';
 
     export default {
         name: 'am-scrollbar',
@@ -88,9 +87,9 @@
                     y: 0,
                     x: 0
                 },
-                showTrack: this.autoHide ? false : true,
+                showTrack: !this.autoHide,
                 timer: null
-            }
+            };
         },
         methods: {
             mouseEnter() {
@@ -125,7 +124,7 @@
                     let scrollY = e.deltaY > 0 ? num : -(num);
                     let scrollX = e.deltaX > 0 ? num : -(num);
 
-                    if (shifted && e.deltaX == 0) {
+                    if (shifted && e.deltaX === 0) {
                         scrollX = e.deltaY > 0 ? num : -(num);
                     }
 
@@ -140,15 +139,14 @@
                         this.normalizeHorizontal(nextX);
                     }
 
-                    if (
-                        (nextY + this.scrollContainerHeight <= this.scrollAreaHeight && nextY >= 0)
-                        || (nextX + this.scrollContainerWidth <= this.scrollAreaWidth && nextX >= 0)
+                    if ((nextY + this.scrollContainerHeight <= this.scrollAreaHeight && nextY >= 0) ||
+                        (nextX + this.scrollContainerWidth <= this.scrollAreaWidth && nextX >= 0)
                     ) {
                         this.triggerScroll();
-                        e.preventDefault()
+                        e.preventDefault();
                         e.stopPropagation();
                     }
-                })
+                });
                 this.$emit('scroll', e);
             },
             getValues() {
@@ -161,7 +159,7 @@
                     clientHeight: elementSize.scrollContainerHeight,
                     scrollAreaHeight: elementSize.scrollAreaHeight,
                     scrollAreaWidth: elementSize.scrollAreaWidth
-                }
+                };
             },
             startDrag(e) {
                 e.preventDefault();
@@ -225,8 +223,8 @@
                 this.vMovement = next / elementSize.scrollAreaHeight * 100;
             },
             normalizeHorizontal(next) {
-                let elementSize = this.getSize()
-                let rightEnd = elementSize.scrollAreaWidth - this.scrollContainerWidth
+                let elementSize = this.getSize();
+                let rightEnd = elementSize.scrollAreaWidth - this.scrollContainerWidth;
 
                 if (next > rightEnd) {
                     next = rightEnd;
@@ -241,13 +239,13 @@
             handleChangePosition(movement, orientation) {
                 this.calculateSize(() => {
                     let next = movement / 100;
-                    if (orientation == 'vertical') {
+                    if (orientation === 'vertical') {
                         this.normalizeVertical(next * this.scrollAreaHeight);
                     }
-                    if (orientation == 'horizontal') {
+                    if (orientation === 'horizontal') {
                         this.normalizeHorizontal(next * this.scrollAreaWidth);
                     }
-                })
+                });
             },
             handleScrollbarDragging() {
                 this.dragging = true;
@@ -262,7 +260,7 @@
                     scrollAreaHeight: $scrollArea.clientHeight,
                     scrollAreaWidth: $scrollArea.clientWidth,
                     scrollContainerHeight: $scrollContainer.clientHeight,
-                    scrollContainerWidth: $scrollContainer.clientWidth,
+                    scrollContainerWidth: $scrollContainer.clientWidth
                 };
 
                 return elementSize;
@@ -272,10 +270,10 @@
                     cb = null;
                 }
                 let elementSize = this.getSize();
-                if (elementSize.scrollContainerHeight !== this.scrollContainerHeight 
-                    || elementSize.scrollContainerWidth !== this.scrollContainerWidth 
-                    || elementSize.scrollAreaHeight !== this.scrollAreaHeight 
-                    || elementSize.scrollAreaWidth !== this.scrollAreaWidth
+                if (elementSize.scrollContainerHeight !== this.scrollContainerHeight ||
+                    elementSize.scrollContainerWidth !== this.scrollContainerWidth ||
+                    elementSize.scrollAreaHeight !== this.scrollAreaHeight ||
+                    elementSize.scrollAreaWidth !== this.scrollAreaWidth
                 ) {
                     this.scrollAreaHeight = elementSize.scrollAreaHeight;
                     this.scrollAreaWidth = elementSize.scrollAreaWidth;
@@ -315,10 +313,10 @@
             setTimeout(() => {
                 this.calculateSize();
             }, 100);
+            window.addEventListener('resize', this.calculateSize);
         },
         beforeDestroy() {
             window.removeEventListener('resize', this.calculateSize);
         }
-    }
+    };
 </script>
-

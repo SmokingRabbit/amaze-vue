@@ -49,5 +49,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

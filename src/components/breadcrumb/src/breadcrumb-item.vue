@@ -11,9 +11,8 @@
         props: {
             to: {
                 validator(value) {
-                    return (typeof value === 'string')
-                    || (toString.call(value) === '[object Object]'
-                        && value.path);
+                    return (typeof value === 'string') ||
+                        (toString.call(value) === '[object Object]' && value.path);
                 }
             },
             customClass: {
@@ -25,7 +24,7 @@
                 const classes = [];
 
                 if (this.to === undefined) {
-                        classes.push('am-active');
+                    classes.push('am-active');
                 }
 
                 if (this.customClass !== undefined) {
@@ -54,11 +53,13 @@
                         }
                         link += '?' + querys.join('&');
                     }
+
+                    return link;
                 }
                 else {
                     return false;
                 }
             }
         }
-    }
+    };
 </script>

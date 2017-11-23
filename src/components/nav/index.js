@@ -4,4 +4,4 @@ import NavItem from './src/nav-item';
 export {
     Nav,
     NavItem
-}
+};

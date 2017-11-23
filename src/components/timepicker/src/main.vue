@@ -18,7 +18,7 @@
             return {
                 curVal: this.value,
                 inputVal: this.value
-            }
+            };
         },
         props: {
             value: {},
@@ -37,7 +37,7 @@
                 type: String,
                 default: '请选择时间'
             },
-            readonly:Boolean,
+            readonly: Boolean,
             disabled: Boolean,
             name: String,
             autofocus: Boolean,
@@ -69,5 +69,5 @@
             Icon,
             TimePicker
         }
-    }
+    };
 </script>

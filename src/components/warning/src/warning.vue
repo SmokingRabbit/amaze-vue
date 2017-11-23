@@ -17,7 +17,7 @@
         },
         props: {
             customClass: {
-                type: String,
+                type: String
             },
             color: {
                 type: String,
@@ -65,5 +65,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

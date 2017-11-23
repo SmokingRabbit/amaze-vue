@@ -11,7 +11,7 @@
         data() {
             return {
                 unfold: false
-            }
+            };
         },
         props: {
             customClass: String
@@ -28,7 +28,7 @@
                 }
 
                 if (this.unfold) {
-                    dom.addClass($ref, 'am-in am-collapsing')
+                    dom.addClass($ref, 'am-in am-collapsing');
                     dom.css($ref, 'height', $ref.scrollHeight + 'px');
                 }
                 else {
@@ -54,5 +54,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

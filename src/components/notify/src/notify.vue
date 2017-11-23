@@ -78,7 +78,7 @@
             popupPosition() {
                 return {
                     zIndex: this.getZIndex()
-                }
+                };
             }
         },
         watch: {
@@ -132,5 +132,5 @@
                 }, this.delay);
             }
         }
-    }
+    };
 </script>

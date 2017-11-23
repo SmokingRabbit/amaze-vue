@@ -28,7 +28,7 @@
             return {
                 isFoucs: false,
                 selectValue: []
-            }
+            };
         },
         props: {
             customClass: String,
@@ -58,7 +58,7 @@
             },
             multiple: {
                 type: Boolean,
-                default: false,
+                default: false
             },
             search: {
                 type: Boolean,
@@ -134,5 +134,5 @@
         beforeDestory() {
             doms.off(document.body, 'click', this.globalClickHandle);
         }
-    }
+    };
 </script>

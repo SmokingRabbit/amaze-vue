@@ -23,5 +23,6 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>
+

@@ -17,7 +17,7 @@
         mixins: [ Popup ],
         props: {
             customClass: {
-                type: String,
+                type: String
             },
             isShow: {
                 type: Boolean,
@@ -54,11 +54,11 @@
                 if (this.closeViaDimmer) {
                     this.$emit('update:isShow', false);
                 }
-            }
-        },
-        updated() {
-            if(this.visible) {
-                this.$refs['modal'].style.zIndex = this.getZIndex();
+            },
+            popupPosition() {
+                return {
+                    zIndex: this.getZIndex()
+                };
             }
         },
         computed: {
@@ -87,5 +87,5 @@
         beforeDestroy() {
             off(document.body, 'click', this.globalClickHandle);
         }
-    }
+    };
 </script>

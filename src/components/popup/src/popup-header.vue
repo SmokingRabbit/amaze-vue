@@ -12,7 +12,7 @@
         name: 'am-popup-header',
         props: {
             customClass: {
-                type: String,
+                type: String
             },
             closeBtn: {
                 type: Boolean,
@@ -55,5 +55,5 @@
         components: {
             Close
         }
-    }
+    };
 </script>

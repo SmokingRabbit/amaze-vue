@@ -9,7 +9,7 @@
         name: 'am-actions-group',
         props: {
             customClass: {
-                type: String,
+                type: String
             }
         },
         computed: {
@@ -25,5 +25,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

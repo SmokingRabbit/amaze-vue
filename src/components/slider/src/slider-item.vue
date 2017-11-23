@@ -22,5 +22,5 @@
                 this.translate = x;
             }
         }
-    }
+    };
 </script>

@@ -77,7 +77,7 @@
                 curMonth: month,
                 curDate: date,
                 activeType: this.modelType
-            }
+            };
         },
         props: {
             modelType: {
@@ -90,7 +90,7 @@
             value: {},
             defaultValue: {
                 type: [Number, String],
-                default: + new Date()
+                default: +new Date()
             },
             disabledBeforeDate: {
                 type: [Number, String, Boolean]
@@ -118,16 +118,16 @@
                     year: d.getFullYear(),
                     month: d.getMonth() + 1,
                     date: d.getDate()
-                }
+                };
             },
             preHandle() {
-                switch(this.activeType) {
+                switch (this.activeType) {
                     case 'year':
                         this.year -= 10;
                         break;
 
                     case 'date':
-                        if (this.month === 1){
+                        if (this.month === 1) {
                             this.year -= 1;
                             this.month = 12;
                         }
@@ -138,13 +138,13 @@
                 }
             },
             nextHandle() {
-                switch(this.activeType) {
+                switch (this.activeType) {
                     case 'year':
                         this.year += 10;
                         break;
 
                     case 'date':
-                       if (this.month === 12){
+                        if (this.month === 12) {
                             this.year += 1;
                             this.month = 1;
                         }
@@ -202,8 +202,8 @@
             },
             popupPosition() {
                 const { top, left, height } = this.$parent.$el.getBoundingClientRect();
-                const { top: offsetTop, left: offsetLeft } =  this.getPageOffset();
-                
+                const { top: offsetTop, left: offsetLeft } = this.getPageOffset();
+
                 return {
                     top: top + offsetTop + height + 'px',
                     left: left + offsetLeft + 'px',
@@ -223,13 +223,13 @@
             curDate(curVal, oldVal) {
                 this.$emit('change.date', curVal);
                 this.$emit('input', this.result);
-            },
+            }
         },
         computed: {
             headerTitle() {
                 let str;
 
-                switch(this.activeType) {
+                switch (this.activeType) {
                     case 'year':
                         let _year = parseInt(this.curYear / 10, 10) * 10;
                         str = (_year - 1) + ' - ' + (_year + 9);
@@ -278,5 +278,5 @@
             off(this.$parent.$el, 'click', this.autoShow);
             off(document.body, 'click', this.globalClickHandle);
         }
-    }
+    };
 </script>

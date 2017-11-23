@@ -32,5 +32,5 @@
                 return classes.join(' ');
             }
         }
-    }
+    };
 </script>

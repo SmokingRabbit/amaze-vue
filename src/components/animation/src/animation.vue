@@ -123,5 +123,5 @@
                 return styles;
             }
         }
-    }
+    };
 </script>

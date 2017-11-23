@@ -46,7 +46,7 @@
             transition: {
                 type: String,
                 default: 'fade'
-            },
+            }
         },
         computed: {
             computedClass() {
@@ -148,5 +148,5 @@
                 on($reference, 'mouseleave', this.delayHide);
             }
         }
-    }
+    };
 </script>

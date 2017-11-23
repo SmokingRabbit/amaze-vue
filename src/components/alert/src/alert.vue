@@ -57,7 +57,7 @@
             submitHandle() {
                 this.syncSlot = false;
                 this.$emit('submit');
-            },
+            }
         },
         watch: {
             isShow(curVal, oldVal) {
@@ -73,5 +73,5 @@
             ModalBody,
             ModalFooter
         }
-    }
+    };
 </script>

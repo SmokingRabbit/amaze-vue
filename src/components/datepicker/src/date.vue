@@ -71,19 +71,19 @@
                 let disabled = false;
                 let YTD = year + '-' + month + '-' + date;
                 if (disabledBeforeDate) {
-                    let disabledDate = disabledBeforeDate === true ? 
-                        +new Date(defaultValue) 
+                    let disabledDate = disabledBeforeDate === true
+                        ? +new Date(defaultValue)
                         : +new Date(disabledBeforeDate);
-                    disabled =  disabledDate > +new Date(YTD);
+                    disabled = disabledDate > +new Date(YTD);
                     if (disabled) {
                         return disabled;
                     }
                 }
                 if (disabledAfterDate) {
-                    let disabledDate = disabledAfterDate === true ? 
-                        +new Date(defaultValue)
+                    let disabledDate = disabledAfterDate === true
+                        ? +new Date(defaultValue)
                         : +new Date(disabledAfterDate);
-                    disabled =  disabledDate < +new Date(YTD);
+                    disabled = disabledDate < +new Date(YTD);
                 }
                 return disabled;
             }
@@ -92,18 +92,18 @@
             loop() {
                 const { year, month } = this;
                 const arr = [];
-                const  days = this.getDays(month, year);
+                const days = this.getDays(month, year);
                 let week;
                 let i = 1;
 
                 week = new Date(year + '-' + month + '-' + 1).getDay();
                 week = week === 0 ? 7 : week;
 
-                while(1) {
+                while (1) {
                     const rowArr = [];
                     if (i === 1) {
                         const preMonth = month === 1 ? 12 : month - 1;
-                        const preYear = month === 1 ? year - 1: year;
+                        const preYear = month === 1 ? year - 1 : year;
                         const preDays = this.getDays(preMonth, preYear);
                         for (let j = 0; j < week - 1; j++) {
                             rowArr.unshift({
@@ -127,7 +127,7 @@
                         if (i === days) {
                             if (rowArr.length < 7) {
                                 const nextMonth = month === 12 ? 1 : month + 1;
-                                const nextYear = month === 12 ? year + 1: year;
+                                const nextYear = month === 12 ? year + 1 : year;
                                 const nextMonthLen = 7 - rowArr.length;
                                 for (let l = 0; l < nextMonthLen; l++) {
                                     rowArr.push({
@@ -160,5 +160,5 @@
                 }
             }
         }
-    }
+    };
 </script>

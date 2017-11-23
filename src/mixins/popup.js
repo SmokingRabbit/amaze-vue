@@ -12,7 +12,7 @@ export default {
                 top: 0,
                 left: 0
             }
-        }
+        };
     },
     methods: {
         show() {
@@ -26,12 +26,12 @@ export default {
             return zIndex;
         },
         stopScroll(e) {
-            if (e && e.preventDefault){
+            if (e && e.preventDefault) {
                 e.preventDefault();
                 e.stopPropagation();
             }
-            else{
-                e.returnvalue=false;
+            else {
+                e.returnvalue = false;
                 return false;
             }
         },
@@ -39,15 +39,15 @@ export default {
             let top = 0;
             let left = 0;
 
-            if(typeof window.pageYOffset != 'undefined'){
+            if (typeof window.pageYOffset !== 'undefined') {
                 top = window.pageYOffset;
                 left = window.pageXOffset;
             }
-            else if(typeof document.compatMode != 'undefined' && document.compatMode != 'BackCompat') {
+            else if (typeof document.compatMode !== 'undefined' && document.compatMode !== 'BackCompat') {
                 top = document.documentElement.scrollTop;
                 left = document.documentElement.scrollLeft;
             }
-            else if(typeof document.body != 'undefined'){
+            else if (typeof document.body !== 'undefined') {
                 top = document.body.scrollTop;
                 left = document.body.scrollLeft;
             }
@@ -75,9 +75,6 @@ export default {
                     document.body.appendChild(this.$overlay);
                     this.stopListener = true;
                     window.addEventListener('mousewheel', this.stopScroll);
-                    this.$nextTick(() => {
-                        console.log(this.$el);
-                    })
                 }
                 else {
                     setTimeout(() => {
@@ -99,4 +96,4 @@ export default {
             window.removeEventListener('mousewheel', this.stopScroll);
         }
     }
-}
+};

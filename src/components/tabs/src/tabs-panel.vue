@@ -44,7 +44,7 @@
         mounted() {
             let parent = this.$parent;
 
-            while(parent) {
+            while (parent) {
                 if (parent.$options._componentTag === 'am-tabs') {
                     parent.panelHandle(this);
                     break;
@@ -52,5 +52,5 @@
                 parent = parent.$parent;
             }
         }
-    }
+    };
 </script>
