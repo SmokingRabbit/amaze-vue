@@ -180,7 +180,7 @@ export default {
                                                 const { render, value, color } = item[field.prop];
                                                 return (
                                                     <td key={key} class={color ? 'am-' + color : ''}>
-                                                        { typeof render === 'function' ? render(h, item, field.prop, key) : value }
+                                                        { typeof render === 'function' ? render(h, item, field.prop, index) : value }
                                                     </td>
                                                 );
                                             })
