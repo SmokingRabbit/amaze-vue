@@ -1,5 +1,6 @@
 ## amaze-vue
 
+[![Build Status](https://travis-ci.org/sunshineJi/amaze-vue.svg?branch=master)](https://travis-ci.org/sunshineJi/amaze-vue)
 [![npm](https://img.shields.io/npm/v/amaze-vue.svg)](https://www.npmjs.com/package/amaze-vue)
 [![npm](https://img.shields.io/npm/dm/amaze-vue.svg)](https://www.npmjs.com/package/amaze-vue)
 
