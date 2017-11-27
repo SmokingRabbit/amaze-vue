@@ -26,7 +26,10 @@
         name: 'am-pagination',
         props: {
             customClass: String,
-            value: Number,
+            value: {
+                type: Number,
+                required: true
+            },
             disabled: {
                 type: Boolean,
                 default: false
@@ -40,6 +43,10 @@
             total: {
                 type: Number,
                 required: true
+            },
+            pageSize: {
+                type: Number,
+                default: 10
             },
             showPageBtnCount: {
                 type: Number,
@@ -97,7 +104,7 @@
                 return classes.join(' ');
             },
             pageCount() {
-                let Count = Math.ceil(this.total / this.showPageBtnCount);
+                let Count = Math.ceil(this.total / this.pageSize);
                 return Count < 0 ? 1 : Count;
             },
             loop() {
