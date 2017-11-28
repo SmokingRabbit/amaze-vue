@@ -1,6 +1,11 @@
 <template>
     <li :class="computedClass">
-        <a :href="link" v-if="link"><slot></slot></a>
+        <router-link v-if="link && router" :to="link">
+            <slot></slot>
+        </router-link>
+        <a :href="link" v-if="link && !router">
+            <slot></slot>
+        </a>
         <slot v-if="!link"></slot>
     </li>
 </template>
@@ -9,6 +14,10 @@
     export default {
         name: 'am-breadcrumb-item',
         props: {
+            router: {
+                type: Boolean,
+                default: true
+            },
             to: {
                 validator(value) {
                     return (typeof value === 'string') ||
