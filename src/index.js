@@ -27,7 +27,7 @@ import { Input, InputGroup, InputLabel } from './components/input';
 import { Form, FromGroup } from './components/form';
 import { List, ListItem } from './components/list';
 import { Nav, NavItem } from './components/nav';
-import { Topbar, TopbarBrand, TopbarCollapse, TopbarForm, TopbarToggle } from './components/topbar';
+import { Topbar, TopbarBrand, TopbarCollapse, TopbarForm, TopbarToggle, TopbarSlot } from './components/topbar';
 import { Pagination } from './components/pagination';
 import {
     Panel,
@@ -102,6 +102,7 @@ const install = function (Vue) {
     Vue.component(TopbarCollapse.name, TopbarCollapse);
     Vue.component(TopbarForm.name, TopbarForm);
     Vue.component(TopbarToggle.name, TopbarToggle);
+    Vue.component(TopbarSlot.name, TopbarSlot);
     Vue.component(Pagination.name, Pagination);
     Vue.component(Panel.name, Panel);
     Vue.component(PanelHeader.name, PanelHeader);
