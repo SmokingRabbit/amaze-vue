@@ -38,7 +38,7 @@ webpackBaseConfig.devServer = {
     stats: {
         color: true
     },
-    port: process.env.PORT || '9000',
+    port: process.env.PORT || '9001',
     historyApiFallback: true
 };
 

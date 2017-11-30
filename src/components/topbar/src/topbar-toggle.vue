@@ -52,7 +52,7 @@
                     let node = null;
 
                     childNodes.every((vNode) => {
-                        if (vNode.$options.name === 'am-topbar-collapse') {
+                        if (vNode.$options && vNode.$options.name === 'am-topbar-collapse') {
                             node = vNode;
                             return false;
                         }
