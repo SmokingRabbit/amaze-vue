@@ -1,6 +1,6 @@
 <template>
     <am-button
-        @click="tigger"
+        @click="trigger"
         customClass="am-topbar-btn am-topbar-toggle am-show-sm-only"
         :color="color"
         size="sm">
@@ -32,7 +32,7 @@
             }
         },
         methods: {
-            tigger() {
+            trigger() {
                 if (this.collapse) {
                     this.collapse.autoFold();
                 }
@@ -42,9 +42,11 @@
             collapse() {
                 let parent = this.$parent;
                 while (parent) {
-                    parent = parent.$parent;
                     if (parent.$options.name === 'am-topbar') {
                         break;
+                    }
+                    else {
+                        parent = parent.$parent;
                     }
                 }
 
@@ -52,7 +54,7 @@
                     let node = null;
 
                     childNodes.every((vNode) => {
-                        if (vNode.$options && vNode.$options.name === 'am-topbar-collapse') {
+                        if (vNode.$options.name === 'am-topbar-collapse') {
                             node = vNode;
                             return false;
                         }
