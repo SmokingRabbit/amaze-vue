@@ -33,14 +33,6 @@
                 return classes.join(' ');
             }
         },
-        methods: {
-            show() {
-                this.isActive = true;
-            },
-            hide() {
-                this.isActive = false;
-            }
-        },
         mounted() {
             let parent = this.$parent;
 

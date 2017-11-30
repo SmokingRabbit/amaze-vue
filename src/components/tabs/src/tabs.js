@@ -11,8 +11,11 @@ export default {
     },
     props: {
         customClass: String,
-        value: {},
         removeable: {
+            type: Boolean,
+            default: false
+        },
+        justify: {
             type: Boolean,
             default: false
         }
@@ -25,7 +28,7 @@ export default {
 
             this.activeIndex = index;
             this.activePanel = panel._uid;
-            this.$emit('tab-click', panel.label || index);
+            this.$emit('tab-change', panel.label || index);
         },
         removeHandle(e, index) {
             const panel = this.panels.splice(index, 1)[0];
@@ -56,16 +59,16 @@ export default {
         }
     },
     render(h) {
-        const { computedClass, $slots, panels, activeIndex, removeable } = this;
+        const { computedClass, $slots, panels, activeIndex, removeable, computedNavClass } = this;
 
         return (
             <div class={computedClass}>
-                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                <ul class={computedNavClass}>
                     {
                         panels.map((panel, key) => {
                             return (
                                 <li key={key} class={{'am-active': key === activeIndex}} on-click={e => this.selectHandle(key, panel)}>
-                                    <a href="javascript:void(0);">{ panel.label || panel.$slots.label }</a>
+                                    <a href="javascript:void(0);">{ panel.$slots.label || panel.label }</a>
                                     { removeable && key !== activeIndex && <close on-click={ev => this.removeHandle(ev, key)}></close>}
                                 </li>
                             );
@@ -90,6 +93,15 @@ export default {
 
             if (this.customClass !== undefined) {
                 classes.push(this.customClass);
+            }
+
+            return classes.join(' ');
+        },
+        computedNavClass() {
+            const classes = ['am-tabs-nav', 'am-nav', 'am-nav-tabs'];
+
+            if (this.justify) {
+                classes.push('am-nav-justify');
             }
 
             return classes.join(' ');
