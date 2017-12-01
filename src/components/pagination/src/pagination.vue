@@ -1,6 +1,6 @@
 <template>
     <ul :class="computedClass">
-        <li :class="{'am-disabled': value === 1 || disabled}" @click="changePage(1)">
+        <li :class="{'am-disabled': value === 1 || disabled}" @click="value !== 1 && changePage(1)">
             <a href="javascript:void(0)">{{ firstBtnText }}</a>
         </li>
         <li :class="{'am-disabled': value === 1 || disabled}" @click="value !== 1 && changePage(value - 1)">
@@ -15,7 +15,7 @@
         <li :class="{'am-disabled': value === pageCount || disabled}" @click="value !== pageCount && changePage(value + 1)">
             <a href="javascript:void(0)">{{ nextBtnText }} &raquo;</a>
         </li>
-        <li :class="{'am-disabled': value === pageCount || disabled}" @click="changePage(pageCount)">
+        <li :class="{'am-disabled': value === pageCount || disabled}" @click="value !== pageCount && changePage(pageCount)">
             <a href="javascript:void(0)">{{ lastBtnText }}</a>
         </li>
     </ul>
