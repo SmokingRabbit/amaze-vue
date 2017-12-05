@@ -42,7 +42,7 @@
         },
         watch: {
             visible(curVal, oldVal) {
-                this.$emit('update:isShow', curVal);
+                this.$emit('visible-change', curVal);
             },
             isShow(curVal, oldVal) {
                 if (curVal) {

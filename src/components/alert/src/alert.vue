@@ -1,5 +1,5 @@
 <template>
-    <modal v-bind="$props" :isShow.sync="syncSlot" ref="modal">
+    <modal v-bind="$props" :isShow.sync="syncIsShow" ref="modal">
         <modal-header :closeBtn="false">{{ title }}</modal-header>
         <modal-body>
             <slot></slot>
@@ -17,7 +17,7 @@
         name: 'am-alert',
         data() {
             return {
-                syncSlot: this.isShow
+                syncIsShow: this.isShow
             };
         },
         props: {
@@ -55,16 +55,16 @@
         },
         methods: {
             submitHandle() {
-                this.syncSlot = false;
+                this.syncIsShow = false;
                 this.$emit('submit');
             }
         },
         watch: {
             isShow(curVal, oldVal) {
-                this.syncSlot = curVal;
+                this.syncIsShow = curVal;
             },
-            syncSlot(curVal, oldVal) {
-                this.$emit('update:isShow', curVal);
+            syncIsShow(curVal, oldVal) {
+                this.$emit('visible-change', curVal);
             }
         },
         components: {

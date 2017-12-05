@@ -13,13 +13,13 @@ Toast.install = function (Vue, options) {
     Vue.prototype.$Toast = {
         open(message = '', options = {timeout: 2000}) {
             instance = instance || createInstance();
-            instance.syncSlot = true;
+            instance.syncIsShow = true;
             Object.assign(instance, { message }, options);
         },
 
         close() {
             instance = instance || createInstance();
-            instance.syncSlot = false;
+            instance.syncIsShow = false;
         }
     };
 };

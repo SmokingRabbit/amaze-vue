@@ -1,5 +1,5 @@
 <template>
-    <modal v-bind="$props" :isShow.sync="syncSlot" ref="modal">
+    <modal v-bind="$props" :isShow.sync="syncIsShow" ref="modal">
         <!-- <modal-header :closeBtn="false">{{ message }}</modal-header> -->
         <modal-body>
             <animation type="spin">
@@ -19,7 +19,7 @@
         name: 'am-toast',
         data() {
             return {
-                syncSlot: this.isShow
+                syncIsShow: this.isShow
             };
         },
         props: {
@@ -57,15 +57,15 @@
         },
         watch: {
             isShow(curVal, oldVal) {
-                this.syncSlot = curVal;
+                this.syncIsShow = curVal;
             },
-            syncSlot(curVal, oldVal) {
-                this.$emit('update:isShow', curVal);
+            syncIsShow(curVal, oldVal) {
+                this.$emit('visible-change', curVal);
 
                 if (curVal && this.timeout > 0) {
                     this.timer = setTimeout(() => {
                         this.timer = null;
-                        this.syncSlot = false;
+                        this.syncIsShow = false;
                     }, this.timeout);
                 }
                 else {

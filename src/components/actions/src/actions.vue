@@ -45,7 +45,7 @@
             },
             globalClickHandle() {
                 if (this.closeViaDimmer) {
-                    this.$emit('update:isShow', false);
+                    this.$emit('visible-change', false);
                 }
             }
         },
