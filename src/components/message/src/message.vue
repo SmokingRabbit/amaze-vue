@@ -8,7 +8,7 @@
                 <h2 class="am-message-title">{{ title }}</h2>
                 <p class="am-message-content">{{ message }}</p>
             </div>
-            <close v-if="close" @click="closeHandle"></close>
+            <close v-if="closeable" @click="closeHandle"></close>
         </div>
     </transition>
 </template>
@@ -41,7 +41,7 @@
                 type: Number,
                 default: 3000
             },
-            close: {
+            closeable: {
                 type: Boolean,
                 default: false
             },

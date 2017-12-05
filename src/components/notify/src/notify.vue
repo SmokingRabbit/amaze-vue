@@ -3,7 +3,7 @@
         <div :class="computedClass" @mouseenter="mouseenter" @mouseleave="mouseleave" v-if="visible">
             <icon :type="iconType"></icon>
             <p class="am-notify-message">{{ message }}</p>
-            <close v-if="close" @click="closeHandle"></close>
+            <close v-if="closeable" @click="closeHandle"></close>
         </div>
     </transition>
 </template>
@@ -34,7 +34,7 @@
                 type: [String, Object],
                 required: true
             },
-            close: {
+            closeable: {
                 type: Boolean,
                 default: false
             },
