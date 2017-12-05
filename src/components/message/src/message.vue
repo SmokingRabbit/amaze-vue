@@ -65,7 +65,7 @@
         },
         methods: {
             closeHandle() {
-                if (this.close) {
+                if (this.closeable) {
                     clearTimeout(this.timer);
                     this.hide();
                 }

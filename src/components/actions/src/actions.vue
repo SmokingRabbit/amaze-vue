@@ -1,6 +1,6 @@
 <template>
     <transition :name="transition">
-        <div :class="computedClass" tabindex="-1" ref="modal" v-if="visible"  @click="globalClickHandle">
+        <div :class="computedClass" v-if="visible"  @click="globalClickHandle">
             <slot></slot>
         </div>
     </transition>
@@ -37,6 +37,7 @@
                 else {
                     this.hide();
                 }
+                this.$emit('visible-change', curVal);
             }
         },
         methods: {
@@ -45,13 +46,13 @@
             },
             globalClickHandle() {
                 if (this.closeViaDimmer) {
-                    this.$emit('visible-change', false);
+                    this.$emit('update:isShow', false);
                 }
             }
         },
         updated() {
             if (this.visible) {
-                this.$refs['modal'].style.zIndex = this.getZIndex();
+                this.$el.style.zIndex = this.getZIndex();
             }
         },
         computed: {

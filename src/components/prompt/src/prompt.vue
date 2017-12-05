@@ -92,9 +92,10 @@
         watch: {
             isShow(curVal, oldVal) {
                 this.syncIsShow = curVal;
+                this.$emit('visible-change', curVal);
             },
             syncIsShow(curVal, oldVal) {
-                this.$emit('visible-change', curVal);
+                this.$emit('update:isShow', curVal);
             }
         },
         components: {

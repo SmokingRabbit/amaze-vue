@@ -1,5 +1,5 @@
 <template>
-    <modal v-bind="$props" :isShow.sync="syncIsShow" ref="modal">
+    <modal v-bind="$props" :isShow.sync="syncIsShow">
         <!-- <modal-header :closeBtn="false">{{ message }}</modal-header> -->
         <modal-body>
             <animation type="spin">

@@ -1,6 +1,6 @@
 <template>
     <transition :name="transition">
-        <div v-if="visible" :class="computedClass" ref="modal" @click="dialogClickHandle">
+        <div v-if="visible" :class="computedClass" @click="dialogClickHandle">
             <div class="am-popup-inner">
                 <slot></slot>
             </div>
@@ -44,6 +44,7 @@
                     this.hide();
                     off(document.body, 'click', this.globalClickHandle);
                 }
+                this.$emit('visible-change', curVal);
             }
         },
         methods: {
@@ -52,7 +53,7 @@
             },
             globalClickHandle() {
                 if (this.closeViaDimmer) {
-                    this.$emit('visible-change', false);
+                    this.$emit('update:isShow', false);
                 }
             },
             popupPosition() {

@@ -25,7 +25,7 @@
         },
         methods: {
             closeModal() {
-                this.modal.$emit('visible-change', false);
+                this.modal.$emit('update:isShow', false);
             }
         },
         computed: {

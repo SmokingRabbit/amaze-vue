@@ -1,5 +1,5 @@
 <template>
-    <modal v-bind="$props" :isShow.sync="syncIsShow" ref="modal">
+    <modal v-bind="$props" :isShow.sync="syncIsShow">
         <modal-header :closeBtn="false">{{ title }}</modal-header>
         <modal-body>
             <slot></slot>
@@ -62,9 +62,10 @@
         watch: {
             isShow(curVal, oldVal) {
                 this.syncIsShow = curVal;
+                this.$emit('visible-change', curVal);
             },
             syncIsShow(curVal, oldVal) {
-                this.$emit('visible-change', curVal);
+                this.$emit('update:isShow', curVal);
             }
         },
         components: {

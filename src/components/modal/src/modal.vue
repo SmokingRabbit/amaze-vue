@@ -47,6 +47,7 @@
                 else {
                     this.hide();
                 }
+                this.$emit('visible-change', curVal);
             }
         },
         methods: {
@@ -55,7 +56,7 @@
             },
             globalClickHandle() {
                 if (this.closeViaDimmer) {
-                    this.$emit('visible-change', false);
+                    this.$emit('update:isShow', false);
                 }
             },
             popupPosition() {
