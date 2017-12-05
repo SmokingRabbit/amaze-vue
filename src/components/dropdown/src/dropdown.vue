@@ -13,6 +13,7 @@
 <script>
     import Popup from '../../../mixins/popup';
     import { on, off } from '../../../utils/dom';
+    import { detectMobile } from '../../../utils/navigator';
 
     export default {
         name: 'am-dropdown',
@@ -126,7 +127,7 @@
             document.body.removeChild(this.$el);
             const $reference = this.$refs['reference'];
 
-            if (this.trigger === 'click') {
+            if (this.trigger === 'click' || detectMobile()) {
                 off($reference, 'click', this.clickHandle);
                 off(document.body, 'click', this.globalClickHandle);
             }
@@ -139,7 +140,7 @@
             document.body.appendChild(this.$el);
             const $reference = this.$refs['reference'];
 
-            if (this.trigger === 'click') {
+            if (this.trigger === 'click' || detectMobile()) {
                 on($reference, 'click', this.clickHandle);
                 on(document.body, 'click', this.globalClickHandle);
             }
