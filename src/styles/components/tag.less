@@ -1,0 +1,60 @@
+.@{ns}tag {
+    display: inline-block;
+    font-size: @font-size-sm;
+    padding: 0px 10px;
+    line-height: 26px;
+    border-radius: @global-radius;
+    white-space: nowrap;
+    border-width: 1px;
+    border-style: solid;
+    color: @btn-default-color;
+    border-color: darken(@btn-default-border, 20%);
+    background-color: @btn-default-bg;
+
+    >.@{ns}close {
+        width: 0px;
+        height: 14px;
+        font-size: 14px;
+        line-height: 14px;
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-right: -6px;
+        overflow: hidden;
+    }
+
+    &:hover {
+        >.@{ns}close {
+            width: 14px;
+        }
+    }
+ }
+
+.@{ns}tag-primary {
+    color: @btn-primary-bg;
+    border-color: lighten(@btn-primary-bg, 10%);
+    background-color: lighten(@btn-primary-bg, 50%);
+}
+
+.@{ns}tag-secondary {
+    color: @btn-secondary-bg;
+    border-color: lighten(@btn-secondary-bg, 10%);
+    background-color: lighten(@btn-secondary-bg, 35%);
+}
+
+.@{ns}tag-success {
+    color: @btn-success-bg;
+    border-color: lighten(@btn-success-bg, 10%);
+    background-color: lighten(@btn-success-bg, 35%);
+}
+
+.@{ns}tag-warning {
+    color: @btn-warning-bg;
+    border-color: lighten(@btn-warning-bg, 10%);
+    background-color: lighten(@btn-warning-bg, 35%);
+}
+
+.@{ns}tag-danger {
+    color: @btn-danger-bg;
+    border-color: lighten(@btn-danger-bg, 10%);
+    background-color: lighten(@btn-danger-bg, 35%);
+}

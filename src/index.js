@@ -62,6 +62,7 @@ import { Message } from './components/message';
 import { Switch } from './components/switch';
 import { Loading } from './components/loading';
 import { Timepicker } from './components/timepicker';
+import { Tag } from './components/tag';
 
 const install = function (Vue) {
     Vue.component(Container.name, Container);
@@ -153,6 +154,7 @@ const install = function (Vue) {
     Vue.component(Loading.name, Loading);
     Vue.use(Loading);
     Vue.component(Timepicker.name, Timepicker);
+    Vue.component(Tag.name, Tag);
 };
 
 // html script标签支持
