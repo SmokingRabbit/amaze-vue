@@ -187,7 +187,7 @@ window.addEventListener('load', function() {
             <am-button v-popover:popover4>hover</am-button>
         </div>
         <!-- Warning -->
-        <am-warning color="success" :closeBtn="true">
+        <am-warning color="success" :closeable="true">
             <h3>共同渡过</h3>
             <p>《共同渡过》是张国荣1987年发行的专辑《Summer Romance》中的一首歌。</p>
                 <ul>
@@ -543,7 +543,7 @@ window.addEventListener('load', function() {
                 this.$notify({
                     type: 'error',
                     message: '测试',
-                    close: true,
+                    closeable: true,
                     onClose() {
                         console.log('notify close')
                     }

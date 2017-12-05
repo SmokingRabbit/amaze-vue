@@ -1,7 +1,7 @@
 <template>
     <transition :name="transition">
         <div :class="computedClass" v-if="isVisible">
-            <button v-if="closeBtn" type="button" class="am-close" @click="closeHandle">&times;</button>
+            <button v-if="closeable" type="button" class="am-close" @click="closeHandle">&times;</button>
             <slot></slot>
         </div>
     </transition>
@@ -29,7 +29,7 @@
                 type: Boolean,
                 default: true
             },
-            closeBtn: {
+            closeable: {
                 type: Boolean,
                 default: true
             },
