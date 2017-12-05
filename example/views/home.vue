@@ -393,6 +393,14 @@ window.addEventListener('load', function() {
             <am-loading color="primary" :loading="loading"></am-loading>
         </div>
         <div>
+            <am-tag>标签</am-tag>
+            <am-tag color="primary" @tag-remove="tagDelete(12)" :closeable="true">标签</am-tag>
+            <am-tag color="secondary">标签</am-tag>
+            <am-tag color="success">标签</am-tag>
+            <am-tag color="warning">标签</am-tag>
+            <am-tag color="danger">标签</am-tag>
+        </div>
+        <div>
             <am-timepicker></am-timepicker>
         </div>
         <am-form-group><am-input></am-input></am-form-group>
@@ -561,6 +569,9 @@ window.addEventListener('load', function() {
             },
             formValidate() {
                console.log( this.$refs['form'].validate());
+            },
+            tagDelete(a) {
+                alert(a)
             }
         }
     }
