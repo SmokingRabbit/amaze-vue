@@ -213,15 +213,15 @@
         },
         watch: {
             curYear(curVal, oldVal) {
-                this.$emit('change.year', curVal);
+                this.$emit('change-year', curVal);
                 this.$emit('input', this.result);
             },
             curMonth(curVal, oldVal) {
-                this.$emit('change.month', curVal);
+                this.$emit('change-month', curVal);
                 this.$emit('input', this.result);
             },
             curDate(curVal, oldVal) {
-                this.$emit('change.date', curVal);
+                this.$emit('change-date', curVal);
                 this.$emit('input', this.result);
             }
         },
