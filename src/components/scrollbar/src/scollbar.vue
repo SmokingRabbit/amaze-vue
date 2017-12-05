@@ -162,7 +162,8 @@
                 };
             },
             startDrag(e) {
-                e.preventDefault();
+                // to fix mobile click event
+                // e.preventDefault();
                 e.stopPropagation();
                 e = e.changedTouches ? e.changedTouches[0] : e;
 
@@ -177,6 +178,7 @@
             onDrag(e) {
                 if (this.dragging) {
                     e.preventDefault();
+                    e.stopPropagation();
                     e = e.changedTouches ? e.changedTouches[0] : e;
 
                     let yMovement = this.start.y - e.clientY;
