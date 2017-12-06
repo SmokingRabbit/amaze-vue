@@ -36,10 +36,10 @@ QQ群 285353957
     npm run dev
 ```
 
-### 提供的组件
+### feature
 
--
-
+- setps(步骤条)
+- 画廊(gallery)
 
 ### 代码贡献者
 
