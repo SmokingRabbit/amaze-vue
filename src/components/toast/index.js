@@ -10,7 +10,7 @@ Toast.install = function (Vue, options) {
         return instance;
     }
 
-    Vue.prototype.$Toast = {
+    Vue.prototype.$toast = {
         open(message = '', options = {delay: 2000}) {
             instance = instance || createInstance();
             instance.syncIsShow = true;
