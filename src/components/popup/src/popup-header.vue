@@ -1,7 +1,7 @@
 <template>
     <div :class="computedClass">
         <h4 class="am-popup-title">{{ title }}</h4>
-        <close v-if="closeBtn" @click="closeModal" customClass="am-close-spin"></close>
+        <close v-if="closeable" @click="closeModal" customClass="am-close-spin"></close>
     </div>
 </template>
 
@@ -14,7 +14,7 @@
             customClass: {
                 type: String
             },
-            closeBtn: {
+            closeable: {
                 type: Boolean,
                 default: true
             },
