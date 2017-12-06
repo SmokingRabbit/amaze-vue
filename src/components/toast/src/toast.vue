@@ -1,11 +1,10 @@
 <template>
-    <modal v-bind="$props" :isShow.sync="syncIsShow">
-        <!-- <modal-header :closeBtn="false">{{ message }}</modal-header> -->
+    <modal v-bind="$props" :isShow.sync="syncIsShow" customClass="am-modal-toast">
         <modal-body>
             <animation type="spin">
-                <icon type="spinner"></icon>
+                <icon type="spinner" :color="iconColor"></icon>
             </animation>
-            {{ message }}
+            <span class="am-modal-toast-message">{{ message }}</span>
         </modal-body>
     </modal>
 </template>
@@ -50,9 +49,13 @@
                 type: String,
                 default: 'scale-up'
             },
-            timeout: {
+            delay: {
                 type: Number,
                 default: 0
+            },
+            iconColor: {
+                type: String,
+                default: 'primary'
             }
         },
         watch: {
@@ -62,15 +65,15 @@
             syncIsShow(curVal, oldVal) {
                 this.$emit('visible-change', curVal);
 
-                if (curVal && this.timeout > 0) {
+                if (curVal && this.delay > 0) {
                     this.timer = setTimeout(() => {
                         this.timer = null;
                         this.syncIsShow = false;
-                    }, this.timeout);
+                    }, this.delay);
                 }
                 else {
                     if (this.timer !== null) {
-                        clearTimeout(this.timer);
+                        cleardelay(this.timer);
                     }
                 }
             }

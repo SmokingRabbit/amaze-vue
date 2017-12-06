@@ -121,9 +121,27 @@ TODO:
     .hook-modal-hd;
 }
 
+// fix by my
 .@{ns}modal-alert, .@{ns}modal-confirm, .@{ns}modal-prompt {
     .@{ns}modal-bd {
         text-align: center;
+    }
+}
+.@{ns}modal-toast {
+    .@{ns}modal-dialog {
+        width: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #bbb;
+
+        .@{ns}modal-bd {
+            padding-left: 20px;
+            padding-right: 20px;
+            border-bottom: 0px;
+
+            .@{ns}modal-toast-message {
+                margin-left: 4px;
+            }
+        }
     }
 }
 
