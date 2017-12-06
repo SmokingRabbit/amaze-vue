@@ -1,7 +1,7 @@
 <template>
     <div :class="computedClass">
         <slot></slot>
-        <close v-if="closeBtn" @click="closeModal" customClass="am-close-spin"></close>
+        <close v-if="closeable" @click="closeModal" customClass="am-close-spin"></close>
     </div>
 </template>
 
@@ -14,14 +14,16 @@
             customClass: {
                 type: String
             },
-            closeBtn: {
+            closeable: {
                 type: Boolean,
                 default: true
             }
         },
         methods: {
             closeModal() {
-                this.modal.$emit('update:isShow', false);
+                if (this.closeable) {
+                    this.modal.$emit('update:isShow', false);
+                }
             }
         },
         computed: {
