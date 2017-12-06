@@ -174,6 +174,10 @@
                     classes.push('am-input-' + this.size);
                 }
 
+                if (this.inputGroupComponent && this.inputGroupComponent.block) {
+                    classes.push('am-input-block');
+                }
+
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
                 }

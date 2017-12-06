@@ -37,10 +37,12 @@ TODO:
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: @z-index-modal;
+    // z-index: @z-index-modal;
     opacity: 0;
     outline: 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     // @see https://github.com/amazeui/amazeui/issues/712
     // transform: translate3d(0, 0, 0) scale(1.185);
     transform: scale(1.185);
@@ -97,11 +99,8 @@ TODO:
 }
 
 .@{ns}modal-hd {
-    padding: 15px 10px 5px 10px;
-    font-size: 1.8rem;
-    +.@{ns}modal-bd {
-        padding-top: 0;
-    }
+    padding: 15px 10px 0px 10px;
+    font-size: 1.4rem;
     .@{ns}close {
         position: absolute;
         top: 4px;
@@ -111,9 +110,7 @@ TODO:
 }
 
 .@{ns}modal-bd {
-    padding: 15px 10px;
-    text-align: center;
-    border-bottom: 1px solid @modal-border-color;
+    padding: 15px;
     border-radius: 2px 2px 0 0;
     // References https://github.com/allmobilize/amazeui/issues/464
     // overflow: hidden;
@@ -150,6 +147,11 @@ TODO:
     width: 100%;
     border-collapse: collapse;
     .hook-modal-footer;
+
+    >.@{ns}btn:not(.@{ns}modal-btn) {
+        float: right;
+        margin-right: 8px;
+    }
 }
 
 .@{ns}modal-btn {
@@ -414,3 +416,14 @@ TODO:
 .hook-popup-hd() {}
 
 .hook-popup-bd() {}
+
+@media @small-only {
+    .@{ns}modal-hd {
+        text-align: center;
+        padding: 15px 10px 5px 10px;
+        font-size: 1.6rem;
+    }
+    .@{ns}modal-bd {
+        border-bottom: 1px solid @modal-border-color;
+    }
+}
