@@ -36,7 +36,7 @@
             color: {
                 type: String,
                 validator(value) {
-                    return ['primary', 'danger', 'warning'].includes(value);
+                    return ['primary', 'secondary', 'success', 'danger', 'warning'].includes(value);
                 }
             },
             size: {
