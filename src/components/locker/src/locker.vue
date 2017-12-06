@@ -50,7 +50,6 @@
                 }
                 else {
                     this.hide();
-                    //
                 }
             }
         },
@@ -70,7 +69,7 @@
                 e.stopPropagation();
             },
             gloablClickHandle() {
-                this.hide();
+                this.$emit('update:isShow', false);
             }
         },
         computed: {
