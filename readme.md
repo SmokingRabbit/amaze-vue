@@ -6,7 +6,7 @@
 
 > 基于Amaze UI 封装的Vue2.x组件库
 
-### [文档 & 示例（补充中……）](https://sunshineji.github.io/amaze-vue-docs/)
+### [文档 & 示例 ](https://sunshineji.github.io/amaze-vue-docs/)
 
 ### [BUG、意见反馈](https://github.com/sunshineJi/amaze-vue/issues)
 
@@ -28,6 +28,17 @@ QQ群 285353957
 
     Vue.use(AmazeVue);
 ```
+
+### 开发
+
+```bash
+    npm i
+    npm run dev
+```
+
+### 提供的组件
+
+-
 
 
 ### 代码贡献者
