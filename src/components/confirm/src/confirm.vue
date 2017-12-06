@@ -1,6 +1,6 @@
 <template>
     <modal v-bind="$props" :isShow.sync="syncIsShow">
-        <modal-header :closeBtn="false">{{ title }}</modal-header>
+        <modal-header :closeable="false">{{ title }}</modal-header>
         <modal-body>
             <slot></slot>
         </modal-body>

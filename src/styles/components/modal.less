@@ -100,7 +100,7 @@ TODO:
 
 .@{ns}modal-hd {
     padding: 15px 10px 0px 10px;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     .@{ns}close {
         position: absolute;
         top: 4px;
@@ -112,12 +112,19 @@ TODO:
 .@{ns}modal-bd {
     padding: 15px;
     border-radius: 2px 2px 0 0;
+    border-bottom: 1px solid @modal-border-color;
     // References https://github.com/allmobilize/amazeui/issues/464
     // overflow: hidden;
     +.@{ns}modal-bd {
         margin-top: 5px;
     }
     .hook-modal-hd;
+}
+
+.@{ns}modal-alert, .@{ns}modal-confirm, .@{ns}modal-prompt {
+    .@{ns}modal-bd {
+        text-align: center;
+    }
 }
 
 // Prompt input
@@ -151,6 +158,8 @@ TODO:
     >.@{ns}btn:not(.@{ns}modal-btn) {
         float: right;
         margin-right: 8px;
+        margin-top: 6px;
+        margin-bottom: 6px;
     }
 }
 
@@ -422,8 +431,5 @@ TODO:
         text-align: center;
         padding: 15px 10px 5px 10px;
         font-size: 1.6rem;
-    }
-    .@{ns}modal-bd {
-        border-bottom: 1px solid @modal-border-color;
     }
 }

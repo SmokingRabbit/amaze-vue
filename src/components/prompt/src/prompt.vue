@@ -1,13 +1,13 @@
 <template>
     <modal v-bind="$props" :isShow.sync="syncIsShow" ref="modal">
-        <modal-header :closeBtn="false">{{ title }}</modal-header>
+        <modal-header :closeable="false">{{ title }}</modal-header>
         <modal-body>
             <slot></slot>
             <input type="text" class="am-modal-prompt-input" :value="curValue" @input="inputHandle">
         </modal-body>
         <modal-footer>
             <span class="am-modal-btn" @click="cancelHandle">{{ cancelBtnText }}</span>
-            <span class="am-modal-btn" @click="confirmHandle">{{ submitBtnText }}</span>
+            <span class="am-modal-btn" @click="submitHandle">{{ submitBtnText }}</span>
         </modal-footer>
     </modal>
 </template>
@@ -79,9 +79,9 @@
                 this.syncIsShow = false;
                 this.$emit('cancel');
             },
-            confirmHandle() {
+            submitHandle() {
                 this.syncIsShow = false;
-                this.$emit('submit');
+                this.$emit('submit', this.curValue);
             },
             inputHandle(e) {
                 const value = e.target.value;
