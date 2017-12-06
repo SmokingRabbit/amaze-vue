@@ -65,7 +65,7 @@
                 }
                 else {
                     if (this.timer !== null) {
-                        cleardelay(this.timer);
+                        clearTimeout(this.timer);
                     }
                 }
             }
