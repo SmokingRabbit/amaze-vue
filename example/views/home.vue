@@ -507,7 +507,7 @@ window.addEventListener('load', function() {
                 console.log(this.promptVal)
             },
             showToast() {
-                this.$Toast.open('toast 信息');
+                this.$toast.open('toast 信息');
             },
             showAlert() {
                 this.alertVisible = true;
