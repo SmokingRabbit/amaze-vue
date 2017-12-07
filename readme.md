@@ -38,8 +38,9 @@ QQ群 285353957
 
 ### feature
 
-- setps(步骤条)
+- steps(步骤条)
 - 画廊(gallery)
+- 树形菜单(tree)
 
 ### 代码贡献者
 
