@@ -59,7 +59,16 @@ module.exports = {
                                 minimize: true
                             }
                         },
-                        'postcss-loader',
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins:(loader)=>[
+                                    require('autoprefixer')({
+                                        browsers:['last 5 versions']
+                                    })
+                                ]
+                            }
+                        },
                         'less-loader'
                     ],
                     fallback: 'style-loader',
