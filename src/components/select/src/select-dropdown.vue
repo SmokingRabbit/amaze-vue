@@ -118,22 +118,21 @@
                 }
             },
             options(curVal, oldVal) {
-                curVal.forEach((item) => {
-                    if (this.renderOptions.findIndex((_item) => {
-                        return _item.label === item.label && _item.value === item.value;
-                    }) > -1) {
-                        this.renderOptions.push(item);
-                        this.saveOptions.push(item);
-                        if (item.selected) {
-                            if (this.multiple) {
-                                this.selectValue.push(item);
-                            }
-                            else {
-                                this.selectValue = [item];
-                            }
+                this.renderOptions = curVal;
+                this.saveOptions = curVal;
+                this.scrollbarHeight = this.maxHeight;
+                this.hide();
+                const selectValue = [];
+                curVal.every((item) => {
+                    if (item.selected) {
+                        selectValue.push(item);
+                        if (!this.multiple) {
+                            return false;
                         }
                     }
+                    return true;
                 });
+                this.selectValue = selectValue;
             },
             selectValue(curVal, oldVal) {
                 this.$emit('input', curVal);
@@ -152,7 +151,7 @@
                 }
                 else {
                     const filter = [];
-                    this.renderOptions.forEach((item) => {
+                    this.saveOptions.forEach((item) => {
                         if (item.label.indexOf(curVal) > -1 || (item.guesser && item.guesser.indexOf(curVal) > -1)) {
                             filter.push(item);
                         }

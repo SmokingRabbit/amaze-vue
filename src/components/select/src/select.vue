@@ -86,7 +86,10 @@
         watch: {
             selectValue(curVal, oldVal) {
                 this.$emit('input', curVal);
-                this.$emit('select', this.multiple ? curVal : curVal[0]);
+                const selectObj = this.multiple ? curVal : curVal[0];
+                if (selectObj) {
+                    this.$emit('select', selectObj);
+                }
                 if (curVal.length >= oldVal.length) {
                     this.$emit('change', curVal[curVal.length - 1], true);
                 }
