@@ -37,7 +37,7 @@
         },
         mounted() {
             if (window.hljs && typeof window.hljs.highlightBlock === 'function') {
-                hljs.highlightBlock(this.$refs['container']);
+                window.hljs.highlightBlock(this.$refs['container']);
             }
         }
     };
