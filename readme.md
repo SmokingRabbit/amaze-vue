@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/v/amaze-vue.svg)](https://www.npmjs.com/package/amaze-vue)
 [![npm](https://img.shields.io/npm/dm/amaze-vue.svg)](https://www.npmjs.com/package/amaze-vue)
 
-> 基于Amaze UI 封装的Vue2.x组件库
+> 基于Amaze UI 封装的Vue2.x组件库。万水千山总是情，点个star再走行不行~~~
 
 ### [文档 & 示例 ](https://sunshineji.github.io/amaze-vue-docs/)
 
@@ -41,6 +41,7 @@ QQ群 285353957
 - steps(步骤条)
 - 画廊(gallery)
 - 树形菜单(tree)
+- 评分(rate)
 
 ### 代码贡献者
 
