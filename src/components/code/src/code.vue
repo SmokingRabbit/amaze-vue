@@ -5,8 +5,6 @@
 </template>
 
 <script>
-    import hljs from './lib/highlight';
-
     export default {
         name: 'am-code',
         props: {
@@ -38,7 +36,9 @@
             }
         },
         mounted() {
-            hljs.highlightBlock(this.$refs['container']);
+            if (window.hljs && typeof window.hljs.highlightBlock === 'function') {
+                hljs.highlightBlock(this.$refs['container']);
+            }
         }
     };
 </script>
