@@ -8,7 +8,7 @@
                     <scrollbar
                         ref="hourScrollbar"
                         customClass="am-timepicker-hour-container"
-                        :autoHide="true"
+                        :speed="32"
                         @scroll="hourOnScroll"
                     >
                         <ul>
@@ -24,7 +24,7 @@
                     <scrollbar
                         ref="minuteScrollbar"
                         customClass="am-timepicker-minute-container"
-                        :autoHide="true"
+                        :speed="32"
                         @scroll="minuteOnScroll"
                     >
                         <ul>
@@ -40,7 +40,7 @@
                     <scrollbar
                         ref="secondScrollbar"
                         customClass="am-timepicker-second-container"
-                        :autoHide="true"
+                        :speed="32"
                         @scroll="secondOnScroll"
                     >
                         <ul>
@@ -117,7 +117,7 @@
 
                 return scrollTop / this.scrollFix;
             },
-            hourOnScroll() {
+            hourOnScroll(e) {
                 this.hourVal = this.scrollToFixPosition(this.$refs['hourScrollbar']);
             },
             minuteOnScroll() {

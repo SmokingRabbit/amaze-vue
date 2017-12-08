@@ -38,7 +38,7 @@
         top: 64px;
         border-top: 1px solid @input-border;
         border-bottom: 1px solid @input-border;
-        z-index: 100;
+        z-index: 5;
     }
 }
 
@@ -49,17 +49,18 @@
     height: 160px;
     position: absolute;
     top: 0px;
+    z-index: 10;
 
     ul {
         list-style: none;
         padding: 0;
         margin: 0;
-        
+
         &::before, &::after{
             content: "";
             display: block;
             width: 100%;
-            height: 64px;  
+            height: 64px;
         }
 
         li {
@@ -69,7 +70,7 @@
             font-size: @global-font-size - 0.2;
             color: @gray;
             cursor: pointer;
-            
+
             &.@{ns}disabled {
                 color: @gray-light;
                 cursor: not-allowed;
@@ -84,6 +85,20 @@
 
             &.@{ns}active {
                 font-weight: 600;
+            }
+        }
+    }
+}
+
+@media @small-only {
+    .@{ns}timepicker-hour-container,
+    .@{ns}timepicker-minute-container,
+    .@{ns}timepicker-second-container {
+        ul {
+            li {
+                &:hover {
+                    background-color: transparent;
+                }
             }
         }
     }
