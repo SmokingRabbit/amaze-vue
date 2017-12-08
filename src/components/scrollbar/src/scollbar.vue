@@ -108,15 +108,6 @@
                     }, this.delay);
                 }
             },
-            triggerScroll() {
-                const scrollEvent = document.createEvent('HTMLEvents');
-                scrollEvent.initEvent('scroll', true, true);
-                window.dispatchEvent(scrollEvent);
-
-                const clickEvent = document.createEvent('HTMLEvents');
-                clickEvent.initEvent('click', true, true);
-                this.$el.dispatchEvent(clickEvent);
-            },
             scroll(e) {
                 this.calculateSize(() => {
                     let num = this.speed;
@@ -142,7 +133,6 @@
                     if ((nextY + this.scrollContainerHeight <= this.scrollAreaHeight && nextY >= 0) ||
                         (nextX + this.scrollContainerWidth <= this.scrollAreaWidth && nextX >= 0)
                     ) {
-                        this.triggerScroll();
                         e.preventDefault();
                         e.stopPropagation();
                     }
