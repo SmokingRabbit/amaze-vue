@@ -197,6 +197,8 @@
             },
             stopDrag(e) {
                 this.dragging = false;
+                // fix 移动端拖动的问题，有点流氓，后期优化吧
+                this.$emit('scroll', e);
             },
             scrollToY(y) {
                 this.normalizeVertical(y);
