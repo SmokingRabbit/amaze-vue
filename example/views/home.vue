@@ -447,6 +447,42 @@ window.addEventListener('load', function() {
                     value: 3,
                     label: '香蕉',
                     guesser: 'xiangjiao'
+                }, {
+                    value: 1,
+                    label: '苹果',
+                    guesser: 'pingguo'
+                }, {
+                    value: 2,
+                    label: '鸭梨',
+                    guesser: 'yali'
+                }, {
+                    value: 3,
+                    label: '香蕉',
+                    guesser: 'xiangjiao'
+                }, {
+                    value: 1,
+                    label: '苹果',
+                    guesser: 'pingguo'
+                }, {
+                    value: 2,
+                    label: '鸭梨',
+                    guesser: 'yali'
+                }, {
+                    value: 3,
+                    label: '香蕉',
+                    guesser: 'xiangjiao'
+                }, {
+                    value: 1,
+                    label: '苹果',
+                    guesser: 'pingguo'
+                }, {
+                    value: 2,
+                    label: '鸭梨',
+                    guesser: 'yali'
+                }, {
+                    value: 3,
+                    label: '香蕉',
+                    guesser: 'xiangjiao'
                 }],
                 amSwitch: false,
                 loading: false,
