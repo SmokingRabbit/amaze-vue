@@ -62,6 +62,7 @@
     import AmDatepickerMonth from './month';
     import AmDatepickerDate from './date';
     import { on, off } from '../../../utils/dom';
+    import { detectMobile } from '../../../utils/navigator';
 
     export default {
         name: 'am-datepicker',
@@ -206,7 +207,7 @@
 
                 return {
                     top: top + offsetTop + height + 'px',
-                    left: left + offsetLeft + 'px',
+                    left: (detectMobile() ? 0 : left + offsetLeft) + 'px',
                     zIndex: this.getZIndex()
                 };
             }
