@@ -297,7 +297,7 @@
                     style['width'] = this.width + 'px';
                 }
                 if (this.height !== undefined) {
-                    style['height'] = this.height + 'px';
+                    style['maxHeight'] = this.height + 'px';
                 }
 
                 return style;

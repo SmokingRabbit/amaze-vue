@@ -101,10 +101,6 @@
                     zIndex: this.getZIndex()
                 };
 
-                if (this.$refs['lists'].offsetHeight < this.maxHeight) {
-                    this.scrollbarHeight = this.$refs['lists'].offsetHeight;
-                }
-
                 return ret;
             }
         },
