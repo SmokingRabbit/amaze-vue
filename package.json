@@ -1,7 +1,7 @@
 {
   "name": "amaze-vue",
-  "version": "1.1.7",
-  "description": "A vue2.x component library based on amazeui",
+  "version": "1.1.8",
+  "description": "A vue.js component library based on amazeui",
   "keywords": [
     "vue",
     "amaze",
