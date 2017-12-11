@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/dm/amaze-vue.svg)](https://www.npmjs.com/package/amaze-vue)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://opensource.org/licenses/MIT)
 
-> 基于Amaze UI 封装的Vue2.x组件库。万水千山总是情，点个star再走行不行~~~
+> 一只基于amazeui封装的vue.js组件库。万水千山总是情，点个star再走行不行~~~
 
 ### [文档 & 示例 ](https://sunshineji.github.io/amaze-vue-docs/)
 
