@@ -91,6 +91,19 @@
                     this.selectValue.push(item);
                 }
             },
+            compileSelected(options) {
+                const selectValue = [];
+                options.every((item) => {
+                    if (item.selected) {
+                        selectValue.push(item);
+                        if (!this.multiple) {
+                            return false;
+                        }
+                    }
+                    return true;
+                });
+                this.selectValue = selectValue;
+            },
             popupPosition() {
                 const { top, left, height, width } = this.$parent.$el.getBoundingClientRect();
                 const { top: offsetTop, left: offsetLeft } = this.getPageOffset();
@@ -118,17 +131,7 @@
                 this.saveOptions = curVal;
                 this.scrollbarHeight = this.maxHeight;
                 this.hide();
-                const selectValue = [];
-                curVal.every((item) => {
-                    if (item.selected) {
-                        selectValue.push(item);
-                        if (!this.multiple) {
-                            return false;
-                        }
-                    }
-                    return true;
-                });
-                this.selectValue = selectValue;
+                this.compileSelected(curVal);
             },
             selectValue(curVal, oldVal) {
                 this.$emit('input', curVal);
@@ -155,6 +158,9 @@
                     this.renderOptions = filter;
                 }
             }
+        },
+        created() {
+            this.compileSelected(this.options);
         },
         mounted() {
             document.body.appendChild(this.$el);
