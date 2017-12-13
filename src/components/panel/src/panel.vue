@@ -35,11 +35,15 @@
             collapse: {
                 type: Boolean,
                 default: false
+            },
+            transparent: {
+                type: Boolean,
+                default: false
             }
         },
         watch: {
             isOpen(curVal, oldVal) {
-                this.$emit('collapse:change', curVal);
+                this.$emit('collapse-change', curVal);
 
                 if (curVal && this.isGroup && !this.isAccordion) {
                     this.$parent.$children.forEach((vNode, index) => {
@@ -109,7 +113,7 @@
             },
             close() {
                 dom.css(this.$refs['container'], {
-                    height: this.collapseElm.getBoundingClientRect().height + 'px'
+                    height: this.panelHeaderEle.getBoundingClientRect().height + 'px'
                 });
                 this.isOpen = false;
             },
@@ -120,28 +124,13 @@
                 this.isOpen = true;
             }
         },
-        beforeDestroy() {
-            if (this.isCollapse && this.collapseElm) {
-                dom.off(this.collapseElm, 'click', this.collapseHandle);
-            }
-        },
         mounted() {
             if (this.isCollapse) {
-                this.$slots.default.forEach((vNode, index) => {
-                    if (vNode.componentInstance && vNode.componentOptions.tag === 'am-panel-header') {
-                        this.collapseElm = vNode.elm;
-                    }
+                this.containerHeight = this.$el.getBoundingClientRect().height;
+                dom.css(this.$el, {
+                    height: this.containerHeight + 'px',
+                    overflow: 'hidden'
                 });
-
-                if (this.collapseElm) {
-                    dom.on(this.collapseElm, 'click', this.collapseHandle);
-                    dom.css(this.collapseElm, 'cursor', 'pointer');
-                    this.containerHeight = this.$refs['container'].getBoundingClientRect().height;
-                    dom.css(this.$refs['container'], {
-                        height: this.containerHeight + 'px',
-                        overflow: 'hidden'
-                    });
-                }
             }
         }
     };

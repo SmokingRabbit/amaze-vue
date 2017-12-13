@@ -52,8 +52,27 @@
 .@{ns}panel-hd {
     padding: @panel-hd-padding;
     border-bottom: 1px solid transparent;
+    position: relative;
     .border-top-radius(@panel-border-radius);
     .hook-panel-hd;
+
+    &.@{ns}panel-hd-collapse {
+        cursor: pointer;
+    }
+
+    .@{ns}icon-caret-up {
+        position: absolute;
+        top: 2px;
+        bottom: 0px;
+        right: 1.25rem;
+        display: flex;
+        align-items: center;
+        transition: transform 0.2s ease-in;
+    }
+
+    .@{ns}rotate-down {
+        transform: rotate(180deg);
+    }
 }
 
 
@@ -69,6 +88,7 @@
     margin: 0;
     font-size: 100%;
     color: inherit;
+    padding-right: 10px;
     >a {
         color: inherit;
     }
@@ -93,6 +113,11 @@
     @panel-default-hd-bg;
     @panel-default-bd);
     .hook-panel-default;
+
+    .@{ns}panel-hd-transparent
+    , .@{ns}panel-footer-transparent {
+        background-color: transparent;
+    }
 }
 
 .@{ns}panel-primary {
