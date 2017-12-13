@@ -1,10 +1,6 @@
 <template>
     <transition :name="transition">
-        <ul v-if="visible"
-            :class="computedClass"
-            @mouseenter="mouseenterHandle"
-            @mouseleave="mouseleaveHandle"
-            >
+        <ul v-if="visible" :class="computedClass" @mouseenter="mouseenterHandle" @mouseleave="mouseleaveHandle">
             <slot></slot>
         </ul>
     </transition>
@@ -46,7 +42,11 @@
             },
             transition: {
                 type: String,
-                default: 'fade'
+                default: 'slide-down'
+            },
+            caret: {
+                type: Boolean,
+                default: true
             }
         },
         computed: {
@@ -60,7 +60,11 @@
                 }
 
                 if (this.placement === 'top') {
-                    classes.push('am-dropdown-up ');
+                    classes.push('am-dropdown-up');
+                }
+
+                if (!this.caret) {
+                    classes.push('am-dropdown-no-caret');
                 }
 
                 if (this.customClass !== undefined) {
@@ -110,14 +114,15 @@
                 const $reference = this.$refs['reference'];
                 const { top, left, height } = $reference.getBoundingClientRect();
                 const { height: selfHeight } = $dropdown.getBoundingClientRect();
+                const { top: offsetTop, left: offsetLeft } = this.getPageOffset();
                 const ret = { zIndex: this.getZIndex() };
 
-                ret['left'] = this.pageOffset.left + left + 'px';
+                ret['left'] = offsetLeft + left + 'px';
                 if (this.placement === 'top') {
-                    ret['top'] = this.pageOffset.top + top - selfHeight - 9 - this.fix + 'px';
+                    ret['top'] = offsetTop + top - selfHeight - 9 - this.fix + 'px';
                 }
                 else {
-                    ret['top'] = this.pageOffset.top + top + height + this.fix + 'px';
+                    ret['top'] = offsetTop + top + height + this.fix + 'px';
                 }
 
                 return ret;
