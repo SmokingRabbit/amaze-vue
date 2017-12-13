@@ -47,7 +47,7 @@
             },
             transition: {
                 type: String,
-                default: 'fade'
+                default: 'scale-up'
             },
             customClass: {
                 type: String
@@ -78,24 +78,25 @@
                 const $popover = this.$el;
                 const { top, left, width, height } = this.$refs['reference'].getBoundingClientRect();
                 const { width: selfWidth, height: selfHeight } = $popover.getBoundingClientRect();
+                const { top: offsetTop, left: offsetLeft } = this.getPageOffset();
                 const ret = { zIndex: this.getZIndex() };
 
                 if (this.placement === 'top' || this.placement === 'bottom') {
-                    ret['left'] = left + this.pageOffset.left - (selfWidth - width) / 2 + 'px';
+                    ret['left'] = left + offsetLeft - (selfWidth - width) / 2 + 'px';
                     if (this.placement === 'top') {
-                        ret['top'] = this.pageOffset.top + top - selfHeight - this.fix + 'px';
+                        ret['top'] = offsetTop + top - selfHeight - this.fix + 'px';
                     }
                     else {
-                        ret['top'] = this.pageOffset.top + top + height + this.fix + 'px';
+                        ret['top'] = offsetTop + top + height + this.fix + 'px';
                     }
                 }
                 else {
-                    ret['top'] = this.pageOffset.top + top - (selfHeight - height) / 2 + 'px';
+                    ret['top'] = offsetTop + top - (selfHeight - height) / 2 + 'px';
                     if (this.placement === 'left') {
-                        ret['left'] = left + this.pageOffset.left - this.fix - selfWidth + 'px';
+                        ret['left'] = left + offsetLeft - this.fix - selfWidth + 'px';
                     }
                     else {
-                        ret['left'] = left + this.pageOffset.left + this.fix + width + 'px';
+                        ret['left'] = left + offsetLeft + this.fix + width + 'px';
                     }
                 }
 
