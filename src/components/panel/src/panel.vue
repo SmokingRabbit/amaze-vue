@@ -39,6 +39,10 @@
             transparent: {
                 type: Boolean,
                 default: false
+            },
+            list: {
+                type: Boolean,
+                default: false
             }
         },
         watch: {
@@ -59,12 +63,15 @@
                 const classes = [];
 
                 classes.push('am-panel');
+                classes.push('am-panel-' + this.color);
+
+                if (this.list) {
+                    classes.push('am-panel-list');
+                }
 
                 if (this.customClass !== undefined) {
                     classes.push(this.customClass);
                 }
-
-                classes.push('am-panel-' + this.color);
 
                 return classes.join(' ');
             },

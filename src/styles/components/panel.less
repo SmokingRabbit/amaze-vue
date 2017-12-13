@@ -44,6 +44,11 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     .hook-panel;
     transition: height .2s ease-in;
+
+    &.@{ns}panel-list {
+        border-left-width: 0px;
+        border-right-width: 0px;
+    }
 }
 
 
@@ -260,7 +265,7 @@
         }
     }
     .@{ns}panel-hd {
-        border-bottom: 0;
+        border-bottom-width: 0;
         +.@{ns}panel-collapse .@{ns}panel-bd {
             border-top: 1px solid @panel-inner-border;
         }
@@ -269,6 +274,19 @@
         border-top: 0;
         +.@{ns}panel-collapse .@{ns}panel-bd {
             border-bottom: 1px solid @panel-inner-border;
+        }
+    }
+    .@{ns}panel-list {
+        +.@{ns}panel-list {
+            margin-top: 0px;
+            border-top-width: 0px;
+        }
+    }
+    .@{ns}panel-default {
+        &.@{ns}panel-list {
+            .@{ns}panel-hd  {
+                border-bottom-width: 1px;
+            }
         }
     }
     .hook-panel-group;
