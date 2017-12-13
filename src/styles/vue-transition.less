@@ -37,7 +37,7 @@
     }
 }
 /**
- * jump
+ * long-form
  */
 .long-form-enter-active {
     transition: all @delay ease;
@@ -149,20 +149,22 @@
  * slide-down
  */
 .slide-down-enter-active {
+    transform-origin: center top;
     animation: slideDown @delay;
 }
 
 .slide-down-leave-active {
+    transform-origin: center top;
     animation: slideDown @delay reverse;
 }
 
 @keyframes slideDown {
     0% {
-        transform: translateY(100%);
+        transform: scaleY(0);
     }
 
     100% {
-        transform: translatey(0);
+        transform: scaleY(1);
     }
 }
 
