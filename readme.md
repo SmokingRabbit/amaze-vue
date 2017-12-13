@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="http://upload.ouliu.net/i/20171213173701nhj03.jpeg" width="357" height="357">
+</p>
+
 ## amaze-vue
 
 [![Build Status](https://travis-ci.org/sunshineJi/amaze-vue.svg?branch=master)](https://travis-ci.org/sunshineJi/amaze-vue)
