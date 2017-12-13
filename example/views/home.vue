@@ -217,7 +217,7 @@ window.addEventListener('load', function() {
         </am-panel-group>
         <!-- dropdown -->
         <div>
-            <am-dropdown ref="dropdown1" placement="bottom">
+            <am-dropdown ref="dropdown1" placement="bottom" trigger="click" :caret="false">
                 <am-dropdown-item :header="true">标题</am-dropdown-item>
                 <am-dropdown-item :active="true" @click="dropdownClick" value="bbb"><a>快乐的方式不只一种</a></am-dropdown-item>
                 <am-dropdown-item :disabled="true" @click="dropdownClick" value="ccc"><a>快乐的方式不只一种</a></am-dropdown-item>
@@ -356,7 +356,7 @@ window.addEventListener('load', function() {
         </div>
         <!-- select -->
         <div>
-            <am-select :options="options" width="100%" :search="true" :multiple="false" color="success"></am-select>
+            <am-select :options="options" width="100%" :search="true" :multiple="false" color="success" :caret="false"></am-select>
         </div>
         <!-- tabs -->
         <div>
