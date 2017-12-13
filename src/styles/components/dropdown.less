@@ -86,8 +86,14 @@
         display: block;
         // .animation(@dropdown-animation 0.3s ease-in-out);
     }
-     :first-child {
+    :first-child {
         margin-top: 0;
+    }
+    &.@{ns}dropdown-no-caret {
+        margin-top: 1px;
+        &:before, &:after {
+            display: none;
+        }
     }
 }
 
@@ -105,6 +111,9 @@
     &:after {
         bottom: -7px;
         border-top-color: @dropdown-bg;
+    }
+    &.@{ns}dropdown-no-caret {
+        margin-bottom: 1px;
     }
 }
 
