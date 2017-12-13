@@ -7,11 +7,7 @@ export default {
         return {
             visible: false,
             overlay: false,
-            overlayClassName: 'am-dimmer',
-            pageOffset: {
-                top: 0,
-                left: 0
-            }
+            overlayClassName: 'am-dimmer'
         };
     },
     methods: {
@@ -54,8 +50,10 @@ export default {
 
             return { top, left };
         },
-        autoGetPageOffset() {
-            this.pageOffset = this.getPageOffset();
+        resetPopupPosition() {
+            if (this.visible && typeof this.popupPosition === 'function') {
+                dom.css(this.$el, this.popupPosition());
+            }
         }
     },
     watch: {
@@ -87,13 +85,9 @@ export default {
         }
     },
     created() {
-        this.autoGetPageOffset();
-        window.addEventListener('scroll', this.autoGetPageOffset, false);
+        window.addEventListener('resize', this.resetPopupPosition, false);
     },
     beforeDestroy() {
-        window.removeEventListener('scroll', this.autoGetPageOffset);
-        if (this.stopListener) {
-            window.removeEventListener('mousewheel', this.stopScroll);
-        }
+        window.removeEventListener('resize', this.resetPopupPosition);
     }
 };
