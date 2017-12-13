@@ -200,7 +200,7 @@ window.addEventListener('load', function() {
             </ul>
         </am-warning>
         <!-- panel -->
-        <am-panel :collapse="true">
+        <am-panel :collapse="true" transparent>
             <am-panel-header title="panel标题"></am-panel-header>
             <am-panel-body>每个人都有一场爱恋， 用心、用情、用力，感动也感伤。</am-panel-body>
             <am-panel-footer>footer</am-panel-footer>
