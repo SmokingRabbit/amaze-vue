@@ -1,6 +1,6 @@
 <template>
     <transition :name="transition">
-        <div class="am-selected-content am-dropdown-content" v-if="visible">
+        <div :class="computedClass" v-if="visible">
             <div class="am-selected-search" v-if="search" @click.stop>
                 <am-input-group :block="true" size="sm">
                     <am-input-label :transparent="true" slot="prepend">
@@ -55,7 +55,7 @@
                 iconColor: this.color === 'default' ? undefined : this.color
             };
         },
-        props: [ 'value', 'options', 'maxHeight', 'isFoucs', 'search', 'multiple', 'color', 'transition' ],
+        props: [ 'value', 'options', 'maxHeight', 'isFoucs', 'search', 'multiple', 'color', 'transition', 'caret' ],
         methods: {
             isSelected(item) {
                 let is = false;
@@ -158,6 +158,19 @@
         },
         mounted() {
             document.body.appendChild(this.$el);
+        },
+        computed: {
+            computedClass() {
+                const classes = [];
+                classes.push('am-selected-content');
+                classes.push('am-dropdown-content');
+
+                if (!this.caret) {
+                    classes.push('am-dropdown-no-caret');
+                }
+
+                return classes.join(' ');
+            }
         },
         components: {
             AmInput: Input,

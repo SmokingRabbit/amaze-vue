@@ -13,6 +13,7 @@
             :width="width"
             :color="color"
             :transition="transition"
+            :caret="caret"
             v-model="selectValue"
         ></select-dropdown>
     </div>
@@ -70,7 +71,11 @@
             },
             transition: {
                 type: String,
-                default: 'fade'
+                default: 'slide-down'
+            },
+            caret: {
+                type: Boolean,
+                default: true
             }
         },
         methods: {
