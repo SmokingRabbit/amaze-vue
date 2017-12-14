@@ -1,7 +1,7 @@
 <template>
     <transition name="fade">
-        <div class="am-timepicker" v-if="visible">
-            <span class="am-timepicker-caret"></span>
+        <div :class="computedClass" v-if="visible">
+            <span class="am-timepicker-caret" v-if="caret"></span>
             <div class="am-timepicker-container">
                 <div class="am-timepicker-main">
                     <div class="am-timepicker-select-wrap"></div>
@@ -97,7 +97,8 @@
             defaultValue: {
                 type: [Number, String],
                 default: +new Date()
-            }
+            },
+            caret: Boolean
         },
         methods: {
             double(num) {
@@ -199,6 +200,16 @@
             },
             secondLoop() {
                 return this.initLoopArr(60);
+            },
+            computedClass() {
+                const classes = [];
+                classes.push('am-timepicker');
+
+                if (!this.caret) {
+                    classes.push('am-timepicker-no-caret');
+                }
+
+                return classes.join(' ');
             }
         },
         components: {

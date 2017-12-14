@@ -4,7 +4,7 @@
         <input-label :slot="labelPlacement">
             <icon type="clock-o"></icon>
         </input-label>
-        <time-picker ref="timepicker" v-model="curVal"></time-picker>
+        <time-picker ref="timepicker" v-model="curVal" :defaultValue="defaultValue" :caret="caret"></time-picker>
     </input-group>
 </template>
 
@@ -27,6 +27,10 @@
             prop: String,
             size: String,
             color: String,
+            caret: {
+                type: Boolean,
+                default: true
+            },
             type: {
                 type: String,
                 default: 'text'
