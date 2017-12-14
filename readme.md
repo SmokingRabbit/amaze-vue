@@ -9,7 +9,7 @@
 [![npm](https://img.shields.io/npm/dm/amaze-vue.svg)](https://www.npmjs.com/package/amaze-vue)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://opensource.org/licenses/MIT)
 
-> 一只基于amazeui封装的vue.js组件库。万水千山总是情，点个star再走行不行~~~
+> 一只基于amazeui样式封装的vue组件库。万水千山总是情，点个star再走行不行~~~
 
 ### [文档 & 示例 ](https://sunshineji.github.io/amaze-vue-docs/)
 
@@ -48,6 +48,14 @@ QQ群 285353957
 - 树形菜单(tree)
 - 评分(rate)
 - select组件多选情况下可以用tag展示和删除操作
+- 完善table组件 支持固定列
+- 侧边栏菜单(aside-menu)
+- 日期时间选择器（datetimtpicker）
+- 多级选择器（cascader）
+- `重构`modal类
+- 上传（upload）
+- 穿梭框（transfer）
+- 返回顶部(backtop)
 
 ### 代码贡献者
 
