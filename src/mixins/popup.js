@@ -58,13 +58,9 @@ export default {
     },
     watch: {
         visible(curVal, oldVal) {
-            if (curVal) {
-                this.$nextTick(() => {
-                    if (typeof this.popupPosition === 'function') {
-                        dom.css(this.$el, this.popupPosition());
-                    }
-                });
-            }
+            this.$nextTick(() => {
+                this.resetPopupPosition();
+            });
             if (this.overlay) {
                 if (curVal) {
                     this.$overlay = document.createElement('div');

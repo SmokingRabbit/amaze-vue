@@ -1,6 +1,6 @@
 <template>
-    <transition :name="transition">
-        <ul v-if="visible" :class="computedClass" @mouseenter="mouseenterHandle" @mouseleave="mouseleaveHandle">
+    <transition :name="transition === 'slide-down' ? (placement === 'bottom' ? 'slide-down' : 'fade') : transition">
+        <ul  v-if="visible" :class="computedClass" @mouseenter="mouseenterHandle" @mouseleave="mouseleaveHandle">
             <slot></slot>
         </ul>
     </transition>
@@ -110,10 +110,9 @@
                 }
             },
             popupPosition() {
-                const $dropdown = this.$el;
                 const $reference = this.$refs['reference'];
                 const { top, left, height } = $reference.getBoundingClientRect();
-                const { height: selfHeight } = $dropdown.getBoundingClientRect();
+                const { height: selfHeight } = this.$el.getBoundingClientRect();
                 const { top: offsetTop, left: offsetLeft } = this.getPageOffset();
                 const ret = { zIndex: this.getZIndex() };
 
