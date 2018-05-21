@@ -7,7 +7,8 @@ export default {
         return {
             visible: false,
             overlay: false,
-            overlayClassName: 'am-dimmer'
+            overlayClassName: 'am-dimmer',
+            selfMount: true
         };
     },
     methods: {
@@ -87,9 +88,13 @@ export default {
         window.removeEventListener('resize', this.resetPopupPosition);
     },
     mounted() {
-        document.body.appendChild(this.$el);
+        if (this.selfMount) {
+            document.body.appendChild(this.$el);
+        }
     },
     destroyed() {
-        document.body.removeChild(this.$el);
+        if (this.selfMount) {
+            document.body.removeChild(this.$el);
+        }
     }
 };

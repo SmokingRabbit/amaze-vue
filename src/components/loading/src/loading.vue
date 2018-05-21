@@ -72,6 +72,9 @@
         components: {
             AmAnimation: Animation,
             AmIcon: Icon
+        },
+        created() {
+            this.selfMount = false;
         }
     };
 </script>
