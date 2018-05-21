@@ -41,22 +41,6 @@ QQ群 285353957
     npm run dev
 ```
 
-### feature
-
-- steps(步骤条)
-- 画廊(gallery)
-- 树形菜单(tree)
-- 评分(rate)
-- select组件多选情况下可以用tag展示和删除操作
-- 完善table组件 支持固定列
-- 侧边栏菜单(aside-menu)
-- 日期时间选择器（datetimtpicker）
-- 多级选择器（cascader）
-- `重构`modal类
-- 上传（upload）
-- 穿梭框（transfer）
-- 返回顶部(backtop)
-
 ### 代码贡献者
 
 - [evalor](https://github.com/evalor)
