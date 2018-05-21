@@ -1,5 +1,5 @@
 <template>
-    <span :class="computedClass">
+    <span :class="computedClass" @click="onClick && onClick">
         <slot></slot>
     </span>
 </template>
@@ -32,7 +32,8 @@
             },
             customClass: {
                 type: String
-            }
+            },
+            onClick: Function
         },
         computed: {
             computedClass() {

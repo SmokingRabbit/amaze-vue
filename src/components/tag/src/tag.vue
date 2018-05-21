@@ -1,6 +1,6 @@
 <template>
     <transition :name="transition">
-        <span :class="computedClass">
+        <span :class="computedClass" @click="onClick && onClick">
             <slot></slot>
             <am-close v-if="closeable" @click="closeHandle"></am-close>
         </span>
@@ -33,7 +33,8 @@
                         'danger'
                     ].includes(value);
                 }
-            }
+            },
+            onClick: Function
         },
         methods: {
             closeHandle() {

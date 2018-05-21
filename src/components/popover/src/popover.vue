@@ -131,7 +131,6 @@
             }
         },
         mounted() {
-            document.body.appendChild(this.$el);
             const $reference = this.$refs['reference'];
 
             if (this.trigger === 'focus') {
@@ -144,7 +143,6 @@
             }
         },
         beforeDestroy() {
-            document.body.removeChild(this.$el);
             const $reference = this.$refs['reference'];
             if (this.trigger === 'focus') {
                 off($reference, 'mouseenter', this.show);

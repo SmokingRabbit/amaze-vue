@@ -26,7 +26,7 @@
             },
             transition: {
                 type: String,
-                default: 'slide-down'
+                default: 'slide-up'
             }
         },
         watch: {
@@ -74,9 +74,6 @@
         },
         created() {
             this.overlay = true;
-        },
-        mounted() {
-            document.body.appendChild(this.$el);
         }
     };
 </script>

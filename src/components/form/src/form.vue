@@ -1,5 +1,5 @@
 <template>
-    <form :class="computedClass">
+    <form :class="computedClass" @submit="onSubmit">
         <slot></slot>
     </form>
 </template>
@@ -10,6 +10,10 @@
         props: {
             customClass: String,
             inline: {
+                type: Boolean,
+                default: false
+            },
+            autoSubmit: {
                 type: Boolean,
                 default: false
             }
@@ -41,6 +45,12 @@
             }
         },
         methods: {
+            onSubmit(e) {
+                if (!this.autoSubmit) {
+                    e.preventDefault();
+                    return false;
+                }
+            },
             validate() {
                 let pass = true;
                 this.fields.forEach((vComponent) => {

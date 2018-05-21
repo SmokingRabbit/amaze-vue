@@ -82,9 +82,6 @@
         created() {
             this.overlay = true;
         },
-        mounted() {
-            document.body.appendChild(this.$el);
-        },
         beforeDestroy() {
             off(document.body, 'click', this.globalClickHandle);
         }

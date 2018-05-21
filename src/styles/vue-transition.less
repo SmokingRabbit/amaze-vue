@@ -169,6 +169,29 @@
 }
 
 /**
+ *scroll-up
+**/
+.scroll-up-enter-active {
+    transform-origin: center top;
+    animation: scrollUp @delay;
+}
+
+.scroll-up-leave-active {
+    transform-origin: center top;
+    animation: scrollUp @delay reverse;
+}
+
+@keyframes scrollUp {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/**
  * locker-left
  */
 .locker-left-enter-active {

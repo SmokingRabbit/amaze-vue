@@ -1,5 +1,5 @@
 <template>
-    <button :disabled="disabled" :class="computedClass" @click="clickHandle">
+    <button :disabled="disabled" type="button" :class="computedClass" @click="clickHandle">
         <slot v-if="!loading"></slot>
         <span v-if="loading">
             <animation type="spin">

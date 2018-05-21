@@ -92,9 +92,6 @@
 
                 return classes.join(' ');
             }
-        },
-        mounted() {
-            document.body.appendChild(this.$el);
         }
     };
 </script>

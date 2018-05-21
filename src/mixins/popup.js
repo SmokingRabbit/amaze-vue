@@ -85,5 +85,11 @@ export default {
     },
     beforeDestroy() {
         window.removeEventListener('resize', this.resetPopupPosition);
+    },
+    mounted() {
+        document.body.appendChild(this.$el);
+    },
+    destroyed() {
+        document.body.removeChild(this.$el);
     }
 };

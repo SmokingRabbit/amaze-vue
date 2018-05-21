@@ -1,6 +1,6 @@
 <template>
     <div :class="computedClass" ref="container" @click.stop="triggerHandle">
-        <button :class="['am-selected-btn', 'am-btn', 'am-dropdown-toggle', 'am-btn-' + color]">
+        <button type="button" :class="['am-selected-btn', 'am-btn', 'am-dropdown-toggle', 'am-btn-' + color]">
             <span class="am-selected-status am-fl">{{ text }}</span>
             <i class="am-selected-icon am-icon-caret-down"></i>
         </button>
