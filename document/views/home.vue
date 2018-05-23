@@ -85,7 +85,7 @@ new Vue({
 
 			<am-doc-section>
 				<h2>版本</h2>
-                <h3><am-doc-code>1.1.15</am-doc-code></h3>
+                <h3><am-doc-code>1.1.16</am-doc-code></h3>
 				<h3 class="am-text-danger">版本持续更新中。</h3>
 			</am-doc-section>
 			<am-doc-section>
