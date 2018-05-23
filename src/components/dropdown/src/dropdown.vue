@@ -1,6 +1,6 @@
 <template>
     <transition :name="transition === 'slide-down' ? (placement === 'bottom' ? 'slide-down' : 'fade') : transition">
-        <ul  v-if="visible" :class="computedClass" @mouseenter="mouseenterHandle" @mouseleave="mouseleaveHandle">
+        <ul v-if="visible" :class="computedClass" @mouseenter="mouseenterHandle" @mouseleave="mouseleaveHandle">
             <slot></slot>
         </ul>
     </transition>

@@ -5,7 +5,7 @@ const webpackBaseConfig = require('./webpack.config');
 
 
 webpackBaseConfig.entry = {
-    'amaze-vue': './src/index.js'
+    'amaze-vue': path.join(__dirname, '../src/index.js')
 };
 
 webpackBaseConfig.output.publicPath = './';

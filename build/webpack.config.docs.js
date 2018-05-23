@@ -1,12 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
+    entry: {
+        app: path.join(__dirname, '../document/index.js'),
+        vender: ['vue', 'vue-router']
+    },
     output: {
-        path: path.join(__dirname, 'dist'),
         publicPath: '/',
-        filename: '[name].js'
+        filename: 'static/js/[name].[hash:8].js',
+        chunkFilename: 'static/js/[name].[hash:8].js'
     },
     resolve: {
         extensions: ['.js', '.vue'],
@@ -15,15 +21,42 @@ module.exports = {
         }
     },
     plugins: [
+         new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.join(__dirname, '../document/index.html'),
+            inject: 'body',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true
+            },
+            favicon: path.join(__dirname, '../favicon.ico')
+        }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
             }
         }),
         new ExtractTextPlugin({
-            filename: 'amaze-vue.css',
+            filename: 'static/css/amaze-vue-docs.[hash:8].css',
             allChunks: true,
             disable: false
+        }),
+        new FriendlyErrorsPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vender'
+        }),
+        new webpack.LoaderOptionsPlugin({
+            options: {
+                vue: {
+                    loaders: {
+                        less: ExtractTextPlugin.extract({
+                            fallback:'vue-style-loader',
+                            use: ['css-loader', 'less-loader']
+                        })
+                    }
+                }
+            }
         })
     ],
     module: {
@@ -34,20 +67,8 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                include: path.resolve(__dirname, 'src/'),
-                exclude: [/node_modules/, path.resolve(__dirname, 'src/components/code/src/lib/highlight.js')]
-            },
-            {
-                 test: /\.vue|js$/,
-                 enforce: 'pre',
-                 include: path.resolve(__dirname, 'src'),
-                 exclude: /node_modules/,
-                 use: [{
-                     loader: 'eslint-loader',
-                     options: {
-                         formatter: require('eslint-friendly-formatter')
-                     }
-                 }]
+                include: [path.resolve(__dirname, '../document'), path.resolve(__dirname, '../src/')],
+                exclude: /node_modules/
             },
             {
                 test: /\.(less|css)$/,
@@ -80,7 +101,7 @@ module.exports = {
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url-loader?limit=10000&name=static/fonts/[name].[ext]'
+                loader: 'url-loader'
             }
         ]
     }

@@ -5,7 +5,7 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const webpackBaseConfig = require('./webpack.config');
 
 webpackBaseConfig.entry = {
-    app: path.join(__dirname, 'example/index.js'),
+    app: path.join(__dirname, '../example/index.js'),
     vender: ['vue', 'vue-router']
 };
 
@@ -13,7 +13,7 @@ webpackBaseConfig.plugins = webpackBaseConfig.plugins.concat([
     new HtmlWebpackPlugin({
         title: 'amaze-vue',
         filename: 'index.html',
-        template: path.join(__dirname, 'example/index.html'),
+        template: path.join(__dirname, '../example/index.html'),
         inject: 'body',
         minify: {
             removeComments: true,
@@ -31,7 +31,7 @@ webpackBaseConfig.plugins = webpackBaseConfig.plugins.concat([
 ]);
 
 webpackBaseConfig.devServer = {
-    contentBase: path.resolve(__dirname, './example'),
+    contentBase: path.resolve(__dirname, '../example'),
     hot: true,
     inline: false,
     progress: true,
