@@ -4,7 +4,7 @@
 
 ## amaze-vue
 
-[![Build Status](https://travis-ci.org/sunshineJi/amaze-vue.svg?branch=master)](https://travis-ci.org/sunshineJi/amaze-vue)
+[![Build Status](https://travis-ci.org/smokingRabbit/amaze-vue.svg?branch=master)](https://travis-ci.org/smokingRabbit/amaze-vue)
 [![npm](https://img.shields.io/npm/v/amaze-vue.svg)](https://www.npmjs.com/package/amaze-vue)
 [![npm](https://img.shields.io/npm/dm/amaze-vue.svg)](https://www.npmjs.com/package/amaze-vue)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://opensource.org/licenses/MIT)
