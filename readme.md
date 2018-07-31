@@ -11,7 +11,7 @@
 
 > 一只基于amazeui样式封装的vue组件库。万水千山总是情，点个star再走行不行~~~
 
-### [文档 & 示例 ](https://github.com/smokingRabbit/amaze-vue/)
+### [文档 & 示例 ](https://smokingrabbit.github.io/amaze-vue)
 
 ### [BUG、意见反馈](https://github.com/smokingRabbit/amaze-vue/issues)
 
