@@ -16,7 +16,7 @@
     export default {
         methods: {
             showToast() {
-                this.$Toast.open(&#x27;这是一条toast信息&#x27;);
+                this.$toast.open(&#x27;这是一条toast信息&#x27;);
             }
         }
     }
