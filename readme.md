@@ -44,6 +44,7 @@ QQ群 285353957
 ### 代码贡献者
 
 - [evalor](https://github.com/evalor)
+- [PingShiGuo](https://github.com/pingshiguo)
 
 ### 致谢
 
