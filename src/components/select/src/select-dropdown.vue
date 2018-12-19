@@ -126,12 +126,15 @@
                     this.hide();
                 }
             },
-            options(curVal, oldVal) {
-                this.renderOptions = curVal;
-                this.saveOptions = curVal;
-                this.scrollbarHeight = this.maxHeight;
-                this.hide();
-                this.compileSelected(curVal);
+            options: {
+                deep: true,
+                handler(curVal, oldVal) {
+                    this.renderOptions = curVal;
+                    this.saveOptions = curVal;
+                    this.scrollbarHeight = this.maxHeight;
+                    this.hide();
+                    this.compileSelected(curVal);
+                }
             },
             selectValue(curVal, oldVal) {
                 this.$emit('input', curVal);

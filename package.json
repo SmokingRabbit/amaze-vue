@@ -1,6 +1,6 @@
 {
   "name": "amaze-vue",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "A vue.js component library based on amazeui",
   "keywords": [
     "vue",
@@ -14,7 +14,7 @@
     "vue2 components",
     "vue2 components"
   ],
-  "author": "sunshinejxc@gmail.com",
+  "author": "xuecong8226@gmail.com",
   "scripts": {
     "dev": "webpack-dev-server --hot --progress --colors --config build/webpack.config.dev.js",
     "build": "webpack --verbose --profile --colors --display-error-details --config build/webpack.config.prod.js",
@@ -23,10 +23,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sunshineJi/amaze-vue"
+    "url": "https://github.com/smokingRabbit/amaze-vue"
   },
   "bugs": {
-    "url": "https://github.com/sunshineJi/amazeui-vue/issues"
+    "url": "https://github.com/smokingRabbit/amazeui-vue/issues"
   },
   "main": "dist/amaze-vue.js",
   "style": "dist/amaze-vue.css",
