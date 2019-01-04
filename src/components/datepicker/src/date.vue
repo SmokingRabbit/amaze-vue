@@ -96,7 +96,7 @@
                 let week;
                 let i = 1;
 
-                week = new Date(year + '-' + month + '-' + '01').getDay();
+                week = new Date(year + '-' + (month < 10 ? '0' + month : month) + '-' + '01').getDay();
                 week = week === 0 ? 7 : week;
 
                 while (1) {
